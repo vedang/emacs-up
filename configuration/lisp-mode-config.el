@@ -5,7 +5,6 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (compile-el-on-save)))
-;===============================================================================
 
 (defun rgr/toggle-context-help()
   "Turn on or off the context help.
@@ -36,7 +35,6 @@ context-help to false"
           (if (fboundp  rgr-symbol)
               (describe-function rgr-symbol)
             (if (boundp  rgr-symbol) (describe-variable rgr-symbol)))))))
-;===============================================================================
 
 (defadvice eldoc-print-current-symbol-info
   (around eldoc-show-c-tag activate)
@@ -47,6 +45,5 @@ context-help to false"
    (t ad-do-it)))
 
 (global-set-key (kbd "C-c h") 'rgr/toggle-context-help)
-;===============================================================================
 
-(provide 'emacs-lisp-mode-config)
+(provide 'lisp-mode-config)
