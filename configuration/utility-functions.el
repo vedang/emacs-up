@@ -174,6 +174,9 @@ Subsequent calls expands the selection to larger semantic unit."
                                     ,(make-char 'greek-iso8859-7 107))
                     nil))))))
 
+(defvar coding-hook nil
+  "Hook that gets run on activation of any programming mode.")
+
 (add-hook 'coding-hook 'turn-on-hl-line-mode)
 (add-hook 'coding-hook 'pretty-lambdas)
 
