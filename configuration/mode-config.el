@@ -25,5 +25,8 @@
 ;;; ERC
 (require 'erc-mode-config)
 
-;; LaTeX-mode
+;;; LaTeX-mode
 (require 'latex-mode-config)
+
+;;; emacs-lisp mode
+(require 'emacs-lisp-mode-config)
