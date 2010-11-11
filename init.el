@@ -29,9 +29,9 @@
 (require 'saveplace)
 
 ;;; Require my configuration
-(require 'mode-config)
 (require 'customizations)
 (require 'utility-functions)
+(require 'mode-config)
 (require 'key-bindings)
 (require 'registers)
 
