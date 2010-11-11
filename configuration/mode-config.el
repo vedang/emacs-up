@@ -56,10 +56,6 @@
 ;;; isearch-mode tweak
 (require 'isearch-mode-config)
 
-;;; smart-tab
-(require 'smart-tab)
-(global-smart-tab-mode 1)
-
 ;;; eshell
 (require 'eshell-config)
 
