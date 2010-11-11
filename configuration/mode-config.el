@@ -21,3 +21,6 @@
 (global-set-key (kbd "S-TAB") 'yas/trigger-key)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
+
+;;; ERC
+(require 'erc-mode-config)
