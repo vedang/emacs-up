@@ -16,7 +16,12 @@
       color-theme-is-global t
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
-      save-place-file (concat dotfiles-dir "places"))
+      save-place-file (concat dotfiles-dir "places")
+      x-select-enable-clipboard t)
+
+;; Don't clutter up directories with files~
+(setq backup-directory-alist `(("." . ,(expand-file-name
+                                        (concat dotfiles-dir "backups")))))
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
@@ -118,4 +123,18 @@
 
 (auto-compression-mode t)
 (show-paren-mode 1)
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(add-hook 'text-mode-hook 'turn-on-flyspell)
+
+(eval-after-load 'diff-mode
+  '(progn
+     (set-face-foreground 'diff-added "green4")
+     (set-face-foreground 'diff-removed "red3")))
+
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")))
+
 (provide 'customizations)
