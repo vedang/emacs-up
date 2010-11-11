@@ -27,16 +27,18 @@
 (require 'uniquify)
 (require 'ansi-color)
 (require 'saveplace)
+(require 'paredit)
 
 ;;; Require my configuration
 (require 'customizations)
-(require 'utility-functions)
 (require 'mode-config)
+(require 'utility-functions)
 (require 'key-bindings)
 (require 'registers)
 
-;;; Display Tip Of The Day.
-(totd)
+(regen-autoloads)
+(load custom-file 'noerror)
+(totd) ; Display Tip Of The Day.
 
 ;;; init.el ends here
 
