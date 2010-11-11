@@ -1,0 +1,3 @@
+[submodule "plugins/org-mode"]
+	path = plugins/org-mode
+	url = git://repo.or.cz/org-mode.git
