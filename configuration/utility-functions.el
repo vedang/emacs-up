@@ -156,4 +156,23 @@ Subsequent calls expands the selection to larger semantic unit."
     (shell-command "wmctrl -r :ACTIVE: -btoggle,fullscreen"))
   (global-set-key (kbd "<f1>") 'full-screen-toggle))
 
+;;; turn-on functions for various utilities
+(defun turn-on-hl-line-mode ()
+  (if window-system (hl-line-mode t)))
+(defun turn-on-paredit ()
+  (paredit-mode t))
+
+(defun add-watchwords ()
+  (font-lock-add-keywords
+   nil '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
+          1 font-lock-warning-face t))))
+
+(defun pretty-lambdas ()
+  (font-lock-add-keywords
+   nil `(("(?\\(lambda\\>\\)"
+          (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                    ,(make-char 'greek-iso8859-7 107))
+                    nil))))))
+
+
 (provide 'utility-functions)
