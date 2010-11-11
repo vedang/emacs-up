@@ -1,0 +1,15 @@
+/auto-save-list
+/.session
+*.elc
+CVS
+.svn
+*~
+.cvsignore
+.*.lock
+bookmarks.bmk
+/.emacs-backups
+/.org-id-locations
+session.*
+org-clock-save
+/server
+tramp

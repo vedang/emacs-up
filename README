@@ -1,0 +1,26 @@
+Hi,
+
+This folder contains my Emacs configuration files. To use them, simply rename the parent folder to .emacs.d and put it in your HOME directory.
+
+Folder Structure:
+a) customizations.el - Contains tweaks I use to make emacs 'my' environment.
+b) key-bindings.el - Contains my personal hot-key choices
+c) mode-configs.el - Contains extra configuration for the various emacs-modes I use
+d) utility-functions.el - Some functions in emacs-lisp to make life easier
+
+Other Notes:
+
+* I use Caps-Lock key as a third Ctrl key, because I find working easier and faster this way. If you wish to do the same, here is how you can do it:
+  a) For Linux:
+		Rename the caps-as-ctrl.xmodmap file to .xmodmap and put it in your HOME directory. Then, add the following line to ~/.bash_profile (create this file if you dont have it already):
+     xmodmap ~/.xmodmap
+Now restart X.
+
+  b) For Windows:
+		Double-click on the caps-as-ctrl.reg file. Reboot.
+
+* Please remember that this is my personal .emacs.d, some things may not work 'as is' for you (eg: in some places - especially org-mode - paths are hard-coded according to my preferences)
+
+Thanks, and have fun with emacs,
+Vedang
+

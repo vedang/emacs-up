@@ -1,0 +1,12 @@
+[submodule "plugins/slime"]
+	path = plugins/slime
+	url = git://github.com/pat-maddox/slime.git
+[submodule "plugins/org-mode"]
+	path = plugins/org-mode
+	url = git://repo.or.cz/org-mode.git
+[submodule "plugins/yasnippet/snippets/text-mode/org-mode"]
+	path = plugins/yasnippet/snippets/text-mode/org-mode
+	url = git://github.com/RickMoynihan/yasnippet-org-mode.git
+[submodule "plugins/remember-2.0"]
+	path = plugins/remember-2.0
+	url = git://repo.or.cz/remember-el.git
