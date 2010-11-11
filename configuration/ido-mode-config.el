@@ -1,9 +1,7 @@
-;; More Configuration for ido-mode
-;; =============================================================================
+;;; Configuration for ido-mode
 
 (ido-everywhere t)
-
-;; =============================================================================
+(global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
 
 ;; This tab override shouldn't be necessary given ido's default
 ;; configuration, but minibuffer-complete otherwise dominates the
@@ -12,9 +10,8 @@
 (add-hook 'ido-setup-hook
           (lambda ()
             (define-key ido-completion-map [tab] 'ido-complete)))
-;; =============================================================================
 
-;; ido on steroids :D from EmacsWiki
+;;; ido on steroids :D from EmacsWiki
 (defadvice completing-read
       (around foo activate)
       (if (boundp 'ido-cur-list)
@@ -35,5 +32,4 @@
           "M-x "
           (all-completions "" obarray 'commandp))))))
 
-;; =============================================================================
 (provide 'ido-mode-config)
