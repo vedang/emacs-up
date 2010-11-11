@@ -35,3 +35,7 @@
 (require 'org-install)
 (require 'org-mode-config)
 (org-agenda-to-appt) ;; Load appointments for today
+
+;;; auto-complete
+(require 'auto-complete-config)
+(require 'auto-complete-mode-config)
