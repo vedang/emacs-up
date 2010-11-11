@@ -24,3 +24,4 @@
 (require 'mode-config)
 (require 'customizations)
 (require 'utility-functions)
+(require 'key-bindings)
