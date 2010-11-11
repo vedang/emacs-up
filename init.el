@@ -22,3 +22,4 @@
 
 ;;; Require my configuration
 (require 'mode-config)
+(require 'customizations)
