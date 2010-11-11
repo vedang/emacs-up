@@ -43,5 +43,8 @@
 ;;; JS
 (require 'js2-mode-config)
 
-;; twitter
+;;; twitter
 (autoload 'twit	"twittering-mode" "" t)
+
+;;; revive mode
+(require 'revive-mode-config)
