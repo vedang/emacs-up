@@ -1,5 +1,4 @@
-; my customizations for emacs
-; ===============================================================================
+;;; my customizations for emacs
 
 (setq user-full-name "Vedang Manerikar"
       user-mail-address "vedang.manerikar@gmail.com")
@@ -9,6 +8,21 @@
 
 (setq bookmark-default-file "~/.emacs.d/bookmarks.bmk"
       bookmark-save-flag 1) ;; save my bookmarks as soon as I create them
+
+(setq visible-bell t
+      echo-keystrokes 0.1
+      inhibit-startup-message t
+      transient-mark-mode t
+      color-theme-is-global t
+      require-final-newline t
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      save-place-file (concat dotfiles-dir "places"))
+
+(add-to-list 'safe-local-variable-values '(lexical-binding . t))
+(add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
+
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "conkeror")
 
 (setq-default ispell-program-name "aspell")
 
@@ -101,6 +115,7 @@
 (setq default-major-mode (lambda ()
                            (let ((buffer-file-name (or buffer-file-name (buffer-name))))
                              (set-auto-mode))))
-; ===============================================================================
 
+(auto-compression-mode t)
+(show-paren-mode 1)
 (provide 'customizations)
