@@ -20,6 +20,5 @@
 (require 'uniquify)
 (require 'ansi-color)
 
-;;; Load ELPA
-(require 'package)
-(package-initialize)
+;;; Require my configuration
+(require 'mode-config)
