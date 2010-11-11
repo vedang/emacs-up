@@ -1,0 +1,11 @@
+#Template for common documentation I have to do when coding
+# --
+/*
+ * Function : $1
+ * Author : Vedang Manerikar
+ * Input : $2
+ * Returns: $3
+ * Description : $4
+ */
+
+$3 $0::$1 ($2)
