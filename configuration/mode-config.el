@@ -10,3 +10,5 @@
 (require 'xcscope)
 (require 'cscope-mode-config)
 
+;;; ido magic
+(require 'ido-mode-config)
