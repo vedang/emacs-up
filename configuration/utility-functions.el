@@ -179,6 +179,8 @@ Subsequent calls expands the selection to larger semantic unit."
   (if window-system (hl-line-mode t)))
 (defun turn-on-paredit ()
   (paredit-mode t))
+(defun turn-on-slime ()
+  (slime-mode t))
 
 (defun add-watchwords ()
   (font-lock-add-keywords
