@@ -48,3 +48,9 @@
 
 ;;; revive mode
 (require 'revive-mode-config)
+
+;;; jabber
+(require 'jabber-autoloads)
+(require 'jabber-mode-config)
+
+(provide 'mode-config)
