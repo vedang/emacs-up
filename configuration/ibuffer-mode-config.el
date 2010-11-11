@@ -1,7 +1,8 @@
-;; Settings for ibuffer
-; ==============================================================================
+;;; Settings for ibuffer
 
 (autoload 'ibuffer "ibuffer" "List buffers." t)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-z") 'ibuffer-do-occur)
 
 (setq ibuffer-default-sorting-mode 'major-mode
       ibuffer-always-show-last-buffer t)
@@ -26,8 +27,5 @@
 		 (mode . fundamental-mode)
 		 ))
 	       ("ERC"   (mode . erc-mode))))))
-
-(global-set-key (kbd "C-z") 'ibuffer-do-occur)
-; ==============================================================================
 
 (provide 'ibuffer-mode-config)
