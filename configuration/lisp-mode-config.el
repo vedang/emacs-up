@@ -1,3 +1,8 @@
+;;; Settings for Lisp
+
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
+
 (defun compile-el-on-save ()
   "If saving an elisp file, byte-compile it."
   (add-hook 'after-save-hook 'emacs-lisp-byte-compile t t))
