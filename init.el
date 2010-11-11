@@ -31,8 +31,8 @@
 
 ;;; Require my configuration
 (require 'customizations)
-(require 'mode-config)
 (require 'utility-functions)
+(require 'mode-config)
 (require 'key-bindings)
 (require 'registers)
 
