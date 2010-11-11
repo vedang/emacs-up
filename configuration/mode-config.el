@@ -60,4 +60,7 @@
 (require 'smart-tab)
 (global-smart-tab-mode 1)
 
+;;; eshell
+(require 'eshell-config)
+
 (provide 'mode-config)
