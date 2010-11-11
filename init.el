@@ -15,6 +15,11 @@
       (normal-top-level-add-subdirs-to-load-path)
       (nconc load-path orig-load-path)))
 
+;;; Require common stuff
+(require 'cl)
+(require 'uniquify)
+(require 'ansi-color)
+
 ;;; Load ELPA
 (require 'package)
 (package-initialize)
