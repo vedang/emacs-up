@@ -12,3 +12,6 @@
 
 ;;; ido magic
 (require 'ido-mode-config)
+
+;;; ibuffer magic
+(require 'ibuffer-mode-config)
