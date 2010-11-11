@@ -25,3 +25,9 @@
 (require 'customizations)
 (require 'utility-functions)
 (require 'key-bindings)
+
+;;; Display Tip Of The Day.
+(totd)
+
+;;; init.el ends here
+
