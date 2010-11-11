@@ -12,6 +12,9 @@
 (setq visible-bell t
       echo-keystrokes 0.1
       inhibit-startup-message t
+      font-lock-maximum-decoration t
+      mouse-avoidance-mode 'banish
+      confirm-kill-emacs 'y-or-n-p
       transient-mark-mode t
       color-theme-is-global t
       require-final-newline t
@@ -33,7 +36,7 @@
 
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions
-   '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc"))
+      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc"))
 
 ;; Always reuse a buffer if it already exists.
 ;; Useful when dealing with REPLs
@@ -85,13 +88,13 @@
 
 ;; settings for hippie-expand
 (setq hippie-expand-try-functions-list
-       '(try-expand-dabbrev
-         try-expand-dabbrev-from-kill
-         try-expand-dabbrev-all-buffers
-         try-complete-file-name-partially
-         try-complete-file-name
-         try-complete-lisp-symbol-partially
-         try-complete-lisp-symbol))
+      '(try-expand-dabbrev
+        try-expand-dabbrev-from-kill
+        try-expand-dabbrev-all-buffers
+        try-complete-file-name-partially
+        try-complete-file-name
+        try-complete-lisp-symbol-partially
+        try-complete-lisp-symbol))
 
 ;; uniquify settings
 (setq uniquify-buffer-name-style 'reverse)
@@ -136,5 +139,18 @@
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
+
+;;; Everything in UTF8
+(prefer-coding-system 'utf-8)
+(set-language-environment 'UTF-8)
+(set-default-coding-systems 'utf-8)
+(setq file-name-coding-system 'utf-8)
+(setq buffer-file-coding-system 'utf-8)
+(setq coding-system-for-write 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(setq default-process-coding-system '(utf-8 . utf-8))
 
 (provide 'customizations)
