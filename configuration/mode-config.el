@@ -39,3 +39,6 @@
 ;;; auto-complete
 (require 'auto-complete-config)
 (require 'auto-complete-mode-config)
+
+;;; JS
+(require 'js2-mode-config)
