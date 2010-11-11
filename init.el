@@ -33,6 +33,7 @@
 (require 'customizations)
 (require 'utility-functions)
 (require 'key-bindings)
+(require 'registers)
 
 ;;; Display Tip Of The Day.
 (totd)
