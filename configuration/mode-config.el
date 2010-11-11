@@ -42,3 +42,6 @@
 
 ;;; JS
 (require 'js2-mode-config)
+
+;; twitter
+(autoload 'twit	"twittering-mode" "" t)
