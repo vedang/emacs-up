@@ -1,1 +1,11 @@
 *.elc
+loaddefs.el
+backups/*
+auto-save-list
+custom.el
+places
+tramp
+\#*
+org-clock-save
+bookmarks.bmk
+*.dat
