@@ -26,6 +26,7 @@
 (require 'cl)
 (require 'uniquify)
 (require 'ansi-color)
+(require 'saveplace)
 
 ;;; Require my configuration
 (require 'mode-config)
