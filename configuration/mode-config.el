@@ -24,3 +24,6 @@
 
 ;;; ERC
 (require 'erc-mode-config)
+
+;; LaTeX-mode
+(require 'latex-mode-config)
