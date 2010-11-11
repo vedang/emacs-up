@@ -53,4 +53,7 @@
 (require 'jabber-autoloads)
 (require 'jabber-mode-config)
 
+;;; isearch-mode tweak
+(require 'isearch-mode-config)
+
 (provide 'mode-config)
