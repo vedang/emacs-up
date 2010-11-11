@@ -237,4 +237,10 @@ Subsequent calls expands the selection to larger semantic unit."
         (update-directory-autoloads autoload-dir))))
   (load autoload-file))
 
+(defun sudo-edit (&optional arg)
+  (interactive "p")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
 (provide 'utility-functions)
