@@ -174,5 +174,12 @@ Subsequent calls expands the selection to larger semantic unit."
                                     ,(make-char 'greek-iso8859-7 107))
                     nil))))))
 
+(add-hook 'coding-hook 'turn-on-hl-line-mode)
+(add-hook 'coding-hook 'pretty-lambdas)
+
+(defun run-coding-hook ()
+  "Enable things that are convenient across all coding buffers."
+  (run-hooks 'coding-hook))
+
 
 (provide 'utility-functions)
