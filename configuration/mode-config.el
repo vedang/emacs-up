@@ -30,3 +30,8 @@
 
 ;;; emacs-lisp mode
 (require 'emacs-lisp-mode-config)
+
+;;; org-mode
+(require 'org-install)
+(require 'org-mode-config)
+(org-agenda-to-appt) ;; Load appointments for today
