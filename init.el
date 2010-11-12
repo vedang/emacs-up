@@ -39,6 +39,7 @@
 
 (regen-autoloads)
 (load custom-file 'noerror)
+(server-start)
 (totd) ; Display Tip Of The Day.
 
 ;;; init.el ends here
