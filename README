@@ -1,1 +1,21 @@
-My emacs configuration
+This folder contains my emacs configuration. In order to install this emacs configuration correctly, the following steps need to be observed:
+
+1. Clone the emacs configuration repository
+
+2. Open the file configuration/mode-config.el and comment out the following lines:
+
+(require 'org-install)
+(require 'org-mode-config)
+(org-agenda-to-appt)
+
+This is because I use org as a submodule. Org-configuration will fail to load without my org files and before you pull from org's repository.
+
+3. Install the submodules
+
+git submodule init
+git submodule update
+
+5. Undo the change we made in the configuration.
+
+
+We are now ready to roll with my configuration. Restart emacs and enjoy.
