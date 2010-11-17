@@ -58,6 +58,16 @@ context-help to false"
                                                (match-end 1) "ƒ")
                                nil))))))
 
+(eval-after-load 'clojure-mode
+  '(define-clojure-indent
+     (describe 'defun)
+     (testing 'defun)
+     (given 'defun)
+     (using 'defun)
+     (with 'defun)
+     (it 'defun)
+     (do-it 'defun)))
+
 (dolist (x '(scheme emacs-lisp lisp clojure))
   (add-hook
    (intern (concat (symbol-name x) "-mode-hook")) 'turn-on-paredit)
