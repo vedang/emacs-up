@@ -47,7 +47,7 @@
 ;; @ indicates insert note
 ;; / indicates entering the state
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DEFERRED(e@/!)")
+      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DEFERRED(e@/!)" "MOSTLYDONE(m@/!)")
               (sequence "PROJECT(p)" "WAITING(a@/!)" "SOMEDAY(s)" "|" "CANCELLED(c@/!)"))))
 (setq org-todo-keyword-faces (quote (("TODO" :foreground "red" :weight bold)
  ("WORKING" :foreground "orange" :weight bold)
@@ -280,7 +280,7 @@ Skips capture tasks and tasks with subtasks"
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c t") 'org-todo)
-(global-set-key (kbd "C-M-r") 'org-capture)
+(global-set-key (kbd "C-c C-r") 'org-capture)
 (global-set-key (kbd "<f5>") 'my-org-todo)
 (global-set-key (kbd "<S-f5>") 'widen)
 (global-set-key (kbd "<f11>") 'org-clock-goto)
