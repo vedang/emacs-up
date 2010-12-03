@@ -53,7 +53,8 @@
   "special settings for programming modes."
   (when (memq major-mode programming-major-modes)
     ;; No stray edits.Toggle with (C-x C-q) if I want to make an edit
-    (toggle-read-only 1)
+    (when (not (eq major-mode 'emacs-lisp-mode))
+      (toggle-read-only 1))
     ;; Flyspell mode for comments and strings
     (flyspell-prog-mode)
     ;; paredit should always be there
