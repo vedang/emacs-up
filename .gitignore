@@ -9,3 +9,4 @@ tramp
 org-clock-save
 bookmarks.bmk
 *.dat
+*.beam
