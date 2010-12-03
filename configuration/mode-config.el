@@ -23,7 +23,7 @@
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
 
 ;;; ERC
-(require 'erc-mode-config)
+;(require 'erc-mode-config)
 
 ;;; LaTeX-mode
 (require 'latex-mode-config)
@@ -58,5 +58,11 @@
 
 ;;; eshell
 (require 'eshell-config)
+
+;;; erlang
+(require 'erlang-start)
+(require 'distel)
+(distel-setup)
+(require 'erlang-mode-config)
 
 (provide 'mode-config)
