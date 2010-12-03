@@ -46,7 +46,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defvar programming-major-modes
-  '(js2-mode c-mode c++-mode conf-mode clojure-mode)
+  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode)
   "List of programming modes")
 
 (defun vedang/prog-mode-settings ()
@@ -55,7 +55,10 @@
     ;; No stray edits.Toggle with (C-x C-q) if I want to make an edit
     (toggle-read-only 1)
     ;; Flyspell mode for comments and strings
-    (flyspell-prog-mode)))
+    (flyspell-prog-mode)
+    ;; paredit should always be there
+    (turn-on-paredit)
+    (run-coding-hook)))
 
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
