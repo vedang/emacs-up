@@ -3,7 +3,8 @@
 ;;; From emacs-starter-kit
 (setq eshell-cmpl-cycle-completions nil
       eshell-save-history-on-exit t
-      eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'")
+      eshell-cmpl-dir-ignore "\\`\\(\\.\\.?\\|CVS\\|\\.svn\\|\\.git\\)/\\'"
+      eshell-prefer-lisp-functions t)
 
 (eval-after-load 'esh-opt
   '(progn
