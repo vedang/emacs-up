@@ -22,6 +22,9 @@
       save-place-file (concat dotfiles-dir "places")
       x-select-enable-clipboard t)
 
+(setq-default indent-tabs-mode nil  ;only spaces by default.
+              tab-width 4)
+
 ;; Don't clutter up directories with files~
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
@@ -46,7 +49,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defvar programming-major-modes
-  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode)
+  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode python-mode)
   "List of programming modes")
 
 (defun vedang/prog-mode-settings ()
