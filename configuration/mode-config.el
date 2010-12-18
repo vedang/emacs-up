@@ -65,4 +65,11 @@
 (distel-setup)
 (require 'erlang-mode-config)
 
+;;; python
+(require 'python)
+(require 'pymacs)
+(pymacs-load "ropemacs" "rope-")
+(setq ropemacs-enable-autoimport t)
+(setq python-check-command "pyflakes")
+
 (provide 'mode-config)
