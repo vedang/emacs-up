@@ -67,9 +67,6 @@
 
 ;;; python
 (require 'python)
-(require 'pymacs)
-(pymacs-load "ropemacs" "rope-")
-(setq ropemacs-enable-autoimport t)
-(setq python-check-command "pyflakes")
+(require 'python-mode-config)
 
 (provide 'mode-config)
