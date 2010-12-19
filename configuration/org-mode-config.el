@@ -54,20 +54,20 @@
       (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DEFERRED(e@/!)" "MOSTLYDONE(m@/!)")
               (sequence "PROJECT(p)" "WAITING(a@/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
 (setq org-todo-keyword-faces (quote (("TODO" :foreground "red" :weight bold)
- ("WORKING" :foreground "orange" :weight bold)
- ("REDO" :foreground "magenta" :weight bold)
- ("DONE" :foreground "lightgreen" :weight bold)
- ("PROJECT" :foreground "lightblue" :weight bold)
- ("FINDOUT" :foreground "red" :weight bold)
- ("WAITING" :foreground "gray" :weight bold)
- ("SOMEDAY" :foreground "magenta" :weight bold)
- ("CANCELLED" :foreground "lightgreen" :weight bold))))
+                                     ("WORKING" :foreground "orange" :weight bold)
+                                     ("REDO" :foreground "magenta" :weight bold)
+                                     ("DONE" :foreground "lightgreen" :weight bold)
+                                     ("PROJECT" :foreground "lightblue" :weight bold)
+                                     ("FINDOUT" :foreground "red" :weight bold)
+                                     ("WAITING" :foreground "gray" :weight bold)
+                                     ("SOMEDAY" :foreground "magenta" :weight bold)
+                                     ("CANCELLED" :foreground "lightgreen" :weight bold))))
 
 ;; Changing State should trigger following Tag changes
 (setq org-todo-state-tags-triggers
       (quote (("SOMEDAY" ("WAITING" . t) ("NEXT"))
               (done ("NEXT") ("WAITING"))
-	      ("WAITING" ("NEXT") ("WAITING" . t))
+              ("WAITING" ("NEXT") ("WAITING" . t))
               ("TODO" ("WAITING"))
               ("WORKING" ("WAITING") ("NEXT" . t)))))
 ;; Faster state set
@@ -76,15 +76,15 @@
 ;; Important Tag list
 (setq org-tag-alist (quote ((:startgroup)
                             ("@office" . ?w)
-			    ("@home" . ?h)
+                            ("@home" . ?h)
                             ("@errand" . ?e)
-			    (:endgroup)
-			    ("NOTIMP" . ?i)
-			    ("LEGIT" . ?l)
-			    ("NEXT" . ?N)
-			    ("NOTE" . ?n)
+                            (:endgroup)
+                            ("NOTIMP" . ?i)
+                            ("LEGIT" . ?l)
+                            ("NEXT" . ?N)
+                            ("NOTE" . ?n)
                             ("PUBLISHED" . ?p)
-			    ("WAITING" . ?a))))
+                            ("WAITING" . ?a))))
 
 ;; I need more priorities that provided by default
 (setq org-lowest-priority ?E)
@@ -196,7 +196,7 @@ Skips capture tasks and tasks with subtasks"
                ((org-agenda-todo-ignore-with-date nil)))
               ("q" "Tasks waiting on something" tags "WAITING"
                ((org-use-tag-inheritance nil)))
-	      ("w" "Work Tasks" tags-todo "+@Work"
+              ("w" "Work Tasks" tags-todo "+@Work"
                ((org-use-tag-inheritance t)))
               ("r" "Refile New Notes and Tasks" tags "REFILE"
                ((org-agenda-todo-ignore-with-date nil)))
@@ -207,7 +207,7 @@ Skips capture tasks and tasks with subtasks"
 
 ;; Always highlight current agenda line
 (add-hook 'org-agenda-mode-hook '(lambda ()
-				   (hl-line-mode 1)))
+                                   (hl-line-mode 1)))
 ;; Don't show future entries for repeating tasks
 (setq org-agenda-repeating-timestamp-show-all nil)
 ;; Show all agenda dates - even if empty
@@ -259,7 +259,7 @@ Skips capture tasks and tasks with subtasks"
 
 (setq org-agenda-auto-exclude-function 'bh/org-auto-exclude-function)
 
-;from Sacha Chua's emacs config.
+                                        ;from Sacha Chua's emacs config.
 ;; This code has been invalidated by org-write-agenda.
 ;; Currently, I have no need to save the agenda to a file,
 ;; this is not part of my workflow.
@@ -272,9 +272,9 @@ Skips capture tasks and tasks with subtasks"
 ;;   (let ((agenda (with-current-buffer org-agenda-buffer-name
 ;;                   (unless org-agenda-show-log (org-agenda-log-mode))
 ;;                   (buffer-string)))
-;; 	(filename (format-time-string "StatusReport-%Y-%m-%d.txt" (if org-starting-day
-;; 								      (calendar-time-from-absolute (1+ org-starting-day) 0)
-;; 								    (current-time)))))
+;;  (filename (format-time-string "StatusReport-%Y-%m-%d.txt" (if org-starting-day
+;;                                    (calendar-time-from-absolute (1+ org-starting-day) 0)
+;;                                  (current-time)))))
 ;;     (with-temp-buffer
 ;;       (insert agenda)
 ;;       (write-file (expand-file-name filename
@@ -325,7 +325,7 @@ Skips capture tasks and tasks with subtasks"
 ;; Export org table as CSV by default
 (setq org-table-export-default-format "orgtbl-to-csv")
 
-;Some functions to display an org-agenda list according to my workflow
+                                        ;Some functions to display an org-agenda list according to my workflow
 (defun vedang/personal-tasklist ()
   "Display an org-agenda list of personal tasks"
   (interactive)
@@ -371,9 +371,9 @@ Skips capture tasks and tasks with subtasks"
   (setq org-export-latex-classes nil))
 ;; allow for export=>beamer by placing #+LaTeX_CLASS: beamer in org files
 (add-to-list 'org-export-latex-classes
-	     ;; beamer class, for presentations
-	     '("beamer"
-	       "\\documentclass[11pt]{beamer}\n
+             ;; beamer class, for presentations
+             '("beamer"
+               "\\documentclass[11pt]{beamer}\n
       \\mode<{{{beamermode}}}>\n
       \\usetheme{{{{beamertheme}}}}\n
       \\usecolortheme{{{{beamercolortheme}}}}\n
@@ -393,18 +393,18 @@ Skips capture tasks and tasks with subtasks"
       \\institute{{{{beamerinstitute}}}}\n
        \\subject{{{{beamersubject}}}}\n"
 
-	       ("\\section{%s}" . "\\section*{%s}")
+               ("\\section{%s}" . "\\section*{%s}")
 
-	       ("\\begin{frame}[fragile]\\frametitle{%s}"
-		"\\end{frame}"
-		"\\begin{frame}[fragile]\\frametitle{%s}"
-		"\\end{frame}")))
+               ("\\begin{frame}[fragile]\\frametitle{%s}"
+                "\\end{frame}"
+                "\\begin{frame}[fragile]\\frametitle{%s}"
+                "\\end{frame}")))
 
 ;; letter class, for formal letters
 (add-to-list 'org-export-latex-classes
 
-	     '("letter"
-	       "\\documentclass[11pt]{letter}\n
+             '("letter"
+               "\\documentclass[11pt]{letter}\n
       \\usepackage{color}\n
       \\usepackage{listings}
       \\lstset{numbers=none,language=[ISO]C++,tabsize=4,
@@ -417,16 +417,16 @@ Skips capture tasks and tasks with subtasks"
   }\n
       \\usepackage{verbatim}\n"
 
-	       ("\\section{%s}" . "\\section*{%s}")
-	       ("\\subsection{%s}" . "\\subsection*{%s}")
-	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
-	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 ;; article class, for articles
 (add-to-list 'org-export-latex-classes
-	     '("article"
-	       "\\documentclass[10pt]{article}
+             '("article"
+               "\\documentclass[10pt]{article}
 \\usepackage{color}
 \\usepackage{listings}
 \\lstset{numbers=none,language=[ISO]C++,tabsize=4,
@@ -439,28 +439,28 @@ Skips capture tasks and tasks with subtasks"
   }\n
 \\usepackage{verbatim}\n
 \\usepackage[left=1in,top=1in,right=1in,bottom=1in,head=0.2in,foot=0.2in]{geometry}"
-	       ("\\section{%s}" . "\\section*{%s}")
-	       ("\\subsection{%s}" . "\\subsection*{%s}")
-	       ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-	       ("\\paragraph{%s}" . "\\paragraph*{%s}")
-	       ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-;I don't want org mode to export a_b as a subscript b in latex.
-;I mostly write code documents and this is never the intended behavior
+                                        ;I don't want org mode to export a_b as a subscript b in latex.
+                                        ;I mostly write code documents and this is never the intended behavior
 (setq org-export-with-sub-superscripts nil)
 
-;I want to add comments to my org files without
-;having them show up in the latex export.
+                                        ;I want to add comments to my org files without
+                                        ;having them show up in the latex export.
 (setq org-export-blocks nil)
 
 (add-to-list 'org-export-blocks
-	     '(src org-babel-exp-src-blocks nil))
+             '(src org-babel-exp-src-blocks nil))
 (add-to-list 'org-export-blocks
-	     '(comment org-export-blocks-format-comment nil))
+             '(comment org-export-blocks-format-comment nil))
 (add-to-list 'org-export-blocks
-	     '(ditaa org-export-blocks-format-ditaa nil))
+             '(ditaa org-export-blocks-format-ditaa nil))
 (add-to-list 'org-export-blocks
-	     '(dot org-export-blocks-format-dot nil))
+             '(dot org-export-blocks-format-dot nil))
 ;; ==============================================================================
 
 (provide 'org-mode-config)
