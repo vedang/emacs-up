@@ -65,4 +65,8 @@
 (distel-setup)
 (require 'erlang-mode-config)
 
+;;; python
+(require 'python)
+(require 'python-mode-config)
+
 (provide 'mode-config)

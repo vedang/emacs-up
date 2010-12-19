@@ -27,8 +27,12 @@
   :CLOCK:
   :END:" :clock-in t :clock-resume t)
 
-                              ("w" "org-protocol" entry (file (concat org-directory "/remember-notes.org")) "* TODO Review %c
-  %U" :immediate-finish t :clock-in t :clock-resume t))))
+                              ;; ("w" "org-protocol" entry (file (concat org-directory "/remember-notes.org")) "* TODO Review %c
+                              ;; %U" :immediate-finish t :clock-in t :clock-resume t)
+                              ("w" "" entry
+                               (file+headline "www.org" "Notes")
+                               "* %^{Title}\n\n  Source: %u, %c\n\n  %i")
+                              )))
 
 ;; For ease of Re-filing:
 ;; Targets include this file and any file contributing to the agenda - up to 5 levels deep
