@@ -80,12 +80,12 @@
                             ("@home" . ?h)
                             ("@errand" . ?e)
                             (:endgroup)
-                            ("NOTIMP" . ?i)
-                            ("LEGIT" . ?l)
+                            ("LowPri" . ?l)
                             ("NEXT" . ?N)
                             ("NOTE" . ?n)
                             ("PUBLISHED" . ?p)
-                            ("WAITING" . ?a))))
+                            ("WAITING" . ?a)
+                            ("future" . ?f))))
 
 ;; I need more priorities that provided by default
 (setq org-lowest-priority ?E)
