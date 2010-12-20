@@ -49,7 +49,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defvar programming-major-modes
-  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode python-mode)
+  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode)
   "List of programming modes")
 
 (defun vedang/prog-mode-settings ()
