@@ -1,0 +1,21 @@
+-*- mode: org -*-
+* Flyspell
+install the programs aspell and aspell-en
+#+BEGIN_SRC shell
+sudo aptitude install aspell aspell-en
+#+END_SRC
+* Flymake
+Flymake has a lot of tiny things we need to be aware of:
+** For each of the checkers files (in subfolders in plugins/):
+   - make the file executable and put it somewhere in the path (eg: /usr/bin) so that the system can find it.
+** For c projects, create a makefile and add the following in it:
+#+BEGIN_SRC makefile
+  check-syntax:
+       gcc -o nul -S ${CHK_SOURCES}
+#+END_SRC
+
+* Python
+install python on the system and then run the following command
+#+BEGIN_SRC shell
+sudo pip install pyflakes pep8
+#+END_SRC
