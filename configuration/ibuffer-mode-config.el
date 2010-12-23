@@ -9,23 +9,23 @@
 
 (setq ibuffer-saved-filter-groups
       (quote (("default"
-	       ("Org"
-		(mode . org-mode))
-	       ("Programming"
-		(or
-		 (mode . c-mode)
-		 (mode . c++-mode)
-		 (mode . ruby-mode)
-		 (mode . perl-mode)
-		 (mode . python-mode)
-		 (mode . emacs-lisp-mode)
+               ("Programming"
+                (or
+                 (mode . c-mode)
+                 (mode . c++-mode)
+                 (mode . erlang-mode)
+                 (mode . perl-mode)
+                 (mode . python-mode)
+                 (mode . emacs-lisp-mode)
                  (mode . clojure-mode)
-		 ))
-	       ("Documents"
-		(or
-		 (mode . LaTeX-mode)
-		 (mode . fundamental-mode)
-		 ))
-	       ("ERC"   (mode . erc-mode))))))
+                 ))
+               ("Org"
+                (mode . org-mode))
+               ("Documents"
+                (or
+                 (mode . LaTeX-mode)
+                 (mode . fundamental-mode)
+                 ))
+               ("ERC"   (mode . erc-mode))))))
 
 (provide 'ibuffer-mode-config)
