@@ -15,7 +15,11 @@ Flymake has a lot of tiny things we need to be aware of:
 #+END_SRC
 
 * Python
-install python on the system and then run the following command
+install python and python-pip on the system:
+#+BEGIN_SRC shell
+sudo aptitude install python python-pip
+#+END_SRC
+Now run the following command:
 #+BEGIN_SRC shell
 sudo pip install pyflakes pep8
 #+END_SRC
