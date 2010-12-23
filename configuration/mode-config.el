@@ -69,4 +69,7 @@
 (require 'python)
 (require 'python-mode-config)
 
+;;; flymake
+(require 'flymake-config)
+
 (provide 'mode-config)
