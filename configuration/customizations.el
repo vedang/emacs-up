@@ -49,7 +49,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defvar programming-major-modes
-  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode)
+  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode python-mode)
   "List of programming modes")
 
 (defun vedang/prog-mode-settings ()
@@ -60,11 +60,14 @@
       (toggle-read-only 1))
     ;; Flyspell mode for comments and strings
     (flyspell-prog-mode)
-    ;; paredit should always be there
-    (turn-on-paredit)
+    ;; paredit should always be there, except in python
+    (when (not (eq major-mode 'python-mode))
+      (turn-on-paredit))
     (run-coding-hook)))
 
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
+;;; load flymake when you can
+(add-hook 'find-file-hook 'flymake-find-file-hook)
 
 ;; Indentation hook for C/C++ mode
 ;; As defined in Documentation/CodingStyle
