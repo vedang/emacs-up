@@ -1,7 +1,10 @@
 ;;; Settings for ibuffer
 
 (autoload 'ibuffer "ibuffer" "List buffers." t)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-x C-b") '(lambda ()
+                                   (interactive)
+                                   (ibuffer)
+                                   (ibuffer-switch-to-saved-filter-groups "default")))
 (global-set-key (kbd "C-z") 'ibuffer-do-occur)
 
 (setq ibuffer-default-sorting-mode 'major-mode
