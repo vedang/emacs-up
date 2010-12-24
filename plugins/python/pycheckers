@@ -1,5 +1,5 @@
 #!/bin/bash
 
 pyflakes "$1"
-pep8 --ignore=E221,E701,E202,E302,E501 --repeat "$1"
+pep8 --ignore=E221,E701,E202,E302,E501,E401,E702 --repeat "$1"
 true
