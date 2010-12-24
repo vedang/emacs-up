@@ -20,15 +20,20 @@
                  (mode . perl-mode)
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)
-                 (mode . clojure-mode)
-                 ))
+                 (mode . clojure-mode)))
                ("Org"
                 (mode . org-mode))
+               ("ERC"
+                (mode . erc-mode))
+               ("Jabber"
+                (or
+                 (mode . jabber-chat-mode)
+                 (mode . jabber-roster-mode)))
+               ("Magit"
+                (mode . magit-mode))
                ("Documents"
                 (or
                  (mode . LaTeX-mode)
-                 (mode . fundamental-mode)
-                 ))
-               ("ERC"   (mode . erc-mode))))))
+                 (mode . fundamental-mode)))))))
 
 (provide 'ibuffer-mode-config)
