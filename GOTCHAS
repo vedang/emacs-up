@@ -23,3 +23,9 @@ Now run the following command:
 #+BEGIN_SRC shell
 sudo pip install pyflakes pep8
 #+END_SRC
+* cscope
+install cscope on the system:
+#+BEGIN_SRC shell
+sudo aptitude install cscope
+#+END_SRC
+put cscope-indexer somewhere in the system path
