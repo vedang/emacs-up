@@ -286,7 +286,6 @@ Skips capture tasks and tasks with subtasks"
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c t") 'org-todo)
 (global-set-key (kbd "C-c C-r") 'org-capture)
-(global-set-key (kbd "<f5>") 'my-org-todo)
 (global-set-key (kbd "<S-f5>") 'widen)
 (global-set-key (kbd "<f11>") 'org-clock-goto)
 (global-set-key (kbd "<f12>") 'org-agenda)
