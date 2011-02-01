@@ -39,7 +39,7 @@
 
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions
-      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc"))
+      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".pyc"))
 
 ;; Always reuse a buffer if it already exists.
 ;; Useful when dealing with REPLs
