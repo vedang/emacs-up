@@ -2,9 +2,7 @@
 ;;; pre-defining registers
 ;;; (from emacs-starter-kit)
 
-(dolist (r `((?i (file . ,(concat dotfiles-dir "init.el")))
-             (?b (file . ,(concat dotfiles-dir "starter-kit-bindings.el")))
-             (?r (file . ,(concat dotfiles-dir "starter-kit-registers.el")))))
+(dolist (r `((?i (file . ,(concat dotfiles-dir "init.el")))))
   (set-register (car r) (cadr r)))
 
 (provide 'registers)
