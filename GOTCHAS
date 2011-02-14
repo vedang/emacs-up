@@ -19,10 +19,12 @@ install python and python-pip on the system:
 #+BEGIN_SRC shell
 sudo aptitude install python python-pip
 #+END_SRC
-Now run the following command:
+Install pyflakes and pep8
 #+BEGIN_SRC shell
 sudo pip install pyflakes pep8
 #+END_SRC
+Copy the Pymacs, Rope, Ropemacs and Ropemode folders inside plugins/python/ to /usr/local/lib/python2.6/dist-packages/
+(basically anywhere on PYTHONPATH)
 * cscope
 install cscope on the system:
 #+BEGIN_SRC shell
