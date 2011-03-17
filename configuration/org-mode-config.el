@@ -92,8 +92,10 @@
 (setq org-default-priority ?E)
 
 ;; Logbook settings
-(setq org-log-done (quote time))
-(setq org-log-into-drawer t)
+(setq org-log-done (quote time)
+      org-log-into-drawer t
+      org-log-reschedule 'note
+      org-log-redeadline 'note)
 
 ;; settings for org-clock
 ;; Resume clocking tasks when emacs is restarted
