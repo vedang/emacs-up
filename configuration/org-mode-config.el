@@ -185,7 +185,7 @@ Skips capture tasks and tasks with subtasks"
 ;; Agenda clock report parameters (no links, 3 levels deep)
 (setq org-agenda-clockreport-parameter-plist (quote (:link nil :maxlevel 3)))
 ;; Show a single days agenda
-(setq org-agenda-ndays 1)
+(setq org-agenda-span 1)
 
 ;; settings for estimates and efforts
 ;; Set default column view headings: Task Effort Clock_Summary
