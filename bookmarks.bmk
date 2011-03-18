@@ -1,0 +1,15 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("Project Qotd"
+ (filename . "~/Documents/Notes-GTD/Worklog-major.org")
+ (front-context-string . "** TASK [11/12] ")
+ (rear-context-string . "      :current:\n")
+ (position . 8179))
+("org-capture-last-stored"
+ (filename . "~/Documents/Notes-GTD/remember-notes.org")
+ (front-context-string . "* TODO [[lessons")
+ (rear-context-string . "'org-capture)]]\n")
+ (position . 2980))
+)
