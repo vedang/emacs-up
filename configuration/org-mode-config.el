@@ -202,11 +202,9 @@ Skips capture tasks and tasks with subtasks"
 
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
-      (quote (("d" "Started Tasks" todo "WORKING"
-               ((org-agenda-todo-ignore-with-date nil)))
-              ("q" "Tasks waiting on something" tags "WAITING"
+      (quote (("w" "Tasks waiting on something" tags "WAITING"
                ((org-use-tag-inheritance nil)))
-              ("w" "Work Tasks" tags-todo "+@Work"
+              ("n" "Next Tasks" tags-todo "NEXT"
                ((org-use-tag-inheritance t)))
               ("r" "Refile New Notes and Tasks" tags "REFILE"
                ((org-agenda-todo-ignore-with-date nil)))
