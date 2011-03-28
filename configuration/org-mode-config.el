@@ -74,6 +74,11 @@
               ("WORKING" ("WAITING") ("NEXT" . t)))))
 ;; Faster state set
 (setq org-use-fast-todo-selection t)
+;;; Allow me to change state without it being logged
+(setq org-treat-S-cursor-todo-selection-as-state-change nil)
+;;; show TODO counts of _all_ subtasks under a heading
+(setq org-hierarchical-todo-statistics nil
+      org-hierarchical-checkbox-statistics nil)
 
 ;; Important Tag list
 (setq org-tag-alist (quote ((:startgroup)
