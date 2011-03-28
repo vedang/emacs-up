@@ -52,7 +52,7 @@
 ;; / indicates entering the state
 (setq org-todo-keywords
       (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DEFERRED(e@/!)" "MOSTLYDONE(m@/!)")
-              (sequence "PROJECT(p)" "WAITING(a@/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
+              (sequence "PROJECT(p)" "TASK(T!/!)" "WAITING(a@/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
 (setq org-todo-keyword-faces (quote (("TODO" :foreground "red" :weight bold)
                                      ("WORKING" :foreground "orange" :weight bold)
                                      ("REDO" :foreground "magenta" :weight bold)
@@ -60,6 +60,7 @@
                                      ("DEFERRED" :foreground "lightgreen" :weight bold)
                                      ("MOSTLYDONE" :foreground "lightblue" :weight bold)
                                      ("PROJECT" :foreground "lightblue" :weight bold)
+                                     ("TASK" :foreground "darkblue" :weight bold)
                                      ("WAITING" :foreground "gray" :weight bold)
                                      ("SOMEDAY" :foreground "magenta" :weight bold)
                                      ("CANCELLED" :foreground "lightgreen" :weight bold))))
@@ -81,6 +82,7 @@
                             ("@errand" . ?e)
                             (:endgroup)
                             ("LowPri" . ?l)
+                            ("HighPri" . ?H)
                             ("NEXT" . ?N)
                             ("NOTE" . ?n)
                             ("PUBLISHED" . ?p)
