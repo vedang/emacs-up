@@ -51,13 +51,13 @@
 ;; @ indicates insert note
 ;; / indicates entering the state
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DEFERRED(e@/!)" "MOSTLYDONE(m@/!)")
+      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(m@/!)")
               (sequence "PROJECT(p)" "TASK(T!/!)" "WAITING(a@/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
 (setq org-todo-keyword-faces (quote (("TODO" :foreground "red" :weight bold)
                                      ("WORKING" :foreground "orange" :weight bold)
                                      ("REDO" :foreground "magenta" :weight bold)
                                      ("DONE" :foreground "lightgreen" :weight bold)
-                                     ("DEFERRED" :foreground "lightgreen" :weight bold)
+                                     ("DELEGATED" :foreground "lightgreen" :weight bold)
                                      ("MOSTLYDONE" :foreground "lightblue" :weight bold)
                                      ("PROJECT" :foreground "lightblue" :weight bold)
                                      ("TASK" :foreground "darkblue" :weight bold)
@@ -202,7 +202,7 @@ Skips capture tasks and tasks with subtasks"
 
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
-      (quote (("w" "Tasks waiting on something" tags "WAITING"
+      (quote (("d" "Tasks delegated to somebody" todo "DELEGATED"
                ((org-use-tag-inheritance nil)))
               ("n" "Next Tasks" tags-todo "NEXT"
                ((org-use-tag-inheritance t)))
