@@ -4,9 +4,9 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("Project Qotd"
  (filename . "~/Documents/Notes-GTD/Worklog-major.org")
- (front-context-string . "** TASK [11/12] ")
- (rear-context-string . "      :current:\n")
- (position . 8179))
+ (front-context-string . "* PROJECT QOTD [")
+ (rear-context-string . "6:44]\n    :END:\n")
+ (position . 2358))
 ("org-capture-last-stored"
  (filename . "~/Documents/Notes-GTD/remember-notes.org")
  (front-context-string . "* TODO [[lessons")

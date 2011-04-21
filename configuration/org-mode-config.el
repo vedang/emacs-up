@@ -51,8 +51,8 @@
 ;; @ indicates insert note
 ;; / indicates entering the state
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(m@/!)")
-              (sequence "PROJECT(p)" "TASK(T!/!)" "WAITING(a@/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
+      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|" "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(M@/!)")
+              (sequence "PROJECT(p)" "TASK(T!/!)" "WAITINGTOMERGE(m/!)" "WAITINGTODEPLOY(a/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
 (setq org-todo-keyword-faces (quote (("TODO" :foreground "red" :weight bold)
                                      ("WORKING" :foreground "orange" :weight bold)
                                      ("REDO" :foreground "magenta" :weight bold)
@@ -61,7 +61,8 @@
                                      ("MOSTLYDONE" :foreground "lightblue" :weight bold)
                                      ("PROJECT" :foreground "lightblue" :weight bold)
                                      ("TASK" :foreground "darkblue" :weight bold)
-                                     ("WAITING" :foreground "gray" :weight bold)
+                                     ("WAITINGTOMERGE" :foreground "gray" :weight bold)
+                                     ("WAITINGTODEPLOY" :foreground "gray" :weight bold)
                                      ("SOMEDAY" :foreground "magenta" :weight bold)
                                      ("CANCELLED" :foreground "lightgreen" :weight bold))))
 
@@ -69,7 +70,8 @@
 (setq org-todo-state-tags-triggers
       (quote (("SOMEDAY" ("WAITING" . t) ("NEXT"))
               (done ("NEXT") ("WAITING"))
-              ("WAITING" ("NEXT") ("WAITING" . t))
+              ("WAITINGTOMERGE" ("NEXT") ("WAITING" . t))
+              ("WAITINGTODEPLOY" ("NEXT") ("WAITING" . t))
               ("TODO" ("WAITING"))
               ("WORKING" ("WAITING") ("NEXT" . t)))))
 ;; Faster state set
@@ -203,6 +205,8 @@ Skips capture tasks and tasks with subtasks"
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
       (quote (("d" "Tasks delegated to somebody" todo "DELEGATED"
+               ((org-use-tag-inheritance nil)))
+              ("w" "Tasks waiting for something" tags-todo "WAITING"
                ((org-use-tag-inheritance nil)))
               ("n" "Next Tasks" tags-todo "NEXT"
                ((org-use-tag-inheritance t)))
