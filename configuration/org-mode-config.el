@@ -82,6 +82,27 @@
 (setq org-hierarchical-todo-statistics nil
       org-hierarchical-checkbox-statistics nil)
 
+
+;;; inspired from org-depend.el
+(defun vedang/org-delegated-trigger (change-plist)
+  "A state change to DELEGATED should change the title of the task"
+  (let* ((type (plist-get change-plist :type))
+         (pos (plist-get change-plist :position))
+         (from (plist-get change-plist :from))
+         (to (plist-get change-plist :to))
+         (heading-text (nth 4 (org-heading-components)))
+         (delegated-to (read-from-minibuffer "Whom should I delegate to? ")))
+    (catch 'return
+      (unless (eq type 'todo-state-change)
+        ;; We are only handling todo-state-change....
+        (throw 'return t))
+      (unless (eq to "DELEGATED")
+        ;; This is not a change to DELEGATED, ignore it
+        (throw 'return t))
+      (concat "to " delegated-to " " heading-text)
+      )))
+
+
 ;; Important Tag list
 (setq org-tag-alist (quote ((:startgroup)
                             ("@office" . ?w)
