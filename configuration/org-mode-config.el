@@ -205,11 +205,14 @@ Skips capture tasks and tasks with subtasks"
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
       (quote (("d" "Tasks delegated to somebody" todo "DELEGATED"
-               ((org-use-tag-inheritance nil)))
+               ((org-use-tag-inheritance nil)
+                (org-agenda-todo-ignore-with-date nil)))
               ("w" "Tasks waiting for something" tags-todo "WAITING"
-               ((org-use-tag-inheritance nil)))
+               ((org-use-tag-inheritance nil)
+                (org-agenda-todo-ignore-with-date nil)))
               ("n" "Next Tasks" tags-todo "NEXT"
-               ((org-use-tag-inheritance t)))
+               ((org-use-tag-inheritance t)
+                (org-agenda-todo-ignore-with-date nil)))
               ("r" "Refile New Notes and Tasks" tags "REFILE"
                ((org-agenda-todo-ignore-with-date nil)))
               ("c" "Select default clocking task" tags "LEVEL=1-REFILE"
