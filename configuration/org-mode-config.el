@@ -89,8 +89,8 @@
                             ("@errand" . ?e)
                             (:endgroup)
                             ("LowPri" . ?l)
-                            ("HighPri" . ?H)
                             ("NEXT" . ?N)
+                            ("RELEASE" . ?r)
                             ("NOTE" . ?n)
                             ("PUBLISHED" . ?p)
                             ("WAITING" . ?a)
@@ -213,7 +213,10 @@ Skips capture tasks and tasks with subtasks"
               ("n" "Next Tasks" tags-todo "NEXT"
                ((org-use-tag-inheritance t)
                 (org-agenda-todo-ignore-with-date nil)))
-              ("r" "Refile New Notes and Tasks" tags "REFILE"
+              ("r" "Release Tasks" tags-todo "RELEASE"
+               ((org-use-tag-inheritance t)
+                (org-agenda-todo-ignore-with-date nil)))
+              ("R" "Refile New Notes and Tasks" tags "REFILE"
                ((org-agenda-todo-ignore-with-date nil)))
               ("c" "Select default clocking task" tags "LEVEL=1-REFILE"
                ((org-agenda-skip-function
