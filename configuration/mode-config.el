@@ -1,10 +1,4 @@
-;;; Load ELPA
-(require 'package)
-(package-initialize)
-;; External repos
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
-(require 'elpa-config)
+(autoload 'package-list-packages "elpa-config" "Load Elpa" t)
 
 ;;; Better dired
 (require 'dired-x)

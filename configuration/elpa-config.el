@@ -1,5 +1,11 @@
 ;;; Configuration for ELPA: the emacs package manager
 
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives ;; External repos
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
+
 ;;; From emacs-starter-kit
 (defvar starter-kit-packages (list 'magit
                                    'gist
