@@ -1,7 +1,5 @@
 (autoload 'package-list-packages "elpa-config" "Load Elpa" t)
-
-;;; Better dired
-(require 'dired-x)
+(autoload 'dired "misc-requires" "Load dired-x" t)  ; Better dired
 
 ;;; cscope - awesome search in c/c++ files
 (require 'xcscope)
