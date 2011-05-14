@@ -20,7 +20,8 @@
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
       save-place-file (concat dotfiles-dir "places")
-      x-select-enable-clipboard t)
+      x-select-enable-clipboard t
+      column-number-mode t)
 
 (setq-default indent-tabs-mode nil  ;only spaces by default.
               tab-width 4)
