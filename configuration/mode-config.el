@@ -1,6 +1,9 @@
 ;;; Load ELPA
 (require 'package)
 (package-initialize)
+;; External repos
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (require 'elpa-config)
 
 ;;; Better dired
