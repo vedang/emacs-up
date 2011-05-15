@@ -7,7 +7,7 @@
 (autoload 'twit	"twittering-mode" "" t)
 (autoload 'jabber-connect "jabber-mode-config" "Load Jabber" t)
 (autoload 'jabber-connect-all "jabber-mode-config" "Load Jabber" t)
-
+(autoload 'python-mode "python-mode-config" "Load python config" t)
 
 ;;; required magic
 (require 'ido-mode-config)
@@ -25,10 +25,6 @@
 (global-set-key (kbd "S-TAB") 'yas/trigger-key)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
-
-;;; python
-(require 'python)
-(require 'python-mode-config)
 
 ;;; flymake
 (require 'flymake-config)
