@@ -40,7 +40,7 @@
 
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions
-      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".pyc"))
+      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".pyc" ".beam"))
 
 ;; Always reuse a buffer if it already exists.
 ;; Useful when dealing with REPLs
@@ -83,8 +83,9 @@
 (add-hook 'c-mode-hook (lambda() (c-set-style "K&R")))
 (add-hook 'c++-mode-hook 'vedang/linux-c-indent)
 
-;; these are configuration files and should be opened in appropriate mode
+;;; open these files in the appropriate mode
 (add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)

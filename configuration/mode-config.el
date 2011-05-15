@@ -8,6 +8,7 @@
 (autoload 'jabber-connect "jabber-mode-config" "Load Jabber" t)
 (autoload 'jabber-connect-all "jabber-mode-config" "Load Jabber" t)
 (autoload 'python-mode "python-mode-config" "Load python config" t)
+(autoload 'erlang-mode "erlang-mode-config" "Load erlang config" t)
 
 ;;; required magic
 (require 'ido-mode-config)
@@ -18,7 +19,6 @@
 (require 'js2-mode-config)
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
-(require 'erlang-mode-config)
 
 ;;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
