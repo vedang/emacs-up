@@ -3,10 +3,8 @@
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 
-;;; ido magic
+;;; required magic
 (require 'ido-mode-config)
-
-;;; ibuffer magic
 (require 'ibuffer-mode-config)
 
 ;;; yasnippet
