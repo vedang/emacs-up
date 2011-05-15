@@ -1,5 +1,6 @@
 (autoload 'package-list-packages "elpa-config" "Load Elpa" t)
 (autoload 'dired "misc-requires" "Load dired-x" t)  ; Better dired
+(autoload 'magit-status "magit" "Load magit" t)
 
 ;;; cscope - awesome search in c/c++ files
 (require 'xcscope)
