@@ -7,6 +7,7 @@
 (autoload 'twit	"twittering-mode" "" t)
 (autoload 'jabber-connect "jabber-mode-config" "Load Jabber" t)
 (autoload 'jabber-connect-all "jabber-mode-config" "Load Jabber" t)
+(autoload 'eshell "eshell-config" "Load eshell configuration" t)
 
 ;;; required magic
 (require 'ido-mode-config)
@@ -16,18 +17,13 @@
 (require 'auto-complete-mode-config)
 (require 'js2-mode-config)
 (require 'revive-mode-config)
+(require 'isearch-mode-config)
 
 ;;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
 (global-set-key (kbd "S-TAB") 'yas/trigger-key)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
-
-;;; isearch-mode tweak
-(require 'isearch-mode-config)
-
-;;; eshell
-(require 'eshell-config)
 
 ;;; erlang
 (require 'erlang-start)
