@@ -1,5 +1,7 @@
 ;;; Root emacs configuration file.
 
+(defvar *emacs-load-start* (current-time))
+
 ;;; No GUI
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -40,6 +42,10 @@
 (regen-autoloads)
 (load custom-file 'noerror)
 (server-start)
+
+(message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
+                                     (- (+ hi lo) (+ (first *emacs-load-start*) (second
+                                                                                 *emacs-load-start*)))))
 (totd) ; Display Tip Of The Day.
 
 ;;; init.el ends here
