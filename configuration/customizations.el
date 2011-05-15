@@ -20,12 +20,15 @@
       bookmark-default-file "~/.emacs.d/bookmarks.bmk"
       bookmark-save-flag 1              ; Save bookmarks as soon as I create them
       display-buffer-reuse-frames t     ; Useful when dealing with REPLs
-      )
-
+      show-paren-mode 1
+      auto-compression-mode t)
 
 (setq-default indent-tabs-mode nil  ;only spaces by default.
               tab-width 4
               ispell-program-name "aspell")
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
 
 ;; Don't clutter up directories with files~
 (setq backup-directory-alist `(("." . ,(expand-file-name
@@ -38,8 +41,13 @@
 (setq completion-ignored-extensions
       '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".pyc" ".beam"))
 
-;; delete trailing whitespace in files
+
+;;; hooks
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+(add-hook 'text-mode-hook 'turn-on-flyspell)
+
 
 (defvar programming-major-modes
   '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode python-mode)
@@ -59,8 +67,6 @@
     (run-coding-hook)))
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
-;;; load flymake when you can
-(add-hook 'find-file-hook 'flymake-find-file-hook)
 
 ;; Indentation hook for C/C++ mode
 ;; As defined in Documentation/CodingStyle
@@ -74,9 +80,11 @@
 (add-hook 'c-mode-hook (lambda() (c-set-style "K&R")))
 (add-hook 'c++-mode-hook 'vedang/linux-c-indent)
 
+
 ;;; open these files in the appropriate mode
 (add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
+
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)
@@ -89,21 +97,6 @@
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
 
-;; settings for hippie-expand
-(setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
-        try-expand-dabbrev-from-kill
-        try-expand-dabbrev-all-buffers
-        try-complete-file-name-partially
-        try-complete-file-name
-        try-complete-lisp-symbol-partially
-        try-complete-lisp-symbol))
-
-;; uniquify settings
-(setq uniquify-buffer-name-style 'reverse)
-(setq uniquify-separator "/")
-(setq uniquify-after-kill-buffer-p t)
-(setq uniquify-ignore-buffers-re "^\\*")
 
 ;; Enable narrow-to-region, extremely useful for editing text
 (put 'narrow-to-region 'disabled nil)
@@ -113,20 +106,12 @@
 (require 'color-theme-billw)
 (color-theme-billw)
 
-;; visual-line is good to have
-(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
 ;; when I create a temporary buffer, it should auto-detect the right
 ;; mode to start in the buffer
 (setq default-major-mode (lambda ()
                            (let ((buffer-file-name (or buffer-file-name (buffer-name))))
                              (set-auto-mode))))
-
-(auto-compression-mode t)
-(show-paren-mode 1)
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-(add-hook 'text-mode-hook 'turn-on-flyspell)
 
 ;;; Everything in UTF8
 (prefer-coding-system 'utf-8)
