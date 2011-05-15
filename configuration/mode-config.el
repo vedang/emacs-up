@@ -18,7 +18,6 @@
 (require 'js2-mode-config)
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
-(require 'eshell-config)
 
 ;;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
