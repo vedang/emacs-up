@@ -9,7 +9,7 @@
 (autoload 'jabber-connect-all "jabber-mode-config" "Load Jabber" t)
 (autoload 'python-mode "python-mode-config" "Load python config" t)
 (autoload 'erlang-mode "erlang-mode-config" "Load erlang config" t)
-
+(autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
 
 ;;; required magic
 (require 'ido-mode-config)

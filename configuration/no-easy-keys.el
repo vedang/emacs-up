@@ -1,5 +1,3 @@
-;;; Miscellaneous stuff which is not strictly necessary
-
 ;;; a minor mode to make me use the home keys
 ;;; from http://danamlund.dk/emacs/no-easy-keys.html
 (defvar no-easy-keys-minor-mode-map (make-keymap)
@@ -25,9 +23,7 @@
   "A minor mode that disables the arrow-keys, pg-up/down, delete
   and backspace."  t " no-easy-keys"
   'no-easy-keys-minor-mode-map :global t)
-(no-easy-keys-minor-mode 1)
-
-(provide 'misc)
+(no-easy-keys-minor-mode 0)
 
 
 

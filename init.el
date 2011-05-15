@@ -36,7 +36,6 @@
 (require 'mode-config)
 (require 'key-bindings)
 (require 'registers)
-(require 'misc)
 
 (regen-autoloads)
 (load custom-file 'noerror)
