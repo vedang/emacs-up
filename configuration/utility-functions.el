@@ -18,48 +18,6 @@
         (indent-for-tab-command)))))
 (global-set-key (kbd "TAB") 'smart-tab)
 
-;;; function to Copy-only instead of kill (reddit comments)
-(defun copy-line (arg)
-  "Copy lines (as many as prefix argument) in the kill ring"
-  (interactive "p")
-  (kill-ring-save (line-beginning-position)
-                  (line-beginning-position (+ 1 arg)))
-  (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
-
-(global-set-key (kbd "C-c C-k") 'copy-line)
-
-;;; function for moving a buffer and assoc file to new directory - Steve Yegge
-(defun move-buffer-file (dir)
-  "Moves both current buffer and file it's visiting to DIR."
-  (interactive "DNew directory: ")
-  (let* ((name (buffer-name))
-         (filename (buffer-file-name))
-         (dir
-          (if (string-match dir "\\(?:/\\|\\\\)$")
-              (substring dir 0 -1) dir))
-         (newname (concat dir "/" name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (progn
-        (copy-file filename newname 1)
-        (delete-file filename)
-        (set-visited-file-name newname)
-        (set-buffer-modified-p nil)     t))))
-
-;;; function for renaming a buffer and the associated file - Steve Yegge
-(defun rename-file-and-buffer (new-name)
-  "Renames both current buffer and file it's visiting to NEW-NAME." (interactive "sNew name: ")
-  (let ((name (buffer-name))
-        (filename (buffer-file-name)))
-    (if (not filename)
-        (message "Buffer '%s' is not visiting a file!" name)
-      (if (get-buffer new-name)
-          (message "A buffer named '%s' already exists!" new-name)
-        (progn
-          (rename-file name new-name 1)
-          (rename-buffer new-name)
-          (set-visited-file-name new-name)
-          (set-buffer-modified-p nil))))))
 
 ;;; function to display Tip of the Day
 (defconst animate-n-steps 3)
@@ -81,6 +39,7 @@
                             (delete-other-windows)
                             )0 0)))
 
+
 ;;; Function to launch a google search
 (defun google ()
   "googles a query or a selected region"
@@ -92,16 +51,6 @@
         (buffer-substring (region-beginning) (region-end))
       (read-string "Query: ")))))
 
-;;; From stackoverflow - function to compare with auto save data
-(defun ediff-auto-save ()
-  "Ediff current file and its auto-save pendant."
-  (interactive)
-  (let ((auto-file-name (make-auto-save-file-name))
-        (file-major-mode major-mode))
-    (ediff-files buffer-file-name auto-file-name)
-    (switch-to-buffer-other-window (file-name-nondirectory auto-file-name))
-    (apply file-major-mode '())
-    (other-window 1))) ;; back to ediff panel
 
 ;;; Function to mark complete word, and expand to sentence etc.
 ;;; by Nikolaj Schumacher, 2008-10-20. Released under GPL.
@@ -140,12 +89,14 @@ Subsequent calls expands the selection to larger semantic unit."
 
 (global-set-key (kbd "M-8") 'extend-selection)
 
+
 ;;; More Screen Space
 (when (executable-find "wmctrl") ; apt-get install wmctrl
   (defun full-screen-toggle ()
     (interactive)
     (shell-command "wmctrl -r :ACTIVE: -btoggle,fullscreen"))
   (global-set-key (kbd "<f1>") 'full-screen-toggle))
+
 
 ;;; turn-on functions for various utilities
 (defun turn-on-hl-line-mode ()
@@ -155,10 +106,12 @@ Subsequent calls expands the selection to larger semantic unit."
 (defun turn-on-slime ()
   (slime-mode t))
 
+
 (defun add-watchwords ()
   (font-lock-add-keywords
    nil '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
           1 font-lock-warning-face t))))
+
 
 (defun pretty-lambdas ()
   (font-lock-add-keywords
@@ -167,11 +120,12 @@ Subsequent calls expands the selection to larger semantic unit."
                                     ,(make-char 'greek-iso8859-7 107))
                     nil))))))
 
+
 (defvar coding-hook nil
   "Hook that gets run on activation of any programming mode.")
-
 (add-hook 'coding-hook 'turn-on-hl-line-mode)
 (add-hook 'coding-hook 'pretty-lambdas)
+
 
 (defun run-coding-hook ()
   "Enable things that are convenient across all coding buffers."
