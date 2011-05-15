@@ -1,5 +1,7 @@
 ;;; Settings for Jabber
 
+(require 'jabber-autoloads)
+
 ;;; Customization settings
 (setq jabber-account-list (quote (("ved.manerikar@gmail.com" (:network-server . "talk.google.com") (:connection-type . ssl))
                                   ("vedang@infinitelybeta.com" (:network-server . "talk.google.com") (:connection-type . ssl))))
@@ -12,17 +14,18 @@
       jabber-show-resources nil)
 
 ;;; Roll up groups
-(defun jabber-roster-ret-action-at-point (&optional other-window)
-  "Fixed Action for ret - with prefix opens chat in other window. Before try to roll up/down group. Eval
+(eval-after-load "jabber-roster"
+  '(defun jabber-roster-ret-action-at-point (&optional other-window)
+     "Fixed Action for ret - with prefix opens chat in other window. Before try to roll up/down group. Eval
 chat-with-jid-at-point is no group at point"
-  (interactive "P")
-  (let ((group-at-point (get-text-property (point)
-                                           'jabber-group))
-        (account-at-point (get-text-property (point)
-                                             'jabber-account)))
-    (if (and group-at-point account-at-point)
-        (jabber-roster-roll-group account-at-point group-at-point)
-      (jabber-chat-with-jid-at-point other-window))))
+     (interactive "P")
+     (let ((group-at-point (get-text-property (point)
+                                              'jabber-group))
+           (account-at-point (get-text-property (point)
+                                                'jabber-account)))
+       (if (and group-at-point account-at-point)
+           (jabber-roster-roll-group account-at-point group-at-point)
+         (jabber-chat-with-jid-at-point other-window)))))
 
 ;;; Make roster more readable
 (eval-after-load "jabber-roster"

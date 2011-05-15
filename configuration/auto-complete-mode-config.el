@@ -1,5 +1,7 @@
 ;;; my settings for ac-mode
 
+(require 'auto-complete-config)
+
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/plugins/auto-complete/ac-dict")
 (ac-config-default)
 ;; start completion only after typing at least 4 characters
