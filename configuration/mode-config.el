@@ -10,15 +10,18 @@
 (autoload 'python-mode "python-mode-config" "Load python config" t)
 (autoload 'erlang-mode "erlang-mode-config" "Load erlang config" t)
 
+
 ;;; required magic
 (require 'ido-mode-config)
 (require 'ibuffer-mode-config)
 (require 'latex-mode-config)
 (require 'lisp-mode-config)
 (require 'auto-complete-mode-config)
-(require 'js2-mode-config)
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
+(require 'flymake-config)
+(require 'js2-mode-config)
+
 
 ;;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
@@ -26,7 +29,5 @@
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
 
-;;; flymake
-(require 'flymake-config)
 
 (provide 'mode-config)
