@@ -1,5 +1,6 @@
-;; cscope settings
-;; ===============================================================================
+;;; cscope - awesome search in c/c++ files
+
+(require 'xcscope)
 
 (setq cscope-do-not-update-database t)
 
@@ -13,6 +14,4 @@
 (define-key global-map [(control f10)] 'cscope-find-called-functions)
 (define-key global-map [(control f11)] 'cscope-display-buffer)
 ; ===============================================================================
-
-(provide 'cscope-mode-config)
 

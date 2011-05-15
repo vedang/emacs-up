@@ -14,6 +14,8 @@
 (global-set-key (kbd "C-x M") (lambda () (interactive) (eshell t)))
 (global-set-key (kbd "C-h a") 'apropos)
 (global-set-key (kbd "C-x g") 'magit-status)
+(define-key global-map [(control f3)]  'cscope-set-initial-directory)
+
 
 ;; Font size
 (define-key global-map (kbd "C-+") 'text-scale-increase)
