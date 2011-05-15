@@ -16,9 +16,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (define-key global-map [(control f3)]  'cscope-set-initial-directory)
 (global-set-key (kbd "C-c a") 'org-agenda)
-
-
-;; Font size
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 
