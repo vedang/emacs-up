@@ -1,3 +1,9 @@
+;;; configuration for erlang
+
+(require 'erlang-start)
+(require 'distel)
+(distel-setup)
+
 ;; A number of the erlang-extended-mode key bindings are useful in the shell too
 (defconst distel-shell-keys
   '(("\C-\M-i"   erl-complete)

@@ -18,18 +18,13 @@
 (require 'js2-mode-config)
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
+(require 'erlang-mode-config)
 
 ;;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
 (global-set-key (kbd "S-TAB") 'yas/trigger-key)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
-
-;;; erlang
-(require 'erlang-start)
-(require 'distel)
-(distel-setup)
-(require 'erlang-mode-config)
 
 ;;; python
 (require 'python)
