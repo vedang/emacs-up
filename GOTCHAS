@@ -1,9 +1,11 @@
 -*- mode: org -*-
+
 * Flyspell
 install the programs aspell and aspell-en
 #+BEGIN_SRC shell
 sudo aptitude install aspell aspell-en
 #+END_SRC
+
 * Flymake
 Flymake has a lot of tiny things we need to be aware of:
 ** For each of the checkers files (in subfolders in plugins/):
@@ -25,6 +27,7 @@ sudo pip install pyflakes pep8
 #+END_SRC
 Copy the Pymacs, Rope, Ropemacs and Ropemode folders inside plugins/python/ to /usr/local/lib/python2.6/dist-packages/
 (basically anywhere on PYTHONPATH)
+
 * cscope
 install cscope on the system:
 #+BEGIN_SRC shell

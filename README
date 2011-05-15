@@ -3,20 +3,12 @@ This folder contains my emacs configuration. In order to install this emacs conf
 
 * Clone the emacs configuration repository
 
-* Open the file configuration/mode-config.el and comment out the following lines:
-
-(require 'org-install)
-(require 'org-mode-config)
-(org-agenda-to-appt)
-
-This is because I use org as a submodule. Org-configuration will fail to load without my org files and before you pull from org's repository.
-
 * Install the submodules
 
 git submodule init
 git submodule update
 
-* Undo the change we made in the configuration.
+I use org as a submodule. Org-configuration will fail to load without org's repository.
 
 * Go through the GOTCHAS file.
 
