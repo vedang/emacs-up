@@ -23,11 +23,24 @@
 (require 'js2-mode-config)
 
 
-;;; yasnippet
+;;; configuration too small to go into individual files
+
+
 (require 'yasnippet) ;; not yasnippet-bundle
 (global-set-key (kbd "S-TAB") 'yas/trigger-key)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
+
+
+(eval-after-load 'diff-mode
+  '(progn
+     (set-face-foreground 'diff-added "green4")
+     (set-face-foreground 'diff-removed "red3")))
+
+(eval-after-load 'magit
+  '(progn
+     (set-face-foreground 'magit-diff-add "green3")
+     (set-face-foreground 'magit-diff-del "red3")))
 
 
 (provide 'mode-config)

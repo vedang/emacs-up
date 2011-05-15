@@ -1,15 +1,8 @@
 ;;; my customizations for emacs
 
 (setq user-full-name "Vedang Manerikar"
-      user-mail-address "vedang.manerikar@gmail.com")
-
-(setq delete-selection-mode t
-      debug-on-error t)
-
-(setq bookmark-default-file "~/.emacs.d/bookmarks.bmk"
-      bookmark-save-flag 1) ;; save my bookmarks as soon as I create them
-
-(setq visible-bell t
+      user-mail-address "vedang.manerikar@gmail.com"
+      visible-bell t
       echo-keystrokes 0.1
       inhibit-startup-message t
       font-lock-maximum-decoration t
@@ -21,30 +14,29 @@
       ediff-window-setup-function 'ediff-setup-windows-plain
       save-place-file (concat dotfiles-dir "places")
       x-select-enable-clipboard t
-      column-number-mode t)
+      column-number-mode t
+      delete-selection-mode t
+      debug-on-error t
+      bookmark-default-file "~/.emacs.d/bookmarks.bmk"
+      bookmark-save-flag 1              ; Save bookmarks as soon as I create them
+      display-buffer-reuse-frames t     ; Useful when dealing with REPLs
+      )
+
 
 (setq-default indent-tabs-mode nil  ;only spaces by default.
-              tab-width 4)
+              tab-width 4
+              ispell-program-name "aspell")
 
 ;; Don't clutter up directories with files~
 (setq backup-directory-alist `(("." . ,(expand-file-name
                                         (concat dotfiles-dir "backups")))))
 
-(add-to-list 'safe-local-variable-values '(lexical-binding . t))
+(add-to-list 'safe-local-variable-values '(lexical-binding . t))1
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
-
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "conkeror")
-
-(setq-default ispell-program-name "aspell")
 
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions
       '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".pyc" ".beam"))
-
-;; Always reuse a buffer if it already exists.
-;; Useful when dealing with REPLs
-(setq display-buffer-reuse-frames t)
 
 ;; delete trailing whitespace in files
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
@@ -65,8 +57,8 @@
     (when (not (eq major-mode 'python-mode))
       (turn-on-paredit))
     (run-coding-hook)))
-
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
+
 ;;; load flymake when you can
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 
@@ -78,7 +70,6 @@
   (setq tab-width 8)
   (setq indent-tabs-mode nil) ;; force spaces, to work with dumber editors
   (setq c-basic-offset 8))
-
 (add-hook 'c-mode-hook 'vedang/linux-c-indent)
 (add-hook 'c-mode-hook (lambda() (c-set-style "K&R")))
 (add-hook 'c++-mode-hook 'vedang/linux-c-indent)
@@ -114,11 +105,6 @@
 (setq uniquify-after-kill-buffer-p t)
 (setq uniquify-ignore-buffers-re "^\\*")
 
-;; Aliases for common functions
-(defalias 'qrr 'query-replace-regexp)
-(defalias 'rvt 'revert-buffer)
-(defalias 'dtw 'delete-trailing-whitespace)
-
 ;; Enable narrow-to-region, extremely useful for editing text
 (put 'narrow-to-region 'disabled nil)
 
@@ -142,16 +128,6 @@
 
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 
-(eval-after-load 'diff-mode
-  '(progn
-     (set-face-foreground 'diff-added "green4")
-     (set-face-foreground 'diff-removed "red3")))
-
-(eval-after-load 'magit
-  '(progn
-     (set-face-foreground 'magit-diff-add "green3")
-     (set-face-foreground 'magit-diff-del "red3")))
-
 ;;; Everything in UTF8
 (prefer-coding-system 'utf-8)
 (set-language-environment 'UTF-8)
@@ -164,5 +140,10 @@
 (set-clipboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (setq default-process-coding-system '(utf-8 . utf-8))
+
+;;; I dont use conkeror anymore
+;; (setq browse-url-browser-function 'browse-url-generic
+;;       browse-url-generic-program "conkeror")
+
 
 (provide 'customizations)
