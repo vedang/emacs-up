@@ -15,6 +15,7 @@
 (global-set-key (kbd "C-h a") 'apropos)
 (global-set-key (kbd "C-x g") 'magit-status)
 (define-key global-map [(control f3)]  'cscope-set-initial-directory)
+(global-set-key (kbd "C-c a") 'org-agenda)
 
 
 ;; Font size

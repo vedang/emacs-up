@@ -2,10 +2,13 @@
 (autoload 'dired "misc-requires" "Load dired-x" t)  ; Better dired
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
+(autoload 'org-agenda "org-mode-config" "Load org mode" t)
 
 ;;; required magic
 (require 'ido-mode-config)
 (require 'ibuffer-mode-config)
+(require 'latex-mode-config)
+(require 'lisp-mode-config)
 
 ;;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle
@@ -15,17 +18,6 @@
 
 ;;; ERC
 ;(require 'erc-mode-config)
-
-;;; LaTeX-mode
-(require 'latex-mode-config)
-
-;;; lisp modes
-(require 'lisp-mode-config)
-
-;;; org-mode
-(require 'org-install)
-(require 'org-mode-config)
-(org-agenda-to-appt) ;; Load appointments for today
 
 ;;; auto-complete
 (require 'auto-complete-config)

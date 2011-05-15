@@ -1,5 +1,8 @@
 ;; Configuration for org-mode
 
+(require 'org-install)
+
+
 (setq org-directory "~/Documents/Notes-GTD")
 (setq org-archive-location (concat org-directory "/archive/%s_archive::"))
 (setq org-completion-use-ido t)
@@ -300,7 +303,6 @@ Skips capture tasks and tasks with subtasks"
 
 ;; Standard org-mode key bindings
 (global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c t") 'org-todo)
 (global-set-key (kbd "C-c C-r") 'org-capture)
 (global-set-key (kbd "<S-f5>") 'widen)
@@ -480,7 +482,8 @@ Skips capture tasks and tasks with subtasks"
              '(dot org-export-blocks-format-dot nil))
 ;; ==============================================================================
 
-(provide 'org-mode-config)
+(org-agenda-to-appt) ;; Load appointments for today
+
 ;; A big thanks to Bernt Hansen for providing an awesome guide to
 ;; beginners so that we can harness the power of org-mode. Much of the
 ;; customization here is from his document about org-mode which can be
