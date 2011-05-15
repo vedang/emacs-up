@@ -3,6 +3,7 @@
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 (autoload 'org-agenda "org-mode-config" "Load org mode" t)
+(autoload 'erc "erc-mode-config" "Load configuration for ERC" t)
 
 ;;; required magic
 (require 'ido-mode-config)
@@ -15,9 +16,6 @@
 (global-set-key (kbd "S-TAB") 'yas/trigger-key)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
-
-;;; ERC
-;(require 'erc-mode-config)
 
 ;;; auto-complete
 (require 'auto-complete-config)
