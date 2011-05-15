@@ -7,7 +7,7 @@
 (autoload 'twit	"twittering-mode" "" t)
 (autoload 'jabber-connect "jabber-mode-config" "Load Jabber" t)
 (autoload 'jabber-connect-all "jabber-mode-config" "Load Jabber" t)
-(autoload 'eshell "eshell-config" "Load eshell configuration" t)
+
 
 ;;; required magic
 (require 'ido-mode-config)
@@ -18,6 +18,7 @@
 (require 'js2-mode-config)
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
+(require 'eshell-config)
 
 ;;; yasnippet
 (require 'yasnippet) ;; not yasnippet-bundle

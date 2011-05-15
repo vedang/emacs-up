@@ -27,7 +27,6 @@
 ;;; Require common stuff
 (require 'cl)
 (require 'uniquify)
-(require 'ansi-color)
 (require 'saveplace)
 (require 'paredit)
 
