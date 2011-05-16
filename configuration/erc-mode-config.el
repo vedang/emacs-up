@@ -12,7 +12,9 @@
 
 ;; Autojoin these channels on connecting to freenode
 (setq erc-autojoin-channels-alist '(("freenode.net"
-                                     "#emacs" "#clojure")))
+                                     "#emacs" "#clojure")
+                                    ("qotdinc.com"
+                                     "#dev")))
 
 ;; Settings for storing ERC logs
 (setq erc-log-channels-directory "~/.erc/logs/")
@@ -49,5 +51,7 @@
                      (".*Away" (:foreground "red"))
                      (".*Idle" (:foreground "orange"))
                      ))
+
+(add-hook 'erc-mode-hook 'turn-on-flyspell)
 
 (provide 'erc-mode-config)
