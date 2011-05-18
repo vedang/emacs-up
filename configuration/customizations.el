@@ -20,8 +20,9 @@
       bookmark-default-file "~/.emacs.d/bookmarks.bmk"
       bookmark-save-flag 1              ; Save bookmarks as soon as I create them
       display-buffer-reuse-frames t     ; Useful when dealing with REPLs
-      show-paren-mode 1
       auto-compression-mode t)
+
+(show-paren-mode 1)
 
 (setq-default indent-tabs-mode nil  ;only spaces by default.
               tab-width 4
