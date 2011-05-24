@@ -167,9 +167,21 @@ Subsequent calls expands the selection to larger semantic unit."
   (load autoload-file))
 
 (defun sudo-edit (&optional arg)
+  "Edit as root"
   (interactive "p")
   (if (or arg (not buffer-file-name))
       (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
+
+(defun revert-all-buffers ()
+  "Refreshes all open buffers from their respective files."
+  (interactive)
+  (dolist (buf (buffer-list))
+    (with-current-buffer buf
+      (when (and (buffer-file-name) (not (buffer-modified-p)))
+        (revert-buffer t t t) )))
+  (message "Refreshed open files."))
+
 
 (provide 'utility-functions)
