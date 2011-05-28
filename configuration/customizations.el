@@ -2,6 +2,7 @@
 
 (setq user-full-name "Vedang Manerikar"
       user-mail-address "vedang.manerikar@gmail.com"
+      message-log-max t
       visible-bell t
       echo-keystrokes 0.1
       inhibit-startup-message t
