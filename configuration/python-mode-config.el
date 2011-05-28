@@ -1,6 +1,5 @@
 ;;; settings for python
 
-(require 'python)
 (require 'pymacs)
 (pymacs-load "ropemacs" "rope-")
 (setq ropemacs-confirm-saving 'nil

@@ -3,9 +3,7 @@
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 (autoload 'twit	"twittering-mode" "" t)
-(autoload 'jabber-connect "jabber-mode-config" "Load Jabber" t)
-(autoload 'jabber-connect-all "jabber-mode-config" "Load Jabber" t)
-(autoload 'python-mode "python-mode-config" "Load python config" t)
+(autoload 'python-mode "python" "Load python mode" t)
 (autoload 'erlang-mode "erlang-mode-config" "Load erlang config" t)
 (autoload 'emacs-lisp-mode "emacs-lisp-mode-config" "Load emacs lisp config" t)
 (autoload 'clojure-mode "clojure-mode-config" "Load config for clojure mode" t)
@@ -21,6 +19,8 @@
 (require 'isearch-mode-config)
 (require 'flymake-config)
 (require 'js2-mode-config)
+(require 'jabber-autoloads)
+
 
 ;;; Eval after loads
 (eval-after-load "org"
@@ -37,6 +37,10 @@
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
+(eval-after-load "jabber"
+  '(require 'jabber-mode-config))
+(eval-after-load "python"
+  '(require 'python-mode-config))
 
 
 ;;; configuration too small to go into individual files

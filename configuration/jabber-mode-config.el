@@ -1,7 +1,5 @@
 ;;; Settings for Jabber
 
-(require 'jabber-autoloads)
-
 ;;; Customization settings
 (setq jabber-account-list (quote (("ved.manerikar@gmail.com" (:network-server . "talk.google.com") (:connection-type . ssl))
                                   ("vedang@infinitelybeta.com" (:network-server . "talk.google.com") (:connection-type . ssl))))
