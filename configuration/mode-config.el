@@ -4,15 +4,12 @@
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 (autoload 'twit	"twittering-mode" "" t)
 (autoload 'python-mode "python" "Load python mode" t)
-(autoload 'emacs-lisp-mode "emacs-lisp-mode-config" "Load emacs lisp config" t)
-(autoload 'clojure-mode "clojure-mode-config" "Load config for clojure mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
 
 ;;; required magic
 (require 'ido-mode-config)
 (require 'ibuffer-mode-config)
 (require 'latex-mode-config)
-(require 'lisp-mode-config)
 (require 'auto-complete-mode-config)
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
@@ -20,6 +17,8 @@
 (require 'js2-mode-config)
 (require 'jabber-autoloads)
 (require 'erlang-start)
+(require 'lisp-mode-config)
+(require 'clojure-mode-autoloads)
 
 
 ;;; Eval after loads
@@ -43,6 +42,10 @@
   '(require 'python-mode-config))
 (eval-after-load "erlang"
   '(require 'erlang-mode-config))
+(eval-after-load "lisp-mode"
+  '(require 'emacs-lisp-mode-config))
+(eval-after-load "clojure"
+  '(require 'clojure-mode-config))
 
 
 ;;; configuration too small to go into individual files
