@@ -6,29 +6,29 @@
 (require 'erc-spelling)
 (require 'erc-autoaway)
 
-(eval-after-load "erc"
-  '(progn
-     (setq erc-autojoin-channels-alist '(("freenode.net"
-                                          "#emacs" "#clojure")
-                                         ("qotdinc.com"
-                                          "#dev" "#foobar"))
-           erc-save-buffer-on-part nil
-           erc-save-queries-on-quit nil
-           erc-log-write-after-send t
-           erc-log-write-after-insert t
-           erc-log-channels-directory "~/.erc/logs/"
-           erc-auto-discard-away t
-           erc-autoaway-idle-seconds 600
-           erc-autoaway-message "[Autoaway] Out of mind, BRB"
-           erc-auto-set-away t
-           erc-hide-list '("JOIN" "PART" "QUIT" "NICK" "MODE"
-                           "324" "328" "329" "332" "333" "353" "477")
-           erc-keywords '((".*Online.*" (:foreground "green"))
-                          (".*Busy" (:foreground "red"))
-                          (".*Away" (:foreground "red"))
-                          (".*Idle" (:foreground "orange"))
-                          ))
-     (add-hook 'erc-mode-hook 'turn-on-flyspell)))
+(setq erc-autojoin-channels-alist '(("freenode.net"
+                                     "#emacs" "#clojure")
+                                    ("qotdinc.com"
+                                     "#dev" "#foobar"))
+      erc-save-buffer-on-part nil
+      erc-save-queries-on-quit nil
+      erc-log-write-after-send t
+      erc-log-write-after-insert t
+      erc-log-channels-directory "~/.erc/logs/"
+      erc-auto-discard-away t
+      erc-autoaway-idle-seconds 600
+      erc-autoaway-message "[Autoaway] Out of mind, BRB"
+      erc-auto-set-away t
+      erc-hide-list '("JOIN" "PART" "QUIT" "NICK" "MODE"
+                      "324" "328" "329" "332" "333" "353" "477")
+      erc-keywords '((".*Online.*" (:foreground "green"))
+                     (".*Busy" (:foreground "red"))
+                     (".*Away" (:foreground "red"))
+                     (".*Idle" (:foreground "orange"))
+                     ))
+
+
+(add-hook 'erc-mode-hook 'turn-on-flyspell)
 
 
 (defface erc-header-line-disconnected

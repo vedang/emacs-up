@@ -2,13 +2,13 @@
 (autoload 'dired "misc-requires" "Load dired-x" t)  ; Better dired
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
-(autoload 'org-agenda "org-mode-config" "Load org mode" t)
-(autoload 'erc "erc-mode-config" "Load configuration for ERC" t)
 (autoload 'twit	"twittering-mode" "" t)
 (autoload 'jabber-connect "jabber-mode-config" "Load Jabber" t)
 (autoload 'jabber-connect-all "jabber-mode-config" "Load Jabber" t)
 (autoload 'python-mode "python-mode-config" "Load python config" t)
 (autoload 'erlang-mode "erlang-mode-config" "Load erlang config" t)
+(autoload 'emacs-lisp-mode "emacs-lisp-mode-config" "Load emacs lisp config" t)
+(autoload 'clojure-mode "clojure-mode-config" "Load config for clojure mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
 
 ;;; required magic
@@ -21,7 +21,12 @@
 (require 'isearch-mode-config)
 (require 'flymake-config)
 (require 'js2-mode-config)
-
+(eval-after-load "org"
+  '(progn
+     (require 'org-mode-config)
+     (org-agenda-to-appt)))
+(eval-after-load "erc"
+  '(require 'erc-mode-config))
 
 ;;; configuration too small to go into individual files
 
@@ -37,6 +42,7 @@
      (set-face-foreground 'diff-added "green4")
      (set-face-foreground 'diff-removed "red3")))
 
+
 (eval-after-load 'magit
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
@@ -51,6 +57,7 @@
         try-complete-file-name
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
+
 
 (setq uniquify-buffer-name-style 'reverse
       uniquify-separator "/"
