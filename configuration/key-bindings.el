@@ -30,7 +30,6 @@
 ;;; Keybindings from Steve Yegge's Effective Emacs
 (global-set-key (kbd "C-x C-m") 'execute-extended-command) ;; faster M-x
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
-(global-set-key (kbd "C-w") 'backward-kill-word)           ;; easy editing
 (global-set-key (kbd "C-x C-k") 'kill-region)              ;; remapping C-w
 
 

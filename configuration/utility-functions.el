@@ -166,6 +166,7 @@ Subsequent calls expands the selection to larger semantic unit."
         (update-directory-autoloads autoload-dir))))
   (load autoload-file))
 
+
 (defun sudo-edit (&optional arg)
   "Edit as root"
   (interactive "p")
@@ -182,6 +183,16 @@ Subsequent calls expands the selection to larger semantic unit."
       (when (and (buffer-file-name) (not (buffer-modified-p)))
         (revert-buffer t t t) )))
   (message "Refreshed open files."))
+
+
+(defun backward-kill-word-or-kill-region (&optional arg)
+  "Change C-w behavior"
+  (interactive "p")
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (backward-kill-word arg)))
+
+(global-set-key (kbd "C-w") 'backward-kill-word-or-kill-region)
 
 
 (provide 'utility-functions)
