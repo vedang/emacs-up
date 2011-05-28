@@ -9,7 +9,6 @@
 ;;; required magic
 (require 'ido-mode-config)
 (require 'ibuffer-mode-config)
-(require 'latex-mode-config)
 (require 'auto-complete-mode-config)
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
@@ -46,7 +45,8 @@
   '(require 'emacs-lisp-mode-config))
 (eval-after-load "clojure"
   '(require 'clojure-mode-config))
-
+(eval-after-load "LaTeX"
+  '(require 'latex-mode-config))
 
 ;;; configuration too small to go into individual files
 (require 'yasnippet) ;; not yasnippet-bundle

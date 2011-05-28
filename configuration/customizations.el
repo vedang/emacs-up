@@ -88,7 +88,7 @@
 (add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
-
+(add-to-list 'auto-mode-alist '("\\.\\(tex\\|ltx\\)$" . LaTeX-mode))
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)
