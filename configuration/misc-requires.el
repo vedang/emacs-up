@@ -2,3 +2,4 @@
 
 (require 'dired-x)
 
+(provide 'misc-requires)
