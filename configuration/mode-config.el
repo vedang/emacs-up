@@ -5,6 +5,8 @@
 (autoload 'twit	"twittering-mode" "" t)
 (autoload 'python-mode "python" "Load python mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
+(autoload 'js2-mode "js2-mode" nil t)
+
 
 ;;; required magic
 (require 'ido-mode-config)
@@ -13,7 +15,6 @@
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
 (require 'flymake-config)
-(require 'js2-mode-config)
 (require 'jabber-autoloads)
 (require 'erlang-start)
 (require 'lisp-mode-config)
@@ -47,6 +48,9 @@
   '(require 'clojure-mode-config))
 (eval-after-load "LaTeX"
   '(require 'latex-mode-config))
+(eval-after-load "js2-mode"
+  '(require 'js2-mode-config))
+
 
 ;;; configuration too small to go into individual files
 (require 'yasnippet) ;; not yasnippet-bundle
