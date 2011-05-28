@@ -1,4 +1,4 @@
-(autoload 'package-list-packages "elpa-config" "Load Elpa" t)
+(autoload 'package-list-packages "elpa-config" "List Elpa packages" t)
 (autoload 'dired "misc-requires" "Load dired-x" t)  ; Better dired
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
@@ -21,32 +21,29 @@
 (require 'isearch-mode-config)
 (require 'flymake-config)
 (require 'js2-mode-config)
+
+;;; Eval after loads
 (eval-after-load "org"
   '(progn
      (require 'org-mode-config)
      (org-agenda-to-appt)))
 (eval-after-load "erc"
   '(require 'erc-mode-config))
-
-;;; configuration too small to go into individual files
-
-
-(require 'yasnippet) ;; not yasnippet-bundle
-(global-set-key (kbd "S-TAB") 'yas/trigger-key)
-(yas/initialize)
-(yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
-
-
 (eval-after-load 'diff-mode
   '(progn
      (set-face-foreground 'diff-added "green4")
      (set-face-foreground 'diff-removed "red3")))
-
-
 (eval-after-load 'magit
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
+
+
+;;; configuration too small to go into individual files
+(require 'yasnippet) ;; not yasnippet-bundle
+(global-set-key (kbd "S-TAB") 'yas/trigger-key)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
 
 
 (setq hippie-expand-try-functions-list
