@@ -1,11 +1,8 @@
 *.elc
 loaddefs.el
-backups/*
-auto-save-list
+temp-files/*
 custom.el
-places
 tramp
 \#*
-org-clock-save
 *.dat
 *.beam

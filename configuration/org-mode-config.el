@@ -150,7 +150,7 @@ Skips capture tasks and tasks with subtasks"
 (setq org-clock-out-when-done t)
 ;; Save the running clock and all clock history when exiting Emacs, load it on startup
 (setq org-clock-persist t)
-(setq org-clock-persist-file "~/.emacs.d/org-clock-save")
+(setq org-clock-persist-file (concat tempfiles-dir "org-clock-save"))
 ;; Enable auto clock resolution for finding open clocks
 (setq org-clock-auto-clock-resolution (quote when-no-clock-is-running))
 ;; Include current clocking task in clock reports

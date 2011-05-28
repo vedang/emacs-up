@@ -23,6 +23,7 @@
 (setq autoload-file (concat dotfiles-dir "loaddefs.el"))
 (setq package-user-dir (concat dotfiles-dir "elpa"))
 (setq custom-file (concat dotfiles-dir "custom.el"))
+(setq tempfiles-dir (concat dotfiles-dir "temp-files/"))
 
 ;;; Require common stuff
 (require 'cl)

@@ -2,7 +2,7 @@
 
 (setq user-full-name "Vedang Manerikar"
       user-mail-address "vedang.manerikar@gmail.com"
-      message-log-max t
+      message-log-max t                 ; Log as much as possible on startup
       visible-bell t
       echo-keystrokes 0.1
       inhibit-startup-message t
@@ -13,12 +13,12 @@
       color-theme-is-global t
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
-      save-place-file (concat dotfiles-dir "places")
+      save-place-file (concat tempfiles-dir "places")
       x-select-enable-clipboard t
       column-number-mode t
       delete-selection-mode t
       debug-on-error t
-      bookmark-default-file "~/.emacs.d/bookmarks.bmk"
+      bookmark-default-file (concat tempfiles-dir "bookmarks.bmk")
       bookmark-save-flag 1              ; Save bookmarks as soon as I create them
       display-buffer-reuse-frames t     ; Useful when dealing with REPLs
       auto-compression-mode t)
@@ -33,8 +33,13 @@
 
 
 ;; Don't clutter up directories with files~
-(setq backup-directory-alist `(("." . ,(expand-file-name
-                                        (concat dotfiles-dir "backups")))))
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat tempfiles-dir "backups"))))
+      auto-save-list-file-prefix
+      (concat tempfiles-dir "auto-save-list/.auto-saves-")
+      auto-save-file-name-transforms
+      `((".*" ,(concat tempfiles-dir "auto-save-list/") t)))
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))1
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))

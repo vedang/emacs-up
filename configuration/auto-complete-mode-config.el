@@ -10,6 +10,7 @@
 (setq ac-auto-show-menu 0.8)
 ;; select candidates with C-n C-p
 (setq ac-use-menu-map t)
+(setq ac-comphist-file (concat tempfiles-dir "ac-comphist.dat"))
 (define-key ac-menu-map "\C-n" 'ac-next)
 (define-key ac-menu-map "\C-p" 'ac-previous)
 
