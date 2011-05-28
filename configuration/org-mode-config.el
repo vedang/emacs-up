@@ -305,6 +305,7 @@ Skips capture tasks and tasks with subtasks"
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c t") 'org-todo)
 (global-set-key (kbd "C-c C-r") 'org-capture)
+(global-set-key (kbd "<f6>") 'org-capture)
 (global-set-key (kbd "<S-f5>") 'widen)
 (global-set-key (kbd "<f11>") 'org-clock-goto)
 (global-set-key (kbd "<f12>") 'org-agenda)
@@ -482,8 +483,7 @@ Skips capture tasks and tasks with subtasks"
              '(dot org-export-blocks-format-dot nil))
 ;; ==============================================================================
 
-(org-agenda-to-appt) ;; Load appointments for today
-
+(provide 'org-mode-config)
 ;; A big thanks to Bernt Hansen for providing an awesome guide to
 ;; beginners so that we can harness the power of org-mode. Much of the
 ;; customization here is from his document about org-mode which can be
