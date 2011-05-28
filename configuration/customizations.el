@@ -49,6 +49,7 @@
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
+(add-hook 'lisp-mode-hook 'turn-on-paredit)
 
 
 (defvar programming-major-modes
@@ -86,6 +87,7 @@
 ;;; open these files in the appropriate mode
 (add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
+(add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 
 
 ;; customizations for auto-indentation
