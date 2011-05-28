@@ -2,14 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("Project Qotd"
+(("org-refile-last-stored"
+ (filename . "~/Documents/Notes-GTD/Personal-major.org")
+ (front-context-string . "** TODO this is ")
+ (rear-context-string . "erlang.\n\n* test\n")
+ (position . 16536))
+("Project Qotd"
  (filename . "~/Documents/Notes-GTD/Worklog-major.org")
  (front-context-string . "* PROJECT QOTD [")
  (rear-context-string . "6:44]\n    :END:\n")
  (position . 2358))
 ("org-capture-last-stored"
  (filename . "~/Documents/Notes-GTD/remember-notes.org")
- (front-context-string . "* TODO [[lessons")
- (rear-context-string . "'org-capture)]]\n")
- (position . 2980))
+ (front-context-string . "* TODO this is a")
+ (rear-context-string . ">  0:01\n  :END:\n")
+ (position . 1859))
 )
