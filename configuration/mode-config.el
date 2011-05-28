@@ -4,7 +4,6 @@
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 (autoload 'twit	"twittering-mode" "" t)
 (autoload 'python-mode "python" "Load python mode" t)
-(autoload 'erlang-mode "erlang-mode-config" "Load erlang config" t)
 (autoload 'emacs-lisp-mode "emacs-lisp-mode-config" "Load emacs lisp config" t)
 (autoload 'clojure-mode "clojure-mode-config" "Load config for clojure mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
@@ -20,6 +19,7 @@
 (require 'flymake-config)
 (require 'js2-mode-config)
 (require 'jabber-autoloads)
+(require 'erlang-start)
 
 
 ;;; Eval after loads
@@ -41,6 +41,8 @@
   '(require 'jabber-mode-config))
 (eval-after-load "python"
   '(require 'python-mode-config))
+(eval-after-load "erlang"
+  '(require 'erlang-mode-config))
 
 
 ;;; configuration too small to go into individual files

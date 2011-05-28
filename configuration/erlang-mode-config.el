@@ -1,6 +1,5 @@
 ;;; configuration for erlang
 
-(require 'erlang-start)
 (require 'distel)
 (distel-setup)
 
