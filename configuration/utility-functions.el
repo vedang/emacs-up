@@ -102,10 +102,12 @@ Subsequent calls expands the selection to larger semantic unit."
 (defun turn-on-hl-line-mode ()
   (if window-system (hl-line-mode t)))
 (defun turn-on-paredit ()
+  (require 'paredit)
   (paredit-mode t))
 (defun turn-on-slime ()
   (slime-mode t))
 (defun turn-on-whitespace-mode ()
+  (require 'whitespace)
   (setq whitespace-style '(empty tabs lines trailing))
   (whitespace-mode t))
 

@@ -29,8 +29,7 @@
 (require 'cl)
 (require 'uniquify)
 (require 'saveplace)
-(require 'paredit)
-(require 'whitespace)
+
 
 ;;; Require my configuration
 (require 'customizations)
