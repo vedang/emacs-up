@@ -19,7 +19,7 @@
       delete-selection-mode t
       debug-on-error t
       bookmark-default-file (concat tempfiles-dir "bookmarks.bmk")
-      bookmark-save-flag 1              ; Save bookmarks as soon as I create them
+      bookmark-save-flag 1     ; Save bookmarks as soon as I create them
       display-buffer-reuse-frames t     ; Useful when dealing with REPLs
       auto-compression-mode t)
 
@@ -123,7 +123,8 @@
 ;; when I create a temporary buffer, it should auto-detect the right
 ;; mode to start in the buffer
 (setq default-major-mode (lambda ()
-                           (let ((buffer-file-name (or buffer-file-name (buffer-name))))
+                           (let ((buffer-file-name (or buffer-file-name
+                                                       (buffer-name))))
                              (set-auto-mode))))
 
 ;;; Everything in UTF8
@@ -140,9 +141,8 @@
 (setq default-process-coding-system '(utf-8 . utf-8))
 
 
-;;; I dont use conkeror anymore
-;; (setq browse-url-browser-function 'browse-url-generic
-;;       browse-url-generic-program "conkeror")
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "google-chrome")
 
 
 (provide 'customizations)
