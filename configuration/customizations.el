@@ -46,7 +46,8 @@
 
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions
-      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".pyc" ".beam"))
+      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx"
+        ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf"))
 
 
 ;;; hooks
@@ -58,7 +59,8 @@
 
 
 (defvar programming-major-modes
-  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode emacs-lisp-mode lisp-mode scheme-mode python-mode)
+  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode
+             emacs-lisp-mode lisp-mode scheme-mode python-mode)
   "List of programming modes")
 
 (defun vedang/prog-mode-settings ()
