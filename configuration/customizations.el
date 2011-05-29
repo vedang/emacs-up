@@ -69,6 +69,8 @@
       (toggle-read-only 1))
     ;; Flyspell mode for comments and strings
     (flyspell-prog-mode)
+    ;; tell me if lines exceed 80 columns
+    (turn-on-whitespace-mode)
     ;; paredit should always be there, except in python
     (when (not (eq major-mode 'python-mode))
       (turn-on-paredit))
@@ -134,6 +136,7 @@
 (set-clipboard-coding-system 'utf-8)
 (set-selection-coding-system 'utf-8)
 (setq default-process-coding-system '(utf-8 . utf-8))
+
 
 ;;; I dont use conkeror anymore
 ;; (setq browse-url-browser-function 'browse-url-generic

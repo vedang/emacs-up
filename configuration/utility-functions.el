@@ -105,7 +105,9 @@ Subsequent calls expands the selection to larger semantic unit."
   (paredit-mode t))
 (defun turn-on-slime ()
   (slime-mode t))
-
+(defun turn-on-whitespace-mode ()
+  (setq whitespace-style '(empty tabs lines trailing))
+  (whitespace-mode t))
 
 (defun add-watchwords ()
   (font-lock-add-keywords
