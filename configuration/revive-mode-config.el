@@ -9,7 +9,7 @@
 (defun emacs-save-layout ();TODO: handle eshell
   "save the frame and window layout to ~/.emacs-layout. Requires revive.el."
   (interactive)
-  (let ((out-name '"~/.emacs-layout")
+  (let ((out-name '"~/.layout")
         (frames (frame-list))
         (configs nil)
         (buffs (buffer-list))
@@ -30,7 +30,7 @@
 (defun emacs-load-layout ();TODO: handle eshell buffers.
   "Load the layout saved by emacs-save-layout. Requires revive.el."
   (interactive)
-  (let* ((in-name '"~/.emacs-layout")
+  (let* ((in-name '"~/.layout")
          (config-count 0)
          (frames (frame-list))
          (configs nil)
