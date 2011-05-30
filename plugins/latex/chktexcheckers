@@ -1,0 +1,6 @@
+OutFormat
+  {
+
+  # -v0; silent mode : change the default setting of -v0 as follows:
+  "%f%b%l%b%c%b%k: %m!n"
+}
