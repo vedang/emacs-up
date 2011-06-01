@@ -10,8 +10,7 @@
 (defvar starter-kit-packages (list 'magit
                                    'gist
                                    'erc
-                                   'clojure-mode
-                                   'swank-clojure)
+                                   'clojure-mode)
   "Libraries that should be installed by default.")
 
 (defun starter-kit-elpa-install ()
