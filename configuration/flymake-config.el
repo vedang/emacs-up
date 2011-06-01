@@ -31,11 +31,11 @@
                '("\\.erl\\'" flymake-erlang-init))
   (push
    '("^\\(\.+\.tex\\):\\([0-9]+\\):\\([0-9]+\\):\\(.+\\)"
-     1 2 3 4) flymake-err-line-patterns))
+     1 2 3 4) flymake-err-line-patterns)
 
+  (load-library "flymake-cursor")
+  (global-set-key [f3] 'flymake-goto-prev-error)
+  (global-set-key [f2] 'flymake-goto-next-error))
 
-(load-library "flymake-cursor")
-(global-set-key [f3] 'flymake-goto-prev-error)
-(global-set-key [f2] 'flymake-goto-next-error)
 
 (provide 'flymake-config)
