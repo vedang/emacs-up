@@ -17,7 +17,8 @@
 (require 'flymake-config)
 (require 'jabber-autoloads)
 (require 'erlang-start)
-(require 'lisp-mode-config)
+(require 'slime-autoloads)
+(require 'swank-clojure-autoload)
 (require 'clojure-mode-autoloads)
 
 
@@ -46,6 +47,8 @@
   '(require 'emacs-lisp-mode-config))
 (eval-after-load "clojure"
   '(require 'clojure-mode-config))
+(eval-after-load "slime"
+  '(require 'lisp-mode-config))
 (eval-after-load "LaTeX"
   '(require 'latex-mode-config))
 (eval-after-load "js2-mode"

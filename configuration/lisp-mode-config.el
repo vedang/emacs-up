@@ -1,5 +1,9 @@
 ;;; Slime
-(require 'slime-autoloads)
+
+(slime-setup '(slime-fancy
+               slime-repl
+               slime-asdf
+               slime-fuzzy))
 
 (add-hook 'lisp-mode-hook 'turn-on-slime)
 (add-hook 'inferior-lisp-mode-hook 'turn-on-slime)
