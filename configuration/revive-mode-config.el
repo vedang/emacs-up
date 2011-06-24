@@ -7,7 +7,7 @@
 ;;; From: http://stormcoders.blogspot.com/2007/11/restoring-emacs-layout.html
 
 (defun emacs-save-layout ();TODO: handle eshell
-  "save the frame and window layout to ~/.emacs-layout. Requires revive.el."
+  "save the frame and window layout to ~/.layout. Requires revive.el."
   (interactive)
   (let ((out-name '"~/.layout")
         (frames (frame-list))
@@ -66,6 +66,6 @@
       '((org-agenda-mode . org-agenda-list)
         (erc-mode . erc)))
 
-;; ==============================================================================
+;; ============================================================================
 
 (provide 'revive-mode-config)
