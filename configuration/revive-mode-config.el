@@ -66,6 +66,7 @@
       '((org-agenda-mode . org-agenda-list)
         (erc-mode . erc)))
 
+(add-hook 'kill-emacs-hook 'emacs-save-layout)
 ;; ============================================================================
 
 (provide 'revive-mode-config)
