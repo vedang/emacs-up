@@ -25,8 +25,7 @@
 ;;; Eval after loads
 (eval-after-load "org"
   '(progn
-     (require 'org-mode-config)
-     (org-agenda-to-appt)))
+     (require 'org-mode-config)))
 (eval-after-load "erc"
   '(require 'erc-mode-config))
 (eval-after-load 'diff-mode
