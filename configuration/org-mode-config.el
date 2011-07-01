@@ -13,6 +13,20 @@
                         org-archive-directory))
 
 
+;; Standard org-mode key bindings
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c t") 'org-todo)
+(global-set-key (kbd "C-c C-r") 'org-capture)
+(global-set-key (kbd "<f6>") 'org-capture)
+(global-set-key (kbd "<S-f5>") 'widen)
+(global-set-key (kbd "<f11>") 'org-clock-goto)
+(global-set-key (kbd "<f12>") 'org-agenda)
+(global-set-key (kbd "C-<f11>") 'org-clock-in)
+(global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
+(global-set-key (kbd "<f9> i") 'bh/clock-in)
+(global-set-key (kbd "<f9> o") 'bh/clock-out)
+
+
 ;; Auto starting org-mode for following file types
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (transient-mark-mode 1)
@@ -339,18 +353,6 @@ Skips capture tasks and tasks with subtasks"
 ;;       (write-file (expand-file-name filename
 ;;                                     "~/Work")))))
 
-;; Standard org-mode key bindings
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c t") 'org-todo)
-(global-set-key (kbd "C-c C-r") 'org-capture)
-(global-set-key (kbd "<f6>") 'org-capture)
-(global-set-key (kbd "<S-f5>") 'widen)
-(global-set-key (kbd "<f11>") 'org-clock-goto)
-(global-set-key (kbd "<f12>") 'org-agenda)
-(global-set-key (kbd "C-<f11>") 'org-clock-in)
-(global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
-(global-set-key (kbd "<f9> i") 'bh/clock-in)
-(global-set-key (kbd "<f9> o") 'bh/clock-out)
 
 ;; function to narrow view-field and make org-file more productive
 (defun my-org-todo ()
