@@ -57,16 +57,15 @@
          "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t))))
 
 
-;; For ease of Re-filing:
+;; Setup for Re-filing:
 ;; Targets include this file and any file contributing to the agenda
-;; - up to 5 levels deep
-(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 5)
-                                 (nil :maxlevel . 5))))
+;; - up to 2 levels deep
+(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 2)
+                                 (nil :maxlevel . 2))))
 ;; Targets start with the file name - allows creating level 1 tasks
 (setq org-refile-use-outline-path (quote file))
-;; Targets complete in steps so we start with filename,
-;; TAB shows the next level of targets etc
-(setq org-outline-path-complete-in-steps t)
+;; Targets complete directly with IDO
+(setq org-outline-path-complete-in-steps nil)
 ;; Allow refile to create parent tasks with confirmation
 (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
