@@ -57,19 +57,17 @@
          "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t))))
 
 
-;; Setup for Re-filing:
-;; Targets include this file and any file contributing to the agenda
-;; - up to 2 levels deep
+;; refile settings
 (setq org-refile-targets (quote ((org-agenda-files :maxlevel . 2)
-                                 (nil :maxlevel . 2))))
-;; Targets start with the file name - allows creating level 1 tasks
-(setq org-refile-use-outline-path (quote file))
-;; Targets complete directly with IDO
-(setq org-outline-path-complete-in-steps nil)
-;; Allow refile to create parent tasks with confirmation
-(setq org-refile-allow-creating-parent-nodes (quote confirm))
+                                 (nil :maxlevel . 2)))
+      org-refile-use-outline-path 'file
+      ;; Targets start with the file name - allows creating level 1 tasks
+      org-outline-path-complete-in-steps nil
+      org-refile-allow-creating-parent-nodes 'confirm)
+
 
 ;; org-todo settings
+
 ;; I need more todo keywords than present by default
 ;; keys mentioned in brackets are hot-keys for the States
 ;; ! indicates insert timestamp
@@ -81,6 +79,8 @@
               (sequence "PROJECT(p)" "TASK(T!/!)" "WAITINGTOMERGE(m/!)"
                         "WAITINGTODEPLOY(a/!)" "|"
                         "SOMEDAY(s)" "CANCELLED(c@/!)"))))
+
+
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
               ("WORKING" :foreground "orange" :weight bold)
@@ -94,6 +94,7 @@
               ("WAITINGTODEPLOY" :foreground "gray" :weight bold)
               ("SOMEDAY" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "lightgreen" :weight bold))))
+
 
 ;; Changing State should trigger following Tag changes
 (setq org-todo-state-tags-triggers
@@ -112,6 +113,7 @@
 
 
 (setq org-use-fast-todo-selection t
+      org-fast-tag-selection-single-key 'expert
       ;; Allow me to change state without it being logged
       org-treat-S-cursor-todo-selection-as-state-change nil
       ;; show TODO counts of _all_ subtasks under a heading
@@ -134,9 +136,11 @@
                             ("WAITING" . ?a)
                             ("future" . ?f))))
 
+
 ;; I need more priorities that provided by default
 (setq org-lowest-priority ?E)
 (setq org-default-priority ?E)
+
 
 ;; Logbook settings
 (setq org-log-done (quote time)
@@ -144,18 +148,18 @@
       org-log-reschedule 'note
       org-log-redeadline 'note)
 
-;; settings for org-clock
 
+;; settings for org-clock
 (org-clock-persistence-insinuate)
-(setq org-clock-history-length 35
+(setq org-clock-history-length 10
       org-clock-in-resume t
       org-drawers (quote ("PROPERTIES" "LOGBOOK" "CLOCK"))
       org-clock-into-drawer "CLOCK"
       org-clock-out-remove-zero-time-clocks t
       org-clock-out-when-done t
-      org-clock-persist t
+      org-clock-persist 'history
       org-clock-persist-file (concat tempfiles-dir "org-clock-save")
-      org-clock-auto-clock-resolution (quote when-no-clock-is-running)
+      org-clock-auto-clock-resolution 'when-no-clock-is-running
       org-clock-report-include-clocking-task t)
 
 
@@ -177,7 +181,7 @@ Skips capture tasks and tasks with subtasks"
         (when (not has-subtask)
           "WORKING"))))
 
-(setq org-clock-in-switch-to-state (quote bh/clock-in-to-working))
+(setq org-clock-in-switch-to-state 'bh/clock-in-to-working)
 
 
 ;; Remove empty drawers on clock out
@@ -298,43 +302,14 @@ Skips capture tasks and tasks with subtasks"
       (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00"))))
 
 
-;; Functions for / RET filtering in the agenda
-(defun bh/weekday-p ()
-  (let ((wday (nth 6 (decode-time))))
-    (and (< wday 6) (> wday 0))))
-
-(defun bh/working-p ()
-  (let ((hour (nth 2 (decode-time))))
-    (and (bh/weekday-p) (or (and (>= hour 9) (<= hour 12))
-                            (and (>= hour 14) (<= hour 19))))))
-
-(defun bh/org-auto-exclude-function (tag)
-  (and (cond
-        ((string= tag "@home")
-         (bh/working-p))
-        ((string= tag "@office")
-         (not (bh/working-p)))
-        ((or (string= tag "@errand") (string= tag "phone"))
-         (let ((hour (nth 2 (decode-time))))
-           (or (< hour 8) (> hour 21)))))
-       (concat "-" tag)))
-
-(setq org-agenda-auto-exclude-function 'bh/org-auto-exclude-function)
-
-
-;; function to narrow view-field and make org-file more productive
-(defun my-org-todo ()
-  (interactive)
-  (org-narrow-to-subtree)
-  (org-show-todo-tree nil)
-  (widen))
-
 ;; setup for Reminder
 ;; Erase all reminders and rebuild reminders for today from the agenda
 (defadvice org-agenda-to-appt (before wickedcool activate)
   "Clear the appt-time-msg-list."
   (setq appt-time-msg-list nil))
+
 (add-hook 'org-finalize-agenda-hook 'org-agenda-to-appt)
+
 (appt-activate t)
 
 ;; If we leave Emacs running overnight -
@@ -350,6 +325,7 @@ Skips capture tasks and tasks with subtasks"
             (define-key yas/keymap [tab] 'yas/next-field-group)
             ;; flyspell mode to spell check everywhere
             (flyspell-mode 1)))
+
 
 ;; Export org table as CSV by default
 (setq org-table-export-default-format "orgtbl-to-csv")
@@ -403,6 +379,7 @@ Skips capture tasks and tasks with subtasks"
                 "\\begin{frame}[fragile]\\frametitle{%s}"
                 "\\end{frame}")))
 
+
 ;; letter class, for formal letters
 (add-to-list 'org-export-latex-classes
 
@@ -426,6 +403,7 @@ Skips capture tasks and tasks with subtasks"
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
+
 ;; article class, for articles
 (add-to-list 'org-export-latex-classes
              '("article"
@@ -448,13 +426,16 @@ Skips capture tasks and tasks with subtasks"
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
+
 ;; I don't want org mode to export a_b as a subscript b in latex.
 ;; I mostly write code documents and this is never the intended behavior
 (setq org-export-with-sub-superscripts nil)
 
+
 ;; I want to add comments to my org files without
 ;; having them show up in the latex export.
 (setq org-export-blocks nil)
+
 
 (add-to-list 'org-export-blocks
              '(src org-babel-exp-src-blocks nil))
@@ -466,8 +447,10 @@ Skips capture tasks and tasks with subtasks"
              '(dot org-export-blocks-format-dot nil))
 ;; ============================================================================
 
+
 (provide 'org-mode-config)
 ;; A big thanks to Bernt Hansen for providing an awesome guide to
-;; beginners so that we can harness the power of org-mode. Much of the
-;; customization here is from his document about org-mode which can be
+;; beginners so that we can harness the power of org-mode. Almost all of the
+;; customization here, and my complete day-to-day workflow,
+;; is based on his document about org-mode which can be
 ;; found here: http://doc.norang.ca/org-mode.html
