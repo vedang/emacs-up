@@ -239,27 +239,39 @@ Skips capture tasks and tasks with subtasks"
       org-global-properties
       (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00"))))
 
+
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
-      (quote (("d" "Tasks delegated to somebody" todo "DELEGATED"
-               ((org-use-tag-inheritance nil)
-                (org-agenda-todo-ignore-with-date nil)))
-              ("w" "Tasks waiting for something" tags-todo "WAITING"
-               ((org-use-tag-inheritance nil)
-                (org-agenda-todo-ignore-with-date nil)))
-              ("n" "Next Tasks" tags-todo "NEXT"
-               ((org-use-tag-inheritance t)
-                (org-agenda-todo-ignore-with-date nil)))
-              ("r" "Release Tasks" tags-todo "RELEASE"
-               ((org-use-tag-inheritance t)
-                (org-agenda-todo-ignore-with-date nil)))
-              ("R" "Refile New Notes and Tasks" tags "REFILE"
-               ((org-agenda-todo-ignore-with-date nil)))
+      (quote (("a" "Agenda"
+               ((agenda "" nil)
+                (tags-todo "RELEASE+@office-WAITING-CANCELLED"
+                           ((org-agenda-overriding-header
+                             "Release Tasks")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(effort-up category-keep))))
+                (tags-todo "NEXT-RELEASE-WAITING-CANCELLED"
+                           ((org-agenda-overriding-header
+                             "Next Tasks")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(effort-up category-keep))))
+                (tags "LEVEL=1+REFILE"
+                      ((org-agenda-overriding-header
+                        "Notes and Tasks to Refile")))
+               nil))
               ("c" "Select default clocking task" tags "LEVEL=1-REFILE"
                ((org-agenda-skip-function
                  '(org-agenda-skip-subtree-if 'notregexp "^\\* Organization"))
                 (org-agenda-overriding-header
-                 "Set default clocking task with C-u C-u I"))))))
+                 "Set default clocking task with C-u C-u I")))
+              ("d" "Delegated Tasks" todo "DELEGATED"
+                    ((org-use-tag-inheritance nil)
+                     (org-agenda-todo-ignore-with-date nil))))))
 
 ;; Always highlight current agenda line
 (add-hook 'org-agenda-mode-hook '(lambda ()
