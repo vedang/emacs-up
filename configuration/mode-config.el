@@ -20,6 +20,7 @@
 (require 'slime-autoloads)
 (require 'swank-clojure-autoload)
 (require 'clojure-mode-autoloads)
+(require 'writegood-mode)
 
 
 ;;; Eval after loads
