@@ -174,12 +174,13 @@ Skips capture tasks and tasks with subtasks"
 ;; Sometimes I change tasks I'm clocking quickly
 ;; this removes clocked tasks with 0:00 duration
 (setq org-clock-out-remove-zero-time-clocks t)
-;; Remove empty CLOCK drawers on clock out
+;; Remove empty drawers on clock out
 (defun bh/remove-empty-drawer-on-clock-out ()
   (interactive)
   (save-excursion
     (beginning-of-line 0)
-    (org-remove-empty-drawer-at "CLOCK" (point))))
+    (org-remove-empty-drawer-at "CLOCK" (point))
+    (org-remove-empty-drawer-at "LOGBOOK" (point))))
 (add-hook 'org-clock-out-hook 'bh/remove-empty-drawer-on-clock-out 'append)
 ;; Clock out when moving task to a done state
 (setq org-clock-out-when-done t)
