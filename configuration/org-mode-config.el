@@ -109,13 +109,16 @@
                ("WAITING"))
               ("WORKING"
                ("WAITING") ("NEXT" . t)))))
-;; Faster state set
-(setq org-use-fast-todo-selection t)
-;;; Allow me to change state without it being logged
-(setq org-treat-S-cursor-todo-selection-as-state-change nil)
-;;; show TODO counts of _all_ subtasks under a heading
-(setq org-hierarchical-todo-statistics nil
-      org-hierarchical-checkbox-statistics nil)
+
+
+(setq org-use-fast-todo-selection t
+      ;; Allow me to change state without it being logged
+      org-treat-S-cursor-todo-selection-as-state-change nil
+      ;; show TODO counts of _all_ subtasks under a heading
+      org-hierarchical-todo-statistics nil
+      org-hierarchical-checkbox-statistics nil
+      org-enforce-todo-dependencies t)
+
 
 ;; Important Tag list
 (setq org-tag-alist (quote ((:startgroup)
@@ -230,15 +233,6 @@ Skips capture tasks and tasks with subtasks"
 
 (add-hook 'org-clock-out-hook 'bh/clock-out-maybe 'append)
 
-(setq org-agenda-log-mode-items (quote (clock))
-      org-agenda-clockreport-parameter-plist (quote
-                                              (:link nil :maxlevel 3))
-      org-agenda-span 1
-      org-columns-default-format
-      "%80ITEM(Task) %10Effort(Effort){:} %10CLOCKSUM"
-      org-global-properties
-      (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00"))))
-
 
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
@@ -273,36 +267,35 @@ Skips capture tasks and tasks with subtasks"
                     ((org-use-tag-inheritance nil)
                      (org-agenda-todo-ignore-with-date nil))))))
 
+
 ;; Always highlight current agenda line
 (add-hook 'org-agenda-mode-hook '(lambda ()
                                    (hl-line-mode 1)))
-;; Don't show future entries for repeating tasks
-(setq org-agenda-repeating-timestamp-show-all nil)
-;; Show all agenda dates - even if empty
-(setq org-agenda-show-all-dates t)
-;; Sorting order for tasks on the agenda
-(setq org-agenda-sorting-strategy
+
+(setq org-agenda-repeating-timestamp-show-all nil
+      org-agenda-show-all-dates t
+      org-agenda-sorting-strategy
       (quote ((agenda time-up priority-down effort-up category-up)
               (todo todo-state-up priority-up)
-              (tags priority-down))))
-;; Start the weekly agenda today
-(setq org-agenda-start-on-weekday nil)
-;; Disable display of the time grid
-(setq org-agenda-time-grid
+              (tags priority-down)))
+      org-agenda-start-on-weekday nil
+      org-agenda-time-grid
       (quote (nil "----------------"
-                  (800 1000 1200 1400 1600 1800 2000))))
-;; Gimme 30 days warning of deadlines
-(setq org-deadline-warning-days 30)
-;; Keep tasks with dates off the global todo lists
-(setq org-agenda-todo-ignore-with-date t)
-;; Remove completed deadline tasks from the agenda view
-(setq org-agenda-skip-deadline-if-done t)
-;; Remove completed scheduled tasks from the agenda view
-(setq org-agenda-skip-scheduled-if-done t)
-;; Include agenda archive files when searching for things
-(setq org-agenda-text-search-extra-files (quote (agenda-archives)))
-;; Block task until all subtasks are in a done todo state
-(setq org-enforce-todo-dependencies t)
+                  (800 1000 1200 1400 1600 1800 2000)))
+      org-deadline-warning-days 30
+      org-agenda-todo-ignore-with-date t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-skip-scheduled-if-done t
+      org-agenda-text-search-extra-files (quote (agenda-archives))
+      org-agenda-log-mode-items (quote (clock))
+      org-agenda-clockreport-parameter-plist (quote
+                                              (:link nil :maxlevel 3))
+      org-agenda-span 1
+      org-columns-default-format
+      "%80ITEM(Task) %10Effort(Effort){:} %10CLOCKSUM"
+      org-global-properties
+      (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00"))))
+
 
 ;; Functions for / RET filtering in the agenda
 (defun bh/weekday-p ()
