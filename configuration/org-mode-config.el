@@ -230,19 +230,13 @@ Skips capture tasks and tasks with subtasks"
 
 (add-hook 'org-clock-out-hook 'bh/clock-out-maybe 'append)
 
-;; Agenda log mode items to display (clock time only by default)
-(setq org-agenda-log-mode-items (quote (clock)))
-;; Agenda clock report parameters (no links, 3 levels deep)
-(setq org-agenda-clockreport-parameter-plist (quote (:link nil :maxlevel 3)))
-;; Show a single days agenda
-(setq org-agenda-span 1)
-
-;; settings for estimates and efforts
-;; Set default column view headings: Task Effort Clock_Summary
-(setq org-columns-default-format
-      "%80ITEM(Task) %10Effort(Effort){:} %10CLOCKSUM")
-;; global Effort estimate values
-(setq org-global-properties
+(setq org-agenda-log-mode-items (quote (clock))
+      org-agenda-clockreport-parameter-plist (quote
+                                              (:link nil :maxlevel 3))
+      org-agenda-span 1
+      org-columns-default-format
+      "%80ITEM(Task) %10Effort(Effort){:} %10CLOCKSUM"
+      org-global-properties
       (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00"))))
 
 ;; Custom views for Agenda
