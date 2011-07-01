@@ -321,26 +321,6 @@ Skips capture tasks and tasks with subtasks"
 
 (setq org-agenda-auto-exclude-function 'bh/org-auto-exclude-function)
 
-;; from Sacha Chua's emacs config.
-;; This code has been invalidated by org-write-agenda.
-;; Currently, I have no need to save the agenda to a file,
-;; this is not part of my workflow.
-;; Keeping this because I will need it some time in the future
-;; when I'm working on Linux and have access to conky.
-;; (defun schua/org-publish-agenda ()
-;;   "Copy the agenda buffer to a text file."
-;;   (interactive)
-;;   (let ((agenda (with-current-buffer org-agenda-buffer-name
-;;                   (unless org-agenda-show-log (org-agenda-log-mode))
-;;                   (buffer-string)))
-;;  (filename (format-time-string "StatusReport-%Y-%m-%d.txt" (if org-starting-day
-;;                                    (calendar-time-from-absolute (1+ org-starting-day) 0)
-;;                                  (current-time)))))
-;;     (with-temp-buffer
-;;       (insert agenda)
-;;       (write-file (expand-file-name filename
-;;                                     "~/Work")))))
-
 
 ;; function to narrow view-field and make org-file more productive
 (defun my-org-todo ()
@@ -374,41 +354,6 @@ Skips capture tasks and tasks with subtasks"
 ;; Export org table as CSV by default
 (setq org-table-export-default-format "orgtbl-to-csv")
 
-;; Some functions to display an org-agenda list according to my workflow
-(defun vedang/personal-tasklist ()
-  "Display an org-agenda list of personal tasks"
-  (interactive)
-  (setq tempvar org-agenda-files)
-  (setq org-agenda-files
-        (quote ((concat org-directory "/Personal-major.org")
-                (concat org-directory "/Personal-minor.org"))))
-  (org-todo-list nil)
-  (setq org-agenda-files tempvar))
-(global-set-key (kbd "C-c p") 'vedang/personal-tasklist)
-
-(defun vedang/work-tasklist ()
-  "Display an org-agenda list of work tasks"
-  (interactive)
-  (setq tempvar org-agenda-files)
-  (setq org-agenda-files
-        (quote ((concat org-directory "/Worklog-major.org")
-                (concat org-directory "/Worklog-minor.org")
-                (concat org-directory "/Planner.org"))))
-  (org-todo-list nil)
-  (setq org-agenda-files tempvar))
-(global-set-key (kbd "C-c w") 'vedang/work-tasklist)
-
-(defun vedang/minor-tasks ()
-  "Display an org-agenda list of all the pending minor tasks"
-  (interactive)
-  (setq tempvar org-agenda-files)
-  (setq org-agenda-files
-        (quote (
-                (concat org-directory "/Birthdays.org")
-                (concat org-directory "/remember-notes.org"))))
-  (org-todo-list nil)
-  (setq org-agenda-files tempvar))
-(global-set-key (kbd "C-c m") 'vedang/minor-tasks)
 
 ;; settings for Beamer
 (setq org-ditaa-jar-path (concat dotfiles-dir
