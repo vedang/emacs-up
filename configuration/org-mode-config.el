@@ -41,39 +41,21 @@
 
 
 ;; Settings for org-capture
-(setq org-capture-templates (quote
-                             (("t" "todo" entry
-                               (file (concat org-directory
-                                             "/remember-notes.org"))
-                               "* TODO %?
-  %U
-  %a" :clock-in t :clock-resume t)
-                              ("n" "note" entry
-                               (file (concat org-directory
-                                             "/remember-notes.org"))
-                               "* %?        :NOTE:
-  %U
-  %a
-  :CLOCK:
-  :END:" :clock-in t :clock-resume t)
-                              ("l" "linklog" entry
-                               (file (concat org-directory
-                                             "/remember-notes.org"))
-                               "* %?
-  %U
-  %a
-  :CLOCK:
-  :END:" :clock-in t :clock-resume t)
+(setq org-capture-templates
+      (quote
+       (("t" "todo" entry
+         (file (concat org-directory "/remember-notes.org"))
+         "* TODO %?\n%U\n%a\n %i" :clock-in t :clock-resume t)
+        ("n" "note" entry
+         (file (concat org-directory "/remember-notes.org"))
+         "* %?  :NOTE:\n%U\n%a\n  %i" :clock-in t :clock-resume t)
+        ("l" "linklog" entry
+         (file (concat org-directory "/linklog.org"))
+         "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t)
+        ("p" "phone" entry
+         (file (concat org-directory "/remember-notes.org"))
+         "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t))))
 
-  ;;                             ("w" "org-protocol" entry
-  ;;                              (file (concat org-directory
-  ;;                                            "/remember-notes.org"))
-  ;;                              "* TODO Review %c
-  ;; %U" :immediate-finish t :clock-in t :clock-resume t)
-                              ("w" "" entry
-                               (file+headline "www.org" "Notes")
-                               "* %^{Title}\n\n  Source: %u, %c\n\n  %i")
-                              )))
 
 ;; For ease of Re-filing:
 ;; Targets include this file and any file contributing to the agenda
@@ -116,12 +98,18 @@
 
 ;; Changing State should trigger following Tag changes
 (setq org-todo-state-tags-triggers
-      (quote (("SOMEDAY" ("WAITING" . t) ("NEXT"))
-              (done ("NEXT") ("WAITING"))
-              ("WAITINGTOMERGE" ("NEXT") ("WAITING" . t))
-              ("WAITINGTODEPLOY" ("NEXT") ("WAITING" . t))
-              ("TODO" ("WAITING"))
-              ("WORKING" ("WAITING") ("NEXT" . t)))))
+      (quote (("SOMEDAY"
+               ("WAITING" . t) ("NEXT"))
+              (done
+               ("NEXT") ("WAITING"))
+              ("WAITINGTOMERGE"
+               ("NEXT") ("WAITING" . t))
+              ("WAITINGTODEPLOY"
+               ("NEXT") ("WAITING" . t))
+              ("TODO"
+               ("WAITING"))
+              ("WORKING"
+               ("WAITING") ("NEXT" . t)))))
 ;; Faster state set
 (setq org-use-fast-todo-selection t)
 ;;; Allow me to change state without it being logged
