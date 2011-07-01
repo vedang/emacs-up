@@ -3,16 +3,28 @@
 (require 'org-install)
 
 
-(setq org-directory "~/Documents/Notes-GTD")
-(setq org-archive-location (concat org-directory "/archive/%s_archive::"))
-(setq org-completion-use-ido t)
+(setq org-directory "~/Documents/Notes-GTD"
+      org-archive-directory (concat org-directory "/archive")
+      org-archive-location (concat org-archive-directory "/%s_archive::")
+      org-completion-use-ido t
+      org-default-notes-file (concat org-directory "/remember-notes.org")
+      org-agenda-files (list
+                        org-directory
+                        org-archive-directory))
+
 
 ;; Auto starting org-mode for following file types
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (transient-mark-mode 1)
-(add-hook 'org-mode-hook 'turn-on-font-lock)
 
-(setq org-default-notes-file (concat org-directory "/remember-notes.org"))
+;; Undefine C-c [ and C-c ] since this breaks my org-agenda files
+;; when directories are included
+;; It expands the files in the directories individually
+(add-hook 'org-mode-hook (lambda ()
+                           (turn-on-font-lock)
+                           (org-defkey org-mode-map "\C-c[" 'undefined)
+                           (org-defkey org-mode-map "\C-c]" 'undefined)))
+
 
 ;; Settings for org-capture
 (setq org-capture-templates (quote
