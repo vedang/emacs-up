@@ -103,6 +103,12 @@ Subsequent calls expands the selection to larger semantic unit."
   (if window-system (hl-line-mode t)))
 (defun turn-on-paredit ()
   (require 'paredit)
+  (defun paredit-space-for-delimiter-p (endp delimiter)
+    (and (not (if endp (eobp) (bobp)))
+         (memq (char-syntax (if endp (char-after) (char-before)))
+               (list ?\"  ;; REMOVED ?w ?_
+                     (let ((matching (matching-paren delimiter)))
+                       (and matching (char-syntax matching)))))))
   (paredit-mode t))
 (defun turn-on-slime ()
   (slime-mode t))

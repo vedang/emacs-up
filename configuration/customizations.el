@@ -69,13 +69,9 @@
     ;; No stray edits.Toggle with (C-x C-q) if I want to make an edit
     (when (not (eq major-mode 'emacs-lisp-mode))
       (toggle-read-only 1))
-    ;; Flyspell mode for comments and strings
-    (flyspell-prog-mode)
-    ;; tell me if lines exceed 80 columns
-    (turn-on-whitespace-mode)
-    ;; paredit should always be there, except in python
-    (when (not (eq major-mode 'python-mode))
-      (turn-on-paredit))
+    (flyspell-prog-mode)                ; Flyspell mode for comments and strings
+    (turn-on-whitespace-mode)           ; tell me if lines exceed 80 columns
+    (turn-on-paredit)                   ; Paredit goodness
     (run-coding-hook)))
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
