@@ -9,7 +9,7 @@
 (setq erc-autojoin-channels-alist '(("freenode.net"
                                      "#emacs" "#clojure")
                                     ("qotdinc.com"
-                                     "#dev" "#foobar"))
+                                     "#dev" "#bakvaas"))
       erc-save-buffer-on-part nil
       erc-save-queries-on-quit nil
       erc-log-write-after-send t

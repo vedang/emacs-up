@@ -21,10 +21,11 @@
       bookmark-default-file (concat tempfiles-dir "bookmarks.bmk")
       bookmark-save-flag 1     ; Save bookmarks as soon as I create them
       display-buffer-reuse-frames t     ; Useful when dealing with REPLs
-      auto-compression-mode t)
+      auto-compression-mode t
+      display-time-day-and-date t)
 
 (show-paren-mode 1)
-
+(display-time)
 (setq-default indent-tabs-mode nil  ;only spaces by default.
               tab-width 4
               ispell-program-name "aspell")
