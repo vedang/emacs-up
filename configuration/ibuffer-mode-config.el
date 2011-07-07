@@ -20,7 +20,8 @@
                  (mode . perl-mode)
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)
-                 (mode . clojure-mode)))
+                 (mode . clojure-mode)
+                 (mode . makefile-gmake-mode)))
                ("Org"
                 (mode . org-mode))
                ("ERC"
