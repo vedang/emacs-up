@@ -54,7 +54,7 @@
          "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t)
         ("p" "phone" entry
          (file (concat org-directory "/remember-notes.org"))
-         "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t))))
+         "* %?  :PHONE:\n%U\n%a\n %i" :clock-in t :clock-resume t))))
 
 
 ;; refile settings
