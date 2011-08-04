@@ -6,6 +6,8 @@
 (autoload 'python-mode "python" "Load python mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
 (autoload 'js2-mode "js2-mode" nil t)
+(autoload 'markdown-mode "markdown-mode.el"
+  "Major mode for editing Markdown files" t)
 
 
 ;;; required magic

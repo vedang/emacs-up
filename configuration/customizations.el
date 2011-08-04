@@ -56,6 +56,7 @@
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
+(add-hook 'fundamental-mode-hook 'turn-on-flyspell)
 (add-hook 'lisp-mode-hook 'turn-on-paredit)
 
 
@@ -95,6 +96,7 @@
 (add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.clj$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(tex\\|ltx\\)$" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)

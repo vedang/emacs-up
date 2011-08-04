@@ -23,7 +23,9 @@
                  (mode . clojure-mode)
                  (mode . makefile-gmake-mode)))
                ("Org"
-                (mode . org-mode))
+                (or
+                 (mode . org-mode)
+                 (mode . markdown-mode)))
                ("ERC"
                 (mode . erc-mode))
                ("Jabber"
