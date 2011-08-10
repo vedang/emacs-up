@@ -7,7 +7,7 @@
 (require 'erc-autoaway)
 
 (setq erc-autojoin-channels-alist '(("freenode.net"
-                                     "#emacs" "#clojure")
+                                     "#emacs" "#clojure" "#gevent")
                                     ("qotdinc.com"
                                      "#dev" "#bakvaas"))
       erc-save-buffer-on-part nil

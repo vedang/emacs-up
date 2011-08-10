@@ -77,7 +77,7 @@
       (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|"
                         "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(M@/!)")
               (sequence "PROJECT(p)" "TASK(T!/!)" "WAITINGTOMERGE(m/!)"
-                        "WAITINGTODEPLOY(a/!)" "|"
+                        "WAITINGTODEPLOY(a/!)" "WEEKEND(W)" "|"
                         "SOMEDAY(s)" "CANCELLED(c@/!)"))))
 
 
