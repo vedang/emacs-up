@@ -35,7 +35,8 @@
 
   (load-library "flymake-cursor")
   (global-set-key [f3] 'flymake-goto-prev-error)
-  (global-set-key [f2] 'flymake-goto-next-error))
+  (global-set-key [f2] 'flymake-goto-next-error)
+  (delete '("\\.html?\\'" flymake-xml-init) flymake-allowed-file-name-masks))
 
 
 (provide 'flymake-config)
