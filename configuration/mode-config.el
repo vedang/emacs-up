@@ -23,7 +23,8 @@
 (require 'swank-clojure-autoload)
 (require 'clojure-mode-autoloads)
 (require 'writegood-mode)
-
+(require 'template)
+(template-initialize)
 
 ;;; Eval after loads
 (eval-after-load "org"
