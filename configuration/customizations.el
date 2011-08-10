@@ -53,6 +53,7 @@
 
 ;;; hooks
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'time-stamp)
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
