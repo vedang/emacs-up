@@ -15,9 +15,9 @@
 ;; configuration, but minibuffer-complete otherwise dominates the
 ;; tab binding because of my custom tab-completion-everywhere
 ;; configuration. - from M-x All things emacs
-(add-hook 'ido-setup-hook
-          (lambda ()
-            (define-key ido-completion-map [tab] 'ido-complete)))
+;; (add-hook 'ido-setup-hook
+;;           (lambda ()
+;;             (define-key ido-completion-map [tab] 'ido-complete)))
 
 ;;; ido on steroids :D from EmacsWiki
 (defadvice completing-read

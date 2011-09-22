@@ -22,7 +22,8 @@
       bookmark-save-flag 1     ; Save bookmarks as soon as I create them
       display-buffer-reuse-frames t     ; Useful when dealing with REPLs
       auto-compression-mode t
-      display-time-day-and-date t)
+      display-time-day-and-date t
+      tab-always-indent 'complete)
 
 (show-paren-mode 1)
 (display-time)
