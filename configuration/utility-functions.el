@@ -16,9 +16,7 @@
       (if (looking-at "\\_>")
           (hippie-expand nil)
         (indent-for-tab-command)))))
-
-;; Temporarily disable this to see if tab-always-indent 'complete is sufficient
-;; (global-set-key (kbd "TAB") 'smart-tab)
+(global-set-key (kbd "TAB") 'smart-tab)
 
 
 ;;; function to display Tip of the Day
