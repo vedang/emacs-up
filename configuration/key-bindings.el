@@ -15,6 +15,8 @@
 (global-set-key (kbd "C-h a") 'apropos)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c g") 'writegood-mode)
+(global-set-key (kbd "C-c c") 'mo-git-blame-current)
+(global-set-key (kbd "C-c f") 'mo-git-blame-file)
 (define-key global-map [(control f3)]  'cscope-set-initial-directory)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-+") 'text-scale-increase)

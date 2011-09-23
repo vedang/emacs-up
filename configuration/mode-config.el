@@ -8,6 +8,8 @@
 (autoload 'js2-mode "js2-mode" nil t)
 (autoload 'markdown-mode "markdown-mode.el"
   "Major mode for editing Markdown files" t)
+(autoload 'mo-git-blame-file "mo-git-blame" nil t)
+(autoload 'mo-git-blame-current "mo-git-blame" nil t)
 
 
 ;;; required magic
