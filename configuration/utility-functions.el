@@ -100,6 +100,7 @@ Subsequent calls expands the selection to larger semantic unit."
 
 ;;; turn-on functions for various utilities
 (defun turn-on-hl-line-mode ()
+  "highlight the current line"
   (if window-system (hl-line-mode t)))
 (defun turn-on-paredit ()
   (require 'paredit)
@@ -133,7 +134,7 @@ Subsequent calls expands the selection to larger semantic unit."
 
 (defvar coding-hook nil
   "Hook that gets run on activation of any programming mode.")
-(add-hook 'coding-hook 'turn-on-hl-line-mode)
+;; (add-hook 'coding-hook 'turn-on-hl-line-mode)
 (add-hook 'coding-hook 'pretty-lambdas)
 
 
