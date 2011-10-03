@@ -130,10 +130,11 @@
                             ("@errand" . ?e)
                             (:endgroup)
                             ("LowPri" . ?l)
-                            ("NEXT" . ?N)
+                            ("NEXT" . ?n)
                             ("RELEASE" . ?r)
-                            ("NOTE" . ?n)
-                            ("PUBLISHED" . ?p)
+                            ("NOTE" . ?N)
+                            ("STUDY" . ?s)
+                            ("PERSONAL" . ?p)
                             ("WAITING" . ?a)
                             ("future" . ?f))))
 
@@ -255,6 +256,22 @@ Skips capture tasks and tasks with subtasks"
                 (tags-todo "NEXT-RELEASE-WAITING-CANCELLED"
                            ((org-agenda-overriding-header
                              "Next Tasks")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(effort-up category-keep))))
+                (tags-todo "STUDY"
+                           ((org-agenda-overriding-header
+                             "Study tasks")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(effort-up category-keep))))
+                (tags-todo "PERSONAL"
+                           ((org-agenda-overriding-header
+                             "Personal tasks")
                             (org-agenda-todo-ignore-scheduled t)
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
