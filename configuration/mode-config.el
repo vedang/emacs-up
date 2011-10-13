@@ -11,6 +11,8 @@
 (autoload 'mo-git-blame-file "mo-git-blame" nil t)
 (autoload 'mo-git-blame-current "mo-git-blame" nil t)
 (autoload 'octave-mode "octave-mod" nil t)
+(autoload 'xmsi-mode "xmsi-math-symbols-input.el"
+  "Load xmsi-math-symbols-input mode for inserting math symbols." t)
 
 
 ;;; required magic
