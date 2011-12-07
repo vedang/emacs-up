@@ -76,9 +76,8 @@
 (setq org-todo-keywords
       (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|"
                         "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(M@/!)")
-              (sequence "PROJECT(p)" "LATER(l@/!)" "WAITINGTOMERGE(m/!)"
-                        "WAITINGTODEPLOY(a/!)" "|"
-                        "SOMEDAY(s)" "CANCELLED(c@/!)")
+              (sequence "PROJECT(p)" "LATER(l@/!)" "BUG(b!/@)" "FEATURE(f!/!)"
+                        "MAINT(m!/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)")
               (sequence "WEEKEND(W)" "|" "DONE(d!@)"))))
 
 
