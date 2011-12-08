@@ -21,7 +21,7 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
-
+(global-set-key (kbd "C-S-t") 'transpose-sexps)
 
 ;;; Window switching. (C-x o goes to the next window)
 ;;; Emacs-starter-kit
