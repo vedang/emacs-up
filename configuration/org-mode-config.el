@@ -89,9 +89,9 @@
               ("DELEGATED" :foreground "lightgreen" :weight bold)
               ("MOSTLYDONE" :foreground "lightblue" :weight bold)
               ("PROJECT" :foreground "lightblue" :weight bold)
-              ("TASK" :foreground "darkblue" :weight bold)
-              ("WAITINGTOMERGE" :foreground "gray" :weight bold)
-              ("WAITINGTODEPLOY" :foreground "gray" :weight bold)
+              ("BUG" :foreground "red" :weight bold)
+              ("FEATURE" :foreground "red" :weight bold)
+              ("MAINT" :foreground "red" :weight bold)
               ("SOMEDAY" :foreground "magenta" :weight bold)
               ("CANCELLED" :foreground "lightgreen" :weight bold))))
 
@@ -164,11 +164,17 @@
       org-clock-report-include-clocking-task t)
 
 
+;;; List of TODO states to clock-in
+(setq vm/todo-list '("TODO" "FEATURE" "BUG" "MAINT"))
+
+
 ;; Change task state to WORKING when clocking in
 (defun bh/clock-in-to-working (kw)
   "Switch task from TODO to WORKING when clocking in.
 Skips capture tasks and tasks with subtasks"
-  (if (and (string-equal kw "TODO")
+  (if (and (delq nil (mapcar (lambda (tkw)
+                               (string-equal kw tkw))
+                             vm/todo-list))
            (not (and (boundp 'org-capture-mode) org-capture-mode)))
       (let ((subtree-end (save-excursion (org-end-of-subtree t)))
             (has-subtask nil))
@@ -181,6 +187,7 @@ Skips capture tasks and tasks with subtasks"
               (setq has-subtask t))))
         (when (not has-subtask)
           "WORKING"))))
+
 
 (setq org-clock-in-switch-to-state 'bh/clock-in-to-working)
 
