@@ -65,13 +65,14 @@
 
 ;;; configuration too small to go into individual files
 (require 'yasnippet) ;; not yasnippet-bundle
-(global-set-key (kbd "S-TAB") 'yas/trigger-key)
+(global-set-key (kbd "<s-tab>") 'yas/trigger-key)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
 
 
 (setq hippie-expand-try-functions-list
-      '(try-expand-dabbrev
+      '(yas/hippie-try-expand
+        try-expand-dabbrev
         try-expand-dabbrev-from-kill
         try-expand-dabbrev-all-buffers
         try-complete-file-name-partially
