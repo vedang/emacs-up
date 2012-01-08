@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 15:55:03 vedang"
+;;; Time-stamp: "2012-01-08 15:56:32 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -28,7 +28,6 @@
       ediff-window-setup-function 'ediff-setup-windows-plain
       save-place-file (concat tempfiles-dir "places")
       column-number-mode t
-      delete-selection-mode t
       debug-on-error t
       bookmark-default-file (concat tempfiles-dir "bookmarks.bmk")
       bookmark-save-flag 1     ; Save bookmarks as soon as I create them
@@ -37,6 +36,7 @@
       display-time-day-and-date t)
 
 (mouse-avoidance-mode 'banish)
+(delete-selection-mode t)
 (show-paren-mode 1)
 (display-time)
 (setq-default indent-tabs-mode nil  ;only spaces by default.
