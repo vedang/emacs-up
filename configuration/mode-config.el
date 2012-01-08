@@ -1,5 +1,22 @@
+;;; mode-config.el --- Main config file for the various emacs modes I use
+;;; Author: Vedang Manerikar
+;;; Created on: 08 Jan 2012
+;;; Time-stamp: "2012-01-08 22:21:34 vedang"
+;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
+
+;; This file is not part of GNU Emacs.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the Do What The Fuck You Want to
+;; Public License, Version 2, which is included with this distribution.
+;; See the file LICENSE.txt
+
+;;; Code:
+
+
 (autoload 'package-list-packages "elpa-config" "List Elpa packages" t)
-(autoload 'dired "misc-requires" "Load dired-x" t)  ; Better dired
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 (autoload 'python-mode "python" "Load python mode" t)
