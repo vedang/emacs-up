@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 15:50:27 vedang"
+;;; Time-stamp: "2012-01-08 15:55:03 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -27,7 +27,6 @@
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
       save-place-file (concat tempfiles-dir "places")
-      x-select-enable-clipboard t
       column-number-mode t
       delete-selection-mode t
       debug-on-error t
