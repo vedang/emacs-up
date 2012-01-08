@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 15:45:08 vedang"
+;;; Time-stamp: "2012-01-08 15:50:27 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -24,7 +24,6 @@
       inhibit-startup-message t
       font-lock-maximum-decoration t
       confirm-kill-emacs 'y-or-n-p
-      color-theme-is-global t
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
       save-place-file (concat tempfiles-dir "places")
@@ -135,7 +134,7 @@
 (require 'color-theme)
 (require 'color-theme-billw)
 (color-theme-billw)
-
+(setq color-theme-is-global t)
 
 ;; when I create a temporary buffer, it should auto-detect the right
 ;; mode to start in the buffer
