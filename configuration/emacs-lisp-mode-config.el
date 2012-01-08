@@ -1,7 +1,7 @@
 ;;; emacs-lisp-mode-config.el --- Extra spice for emacs lisp
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 18:03:19 vedang"
+;;; Time-stamp: "2012-01-08 18:04:38 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -70,6 +70,6 @@ context-help to false"
    (t ad-do-it)))
 
 (global-set-key (kbd "C-c h") 'rgr/toggle-context-help)
-
+(define-key emacs-lisp-mode-map (kbd "C-c v") 'eval-buffer)
 
 (provide 'emacs-lisp-mode-config)
