@@ -2,14 +2,10 @@
 (autoload 'dired "misc-requires" "Load dired-x" t)  ; Better dired
 (autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
-(autoload 'twit	"twittering-mode" "" t)
 (autoload 'python-mode "python" "Load python mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
-(autoload 'js2-mode "js2-mode" nil t)
 (autoload 'markdown-mode "markdown-mode.el"
   "Major mode for editing Markdown files" t)
-(autoload 'mo-git-blame-file "mo-git-blame" nil t)
-(autoload 'mo-git-blame-current "mo-git-blame" nil t)
 (autoload 'octave-mode "octave-mod" nil t)
 (autoload 'xmsi-mode "xmsi-math-symbols-input.el"
   "Load xmsi-math-symbols-input mode for inserting math symbols." t)
@@ -22,7 +18,6 @@
 (require 'revive-mode-config)
 (require 'isearch-mode-config)
 (require 'flymake-config)
-(require 'jabber-autoloads)
 (require 'erlang-start)
 (require 'slime-autoloads)
 (require 'swank-clojure-autoload)

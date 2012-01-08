@@ -1,7 +1,7 @@
 ;;; elpa-config.el --- Configuration for ELPA: the emacs package manager
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 18:59:12 vedang"
+;;; Time-stamp: "2012-01-08 20:10:24 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -27,8 +27,8 @@
 (package-initialize)
 
 ;;; From emacs-starter-kit
-(defvar starter-packages '(magit gist erc auctex paredit markdown-mode
-                                 clojure-mode)
+(defvar starter-packages '(magit gist auctex paredit color-theme
+                                 clojure-mode slime swank-clojure markdown-mode)
   "Libraries that should be installed by default.")
 
 (when (not package-archive-contents)
