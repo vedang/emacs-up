@@ -39,8 +39,6 @@
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
-(eval-after-load "jabber"
-  '(require 'jabber-mode-config))
 (eval-after-load "python"
   '(require 'python-mode-config))
 (eval-after-load "erlang"
@@ -53,8 +51,6 @@
   '(require 'lisp-mode-config))
 (eval-after-load "LaTeX"
   '(require 'latex-mode-config))
-(eval-after-load "js2-mode"
-  '(require 'js2-mode-config))
 
 
 ;;; configuration too small to go into individual files
