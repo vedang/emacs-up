@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 16:16:32 vedang"
+;;; Time-stamp: "2012-01-08 16:24:42 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -87,6 +87,7 @@
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
 
+
 (defadvice yank-pop (after indent-region activate)
   (if (member major-mode programming-major-modes)
       (let ((mark-even-if-inactive t))
@@ -124,7 +125,7 @@
 
 
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium-browser")
+      browse-url-generic-program "google-chrome")
 
 
 (provide 'customizations)
