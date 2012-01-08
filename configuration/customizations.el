@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 15:56:32 vedang"
+;;; Time-stamp: "2012-01-08 15:59:52 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -30,9 +30,8 @@
       column-number-mode t
       debug-on-error t
       bookmark-default-file (concat tempfiles-dir "bookmarks.bmk")
-      bookmark-save-flag 1     ; Save bookmarks as soon as I create them
-      display-buffer-reuse-frames t     ; Useful when dealing with REPLs
-      auto-compression-mode t
+      bookmark-save-flag 1
+      display-buffer-reuse-frames t
       display-time-day-and-date t)
 
 (mouse-avoidance-mode 'banish)
