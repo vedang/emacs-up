@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 15:59:52 vedang"
+;;; Time-stamp: "2012-01-08 16:03:44 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -54,7 +54,7 @@
       auto-save-file-name-transforms
       `((".*" ,(concat tempfiles-dir "auto-save-list/") t)))
 
-(add-to-list 'safe-local-variable-values '(lexical-binding . t))1
+(add-to-list 'safe-local-variable-values '(lexical-binding . t))
 (add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
 ;; Completion ignores filenames ending in any string in this list.
