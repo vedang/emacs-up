@@ -20,7 +20,7 @@
 (require 'flymake-config)
 (require 'erlang-start)
 (require 'slime-autoloads)
-(require 'swank-clojure-autoload)
+(require 'swank-clojure-autoloads)
 (require 'clojure-mode-autoloads)
 (require 'writegood-mode)
 (require 'template)
