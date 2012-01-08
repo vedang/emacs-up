@@ -9,7 +9,7 @@
 (autoload 'octave-mode "octave-mod" nil t)
 (autoload 'xmsi-mode "xmsi-math-symbols-input.el"
   "Load xmsi-math-symbols-input mode for inserting math symbols." t)
-
+(autoload 'writegood-mode "writegood-mode" "Write Good." t)
 
 ;;; required magic
 (require 'ido-mode-config)
@@ -22,7 +22,6 @@
 (require 'slime-autoloads)
 (require 'swank-clojure-autoloads)
 (require 'clojure-mode-autoloads)
-(require 'writegood-mode)
 (require 'template)
 (template-initialize)
 
