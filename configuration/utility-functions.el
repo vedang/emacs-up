@@ -99,9 +99,14 @@ Subsequent calls expands the selection to larger semantic unit."
 
 
 ;;; turn-on functions for various utilities
+;;; =======================================
+
+
 (defun turn-on-hl-line-mode ()
   "highlight the current line"
   (if window-system (hl-line-mode t)))
+
+
 (defun turn-on-paredit ()
   (require 'paredit)
   (defun paredit-space-for-delimiter-p (endp delimiter)
@@ -111,12 +116,18 @@ Subsequent calls expands the selection to larger semantic unit."
                      (let ((matching (matching-paren delimiter)))
                        (and matching (char-syntax matching)))))))
   (paredit-mode t))
+(add-hook 'lisp-mode-hook 'turn-on-paredit)
+
+
 (defun turn-on-slime ()
   (slime-mode t))
+
+
 (defun turn-on-whitespace-mode ()
   (require 'whitespace)
   (setq whitespace-style '(empty tabs lines trailing))
   (whitespace-mode t))
+
 
 (defun add-watchwords ()
   (font-lock-add-keywords
@@ -142,13 +153,34 @@ Subsequent calls expands the selection to larger semantic unit."
   "Enable things that are convenient across all coding buffers."
   (run-hooks 'coding-hook))
 
+
+(defvar programming-major-modes
+  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode
+             emacs-lisp-mode lisp-mode scheme-mode python-mode)
+  "List of programming modes")
+
+(defun vedang/prog-mode-settings ()
+  "special settings for programming modes."
+  (when (memq major-mode programming-major-modes)
+    ;; No stray edits.Toggle with (C-x C-q) if I want to make an edit
+    (when (not (eq major-mode 'emacs-lisp-mode))
+      (toggle-read-only 1))
+    (flyspell-prog-mode)                ; Flyspell mode for comments and strings
+    (turn-on-whitespace-mode)           ; tell me if lines exceed 80 columns
+    (turn-on-paredit)                   ; Paredit goodness
+    (run-coding-hook)))
+(add-hook 'find-file-hook 'vedang/prog-mode-settings)
+
+
 (defun untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
 
+
 (defun indent-buffer ()
   (interactive)
   (indent-region (point-min) (point-max)))
+
 
 (defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
@@ -157,11 +189,13 @@ Subsequent calls expands the selection to larger semantic unit."
   (untabify-buffer)
   (delete-trailing-whitespace))
 
+
 ;;; recompile config directory; regen autoloads
 (defun recompile-init ()
   "Byte-compile all your dotfiles again."
   (interactive)
   (byte-recompile-directory dotfiles-dir 0))
+
 
 (defun regen-autoloads (&optional force-regen)
   "Regenerate the autoload definitions file if necessary and load it."

@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 16:03:44 vedang"
+;;; Time-stamp: "2012-01-08 16:13:33 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -70,25 +70,6 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'fundamental-mode-hook 'turn-on-flyspell)
-(add-hook 'lisp-mode-hook 'turn-on-paredit)
-
-
-(defvar programming-major-modes
-  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode
-             emacs-lisp-mode lisp-mode scheme-mode python-mode)
-  "List of programming modes")
-
-(defun vedang/prog-mode-settings ()
-  "special settings for programming modes."
-  (when (memq major-mode programming-major-modes)
-    ;; No stray edits.Toggle with (C-x C-q) if I want to make an edit
-    (when (not (eq major-mode 'emacs-lisp-mode))
-      (toggle-read-only 1))
-    (flyspell-prog-mode)                ; Flyspell mode for comments and strings
-    (turn-on-whitespace-mode)           ; tell me if lines exceed 80 columns
-    (turn-on-paredit)                   ; Paredit goodness
-    (run-coding-hook)))
-(add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
 
 ;; Indentation hook for C/C++ mode
