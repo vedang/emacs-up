@@ -8,6 +8,7 @@
                slime-fuzzy))
 
 (add-hook 'lisp-mode-hook 'turn-on-slime)
+(add-hook 'lisp-mode-hook 'turn-on-paredit)
 (add-hook 'inferior-lisp-mode-hook 'turn-on-slime)
 (add-hook 'slime-mode-hook 'turn-on-paredit)
 (add-hook 'slime-repl-mode-hook 'turn-on-paredit)

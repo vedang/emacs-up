@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 17:29:13 vedang"
+;;; Time-stamp: "2012-01-08 19:28:18 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -125,14 +125,14 @@ Subsequent calls expands the selection to larger semantic unit."
 
 (defun turn-on-paredit ()
   (require 'paredit)
-  (defun paredit-space-for-delimiter-p (endp delimiter)
-    (and (not (if endp (eobp) (bobp)))
-         (memq (char-syntax (if endp (char-after) (char-before)))
-               (list ?\"  ;; REMOVED ?w ?_
-                     (let ((matching (matching-paren delimiter)))
-                       (and matching (char-syntax matching)))))))
   (paredit-mode t))
-(add-hook 'lisp-mode-hook 'turn-on-paredit)
+
+
+(defun turn-on-paredit-nonlisp ()
+  (interactive)
+  (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+       '((lambda (endp delimiter) nil)))
+  (paredit-mode t))
 
 
 (defun turn-on-slime ()
@@ -175,12 +175,17 @@ Subsequent calls expands the selection to larger semantic unit."
              emacs-lisp-mode lisp-mode scheme-mode python-mode)
   "List of programming modes")
 
+(defvar lisp-major-modes
+  '(emacs-lisp-mode lisp-mode clojure-mode scheme-mode))
+
 (defun vedang/prog-mode-settings ()
   "special settings for programming modes."
   (when (memq major-mode programming-major-modes)
-    (flyspell-prog-mode)                ; Flyspell mode for comments and strings
-    (turn-on-whitespace-mode)           ; tell me if lines exceed 80 columns
-    (turn-on-paredit)                   ; Paredit goodness
+    (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
+    (turn-on-whitespace-mode)    ;; tell me if lines exceed 80 columns
+    (if (memq major-mode lisp-major-modes)
+        (turn-on-paredit)
+      (turn-on-paredit-nonlisp)) ;; Paredit goodness
     (run-coding-hook)))
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
