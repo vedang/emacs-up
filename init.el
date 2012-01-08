@@ -1,21 +1,28 @@
-;;; Root emacs configuration file.
+;;; init.el --- Root emacs configuration file.
+;;; Author: Vedang Manerikar
+;;; Created on: 08 Jan 2012
+;;; Time-stamp: "2012-01-08 15:33:39 vedang"
+;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
+
+;; This file is not part of GNU Emacs.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the Do What The Fuck You Want to
+;; Public License, Version 2, which is included with this distribution.
+;; See the file LICENSE.txt
+
+;;; Code:;;;
 
 (defvar *emacs-load-start* (current-time))
+
 
 ;;; No GUI
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;;; From nflath.com
-;;; add all subdirs under "~/.emacs.d/" to load-path
-(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-    (let* ((my-lisp-dir "~/.emacs.d/")
-           (default-directory my-lisp-dir)
-           (orig-load-path load-path))
-      (setq load-path (cons my-lisp-dir nil))
-      (normal-top-level-add-subdirs-to-load-path)
-      (nconc load-path orig-load-path)))
 
 ;;; Some global defs
 (setq dotfiles-dir (file-name-directory
@@ -24,6 +31,18 @@
 (setq package-user-dir (concat dotfiles-dir "elpa"))
 (setq custom-file (concat dotfiles-dir "custom.el"))
 (setq tempfiles-dir (concat dotfiles-dir "temp-files/"))
+
+
+;;; From nflath.com
+;;; add all subdirs under "~/.emacs.d/" to load-path
+(if (fboundp 'normal-top-level-add-subdirs-to-load-path)
+    (let* ((my-lisp-dir dotfiles-dir)
+           (default-directory my-lisp-dir)
+           (orig-load-path load-path))
+      (setq load-path (cons my-lisp-dir nil))
+      (normal-top-level-add-subdirs-to-load-path)
+      (nconc load-path orig-load-path)))
+
 
 ;;; Require common stuff
 (require 'cl)
