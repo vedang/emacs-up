@@ -15,15 +15,16 @@
   (isearch-yank-word-or-char)
   ;; Revert to 'isearch-yank-word-or-char for subsequent calls
   (substitute-key-definition 'vedang/isearch-yank-word-or-char-from-beginning
-			     'isearch-yank-word-or-char
-			     isearch-mode-map))
+                             'isearch-yank-word-or-char
+                             isearch-mode-map))
 
 (add-hook 'isearch-mode-hook
-	  (lambda ()
-	    "Activate my customized Isearch word yank command."
-	    (substitute-key-definition 'isearch-yank-word-or-char
-				       'vedang/isearch-yank-word-or-char-from-beginning
-				       isearch-mode-map)))
+          (lambda ()
+            "Activate my customized Isearch word yank command."
+            (substitute-key-definition 'isearch-yank-word-or-char
+                                       'vedang/isearch-yank-word-or-char-from-beginning
+                                       isearch-mode-map)))
+
 
 ;; Use regex searches by default.
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)
