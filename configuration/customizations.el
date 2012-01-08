@@ -24,7 +24,6 @@
       inhibit-startup-message t
       font-lock-maximum-decoration t
       confirm-kill-emacs 'y-or-n-p
-      transient-mark-mode t
       color-theme-is-global t
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
