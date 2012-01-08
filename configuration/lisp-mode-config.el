@@ -2,11 +2,7 @@
 
 (setq slime-net-coding-system 'utf-8-unix)
 
-(slime-setup '(slime-fancy
-               slime-repl
-               slime-asdf
-               slime-fuzzy))
-
+(slime-setup)
 (add-hook 'lisp-mode-hook 'turn-on-slime)
 (add-hook 'lisp-mode-hook 'turn-on-paredit)
 (add-hook 'inferior-lisp-mode-hook 'turn-on-slime)
