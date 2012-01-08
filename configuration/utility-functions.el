@@ -162,9 +162,6 @@ Subsequent calls expands the selection to larger semantic unit."
 (defun vedang/prog-mode-settings ()
   "special settings for programming modes."
   (when (memq major-mode programming-major-modes)
-    ;; No stray edits.Toggle with (C-x C-q) if I want to make an edit
-    (when (not (eq major-mode 'emacs-lisp-mode))
-      (toggle-read-only 1))
     (flyspell-prog-mode)                ; Flyspell mode for comments and strings
     (turn-on-whitespace-mode)           ; tell me if lines exceed 80 columns
     (turn-on-paredit)                   ; Paredit goodness
