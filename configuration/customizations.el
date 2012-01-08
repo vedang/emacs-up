@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 15:41:54 vedang"
+;;; Time-stamp: "2012-01-08 15:45:08 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -23,7 +23,6 @@
       echo-keystrokes 0.1
       inhibit-startup-message t
       font-lock-maximum-decoration t
-      mouse-avoidance-mode 'banish
       confirm-kill-emacs 'y-or-n-p
       transient-mark-mode t
       color-theme-is-global t
@@ -40,6 +39,7 @@
       auto-compression-mode t
       display-time-day-and-date t)
 
+(mouse-avoidance-mode 'banish)
 (show-paren-mode 1)
 (display-time)
 (setq-default indent-tabs-mode nil  ;only spaces by default.
