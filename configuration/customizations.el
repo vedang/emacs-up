@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 16:13:33 vedang"
+;;; Time-stamp: "2012-01-08 16:16:32 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -70,19 +70,6 @@
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'fundamental-mode-hook 'turn-on-flyspell)
-
-
-;; Indentation hook for C/C++ mode
-;; As defined in Documentation/CodingStyle
-(defun vedang/linux-c-indent ()
-  "adjusted defaults for C/C++ mode use with the Linux kernel."
-  (interactive)
-  (setq tab-width 8)
-  (setq indent-tabs-mode nil) ;; force spaces, to work with dumber editors
-  (setq c-basic-offset 8))
-(add-hook 'c-mode-hook 'vedang/linux-c-indent)
-(add-hook 'c-mode-hook (lambda() (c-set-style "K&R")))
-(add-hook 'c++-mode-hook 'vedang/linux-c-indent)
 
 
 ;;; open these files in the appropriate mode

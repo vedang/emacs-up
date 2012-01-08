@@ -169,6 +169,19 @@ Subsequent calls expands the selection to larger semantic unit."
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
 
+;; Indentation hook for C/C++ mode
+;; As defined in Documentation/CodingStyle
+(defun vedang/linux-c-indent ()
+  "adjusted defaults for C/C++ mode use with the Linux kernel."
+  (interactive)
+  (setq tab-width 8)
+  (setq indent-tabs-mode nil) ;; force spaces, to work with dumber editors
+  (setq c-basic-offset 8))
+(add-hook 'c-mode-hook 'vedang/linux-c-indent)
+(add-hook 'c-mode-hook (lambda() (c-set-style "K&R")))
+(add-hook 'c++-mode-hook 'vedang/linux-c-indent)
+
+
 (defun untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
