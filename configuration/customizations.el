@@ -1,8 +1,24 @@
-;;; my customizations for emacs
+;;; customizations.el --- my customizations for emacs
+;;; Author: Vedang Manerikar
+;;; Created on: 08 Jan 2012
+;;; Time-stamp: "2012-01-08 15:41:54 vedang"
+;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
+
+;; This file is not part of GNU Emacs.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the Do What The Fuck You Want to
+;; Public License, Version 2, which is included with this distribution.
+;; See the file LICENSE.txt
+
+;;; Code:
+
 
 (setq user-full-name "Vedang Manerikar"
       user-mail-address "vedang.manerikar@gmail.com"
-      message-log-max t                 ; Log as much as possible on startup
+      message-log-max t
       visible-bell t
       echo-keystrokes 0.1
       inhibit-startup-message t
