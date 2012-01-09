@@ -25,9 +25,7 @@ Install pyflakes and pep8
 #+BEGIN_SRC shell
 sudo pip install pyflakes pep8
 #+END_SRC
-Copy the Pymacs, Rope, Ropemacs and Ropemode folders inside plugins/python/ to /usr/local/lib/python2.6/dist-packages/
-(basically anywhere on PYTHONPATH)
-
+Follow the instructions in plugins/python-emacs/README.org to setup python
 * cscope
 install cscope on the system:
 #+BEGIN_SRC shell
