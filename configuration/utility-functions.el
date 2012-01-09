@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 19:28:18 vedang"
+;;; Time-stamp: "2012-01-09 12:07:00 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -183,9 +183,8 @@ Subsequent calls expands the selection to larger semantic unit."
   (when (memq major-mode programming-major-modes)
     (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
     (turn-on-whitespace-mode)    ;; tell me if lines exceed 80 columns
-    (if (memq major-mode lisp-major-modes)
-        (turn-on-paredit)
-      (turn-on-paredit-nonlisp)) ;; Paredit goodness
+    (when (memq major-mode lisp-major-modes)
+      (turn-on-paredit))         ;; Paredit goodness
     (run-coding-hook)))
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
