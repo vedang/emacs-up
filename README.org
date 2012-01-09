@@ -1,16 +1,15 @@
--*- mode: org -*-
 This folder contains my emacs configuration. In order to install this emacs configuration correctly, the following steps need to be observed:
 
 * Clone the emacs configuration repository
 
 * Install the submodules
-
-git submodule init
-git submodule update
-
-I use org as a submodule. Org-configuration will fail to load without org's repository.
+  - git submodule init
+  - git submodule update
 
 * Go through the GOTCHAS file.
 
-
 We are now ready to roll with my configuration. Restart emacs and enjoy.
+
+* Note:
+
+I am currently transitioning my emacs configuration from Emacs 23 to Emacs 24. I cannot guarantee the stability of this configuration.
