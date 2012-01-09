@@ -1,11 +1,17 @@
 ;;; Settings for clojure
 
+
+;;; Some people prefer this character. "ƒ"
+(defun pretty-fns ()
+  (font-lock-add-keywords
+   nil `(("(?\\(fn\\>\\)"
+          (0 (progn (compose-region (match-beginning 1) (match-end 1)
+                                    ,(make-char 'greek-iso8859-7 107))
+                    nil))))))
+
+
 (eval-after-load 'clojure-mode
-  '(font-lock-add-keywords
-    'clojure-mode `(("(\\(fn\\>\\)"
-                     (0 (progn (compose-region (match-beginning 1)
-                                               (match-end 1) "ƒ")
-                               nil))))))
+  '(pretty-fns))
 
 (eval-after-load 'clojure-mode
   '(define-clojure-indent
