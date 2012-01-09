@@ -1,7 +1,7 @@
 ;;; lisp-mode-config.el --- Configuration for Slime and lisp modes in general.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 20:52:42 vedang"
+;;; Time-stamp: "2012-01-09 18:22:26 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -20,9 +20,24 @@
 (add-hook 'lisp-mode-hook 'turn-on-slime)
 (add-hook 'lisp-mode-hook 'turn-on-paredit)
 (add-hook 'inferior-lisp-mode-hook 'turn-on-slime)
-(add-hook 'slime-mode-hook 'turn-on-paredit)
-(add-hook 'slime-repl-mode-hook 'turn-on-paredit)
-(add-hook 'slime-connected-hook 'turn-on-paredit)
+
+
+(defun turn-on-slime-paredit ()
+  "Redefining paredit-space-for-delimiter function so that paredit behaves
+well in slime."
+  (require 'paredit)
+  (defun paredit-space-for-delimiter-p (endp delimiter)
+    (and (not (if endp (eobp) (bobp)))
+         (memq (char-syntax (if endp (char-after) (char-before)))
+               (list ?\" ;; REMOVED ?w ?_
+                     (let ((matching (matching-paren delimiter)))
+                       (and matching (char-syntax matching)))))))
+  (paredit-mode t))
+
+
+(add-hook 'slime-mode-hook 'turn-on-slime-paredit)
+(add-hook 'slime-repl-mode-hook 'turn-on-slime-paredit)
+(add-hook 'slime-connected-hook 'turn-on-slime-paredit)
 
 
 (defadvice slime-repl-emit (after sr-emit-ad activate)
