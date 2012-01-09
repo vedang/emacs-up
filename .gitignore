@@ -7,3 +7,4 @@ tramp
 *.dat
 *.beam
 url/*
+configuration/python-mode-config.el
