@@ -4,6 +4,8 @@
 [submodule "plugins/python-emacs"]
 	path = plugins/python-emacs
 	url = git@github.com:vedang/python-emacs.git
+    ignore = dirty
 [submodule "plugins/clojure-emacs"]
 	path = plugins/clojure-emacs
 	url = git@github.com:vedang/clojure-emacs.git
+    ignore = dirty
