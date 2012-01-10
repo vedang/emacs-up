@@ -53,9 +53,12 @@
           (font-lock-syntactic-face-function
            . lisp-font-lock-syntactic-face-function))))
 
-(add-hook 'slime-repl-mode-hook
-          (lambda ()
-            (clojure-font-lock-setup)))
+
+(defun turn-on-clojure-font-lock-setup ()
+  (clojure-font-lock-setup))
+
+
+(add-hook 'slime-repl-mode-hook 'turn-on-clojure-font-lock-setup)
 
 
 (provide 'clojure-mode-config)
