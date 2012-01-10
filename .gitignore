@@ -8,3 +8,4 @@ tramp
 *.beam
 url/*
 configuration/python-mode-config.el
+configuration/clojure-mode-config.el
