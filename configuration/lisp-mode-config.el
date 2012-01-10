@@ -1,7 +1,7 @@
 ;;; lisp-mode-config.el --- Configuration for Slime and lisp modes in general.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-09 18:22:26 vedang"
+;;; Time-stamp: "2012-01-10 18:05:25 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -20,6 +20,12 @@
 (add-hook 'lisp-mode-hook 'turn-on-slime)
 (add-hook 'lisp-mode-hook 'turn-on-paredit)
 (add-hook 'inferior-lisp-mode-hook 'turn-on-slime)
+
+(def-slime-selector-method ?j
+  "Go to the most recently visited clojure-mode buffer."
+  (slime-recently-visited-buffer 'clojure-mode))
+
+(global-set-key (kbd "C-c z") 'slime-selector)
 
 
 (defun turn-on-slime-paredit ()
