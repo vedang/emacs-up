@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-12 01:02:07 vedang"
+;;; Time-stamp: "2012-01-12 01:13:28 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -59,7 +59,7 @@
 (eval-after-load "clojure"
   '(require 'clojure-mode-config))
 (eval-after-load "slime"
-  '(require 'lisp-mode-config))
+  '(require 'slime-config))
 (eval-after-load "LaTeX"
   '(require 'latex-mode-config))
 

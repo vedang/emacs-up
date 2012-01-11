@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-12 00:57:00 vedang"
+;;; Time-stamp: "2012-01-12 01:18:51 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -123,20 +123,11 @@ Subsequent calls expands the selection to larger semantic unit."
   (if window-system (hl-line-mode t)))
 
 
-(defun turn-on-paredit ()
-  (require 'paredit)
-  (paredit-mode t))
-
-
 (defun turn-on-paredit-nonlisp ()
   (interactive)
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
        '((lambda (endp delimiter) nil)))
   (paredit-mode t))
-
-
-(defun turn-on-slime ()
-  (slime-mode t))
 
 
 (defun turn-on-whitespace-mode ()
@@ -184,7 +175,7 @@ Subsequent calls expands the selection to larger semantic unit."
     (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
     (turn-on-whitespace-mode)    ;; tell me if lines exceed 80 columns
     (when (memq major-mode lisp-major-modes)
-      (turn-on-paredit))         ;; Paredit goodness
+      (paredit-mode t))          ;; Paredit goodness
     (run-coding-hook)))
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
