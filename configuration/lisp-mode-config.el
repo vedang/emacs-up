@@ -1,7 +1,7 @@
 ;;; lisp-mode-config.el --- Configuration for Slime and lisp modes in general.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-10 18:05:25 vedang"
+;;; Time-stamp: "2012-01-11 21:17:10 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -16,7 +16,8 @@
 ;;; Code:
 
 (setq slime-net-coding-system 'utf-8-unix)
-(slime-setup)
+(slime-setup '(slime-fancy
+               slime-asdf))
 (add-hook 'lisp-mode-hook 'turn-on-slime)
 (add-hook 'lisp-mode-hook 'turn-on-paredit)
 (add-hook 'inferior-lisp-mode-hook 'turn-on-slime)
