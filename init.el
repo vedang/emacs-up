@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-11 12:24:11 vedang"
+;;; Time-stamp: "2012-01-11 21:55:15 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -29,6 +29,7 @@
       *autoload-file* (concat *dotfiles-dir* "loaddefs.el")
       *package-user-dir* (concat *dotfiles-dir* "elpa/")
       *plugins-dir* (concat *dotfiles-dir* "plugins/")
+      *config-dir* (concat *dotfiles-dir* "configuration/")
       *custom-file* (concat *dotfiles-dir* "custom.el")
       *tempfiles-dir* (concat *dotfiles-dir* "temp-files/"))
 

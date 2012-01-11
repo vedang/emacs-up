@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-11 21:18:21 vedang"
+;;; Time-stamp: "2012-01-12 00:57:00 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -220,29 +220,54 @@ Subsequent calls expands the selection to larger semantic unit."
   (delete-trailing-whitespace))
 
 
-;;; recompile config directory; regen autoloads
+;;; Autoloading and byte-compilation functions
+
+
 (defun recompile-init ()
   "Byte-compile all your dotfiles again."
   (interactive)
   (byte-recompile-directory *dotfiles-dir* 0))
 
 
+(defun vedang/files-in-below-directory (directory)
+  "List the .el files in DIRECTORY and in it's sub-directories."
+  (let* ((current-directory-list (directory-files-and-attributes directory t))
+         (el-files-list (delq nil (mapcar (lambda (lst)
+                                            (and (equal ".el" (substring (car lst) -3))
+                                                 (car lst)))
+                                          current-directory-list)))
+         (dirs-list (delq nil (mapcar (lambda (lst)
+                                        (and (car (cdr lst))
+                                             (not (equal "." (substring (car lst) -1)))
+                                             (not (equal ".git" (substring (car lst) -4)))
+                                             (car lst)))
+                                      current-directory-list))))
+    (apply #'append el-files-list
+           (mapcar (lambda (d)
+                     (vedang/files-in-below-directory d))
+                   dirs-list))))
+
+
+(defun vedang/update-directory-autoloads (autoload-dir)
+  "Update directory autoloads, but better"
+  (dolist (el-file (vedang/files-in-below-directory autoload-dir))
+    (update-file-autoloads el-file t)))
+
+
 (defun vedang/regen-autoloads (&optional force-regen)
   "Regenerate the autoload definitions file if necessary and load it."
   (interactive "P")
   (let ((generated-autoload-file *autoload-file*))
-    (dolist (autoload-dir (list *package-user-dir* *plugins-dir*))
-      (when (or force-regen
-                (not (file-exists-p generated-autoload-file))
-                (some (lambda (f) (file-newer-than-file-p f generated-autoload-file))
-                      (directory-files autoload-dir t "\\.el$")))
-        (message "Updating autoloads...")
-        (when (not (file-exists-p generated-autoload-file))
-          (with-current-buffer (find-file-noselect generated-autoload-file)
-            (insert ";;") ;; create the file with non-zero size to appease autoload
-            (save-buffer)))
+    (when (or force-regen
+              (not (file-exists-p generated-autoload-file)))
+      (when (not (file-exists-p generated-autoload-file))
+        (with-current-buffer (find-file-noselect generated-autoload-file)
+          (insert ";;") ;; create the file with non-zero size to appease autoload
+          (save-buffer)))
+      (message "Updating autoloads...")
+      (dolist (autoload-dir (list *package-user-dir* *plugins-dir* *config-dir*))
         (let (emacs-lisp-mode-hook)
-          (update-directory-autoloads autoload-dir)))))
+          (vedang/update-directory-autoloads autoload-dir)))))
   (load *autoload-file*))
 
 
