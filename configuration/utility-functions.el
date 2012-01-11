@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-09 12:07:00 vedang"
+;;; Time-stamp: "2012-01-11 12:05:30 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -227,18 +227,24 @@ Subsequent calls expands the selection to larger semantic unit."
   (byte-recompile-directory dotfiles-dir 0))
 
 
-(defun regen-autoloads (&optional force-regen)
+(defun vedang/regen-autoloads (&optional force-regen)
   "Regenerate the autoload definitions file if necessary and load it."
   (interactive "P")
-  (let ((autoload-dir (concat dotfiles-dir "/plugins"))
-        (generated-autoload-file autoload-file))
-    (when (or force-regen
-              (not (file-exists-p autoload-file))
-              (some (lambda (f) (file-newer-than-file-p f autoload-file))
-                    (directory-files autoload-dir t "\\.el$")))
-      (message "Updating autoloads...")
-      (let (emacs-lisp-mode-hook)
-        (update-directory-autoloads autoload-dir))))
+  (let ((generated-autoload-file autoload-file))
+    (dolist (autoload-dir (mapcar (lambda (p)
+                                    (concat dotfiles-dir p))
+                                  '("/elpa" "/plugins")))
+      (when (or force-regen
+                (not (file-exists-p autoload-file))
+                (some (lambda (f) (file-newer-than-file-p f autoload-file))
+                      (directory-files autoload-dir t "\\.el$")))
+        (message "Updating autoloads...")
+        (when (not (file-exists-p autoload-file))
+          (with-current-buffer (find-file-noselect autoload-file)
+            (insert ";;") ;; create the file with non-zero size to appease autoload
+            (save-buffer)))
+        (let (emacs-lisp-mode-hook)
+          (update-directory-autoloads autoload-dir)))))
   (load autoload-file))
 
 
