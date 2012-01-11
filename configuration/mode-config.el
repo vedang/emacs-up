@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 22:21:34 vedang"
+;;; Time-stamp: "2012-01-12 01:02:07 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -17,13 +17,10 @@
 
 
 (autoload 'package-list-packages "elpa-config" "List Elpa packages" t)
-(autoload 'magit-status "magit" "Load magit" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 (autoload 'python-mode "python" "Load python mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
-(autoload 'markdown-mode "markdown-mode.el"
-  "Major mode for editing Markdown files" t)
-(autoload 'octave-mode "octave-mod" nil t)
+(autoload 'octave-mode "octave-mode" nil t)
 (autoload 'xmsi-mode "xmsi-math-symbols-input.el"
   "Load xmsi-math-symbols-input mode for inserting math symbols." t)
 (autoload 'writegood-mode "writegood-mode" "Write Good." t)
@@ -36,9 +33,6 @@
 (require 'isearch-mode-config)
 (require 'flymake-config)
 (require 'erlang-start)
-(require 'slime-autoloads)
-(require 'swank-clojure-autoloads)
-(require 'clojure-mode-autoloads)
 (require 'template)
 (template-initialize)
 
