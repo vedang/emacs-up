@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-11 12:05:30 vedang"
+;;; Time-stamp: "2012-01-11 12:27:10 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -224,28 +224,26 @@ Subsequent calls expands the selection to larger semantic unit."
 (defun recompile-init ()
   "Byte-compile all your dotfiles again."
   (interactive)
-  (byte-recompile-directory dotfiles-dir 0))
+  (byte-recompile-directory *dotfiles-dir* 0))
 
 
 (defun vedang/regen-autoloads (&optional force-regen)
   "Regenerate the autoload definitions file if necessary and load it."
   (interactive "P")
-  (let ((generated-autoload-file autoload-file))
-    (dolist (autoload-dir (mapcar (lambda (p)
-                                    (concat dotfiles-dir p))
-                                  '("/elpa" "/plugins")))
+  (let ((generated-autoload-file *autoload-file*))
+    (dolist (autoload-dir '(*package-user-dir* *plugins-dir*))
       (when (or force-regen
-                (not (file-exists-p autoload-file))
-                (some (lambda (f) (file-newer-than-file-p f autoload-file))
+                (not (file-exists-p generated-autoload-file))
+                (some (lambda (f) (file-newer-than-file-p f generated-autoload-file))
                       (directory-files autoload-dir t "\\.el$")))
         (message "Updating autoloads...")
-        (when (not (file-exists-p autoload-file))
-          (with-current-buffer (find-file-noselect autoload-file)
+        (when (not (file-exists-p generated-autoload-file))
+          (with-current-buffer (find-file-noselect generated-autoload-file)
             (insert ";;") ;; create the file with non-zero size to appease autoload
             (save-buffer)))
         (let (emacs-lisp-mode-hook)
           (update-directory-autoloads autoload-dir)))))
-  (load autoload-file))
+  (load *autoload-file*))
 
 
 (defun sudo-edit (&optional arg)

@@ -159,7 +159,7 @@
       org-clock-out-remove-zero-time-clocks t
       org-clock-out-when-done t
       org-clock-persist 'history
-      org-clock-persist-file (concat tempfiles-dir "org-clock-save")
+      org-clock-persist-file (concat *tempfiles-dir* "org-clock-save")
       org-clock-auto-clock-resolution 'when-no-clock-is-running
       org-clock-report-include-clocking-task t)
 
@@ -356,7 +356,7 @@ Skips capture tasks and tasks with subtasks"
 
 
 ;; settings for Beamer
-(setq org-ditaa-jar-path (concat dotfiles-dir
+(setq org-ditaa-jar-path (concat *dotfiles-dir*
                                  "plugins/org-mode/contrib/scripts/ditaa.jar"))
 (org-babel-do-load-languages
  'org-babel-load-languages

@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-11 11:59:46 vedang"
+;;; Time-stamp: "2012-01-11 12:24:11 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -24,18 +24,19 @@
 
 
 ;;; Some global defs
-(setq dotfiles-dir (file-name-directory
-                    (or (buffer-file-name) load-file-name))
-      autoload-file (concat dotfiles-dir "loaddefs.el")
-      package-user-dir (concat dotfiles-dir "elpa")
-      custom-file (concat dotfiles-dir "custom.el")
-      tempfiles-dir (concat dotfiles-dir "temp-files/"))
+(setq *dotfiles-dir* (file-name-directory
+                      (or (buffer-file-name) load-file-name))
+      *autoload-file* (concat *dotfiles-dir* "loaddefs.el")
+      *package-user-dir* (concat *dotfiles-dir* "elpa/")
+      *plugins-dir* (concat *dotfiles-dir* "plugins/")
+      *custom-file* (concat *dotfiles-dir* "custom.el")
+      *tempfiles-dir* (concat *dotfiles-dir* "temp-files/"))
 
 
 ;;; From nflath.com
 ;;; add all subdirs under "~/.emacs.d/" to load-path
 (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-    (let* ((my-lisp-dir dotfiles-dir)
+    (let* ((my-lisp-dir *dotfiles-dir*)
            (default-directory my-lisp-dir)
            (orig-load-path load-path))
       (setq load-path (cons my-lisp-dir nil))
@@ -58,7 +59,7 @@
 
 
 (vedang/regen-autoloads)
-(load custom-file 'noerror)
+(load *custom-file* 'noerror)
 (server-start)
 
 
