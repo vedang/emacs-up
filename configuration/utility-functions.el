@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-11 12:27:10 vedang"
+;;; Time-stamp: "2012-01-11 21:18:21 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -231,7 +231,7 @@ Subsequent calls expands the selection to larger semantic unit."
   "Regenerate the autoload definitions file if necessary and load it."
   (interactive "P")
   (let ((generated-autoload-file *autoload-file*))
-    (dolist (autoload-dir '(*package-user-dir* *plugins-dir*))
+    (dolist (autoload-dir (list *package-user-dir* *plugins-dir*))
       (when (or force-regen
                 (not (file-exists-p generated-autoload-file))
                 (some (lambda (f) (file-newer-than-file-p f generated-autoload-file))
