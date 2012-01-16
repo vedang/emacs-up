@@ -1,4 +1,20 @@
-;;; Configuration for ido-mode
+;;; ido-mode-config.el --- Configuration for ido-mode
+;;; Author: Vedang Manerikar
+;;; Created on: 16 Jan 2012
+;;; Time-stamp: "2012-01-16 21:48:17 vedang"
+;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
+
+;; This file is not part of GNU Emacs.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the Do What The Fuck You Want to
+;; Public License, Version 2, which is included with this distribution.
+;; See the file LICENSE.txt
+
+;;; Code:
+
 
 (ido-mode t)
 
@@ -11,6 +27,7 @@
 (ido-everywhere t)
 (global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
 
+
 ;; This tab override shouldn't be necessary given ido's default
 ;; configuration, but minibuffer-complete otherwise dominates the
 ;; tab binding because of my custom tab-completion-everywhere
@@ -18,6 +35,7 @@
 (add-hook 'ido-setup-hook
           (lambda ()
             (define-key ido-completion-map [tab] 'ido-complete)))
+
 
 ;;; ido on steroids :D from EmacsWiki
 (defadvice completing-read
@@ -39,5 +57,6 @@
      (ido-completing-read
       "M-x "
       (all-completions "" obarray 'commandp))))))
+
 
 (provide 'ido-mode-config)
