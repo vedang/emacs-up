@@ -83,6 +83,7 @@
       (incf arg)))
   (up-list arg))
 
+
 ;;; by Nikolaj Schumacher, 2008-10-20. Released under GPL.
 (defun extend-selection (arg &optional incremental)
   "Select the current word.
@@ -165,9 +166,9 @@ Subsequent calls expands the selection to larger semantic unit."
   '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode
              emacs-lisp-mode lisp-mode scheme-mode python-mode)
   "List of programming modes")
-
 (defvar lisp-major-modes
   '(emacs-lisp-mode lisp-mode clojure-mode scheme-mode))
+
 
 (defun vedang/prog-mode-settings ()
   "special settings for programming modes."

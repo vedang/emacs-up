@@ -34,6 +34,7 @@
       display-buffer-reuse-frames t
       display-time-day-and-date t)
 
+
 (mouse-avoidance-mode 'banish)
 (delete-selection-mode t)
 (show-paren-mode 1)
@@ -41,6 +42,7 @@
 (setq-default indent-tabs-mode nil  ;only spaces by default.
               tab-width 4
               ispell-program-name "aspell")
+
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -97,11 +99,13 @@
 ;; Enable narrow-to-region, extremely useful for editing text
 (put 'narrow-to-region 'disabled nil)
 
+
 ;; load this color-theme
 (require 'color-theme)
 (require 'color-theme-billw)
 (color-theme-billw)
 (setq color-theme-is-global t)
+
 
 ;; when I create a temporary buffer, it should auto-detect the right
 ;; mode to start in the buffer
@@ -109,6 +113,7 @@
                            (let ((buffer-file-name (or buffer-file-name
                                                        (buffer-name))))
                              (set-auto-mode))))
+
 
 ;;; Everything in UTF8
 (prefer-coding-system 'utf-8)
