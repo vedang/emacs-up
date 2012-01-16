@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-12 01:13:28 vedang"
+;;; Time-stamp: "2012-01-16 21:23:30 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -62,6 +62,12 @@
   '(require 'slime-config))
 (eval-after-load "LaTeX"
   '(require 'latex-mode-config))
+(eval-after-load 'uniquify
+  '(progn
+     (setq uniquify-buffer-name-style 'reverse
+           uniquify-separator "/"
+           uniquify-after-kill-buffer-p t
+           uniquify-ignore-buffers-re "^\\*")))
 
 
 ;;; configuration too small to go into individual files
@@ -80,12 +86,6 @@
         try-complete-file-name
         try-complete-lisp-symbol-partially
         try-complete-lisp-symbol))
-
-
-(setq uniquify-buffer-name-style 'reverse
-      uniquify-separator "/"
-      uniquify-after-kill-buffer-p t
-      uniquify-ignore-buffers-re "^\\*")
 
 
 (add-hook 'octave-mode-hook
