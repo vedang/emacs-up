@@ -1,7 +1,7 @@
 ;;; key-bindings.el --- I need these key combos
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-08 17:29:38 vedang"
+;;; Time-stamp: "2012-01-16 22:23:17 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -60,6 +60,11 @@
   ;; I don't need open-line and this is much easier than actually
   ;; typing Shift+9
   '(define-key paredit-mode-map (kbd "C-o") 'paredit-open-round))
+
+
+;; bindings for revive mode
+(define-key ctl-x-map "S" 'emacs-save-layout)
+(define-key ctl-x-map "F" 'emacs-load-layout)
 
 
 ;; Aliases for common functions

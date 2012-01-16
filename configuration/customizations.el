@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-16 20:30:20 vedang"
+;;; Time-stamp: "2012-01-16 22:24:22 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -68,6 +68,8 @@
 ;;; hooks
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'before-save-hook 'time-stamp)
+;; This function comes from revive-mode
+(add-hook 'kill-emacs-hook 'emacs-save-layout)
 (add-hook 'find-file-hook 'flymake-find-file-hook)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
