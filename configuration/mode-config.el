@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-16 21:23:30 vedang"
+;;; Time-stamp: "2012-01-16 21:25:55 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -41,7 +41,8 @@
   '(progn
      (require 'org-mode-config)))
 (eval-after-load "erc"
-  '(require 'erc-mode-config))
+  '(progn
+     (require 'erc-mode-config)))
 (eval-after-load 'diff-mode
   '(progn
      (set-face-foreground 'diff-added "green4")
@@ -51,17 +52,23 @@
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
 (eval-after-load "python"
-  '(require 'python-mode-config))
+  '(progn
+     (require 'python-mode-config)))
 (eval-after-load "erlang"
-  '(require 'erlang-mode-config))
+  '(progn
+     (require 'erlang-mode-config)))
 (eval-after-load "lisp-mode"
-  '(require 'emacs-lisp-mode-config))
+  '(progn
+     (require 'emacs-lisp-mode-config)))
 (eval-after-load "clojure"
-  '(require 'clojure-mode-config))
+  '(progn
+     (require 'clojure-mode-config)))
 (eval-after-load "slime"
-  '(require 'slime-config))
+  '(progn
+     (require 'slime-config)))
 (eval-after-load "LaTeX"
-  '(require 'latex-mode-config))
+  '(progn
+     (require 'latex-mode-config)))
 (eval-after-load 'uniquify
   '(progn
      (setq uniquify-buffer-name-style 'reverse
