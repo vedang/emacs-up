@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-11 12:25:21 vedang"
+;;; Time-stamp: "2012-01-16 20:30:20 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -32,6 +32,7 @@
       bookmark-default-file (concat *tempfiles-dir* "bookmarks.bmk")
       bookmark-save-flag 1
       display-buffer-reuse-frames t
+      whitespace-line-column 100
       display-time-day-and-date t)
 
 
@@ -57,7 +58,6 @@
       `((".*" ,(concat *tempfiles-dir* "auto-save-list/") t)))
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
-(add-to-list 'safe-local-variable-values '(whitespace-line-column . 80))
 
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions

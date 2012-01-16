@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-12 01:18:51 vedang"
+;;; Time-stamp: "2012-01-16 20:25:01 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -132,8 +132,9 @@ Subsequent calls expands the selection to larger semantic unit."
 
 
 (defun turn-on-whitespace-mode ()
+  (interactive)
   (require 'whitespace)
-  (setq whitespace-style '(empty tabs lines trailing))
+  (setq whitespace-style '(face empty tabs lines trailing))
   (whitespace-mode t))
 
 
