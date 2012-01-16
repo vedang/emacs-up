@@ -1,14 +1,37 @@
-;;; Settings for ibuffer
+;;; ibuffer-mode-config.el --- Configuration for ibuffer
+;;; Author: Vedang Manerikar
+;;; Created on: 16 Jan 2012
+;;; Time-stamp: "2012-01-16 21:52:01 vedang"
+;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
+
+;; This file is not part of GNU Emacs.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the Do What The Fuck You Want to
+;; Public License, Version 2, which is included with this distribution.
+;; See the file LICENSE.txt
+
+;;; Code:
+
 
 (autoload 'ibuffer "ibuffer" "List buffers." t)
-(global-set-key (kbd "C-x C-b") '(lambda ()
-                                   (interactive)
-                                   (ibuffer)
-                                   (ibuffer-switch-to-saved-filter-groups "default")))
+
+
+(defun turn-on-ibuffer ()
+  (interactive)
+  (ibuffer)
+  (ibuffer-switch-to-saved-filter-groups "default"))
+(global-set-key (kbd "C-x C-b") 'turn-on-ibuffer)
+
+
 (global-set-key (kbd "C-z") 'ibuffer-do-occur)
+
 
 (setq ibuffer-default-sorting-mode 'major-mode
       ibuffer-always-show-last-buffer t)
+
 
 (setq ibuffer-saved-filter-groups
       (quote (("default"
@@ -38,5 +61,6 @@
                 (or
                  (mode . LaTeX-mode)
                  (mode . fundamental-mode)))))))
+
 
 (provide 'ibuffer-mode-config)
