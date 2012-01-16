@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-16 20:25:01 vedang"
+;;; Time-stamp: "2012-01-16 21:34:00 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -278,7 +278,7 @@ Subsequent calls expands the selection to larger semantic unit."
   (dolist (buf (buffer-list))
     (with-current-buffer buf
       (when (and (buffer-file-name) (not (buffer-modified-p)))
-        (revert-buffer t t t) )))
+        (revert-buffer t t t))))
   (message "Refreshed open files."))
 
 
