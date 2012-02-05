@@ -74,8 +74,8 @@
 ;; @ indicates insert note
 ;; / indicates entering the state
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "|"
-                        "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(M@/!)")
+      (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "WAITING(a@/!)"
+                        "|" "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(M@/!)")
               (sequence "PROJECT(p)" "LATER(l@/!)" "BUG(b!/@)" "FEATURE(f!/!)"
                         "MAINT(m!/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)")
               (sequence "WEEKEND(W)" "|" "DONE(d!@)"))))
@@ -84,6 +84,7 @@
 (setq org-todo-keyword-faces
       (quote (("TODO" :foreground "red" :weight bold)
               ("WORKING" :foreground "orange" :weight bold)
+              ("WAITING" :foreground "lightblue" :weight bold)
               ("REDO" :foreground "magenta" :weight bold)
               ("DONE" :foreground "lightgreen" :weight bold)
               ("DELEGATED" :foreground "lightgreen" :weight bold)
@@ -102,9 +103,7 @@
                ("WAITING" . t) ("NEXT"))
               (done
                ("NEXT") ("WAITING"))
-              ("WAITINGTOMERGE"
-               ("NEXT") ("WAITING" . t))
-              ("WAITINGTODEPLOY"
+              ("WAITING"
                ("NEXT") ("WAITING" . t))
               ("TODO"
                ("WAITING"))
@@ -165,7 +164,7 @@
 
 
 ;;; List of TODO states to clock-in
-(setq vm/todo-list '("TODO" "FEATURE" "BUG" "MAINT"))
+(setq vm/todo-list '("TODO" "FEATURE" "BUG" "MAINT" "WAITING"))
 
 
 ;; Change task state to WORKING when clocking in
