@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-16 22:24:22 vedang"
+;;; Time-stamp: "2012-01-19 17:11:01 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -32,7 +32,7 @@
       bookmark-default-file (concat *tempfiles-dir* "bookmarks.bmk")
       bookmark-save-flag 1
       display-buffer-reuse-frames t
-      whitespace-line-column 100
+      whitespace-line-column 80
       display-time-day-and-date t)
 
 
