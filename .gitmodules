@@ -12,3 +12,4 @@
 [submodule "plugins/revive-mode"]
 	path = plugins/revive-mode
 	url = git@github.com:vedang/revive-mode.git
+    ignore=dirty
