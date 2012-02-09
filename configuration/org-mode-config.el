@@ -247,7 +247,7 @@ Skips capture tasks and tasks with subtasks"
 (setq org-agenda-custom-commands
       (quote (("a" "Agenda"
                ((agenda "" nil)
-                (tags-todo "RELEASE+@office-WAITING-CANCELLED"
+                (tags-todo "+release+@office-waiting-future"
                            ((org-agenda-overriding-header
                              "Release Tasks")
                             (org-agenda-todo-ignore-scheduled t)
@@ -255,7 +255,15 @@ Skips capture tasks and tasks with subtasks"
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
                              '(effort-up category-keep))))
-                (tags-todo "NEXT-RELEASE-WAITING-CANCELLED"
+                (tags "+goal|+write|+study|+tweak"
+                      ((org-agenda-overriding-header
+                        "Fun Tasks")
+                       (org-agenda-todo-ignore-scheduled t)
+                       (org-agenda-todo-ignore-deadlines t)
+                       (org-tags-match-list-sublevels t)
+                       (org-agenda-sorting-strategy
+                        '(effort-up category-keep))))
+                (tags-todo "+next-release|+future"
                            ((org-agenda-overriding-header
                              "Next Tasks")
                             (org-agenda-todo-ignore-scheduled t)
@@ -263,17 +271,9 @@ Skips capture tasks and tasks with subtasks"
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
                              '(effort-up category-keep))))
-                (tags-todo "STUDY"
+                (tags-todo "+@errand|+personal"
                            ((org-agenda-overriding-header
-                             "Study tasks")
-                            (org-agenda-todo-ignore-scheduled t)
-                            (org-agenda-todo-ignore-deadlines t)
-                            (org-tags-match-list-sublevels t)
-                            (org-agenda-sorting-strategy
-                             '(effort-up category-keep))))
-                (tags-todo "PERSONAL"
-                           ((org-agenda-overriding-header
-                             "Personal tasks")
+                             "Errands and the small stuff")
                             (org-agenda-todo-ignore-scheduled t)
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
