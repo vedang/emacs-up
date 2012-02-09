@@ -48,13 +48,13 @@
          "* TODO %?\n%U\n%a\n %i" :clock-in t :clock-resume t)
         ("n" "note" entry
          (file (concat org-directory "/remember-notes.org"))
-         "* %?  :NOTE:\n%U\n%a\n  %i" :clock-in t :clock-resume t)
+         "* %?  :note:\n%U\n%a\n  %i" :clock-in t :clock-resume t)
         ("l" "linklog" entry
          (file (concat org-directory "/linklog.org"))
          "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t)
         ("p" "phone" entry
          (file (concat org-directory "/remember-notes.org"))
-         "* %?  :PHONE:\n%U\n%a\n %i" :clock-in t :clock-resume t))))
+         "* %?  :phone:\n%U\n%a\n %i" :clock-in t :clock-resume t))))
 
 
 ;; refile settings
@@ -100,15 +100,15 @@
 ;; Changing State should trigger following Tag changes
 (setq org-todo-state-tags-triggers
       (quote (("SOMEDAY"
-               ("WAITING" . t) ("NEXT"))
+               ("waiting" . t) ("next"))
               (done
-               ("NEXT") ("WAITING"))
+               ("next") ("waiting"))
               ("WAITING"
-               ("NEXT") ("WAITING" . t))
+               ("next") ("waiting" . t))
               ("TODO"
-               ("WAITING"))
+               ("waiting"))
               ("WORKING"
-               ("WAITING") ("NEXT" . t)))))
+               ("waiting") ("next" . t)))))
 
 
 (setq org-use-fast-todo-selection t
@@ -122,18 +122,15 @@
 
 
 ;; Important Tag list
-(setq org-tag-alist (quote ((:startgroup)
-                            ("@office" . ?w)
-                            ("@home" . ?h)
-                            ("@errand" . ?e)
-                            (:endgroup)
-                            ("LowPri" . ?l)
-                            ("NEXT" . ?n)
-                            ("RELEASE" . ?r)
-                            ("NOTE" . ?N)
-                            ("STUDY" . ?s)
-                            ("PERSONAL" . ?p)
-                            ("WAITING" . ?a)
+(setq org-tag-alist (quote (("next" . ?n)
+                            ("release" . ?r)
+                            ("note" . ?N)
+                            ("study" . ?s)
+                            ("goal" . ?g)
+                            ("tweak" . ?t)
+                            ("write" . ?w)
+                            ("personal" . ?p)
+                            ("waiting" . ?a)
                             ("future" . ?f))))
 
 
