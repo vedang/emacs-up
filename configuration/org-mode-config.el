@@ -255,14 +255,14 @@ Skips capture tasks and tasks with subtasks"
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
                              '(effort-up category-keep))))
-                (tags "+goal|+write|+study|+tweak"
-                      ((org-agenda-overriding-header
-                        "Fun Tasks")
-                       (org-agenda-todo-ignore-scheduled t)
-                       (org-agenda-todo-ignore-deadlines t)
-                       (org-tags-match-list-sublevels t)
-                       (org-agenda-sorting-strategy
-                        '(effort-up category-keep))))
+                (tags-todo "+goal|+write|+study|+tweak"
+                           ((org-agenda-overriding-header
+                             "Fun Tasks")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(effort-up category-keep))))
                 (tags-todo "+next-release|+future"
                            ((org-agenda-overriding-header
                              "Next Tasks")
