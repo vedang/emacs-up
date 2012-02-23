@@ -247,7 +247,7 @@ Skips capture tasks and tasks with subtasks"
 (setq org-agenda-custom-commands
       (quote (("a" "Agenda"
                ((agenda "" nil)
-                (tags-todo "+release+@office-waiting-future"
+                (tags-todo "+release+@office-future"
                            ((org-agenda-overriding-header
                              "Release Tasks")
                             (org-agenda-todo-ignore-scheduled t)
