@@ -128,6 +128,7 @@
                             ("note" . ?N)
                             ("study" . ?s)
                             ("goal" . ?g)
+                            ("dp" . ?d)
                             ("tweak" . ?t)
                             ("write" . ?w)
                             ("personal" . ?p)
