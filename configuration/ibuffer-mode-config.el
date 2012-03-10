@@ -1,7 +1,7 @@
 ;;; ibuffer-mode-config.el --- Configuration for ibuffer
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
-;;; Time-stamp: "2012-01-16 21:52:01 vedang"
+;;; Time-stamp: "2012-03-04 01:44:55 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -49,8 +49,8 @@
                 (or
                  (mode . org-mode)
                  (mode . markdown-mode)))
-               ("ERC"
-                (mode . erc-mode))
+               ("IRC"
+                (mode . rcirc-mode))
                ("Jabber"
                 (or
                  (mode . jabber-chat-mode)

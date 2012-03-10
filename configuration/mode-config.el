@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-02-07 13:08:08 vedang"
+;;; Time-stamp: "2012-03-04 01:38:36 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -32,6 +32,7 @@
 (require 'isearch-mode-config)
 (require 'flymake-config)
 (require 'erlang-start)
+(require 'rcirc-config)
 (require 'template)
 (template-initialize)
 
