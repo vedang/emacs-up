@@ -13,5 +13,4 @@
 (define-key global-map [(control f9)]  'cscope-find-functions-calling-this-function)
 (define-key global-map [(control f10)] 'cscope-find-called-functions)
 (define-key global-map [(control f11)] 'cscope-display-buffer)
-; ===============================================================================
-
+; ==============================================================================
