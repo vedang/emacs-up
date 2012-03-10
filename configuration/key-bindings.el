@@ -1,7 +1,7 @@
 ;;; key-bindings.el --- I need these key combos
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-16 22:23:17 vedang"
+;;; Time-stamp: "2012-03-03 21:15:06 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -38,6 +38,7 @@
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-S-t") 'transpose-sexps)
+(global-set-key (kbd "C-c o") 'turn-on-paredit-nonlisp)
 
 ;;; Window switching. (C-x o goes to the next window)
 ;;; Emacs-starter-kit
