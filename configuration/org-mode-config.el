@@ -1,7 +1,8 @@
 ;; Configuration for org-mode
 
 (require 'org-install)
-
+(require 'org-exp-blocks)
+(require 'org-latex)
 
 (setq org-directory "~/Documents/Notes-GTD"
       org-archive-directory (concat org-directory "/archive")
@@ -454,17 +455,17 @@ Skips capture tasks and tasks with subtasks"
 
 ;; I want to add comments to my org files without
 ;; having them show up in the latex export.
-(setq org-export-blocks nil)
+;; (setq org-export-blocks nil)
 
 
-(add-to-list 'org-export-blocks
-             '(src org-babel-exp-src-blocks nil))
-(add-to-list 'org-export-blocks
-             '(comment org-export-blocks-format-comment nil))
-(add-to-list 'org-export-blocks
-             '(ditaa org-export-blocks-format-ditaa nil))
-(add-to-list 'org-export-blocks
-             '(dot org-export-blocks-format-dot nil))
+;; (add-to-list 'org-export-blocks
+;;              '(src org-babel-exp-src-blocks nil))
+;; (add-to-list 'org-export-blocks
+;;              '(comment org-export-blocks-format-comment nil))
+;; (add-to-list 'org-export-blocks
+;;              '(ditaa org-export-blocks-format-ditaa nil))
+;; (add-to-list 'org-export-blocks
+;;              '(dot org-export-blocks-format-dot nil))
 ;; ============================================================================
 
 
