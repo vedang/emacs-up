@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-03-11 16:59:34 vedang"
+;;; Time-stamp: "2012-03-11 17:01:34 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -324,7 +324,7 @@ as the default task."
 
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
-      (quote (("a" "Agenda"
+      (quote ((" " "Agenda"
                ((agenda "" nil)
                 (tags-todo "+release+@office-future"
                            ((org-agenda-overriding-header
