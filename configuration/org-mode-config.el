@@ -180,21 +180,9 @@
 (defun bh/clock-in-to-working (kw)
   "Switch task from TODO to WORKING when clocking in.
 Skips capture tasks and tasks with subtasks"
-  (if (and (delq nil (mapcar (lambda (tkw)
-                               (string-equal kw tkw))
-                             vm/todo-list))
-           (not (and (boundp 'org-capture-mode) org-capture-mode)))
-      (let ((subtree-end (save-excursion (org-end-of-subtree t)))
-            (has-subtask nil))
-        (save-excursion
-          (forward-line 1)
-          (while (and (not has-subtask)
-                      (< (point) subtree-end)
-                      (re-search-forward "^\*+ " subtree-end t))
-            (when (member (org-get-todo-state) org-not-done-keywords)
-              (setq has-subtask t))))
-        (when (not has-subtask)
-          "WORKING"))))
+  (when (and (not (and (boundp 'org-capture-mode) org-capture-mode))
+             (member kw vm/todo-list))
+    "WORKING"))
 
 
 (setq org-clock-in-switch-to-state 'bh/clock-in-to-working)
