@@ -10,8 +10,7 @@
       org-completion-use-ido t
       org-default-notes-file (concat org-directory "/remember-notes.org")
       org-agenda-files (list
-                        org-directory
-                        org-archive-directory))
+                        org-directory))
 
 
 ;; Standard org-mode key bindings
