@@ -65,7 +65,10 @@
          "* %?\n%U\n%a\n %i" :clock-in t :clock-resume t)
         ("p" "phone" entry
          (file (concat org-directory "/remember-notes.org"))
-         "* %?  :phone:\n%U\n%a\n %i" :clock-in t :clock-resume t))))
+         "* DONE %?  :phone:\n%U\n%a\n %i" :clock-in t :clock-resume t)
+        ("h" "Habit" entry
+         (file (concat org-directory "/remember-notes.org"))
+         "*  %?\n%U\n%a\nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n  %i"))))
 
 
 ;; refile settings
@@ -332,18 +335,22 @@ as the default task."
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
                              '(effort-up category-keep))))
-                (tags "LEVEL=1+REFILE"
+                (tags "refile"
                       ((org-agenda-overriding-header
                         "Notes and Tasks to Refile")))
-               nil))
-              ("c" "Select default clocking task" tags "LEVEL=1-REFILE"
+                nil))
+              ("h" "Habits" tags-todo "STYLE=\"habit\""
+               ((org-agenda-overriding-header "Habits")
+                (org-agenda-sorting-strategy
+                 '(todo-state-down effort-up category-keep))))
+              ("c" "Select default clocking task" tags "LEVEL=1-refile"
                ((org-agenda-skip-function
                  '(org-agenda-skip-subtree-if 'notregexp "^\\* Organization"))
                 (org-agenda-overriding-header
                  "Set default clocking task with C-u C-u I")))
               ("d" "Delegated Tasks" todo "DELEGATED"
-                    ((org-use-tag-inheritance nil)
-                     (org-agenda-todo-ignore-with-date nil))))))
+               ((org-use-tag-inheritance nil)
+                (org-agenda-todo-ignore-with-date nil))))))
 
 
 ;; Always highlight current agenda line
