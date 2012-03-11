@@ -123,6 +123,16 @@
                ("waiting") ("next" . t)))))
 
 
+(defun bh/org-auto-exclude-function (tag)
+  "Automatic task exclusion in the agenda with / RET"
+  (and (cond
+        ((string= tag "waiting")
+         t))
+       (concat "-" tag)))
+
+(setq org-agenda-auto-exclude-function 'bh/org-auto-exclude-function)
+
+
 (setq org-use-fast-todo-selection t
       org-fast-tag-selection-single-key 'expert
       ;; Allow me to change state without it being logged
