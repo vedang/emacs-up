@@ -72,10 +72,10 @@
 
 
 ;; refile settings
-(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 2)
-                                 (nil :maxlevel . 2)))
-      org-refile-use-outline-path 'file
+(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 4)
+                                 (nil :maxlevel . 4)))
       ;; Targets start with the file name - allows creating level 1 tasks
+      org-refile-use-outline-path 'file
       org-outline-path-complete-in-steps nil
       org-refile-allow-creating-parent-nodes 'confirm)
 
@@ -380,14 +380,20 @@ as the default task."
       org-agenda-skip-deadline-if-done t
       org-agenda-skip-scheduled-if-done t
       org-agenda-text-search-extra-files (quote (agenda-archives))
-      org-agenda-log-mode-items (quote (clock))
-      org-agenda-clockreport-parameter-plist (quote
-                                              (:link nil :maxlevel 3))
+      org-agenda-log-mode-items (quote (clock closed state))
+      org-agenda-clockreport-parameter-plist '(:link t :maxlevel 5 :fileskip0 t
+                                                     :compact t :narrow 80)
       org-agenda-span 1
       org-columns-default-format
       "%80ITEM(Task) %10Effort(Effort){:} %10CLOCKSUM"
       org-global-properties
-      (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00"))))
+      (quote (("Effort_ALL" . "0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 8:00")
+              ("STYLE_ALL" . "habit")))
+      org-agenda-clock-consistency-checks
+      (quote (:max-duration "4:00"
+                            :min-duration 0
+                            :max-gap 0
+                            :gap-ok-around ("4:00"))))
 
 
 ;; setup for Reminder
