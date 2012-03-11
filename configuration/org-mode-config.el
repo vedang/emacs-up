@@ -23,8 +23,8 @@
 (global-set-key (kbd "<f12>") 'org-agenda)
 (global-set-key (kbd "C-<f11>") 'org-clock-in)
 (global-set-key (kbd "<f9> SPC") 'bh/clock-in-last-task)
-(global-set-key (kbd "<f9> i") 'bh/clock-in)
-(global-set-key (kbd "<f9> o") 'bh/clock-out)
+(global-set-key (kbd "<f9> i") 'bh/punch-in)
+(global-set-key (kbd "<f9> o") 'bh/punch-out)
 
 
 ;; Auto starting org-mode for following file types
@@ -203,30 +203,56 @@ Skips capture tasks and tasks with subtasks"
 (setq bh/keep-clock-running nil)
 
 
-(defun bh/clock-in-last-task ()
-  "Clock in the interrupted task if there is one"
-  (interactive)
-  (let ((clock-in-to-task (if (org-clock-is-active)
-                              (setq clock-in-to-task (cadr org-clock-history))
-                            (setq clock-in-to-task (car org-clock-history)))))
+(defun bh/clock-in-last-task (arg)
+  "Clock in the interrupted task if there is one
+Skip the default task and get the next one.
+A prefix arg forces clock in of the default task."
+  (interactive "p")
+  (let ((clock-in-to-task
+         (cond
+          ((eq arg 4) org-clock-default-task)
+          ((and (org-clock-is-active)
+                (equal org-clock-default-task (cadr org-clock-history)))
+           (caddr org-clock-history))
+          ((org-clock-is-active) (cadr org-clock-history))
+          ((equal org-clock-default-task (car org-clock-history)) (cadr org-clock-history))
+          (t (car org-clock-history)))))
     (org-with-point-at clock-in-to-task
       (org-clock-in nil))))
 
 
-(defun bh/clock-in ()
-  (interactive)
+(defun bh/punch-in (arg)
+  "Start continuous clocking and set the default task to the
+selected task.  If no task is selected set the Organization task
+as the default task."
+  (interactive "p")
   (setq bh/keep-clock-running t)
-  (if (marker-buffer org-clock-default-task)
-      (bh/clock-in-default-task)
-    (unless (marker-buffer org-clock-default-task)
-      (org-agenda nil "c"))))
+  (if (equal major-mode 'org-agenda-mode)
+      ;;
+      ;; We're in the agenda
+      ;;
+      (let* ((marker (org-get-at-bol 'org-hd-marker))
+             (tags (org-with-point-at marker (org-get-tags-at))))
+        (if (and (eq arg 4) tags)
+            (org-agenda-clock-in '(16))
+          (bh/clock-in-organization-task-as-default)))
+    ;;
+    ;; We are not in the agenda
+    ;;
+    (save-restriction
+      (widen)
+                                        ; Find the tags on the current task
+      (if (and (equal major-mode 'org-mode) (not (org-before-first-heading-p)) (eq arg 4))
+          (org-clock-in '(16))
+        (bh/clock-in-organization-task-as-default)))))
 
 
-(defun bh/clock-out ()
+(defun bh/punch-out ()
   (interactive)
   (setq bh/keep-clock-running nil)
   (when (org-clock-is-active)
-    (org-clock-out)))
+    (org-clock-out))
+  (org-agenda-remove-restriction-lock))
 
 
 (defun bh/clock-in-default-task ()
@@ -235,11 +261,38 @@ Skips capture tasks and tasks with subtasks"
       (org-clock-in))))
 
 
+(defun bh/clock-in-parent-task ()
+  "Move point to the parent (project) task if any and clock in"
+  (let ((parent-task))
+    (save-excursion
+      (save-restriction
+        (widen)
+        (while (and (not parent-task) (org-up-heading-safe))
+          (when (member (nth 2 (org-heading-components)) org-todo-keywords-1)
+            (setq parent-task (point))))
+        (if parent-task
+            (org-with-point-at parent-task
+              (org-clock-in))
+          (when bh/keep-clock-running
+            (bh/clock-in-default-task)))))))
+
+
+(defvar bh/organization-task-id "a87c0695-ab23-44ab-a270-df6e86ec015e")
+
+
+(defun bh/clock-in-organization-task-as-default ()
+  (interactive)
+  (org-with-point-at (org-id-find bh/organization-task-id 'marker)
+    (org-clock-in '(16))))
+
+
 (defun bh/clock-out-maybe ()
   (when (and bh/keep-clock-running
              (not org-clock-clocking-in)
-             (marker-buffer org-clock-default-task))
-    (bh/clock-in-default-task)))
+             (marker-buffer org-clock-default-task)
+             (not org-clock-resolving-clocks-due-to-idleness))
+    (bh/clock-in-parent-task)))
+
 
 (add-hook 'org-clock-out-hook 'bh/clock-out-maybe 'append)
 
