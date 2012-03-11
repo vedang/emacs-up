@@ -1,4 +1,20 @@
-;; Configuration for org-mode
+;;; org-mode-config.el --- Configuration for org-mode
+;;; Author: Vedang Manerikar
+;;; Created on: 11 Mar 2012
+;;; Time-stamp: "2012-03-11 16:59:34 vedang"
+;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
+
+;; This file is not part of GNU Emacs.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the Do What The Fuck You Want to
+;; Public License, Version 2, which is included with this distribution.
+;; See the file LICENSE.txt
+
+;;; Code:
+
 
 (require 'org-install)
 (require 'org-exp-blocks)
@@ -9,8 +25,7 @@
       org-archive-location (concat org-archive-directory "/%s_archive::")
       org-completion-use-ido t
       org-default-notes-file (concat org-directory "/remember-notes.org")
-      org-agenda-files (list
-                        org-directory))
+      org-agenda-files (list org-directory))
 
 
 ;; Standard org-mode key bindings
