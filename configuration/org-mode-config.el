@@ -89,10 +89,9 @@
 ;; / indicates entering the state
 (setq org-todo-keywords
       (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "WAITING(a@/!)"
-                        "|" "DONE(d!/@)" "DELEGATED(e@/!)" "MOSTLYDONE(M@/!)")
-              (sequence "PROJECT(p)" "LATER(l@/!)" "BUG(b!/@)" "FEATURE(f!/!)"
-                        "MAINT(m!/!)" "|" "SOMEDAY(s)" "CANCELLED(c@/!)")
-              (sequence "WEEKEND(W)" "|" "DONE(d!@)"))))
+                        "|" "DONE(d!/@)" "DELEGATED(e@/!)")
+              (sequence "PROJECT(p)" "BUG(b!/@)" "FEATURE(f!/!)" "MAINT(m!/!)"
+                        "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
 
 
 (setq org-todo-keyword-faces
@@ -102,7 +101,6 @@
               ("REDO" :foreground "magenta" :weight bold)
               ("DONE" :foreground "lightgreen" :weight bold)
               ("DELEGATED" :foreground "lightgreen" :weight bold)
-              ("MOSTLYDONE" :foreground "lightblue" :weight bold)
               ("PROJECT" :foreground "lightblue" :weight bold)
               ("BUG" :foreground "red" :weight bold)
               ("FEATURE" :foreground "red" :weight bold)
