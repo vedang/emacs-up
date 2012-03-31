@@ -57,3 +57,20 @@
     (other-window 1))) ;; back to ediff panel
 
 
+(defvar *diary-dir* "~/Documents/Diary/journal")
+
+(defun diary-new-entry ()
+  "Create a new journal entry"
+  (interactive)
+  (let ((filename (concat *diary-dir*
+                          "/"
+                          (format-time-string "%Y-%m-%dT%H:%M:%S")
+                          ".gpg"))
+        (modestring "-*- mode: org -*- -*- epa-file-encrypt-to: (02C8332160B8648C) -*-"))
+    (with-temp-buffer
+      (insert modestring)
+      (when (file-writable-p filename)
+        (write-region (point-min)
+                      (point-max)
+                      filename)
+        (find-alternate-file filename)))))
