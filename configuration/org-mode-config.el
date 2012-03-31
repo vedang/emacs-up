@@ -559,6 +559,11 @@ as the default task."
 ;; ============================================================================
 
 
+(setq org-link-abbrev-alist
+      '(("bugzilla" . "http://bugzilla.qotdinc.com/show_bug.cgi?id=%s")
+        ("google"   . "http://www.google.com/search?q=%s")))
+
+
 (provide 'org-mode-config)
 ;; A big thanks to Bernt Hansen for providing an awesome guide to
 ;; beginners so that we can harness the power of org-mode. Almost all of the
