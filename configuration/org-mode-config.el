@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-03-11 17:01:34 vedang"
+;;; Time-stamp: "2012-03-31 22:46:34 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -159,7 +159,7 @@
 
 
 ;; Important Tag list
-(setq org-tag-alist (quote (("next" . ?n)
+(setq org-tag-alist (quote (("next" . ?x)
                             ("release" . ?r)
                             ("note" . ?N)
                             ("study" . ?s)
@@ -167,7 +167,9 @@
                             ("dp" . ?d)
                             ("tweak" . ?t)
                             ("write" . ?w)
-                            ("personal" . ?p)
+                            ("productive" . ?p)
+                            ("essential" . ?e)
+                            ("nonessential" . ?n)
                             ("waiting" . ?a)
                             ("future" . ?f))))
 
@@ -336,13 +338,13 @@ as the default task."
                              '(effort-up category-keep))))
                 (tags-todo "+goal|+write|+study|+tweak"
                            ((org-agenda-overriding-header
-                             "Fun Tasks")
+                             "Fun Tasks & Tweaks")
                             (org-agenda-todo-ignore-scheduled t)
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
                              '(effort-up category-keep))))
-                (tags-todo "+next-release|+future"
+                (tags-todo "+next-release-someday|+future-someday"
                            ((org-agenda-overriding-header
                              "Next Tasks")
                             (org-agenda-todo-ignore-scheduled t)
@@ -352,7 +354,7 @@ as the default task."
                              '(effort-up category-keep))))
                 (tags-todo "+@errand|+personal"
                            ((org-agenda-overriding-header
-                             "Errands and the small stuff")
+                             "Errands & the small stuff")
                             (org-agenda-todo-ignore-scheduled t)
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
