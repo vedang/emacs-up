@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-04-11 18:36:28 vedang"
+;;; Time-stamp: "2012-04-11 19:13:43 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -106,7 +106,7 @@
       (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "REDO(r@/!)" "WAITING(a@/!)"
                         "|" "DONE(d!/@)" "DELEGATED(e@/!)")
               (sequence "PROJECT(p)" "BUG(b!/@)" "FEATURE(f!/!)" "MAINT(m!/!)"
-                        "|" "SOMEDAY(s)" "CANCELLED(c@/!)"))))
+                        "|" "SOMEDAY(s)" "CANCELLED(c@/!)" "RESTRUCTURED(R@/!)"))))
 
 
 (setq org-todo-keyword-faces
@@ -121,7 +121,8 @@
               ("FEATURE" :foreground "red" :weight bold)
               ("MAINT" :foreground "red" :weight bold)
               ("SOMEDAY" :foreground "magenta" :weight bold)
-              ("CANCELLED" :foreground "lightgreen" :weight bold))))
+              ("CANCELLED" :foreground "lightgreen" :weight bold)
+              ("RESTRUCTURED" :foreground "lightgreen" :weight bold))))
 
 
 ;; Changing State should trigger following Tag changes
@@ -188,7 +189,7 @@
   (define-key org-todo-state-map "x"
     #'(lambda nil (interactive) (org-agenda-todo "CANCELLED")))
 
-  (define-key org-todo-state-map "z" #'make-bugzilla-bug)
+  ;;(define-key org-todo-state-map "z" #'make-bugzilla-bug)
   (define-key org-todo-state-map "D" #'fc/org-agenda-inherit-deadline))
 
 
