@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-16 21:34:00 vedang"
+;;; Time-stamp: "2012-04-01 10:03:06 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -216,10 +216,10 @@ Subsequent calls expands the selection to larger semantic unit."
 ;;; Autoloading and byte-compilation functions
 
 
-(defun recompile-init ()
+(defun vedang/recompile-init (&optional force)
   "Byte-compile all your dotfiles again."
-  (interactive)
-  (byte-recompile-directory *dotfiles-dir* 0))
+  (interactive "P")
+  (byte-recompile-directory *dotfiles-dir* 0 force))
 
 
 (defun vedang/files-in-below-directory (directory)
