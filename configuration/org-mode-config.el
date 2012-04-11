@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-04-04 13:36:24 vedang"
+;;; Time-stamp: "2012-04-11 18:36:28 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -177,6 +177,19 @@
 ;; I need more priorities that provided by default
 (setq org-lowest-priority ?E)
 (setq org-default-priority ?E)
+
+
+(dolist (map (list org-agenda-keymap org-agenda-mode-map))
+  (define-prefix-command 'org-todo-state-map)
+  (define-key map "x" 'org-todo-state-map)
+
+  (define-key org-todo-state-map "d"
+    #'(lambda nil (interactive) (org-agenda-todo "DONE")))
+  (define-key org-todo-state-map "x"
+    #'(lambda nil (interactive) (org-agenda-todo "CANCELLED")))
+
+  (define-key org-todo-state-map "z" #'make-bugzilla-bug)
+  (define-key org-todo-state-map "D" #'fc/org-agenda-inherit-deadline))
 
 
 ;; Logbook settings
@@ -375,7 +388,61 @@ as the default task."
                  "Set default clocking task with C-u C-u I")))
               ("d" "Delegated Tasks" todo "DELEGATED"
                ((org-use-tag-inheritance nil)
-                (org-agenda-todo-ignore-with-date nil))))))
+                (org-agenda-todo-ignore-with-date nil)))
+              ("I" "Inheritable Deadlines" todo "TODO|WAITING|HOLD"
+                    ((org-agenda-overriding-header "Inheritable DEADLINEs")
+                     (org-agenda-skip-function 'fc/skip-non-inheritable-deadlines))))))
+
+
+;;; http://article.gmane.org/gmane.emacs.orgmode/49215
+(defun fc/has-inheritable-deadline-p ()
+  "Any task (without DEADLINE) that can inherit a DEADLINE"
+  (let ((deadline (org-entry-get nil "DEADLINE"))
+        (inheritable-deadline (org-entry-get-with-inheritance "DEADLINE")))
+
+    (if (org-not-nil deadline)
+        nil
+      (if (org-not-nil inheritable-deadline)
+          t
+        nil))))
+
+
+(defun fc/skip-non-inheritable-deadlines ()
+  "Skip tasks that cannot inherit a DEADLINE"
+  (let* ((next-headline (save-excursion (or (outline-next-heading) (point-max)))))
+    (if (fc/has-inheritable-deadline-p)
+        nil
+      next-headline)))
+
+
+(defun fc/org-inherit-deadline ()
+  "Inherit a DEADLINE."
+  (interactive)
+  (let* ((deadline (org-entry-get-with-inheritance "DEADLINE")))
+    (if (and (org-not-nil deadline)
+             (y-or-n-p (format "Inherit DEADLINE: <%s>? " deadline)))
+        (org-deadline nil (org-time-string-to-time deadline)))))
+
+
+(defun fc/org-agenda-inherit-deadline (&optional arg)
+  "Inherit a DEADLINE in agenda."
+  (interactive "P")
+  (let* ((marker (or (org-get-at-bol 'org-marker)
+                     (org-agenda-error)))
+         (hdmarker (or (org-get-at-bol 'org-hd-marker)
+                       marker))
+         (pos (marker-position marker))
+         newhead)
+    (org-with-remote-undo (marker-buffer marker)
+      (with-current-buffer (marker-buffer marker)
+        (widen)
+        (goto-char pos)
+        (org-show-context 'agenda)
+        (org-show-entry)
+        (org-cycle-hide-drawers 'children)
+        (fc/org-inherit-deadline)
+        (setq newhead (org-get-heading)))
+      (org-agenda-change-all-lines newhead hdmarker))))
 
 
 ;; Always highlight current agenda line
