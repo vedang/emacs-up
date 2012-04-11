@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-03-31 22:46:34 vedang"
+;;; Time-stamp: "2012-04-04 13:36:24 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -343,7 +343,7 @@ as the default task."
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
-                             '(effort-up category-keep))))
+                             '(effort-up priority-down category-keep))))
                 (tags-todo "+next-release-someday|+future-someday"
                            ((org-agenda-overriding-header
                              "Next Tasks")
