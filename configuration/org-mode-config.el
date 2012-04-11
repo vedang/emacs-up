@@ -445,6 +445,18 @@ as the default task."
       (org-agenda-change-all-lines newhead hdmarker))))
 
 
+;; http://stackoverflow.com/a/8920418/137430
+(defun my-org-insert-sub-task ()
+  (interactive)
+  (let ((parent-deadline (org-get-deadline-time nil)))
+    (org-goto-sibling)
+    (org-insert-todo-subheading t)
+    (when parent-deadline
+      (org-deadline nil parent-deadline))))
+
+(define-key org-mode-map (kbd "C-c s") 'my-org-insert-sub-task)
+
+
 ;; Always highlight current agenda line
 (add-hook 'org-agenda-mode-hook '(lambda ()
                                    (hl-line-mode 1)))
