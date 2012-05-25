@@ -1,0 +1,9 @@
+* cscope-emacs
+
+ - install cscope on the system:
+
+#+BEGIN_SRC shell
+sudo aptitude install cscope
+#+END_SRC
+
+ - put cscope-indexer somewhere in the system path (EG: /usr/bin)

@@ -2,14 +2,17 @@ This folder contains my emacs configuration. In order to install this emacs conf
 
 * Clone the emacs configuration repository
 
-* Install the submodules
-  - git submodule init
-  - git submodule update
+  - git clone --recursive git://github.com/vedang/emacs-config.git .emacs.d
 
-* Go through the GOTCHAS file.
+* Go through the following files:
+
+ - plugins/clojure-emacs/README.org
+ - plugins/python-emacs/README.org
+ - plugins/cscope-emacs/README.org
+ - PREREQUISITES.org
 
 We are now ready to roll with my configuration. Restart emacs and enjoy.
 
 * Note:
 
-I am currently transitioning my emacs configuration from Emacs 23 to Emacs 24. I cannot guarantee the stability of this configuration.
+This configuration will only work with Emacs 24. It has been stable in my testing, but please open an issue if you have any trouble using it.

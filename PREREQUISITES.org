@@ -1,5 +1,3 @@
--*- mode: org -*-
-
 * Flyspell
 install the programs aspell and aspell-en
 #+BEGIN_SRC shell
@@ -16,22 +14,6 @@ Flymake has a lot of tiny things we need to be aware of:
        gcc -o nul -S ${CHK_SOURCES}
 #+END_SRC
 
-* Python
-install python and python-pip on the system:
-#+BEGIN_SRC shell
-sudo aptitude install python python-pip
-#+END_SRC
-Install pyflakes and pep8
-#+BEGIN_SRC shell
-sudo pip install pyflakes pep8
-#+END_SRC
-Follow the instructions in plugins/python-emacs/README.org to setup python
-* cscope
-install cscope on the system:
-#+BEGIN_SRC shell
-sudo aptitude install cscope
-#+END_SRC
-put cscope-indexer somewhere in the system path
 * Latex
 ** install auctex and reftex
 ** install chktex (so that we can use flymake)
