@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-03-04 01:38:36 vedang"
+;;; Time-stamp: "2012-05-26 16:51:15 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -16,7 +16,6 @@
 ;;; Code:
 
 
-(autoload 'package-list-packages "elpa-config" "List Elpa packages" t)
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
 (autoload 'python-mode "python" "Load python mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
@@ -75,6 +74,9 @@
            uniquify-separator "|"
            uniquify-after-kill-buffer-p t
            uniquify-ignore-buffers-re "^\\*")))
+(eval-after-load "package"
+  '(progn
+     (require 'elpa-config)))
 
 
 ;;; configuration too small to go into individual files
