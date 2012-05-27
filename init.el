@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-11 21:55:15 vedang"
+;;; Time-stamp: "2012-05-27 18:04:02 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -32,6 +32,11 @@
       *config-dir* (concat *dotfiles-dir* "configuration/")
       *custom-file* (concat *dotfiles-dir* "custom.el")
       *tempfiles-dir* (concat *dotfiles-dir* "temp-files/"))
+
+
+;;; Create temp directories if necessary
+(make-directory *tempfiles-dir* t)
+(make-directory *package-user-dir* t)
 
 
 ;;; From nflath.com
