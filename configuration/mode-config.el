@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-05-26 16:51:15 vedang"
+;;; Time-stamp: "2012-05-28 14:08:40 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -59,12 +59,6 @@
 (eval-after-load "lisp-mode"
   '(progn
      (require 'emacs-lisp-mode-config)))
-(eval-after-load "clojure"
-  '(progn
-     (require 'clojure-mode-config)))
-(eval-after-load "slime"
-  '(progn
-     (require 'slime-config)))
 (eval-after-load "LaTeX"
   '(progn
      (require 'latex-mode-config)))
@@ -78,6 +72,9 @@
   '(progn
      (require 'elpa-config)))
 
+;;; Load various emacs packs
+(add-to-list 'load-path (concat *plugins-dir* "clojure-emacs"))
+(require 'clojure-emacs-init)
 
 ;;; configuration too small to go into individual files
 (require 'yasnippet) ;; not yasnippet-bundle
