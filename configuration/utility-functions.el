@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-04-01 10:03:06 vedang"
+;;; Time-stamp: "2012-06-11 14:53:53 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -308,6 +308,58 @@ Subsequent calls expands the selection to larger semantic unit."
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
 (global-set-key (kbd "C-x M-s") 'transpose-windows)
+
+
+;; thank you magnars
+(defun eval-and-replace ()
+  "Replace the preceding sexp with its value."
+  (interactive)
+  (backward-kill-sexp)
+  (condition-case nil
+      (prin1 (eval (read (current-kill 0)))
+             (current-buffer))
+    (error (message "Invalid expression")
+           (insert (current-kill 0)))))
+
+
+(defun incs (s &optional num)
+  (number-to-string (+ (or num 1) (string-to-number s))))
+
+
+(defun decs (s &optional num)
+  (number-to-string (- (string-to-number s) (or num 1))))
+
+
+(defun jump-to-next-slide ()
+  "Jump to the next slide of the presentation"
+  (interactive)
+  (condition-case ex
+      (find-file (car (file-expand-wildcards (concat
+                                              (unhandled-file-name-directory (buffer-file-name))
+                                              (incs (car (split-string (file-name-nondirectory (buffer-file-name))
+                                                                       "-")))
+                                              "-*"))))
+    ('error (progn
+              (message "Rewinding...")
+              (find-file (car (file-expand-wildcards (concat
+                                                      (unhandled-file-name-directory (buffer-file-name))
+                                                      "1-*"))))))))
+
+(global-set-key (kbd "<f8>") 'jump-to-next-slide)
+
+
+(defun jump-to-prev-slide ()
+  "Jump to the previous slide of the presentation"
+  (interactive)
+  (condition-case ex
+      (find-file (car (file-expand-wildcards (concat
+                                              (unhandled-file-name-directory (buffer-file-name))
+                                              (decs (car (split-string (file-name-nondirectory (buffer-file-name))
+                                                                       "-")))
+                                              "-*"))))
+    ('error (message "You've reached the beginning of the presentation"))))
+
+(global-set-key (kbd "<f7>") 'jump-to-prev-slide)
 
 
 (provide 'utility-functions)
