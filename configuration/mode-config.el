@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-05-28 14:08:40 vedang"
+;;; Time-stamp: "2012-06-22 01:10:19 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -17,7 +17,6 @@
 
 
 (autoload 'cscope-set-initial-directory "cscope-mode-config" "Load cscope" t)
-(autoload 'python-mode "python" "Load python mode" t)
 (autoload 'no-easy-keys-minor-mode "no-easy-keys" "Load no easy keys" t)
 (autoload 'octave-mode "octave-mode" nil t)
 (autoload 'xmsi-mode "xmsi-math-symbols-input.el"
@@ -50,9 +49,6 @@
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")))
-(eval-after-load "python"
-  '(progn
-     (require 'python-mode-config)))
 (eval-after-load "erlang"
   '(progn
      (require 'erlang-mode-config)))
@@ -75,6 +71,8 @@
 ;;; Load various emacs packs
 (add-to-list 'load-path (concat *plugins-dir* "clojure-emacs"))
 (require 'clojure-emacs-init)
+(add-to-list 'load-path (concat *plugins-dir* "python-emacs"))
+(require 'python-emacs-init)
 
 ;;; configuration too small to go into individual files
 (require 'yasnippet) ;; not yasnippet-bundle
