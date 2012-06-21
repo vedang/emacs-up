@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-06-11 14:53:53 vedang"
+;;; Time-stamp: "2012-06-22 00:30:24 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -152,33 +152,14 @@ Subsequent calls expands the selection to larger semantic unit."
                     nil))))))
 
 
-(defvar coding-hook nil
-  "Hook that gets run on activation of any programming mode.")
-;; (add-hook 'coding-hook 'turn-on-hl-line-mode)
-(add-hook 'coding-hook 'pretty-lambdas)
-
-
-(defun run-coding-hook ()
-  "Enable things that are convenient across all coding buffers."
-  (run-hooks 'coding-hook))
-
-
-(defvar programming-major-modes
-  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode
-             emacs-lisp-mode lisp-mode scheme-mode python-mode)
-  "List of programming modes")
-(defvar lisp-major-modes
-  '(emacs-lisp-mode lisp-mode clojure-mode scheme-mode))
-
-
 (defun vedang/prog-mode-settings ()
   "special settings for programming modes."
-  (when (memq major-mode programming-major-modes)
+  (when (memq major-mode vedang/programming-major-modes)
     (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
     (turn-on-whitespace-mode)    ;; tell me if lines exceed 80 columns
-    (when (memq major-mode lisp-major-modes)
+    (when (memq major-mode vedang/lisp-major-modes)
       (paredit-mode t))          ;; Paredit goodness
-    (run-coding-hook)))
+    (pretty-lambdas)))
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
 

@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-05-29 13:56:41 vedang"
+;;; Time-stamp: "2012-06-22 00:30:41 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -88,13 +88,13 @@
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)
-  (if (member major-mode programming-major-modes)
+  (if (member major-mode vedang/programming-major-modes)
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
 
 
 (defadvice yank-pop (after indent-region activate)
-  (if (member major-mode programming-major-modes)
+  (if (member major-mode vedang/programming-major-modes)
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
 
