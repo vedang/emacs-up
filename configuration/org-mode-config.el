@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-06-20 22:43:34 vedang"
+;;; Time-stamp: "2012-06-22 16:27:04 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -393,7 +393,7 @@ as the default task."
               ("d" "Delegated Tasks" todo "DELEGATED"
                ((org-use-tag-inheritance nil)
                 (org-agenda-todo-ignore-with-date nil)))
-              ("I" "Inheritable Deadlines" todo "TODO|WAITING|HOLD"
+              ("I" "Inheritable Deadlines" todo "TODO|WAITING|IN-REVIEW|WORKING|SOMEDAY"
                     ((org-agenda-overriding-header "Inheritable DEADLINEs")
                      (org-agenda-skip-function 'fc/skip-non-inheritable-deadlines))))))
 
