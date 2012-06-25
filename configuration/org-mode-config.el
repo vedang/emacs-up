@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-06-22 16:27:04 vedang"
+;;; Time-stamp: "2012-06-25 12:57:50 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -104,11 +104,11 @@
 ;; / indicates entering the state
 (setq org-todo-keywords
       (quote ((sequence "TODO(t!/!)" "WORKING(w!/!)" "IN-REVIEW(i!/!)"
-                        "REDO(r@/!)" "WAITING(a@/!)"
+                        "REDO(R@/!)" "WAITING(a@/!)"
                         "|" "DONE(d!/@)" "DELEGATED(e@/!)")
               (sequence "PROJECT(p)" "BUG(b!/@)" "FEATURE(f!/!)" "MAINT(m!/!)"
                         "|" "SOMEDAY(s)" "CANCELLED(c@/!)"
-                        "RESTRUCTURED(R@/!)"))))
+                        "RESTRUCTURED(r@/!)"))))
 
 
 (setq org-todo-keyword-faces
