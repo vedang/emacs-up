@@ -1,7 +1,7 @@
 ;;; ibuffer-mode-config.el --- Configuration for ibuffer
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
-;;; Time-stamp: "2012-03-04 01:44:55 vedang"
+;;; Time-stamp: "2012-06-27 19:12:24 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -24,13 +24,6 @@
   (ibuffer)
   (ibuffer-switch-to-saved-filter-groups "default"))
 (global-set-key (kbd "C-x C-b") 'turn-on-ibuffer)
-
-
-(global-set-key (kbd "C-z") 'ibuffer-do-occur)
-
-
-(setq ibuffer-default-sorting-mode 'major-mode
-      ibuffer-always-show-last-buffer t)
 
 
 (setq ibuffer-saved-filter-groups
@@ -61,6 +54,25 @@
                 (or
                  (mode . LaTeX-mode)
                  (mode . fundamental-mode)))))))
+
+
+(eval-after-load "ibuffer"
+  '(progn
+     (setq ibuffer-default-sorting-mode 'major-mode
+           ibuffer-always-show-last-buffer t)
+     (define-key ibuffer-mode-map (kbd "C-c C-z")
+       'ibuffer-vc-set-filter-groups-by-vc-root)
+     (setq ibuffer-formats
+           '((mark modified read-only vc-status-mini " "
+                   (name 18 18 :left :elide)
+                   " "
+                   (size 9 -1 :right)
+                   " "
+                   (mode 16 16 :left :elide)
+                   " "
+                   (vc-status 16 16 :left)
+                   " "
+                   filename-and-process)))))
 
 
 (provide 'ibuffer-mode-config)
