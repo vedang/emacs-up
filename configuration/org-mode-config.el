@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-06-25 12:57:50 vedang"
+;;; Time-stamp: "2012-07-02 23:53:47 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -21,11 +21,13 @@
 (require 'org-latex)
 
 (setq org-directory "~/Documents/Notes-GTD"
+      org-work-directory (concat org-directory "/work")
+      org-personal-directory (concat org-directory "/personal")
       org-archive-directory (concat org-directory "/archive")
       org-archive-location (concat org-archive-directory "/%s_archive::")
       org-completion-use-ido t
       org-default-notes-file (concat org-directory "/remember-notes.org")
-      org-agenda-files (list org-directory))
+      org-agenda-files (list org-directory org-work-directory org-personal-directory))
 
 
 ;; Standard org-mode key bindings
@@ -343,18 +345,35 @@ as the default task."
 
 ;; Custom views for Agenda
 (setq org-agenda-custom-commands
-      (quote ((" " "Agenda"
-               ((agenda "" nil)
+      (quote (("a" "Work Agenda"
+               ((agenda "" ((org-agenda-files (list org-work-directory))))
                 (tags-todo "+release+@office-future"
-                           ((org-agenda-overriding-header
+                           ((org-agenda-files (list org-work-directory))
+                            (org-agenda-overriding-header
                              "Release Tasks")
                             (org-agenda-todo-ignore-scheduled t)
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
                              '(effort-up category-keep))))
+                (tags-todo "+next-release-someday|+future-someday"
+                           ((org-agenda-files (list org-work-directory))
+                            (org-agenda-overriding-header
+                             "Next Tasks")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(effort-up category-keep))))
+                (tags "refile"
+                      ((org-agenda-overriding-header
+                        "Notes and Tasks to Refile")))
+                nil))
+              ("b" "Personal Agenda"
+               ((agenda "" ((org-agenda-files (list org-personal-directory))))
                 (tags-todo "+goal|+write|+study|+tweak"
-                           ((org-agenda-overriding-header
+                           ((org-agenda-files (list org-personal-directory))
+                            (org-agenda-overriding-header
                              "Fun Tasks & Tweaks")
                             (org-agenda-todo-ignore-scheduled t)
                             (org-agenda-todo-ignore-deadlines t)
@@ -362,7 +381,8 @@ as the default task."
                             (org-agenda-sorting-strategy
                              '(effort-up priority-down category-keep))))
                 (tags-todo "+next-release-someday|+future-someday"
-                           ((org-agenda-overriding-header
+                           ((org-agenda-files (list org-personal-directory))
+                            (org-agenda-overriding-header
                              "Next Tasks")
                             (org-agenda-todo-ignore-scheduled t)
                             (org-agenda-todo-ignore-deadlines t)
