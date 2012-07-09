@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-07-02 23:53:47 vedang"
+;;; Time-stamp: "2012-07-05 10:41:24 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -356,7 +356,7 @@ as the default task."
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
                              '(effort-up category-keep))))
-                (tags-todo "+next-release-someday|+future-someday"
+                (tags-todo "+productive+future"
                            ((org-agenda-files (list org-work-directory))
                             (org-agenda-overriding-header
                              "Next Tasks")
@@ -663,7 +663,7 @@ as the default task."
 
 
 (setq org-link-abbrev-alist
-      '(("bugzilla" . "http://bugzilla.qotdinc.com/show_bug.cgi?id=%s")
+      '(("bug" . "http://bugzilla.helpshift.com/show_bug.cgi?id=%s")
         ("google"   . "http://www.google.com/search?q=%s")))
 
 
