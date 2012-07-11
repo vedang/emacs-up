@@ -1,6 +1,3 @@
-[submodule "plugins/org-mode"]
-	path = plugins/org-mode
-	url = git://repo.or.cz/org-mode.git
 [submodule "plugins/python-emacs"]
 	path = plugins/python-emacs
 	url = git@github.com:vedang/python-emacs.git
