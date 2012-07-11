@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-06-22 00:30:24 vedang"
+;;; Time-stamp: "2012-07-12 11:42:23 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -158,6 +158,7 @@ Subsequent calls expands the selection to larger semantic unit."
     (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
     (turn-on-whitespace-mode)    ;; tell me if lines exceed 80 columns
     (when (memq major-mode vedang/lisp-major-modes)
+      (require 'paredit)
       (paredit-mode t))          ;; Paredit goodness
     (pretty-lambdas)))
 (add-hook 'find-file-hook 'vedang/prog-mode-settings)
@@ -239,7 +240,7 @@ Subsequent calls expands the selection to larger semantic unit."
           (insert ";;") ;; create the file with non-zero size to appease autoload
           (save-buffer)))
       (message "Updating autoloads...")
-      (dolist (autoload-dir (list *package-user-dir* *plugins-dir* *config-dir*))
+      (dolist (autoload-dir (list *plugins-dir* *config-dir*))
         (let (emacs-lisp-mode-hook)
           (vedang/update-directory-autoloads autoload-dir)))))
   (load *autoload-file*))

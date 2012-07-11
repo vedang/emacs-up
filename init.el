@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-06-22 00:30:56 vedang"
+;;; Time-stamp: "2012-07-12 11:42:32 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -27,7 +27,6 @@
 (setq *dotfiles-dir* (file-name-directory
                       (or (buffer-file-name) load-file-name))
       *autoload-file* (concat *dotfiles-dir* "loaddefs.el")
-      *package-user-dir* (concat *dotfiles-dir* "elpa/")
       *plugins-dir* (concat *dotfiles-dir* "plugins/")
       *config-dir* (concat *dotfiles-dir* "configuration/")
       *custom-file* (concat *dotfiles-dir* "custom.el")
@@ -45,7 +44,6 @@
 
 ;;; Create temp directories if necessary
 (make-directory *tempfiles-dir* t)
-(make-directory *package-user-dir* t)
 
 
 ;;; From nflath.com
@@ -66,18 +64,15 @@
 
 
 ;;; Require my configuration
-(require 'customizations)
+(load *custom-file* 'noerror)
 (require 'utility-functions)
+(require 'customizations)
 (require 'mode-config)
 (require 'key-bindings)
 (require 'registers)
 
-
 (vedang/regen-autoloads)
-(load *custom-file* 'noerror)
 (server-start)
-
-
 (message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
                                      (- (+ hi lo)
                                         (+ (first *emacs-load-start*)

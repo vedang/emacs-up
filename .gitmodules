@@ -13,3 +13,6 @@
 	path = plugins/revive-mode
 	url = git@github.com:vedang/revive-mode.git
     ignore=dirty
+[submodule "plugins/magit"]
+	path = plugins/magit
+	url = git://github.com/magit/magit.git

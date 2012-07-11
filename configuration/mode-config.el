@@ -64,9 +64,7 @@
            uniquify-separator "|"
            uniquify-after-kill-buffer-p t
            uniquify-ignore-buffers-re "^\\*")))
-(eval-after-load "package"
-  '(progn
-     (require 'elpa-config)))
+
 
 ;;; Load various emacs packs
 (add-to-list 'load-path (concat *plugins-dir* "clojure-emacs"))
