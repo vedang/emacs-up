@@ -1,7 +1,12 @@
 * Flyspell
 install the programs aspell and aspell-en
+Ubuntu:
 #+BEGIN_SRC shell
 sudo aptitude install aspell aspell-en
+#+END_SRC
+Mac:
+#+BEGIN_SRC shell
+brew install aspell --lang=en
 #+END_SRC
 
 * Flymake
