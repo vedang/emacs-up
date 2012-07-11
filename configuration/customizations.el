@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-06-22 01:10:26 vedang"
+;;; Time-stamp: "2012-07-11 14:51:20 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -42,8 +42,7 @@
 (show-paren-mode 1)
 (display-time)
 (setq-default indent-tabs-mode nil  ;only spaces by default.
-              tab-width 4
-              ispell-program-name "aspell")
+              tab-width 4)
 
 
 (defalias 'yes-or-no-p 'y-or-n-p)
