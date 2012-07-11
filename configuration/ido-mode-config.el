@@ -1,7 +1,7 @@
 ;;; ido-mode-config.el --- Configuration for ido-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
-;;; Time-stamp: "2012-01-16 21:48:17 vedang"
+;;; Time-stamp: "2012-07-10 22:36:30 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -48,15 +48,14 @@
            (all-completions "" collection predicate)
            nil require-match initial-input hist def))))
 
-(global-set-key
- "\M-x"
- (lambda ()
-   (interactive)
-   (call-interactively
-    (intern
-     (ido-completing-read
-      "M-x "
-      (all-completions "" obarray 'commandp))))))
+
+(defun super-meta-x ()
+  (interactive)
+  (call-interactively
+   (intern
+    (ido-completing-read
+     "M-x "
+     (all-completions "" obarray 'commandp)))))
 
 
 (provide 'ido-mode-config)

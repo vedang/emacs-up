@@ -1,7 +1,7 @@
 ;;; key-bindings.el --- I need these key combos
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-03-03 21:15:06 vedang"
+;;; Time-stamp: "2012-07-10 22:37:41 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -61,6 +61,12 @@
   ;; I don't need open-line and this is much easier than actually
   ;; typing Shift+9
   '(define-key paredit-mode-map (kbd "C-o") 'paredit-open-round))
+
+
+(eval-after-load "ido-mode-config"
+  '(progn
+     (global-set-key (kbd "M-x") 'super-meta-x)
+     (global-set-key (kbd "s-x") 'super-meta-x)))
 
 
 ;; bindings for revive mode
