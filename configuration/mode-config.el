@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-06-22 01:10:19 vedang"
+;;; Time-stamp: "2012-07-12 10:18:36 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -25,7 +25,7 @@
 
 ;;; required magic
 (require 'ido-mode-config)
-(require 'ibuffer-mode-config)
+(require 'ibuffer-crate-init)
 (require 'auto-complete-mode-config)
 (require 'isearch-mode-config)
 (require 'flymake-config)

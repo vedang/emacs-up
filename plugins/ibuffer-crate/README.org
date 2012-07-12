@@ -1,0 +1,7 @@
+This folder contains some extra configuration over ibuffer which is
+the bee's knees. You can choose to use this standalone by dropping
+this folder anywhere in your .emacs.d and adding the following to your
+init.el:
+
+   (add-to-list 'load-path "/path/to/ibuffer-crate")
+   (require 'ibuffer-crate-init)

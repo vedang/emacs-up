@@ -13,3 +13,6 @@
 [submodule "plugins/magit"]
 	path = plugins/magit
 	url = git://github.com/magit/magit.git
+[submodule "plugins/ibuffer-crate/lib/ibuffer-vc"]
+	path = plugins/ibuffer-crate/lib/ibuffer-vc
+	url = git://github.com/purcell/ibuffer-vc.git

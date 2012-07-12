@@ -1,7 +1,7 @@
 ;;; ibuffer-mode-config.el --- Configuration for ibuffer
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
-;;; Time-stamp: "2012-06-27 19:12:24 vedang"
+;;; Time-stamp: "2012-07-12 10:26:09 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -17,7 +17,8 @@
 
 
 (autoload 'ibuffer "ibuffer" "List buffers." t)
-
+(autoload 'ibuffer-vc-set-filter-groups-by-vc-root "ibuffer-vc"
+  "Set ibuffer filter roots by vc root" t)
 
 (defun turn-on-ibuffer ()
   (interactive)
@@ -58,6 +59,7 @@
 
 (eval-after-load "ibuffer"
   '(progn
+     (require 'ibuffer-vc)
      (setq ibuffer-default-sorting-mode 'major-mode
            ibuffer-always-show-last-buffer t)
      (define-key ibuffer-mode-map (kbd "C-c C-z")
