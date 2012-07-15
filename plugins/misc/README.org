@@ -1,0 +1,2 @@
+This folder contains miscellaneous configuration that I have picked up
+over the years which proves useful once in a while.
