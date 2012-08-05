@@ -1,7 +1,7 @@
 ;;; osx.el --- emacs configuration for OS X
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
-;;; Time-stamp: "2012-07-15 20:06:18 vedang"
+;;; Time-stamp: "2012-08-01 15:22:18 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -54,10 +54,17 @@
 (setq frame-title-format "%b")
 (setq icon-title-format  "%b")
 
+
 ;; Binaries
 (setq magit-git-executable "/usr/local/bin/git"
       vc-git-program "/usr/local/bin/git"
-      ispell-program-name "/usr/local/bin/aspell")
+      ispell-program-name "/usr/local/bin/aspell"
+      epg-gpg-program "/usr/local/bin/gpg")
+
+
+;; path, because Mac is a bitch.
+(add-to-list 'exec-path "/usr/local/bin")
+
 
 ;; python path, because Mac doesn't share it's env variables
 (setenv "PYTHONPATH"
