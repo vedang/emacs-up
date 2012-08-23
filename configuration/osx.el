@@ -1,7 +1,7 @@
 ;;; osx.el --- emacs configuration for OS X
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
-;;; Time-stamp: "2012-08-23 12:45:18 vedang"
+;;; Time-stamp: "2012-08-23 13:06:01 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -64,7 +64,11 @@
 
 ;; source dirs
 (setq source-directory "/Library/Caches/Homebrew/emacs--git/src/")
+(setq find-function-C-source-directory "/Library/Caches/Homebrew/emacs--git/src/")
 
+
+;; full screen toggle, will only work if emacs is installed from source
+(global-set-key (kbd "<f1>") 'ns-toggle-fullscreen)
 
 ;; path, because Mac is a bitch.
 (add-to-list 'exec-path "/usr/local/bin")
