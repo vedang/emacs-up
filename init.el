@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-07-12 11:47:41 vedang"
+;;; Time-stamp: "2012-08-23 12:28:07 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -74,7 +74,7 @@
   (require 'osx))
 (vedang/regen-autoloads)
 (server-start)
-(message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms) (current-time)
+(message "My .emacs loaded in %ds" (destructuring-bind (hi lo ms psec) (current-time)
                                      (- (+ hi lo)
                                         (+ (first *emacs-load-start*)
                                            (second *emacs-load-start*)))))
