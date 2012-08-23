@@ -1,7 +1,7 @@
 ;;; osx.el --- emacs configuration for OS X
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
-;;; Time-stamp: "2012-08-01 15:22:18 vedang"
+;;; Time-stamp: "2012-08-23 12:45:18 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -60,6 +60,10 @@
       vc-git-program "/usr/local/bin/git"
       ispell-program-name "/usr/local/bin/aspell"
       epg-gpg-program "/usr/local/bin/gpg")
+
+
+;; source dirs
+(setq source-directory "/Library/Caches/Homebrew/emacs--git/src/")
 
 
 ;; path, because Mac is a bitch.
