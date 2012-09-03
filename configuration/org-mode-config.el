@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-07-05 10:41:24 vedang"
+;;; Time-stamp: "2012-09-03 19:57:49 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -370,7 +370,8 @@ as the default task."
                         "Notes and Tasks to Refile")))
                 nil))
               ("b" "Personal Agenda"
-               ((agenda "" ((org-agenda-files (list org-personal-directory))))
+               ((agenda "" ((org-agenda-files (list org-personal-directory
+                                                    (concat org-directory "/Birthdays.org")))))
                 (tags-todo "+goal|+write|+study|+tweak"
                            ((org-agenda-files (list org-personal-directory))
                             (org-agenda-overriding-header
