@@ -1,7 +1,7 @@
 ;;; key-bindings.el --- I need these key combos
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-07-10 22:37:41 vedang"
+;;; Time-stamp: "2012-09-21 11:25:04 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -39,6 +39,12 @@
 (define-key global-map (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-S-t") 'transpose-sexps)
 (global-set-key (kbd "C-c o") 'turn-on-paredit-nonlisp)
+
+;; M-q is eaten inside VirtualBox on Mac.
+;; Re-mapping some important functions which depend on M-q
+(global-set-key (kbd "C-c q") 'fill-paragraph)
+(global-set-key (kbd "C-s-q") 'prog-indent-sexp)
+
 
 ;;; Window switching. (C-x o goes to the next window)
 ;;; Emacs-starter-kit
