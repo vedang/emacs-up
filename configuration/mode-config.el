@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-07-12 10:18:36 vedang"
+;;; Time-stamp: "2012-09-20 23:44:39 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -22,6 +22,8 @@
 (autoload 'xmsi-mode "xmsi-math-symbols-input.el"
   "Load xmsi-math-symbols-input mode for inserting math symbols." t)
 (autoload 'writegood-mode "writegood-mode" "Write Good." t)
+(autoload 'markdown-mode "markdown-mode.el"
+  "Major mode for editing Markdown files" t)
 
 ;;; required magic
 (require 'ido-mode-config)
