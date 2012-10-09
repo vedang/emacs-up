@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-08-31 20:41:37 vedang"
+;;; Time-stamp: "2012-10-09 16:08:32 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -81,7 +81,9 @@
 (add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(tex\\|ltx\\)$" . LaTeX-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.m$" . octave-mode))
+(if (eq system-type 'darwin)
+  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+  (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode)))
 
 
 ;; customizations for auto-indentation
