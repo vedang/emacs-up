@@ -1,7 +1,7 @@
 ;;; osx.el --- emacs configuration for OS X
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
-;;; Time-stamp: "2012-08-23 13:06:01 vedang"
+;;; Time-stamp: "2012-10-09 13:12:40 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -77,6 +77,17 @@
 ;; python path, because Mac doesn't share it's env variables
 (setenv "PYTHONPATH"
         "/usr/bin:/usr/local/bin:/usr/local/lib/python2.7/site-packages")
+
+
+;; Settings for XCode integration and iOS development
+
+;; open objc-mode for .h files as required
+(add-to-list 'magic-mode-alist
+             `(,(lambda ()
+                  (and (string= (file-name-extension buffer-file-name) "h")
+                       (re-search-forward "@\\<interface\\>"
+                                          magic-mode-regexp-match-limit t)))
+               . objc-mode))
 
 
 (provide 'osx)
