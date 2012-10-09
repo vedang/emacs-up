@@ -1,7 +1,7 @@
 ;;; osx.el --- emacs configuration for OS X
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
-;;; Time-stamp: "2012-10-09 13:12:40 vedang"
+;;; Time-stamp: "2012-10-09 23:34:52 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -65,6 +65,12 @@
 ;; source dirs
 (setq source-directory "/Library/Caches/Homebrew/emacs--git/src/")
 (setq find-function-C-source-directory "/Library/Caches/Homebrew/emacs--git/src/")
+
+
+;; Setup document viewer to read xcode documentation
+(require 'xcode-document-viewer)
+(setq xcdoc:document-path "/Users/vedang/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS5_1.iOSLibrary.docset")
+(setq xcdoc:open-w3m-other-buffer t)
 
 
 ;; full screen toggle, will only work if emacs is installed from source
