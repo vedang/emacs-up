@@ -1,0 +1,4 @@
+#name : chapterMetadataGroupsWithTitleLocale:containingItemsWithCommonKeys
+#group : AVAsset
+# --
+chapterMetadataGroupsWithTitleLocale:${1:(NSLocale *)locale} containingItemsWithCommonKeys:${2:(NSArray *)commonKeys}

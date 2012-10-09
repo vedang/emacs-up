@@ -1,0 +1,4 @@
+#name : drawImage:inRect:fromRect
+#group : CIContext
+# --
+drawImage:${1:(CIImage *)im} inRect:${2:(CGRect)dest} fromRect:${3:(CGRect)src}

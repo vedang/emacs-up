@@ -1,0 +1,4 @@
+#name : initWithContentsOfURL:options
+#group : CIImage
+# --
+initWithContentsOfURL:${1:(NSURL *)url} options:${2:(NSDictionary *)d}

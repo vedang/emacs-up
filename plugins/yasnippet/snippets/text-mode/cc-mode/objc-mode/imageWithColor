@@ -1,0 +1,4 @@
+#name : imageWithColor
+#group : CIImage
+# --
+imageWithColor:${1:(CIColor *)color}

@@ -1,0 +1,4 @@
+#name : readAdditionalContentFromURL:error
+#group : UIManagedDocument
+# --
+readAdditionalContentFromURL:${1:(NSURL *)absoluteURL} error:${2:(NSError **)error}

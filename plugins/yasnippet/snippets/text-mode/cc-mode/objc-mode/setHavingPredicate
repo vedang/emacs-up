@@ -1,0 +1,4 @@
+#name : setHavingPredicate
+#group : NSFetchRequest
+# --
+setHavingPredicate:${1:(NSPredicate *)predicate}

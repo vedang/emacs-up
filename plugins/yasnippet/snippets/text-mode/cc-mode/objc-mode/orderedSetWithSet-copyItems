@@ -1,0 +1,4 @@
+#name : orderedSetWithSet:copyItems
+#group : NSOrderedSet
+# --
+orderedSetWithSet:${1:(NSSet *)set} copyItems:${2:(BOOL)flag}

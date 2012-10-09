@@ -1,0 +1,4 @@
+#name : indexOfObject:inSortedRange:options:usingComparator
+#group : NSOrderedSet
+# --
+indexOfObject:${1:(id)object} inSortedRange:${2:(NSRange)range} options:${3:(NSBinarySearchingOptions)opts} usingComparator:${4:(NSComparator)cmp}

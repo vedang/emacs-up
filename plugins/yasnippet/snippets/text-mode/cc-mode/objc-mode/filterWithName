@@ -1,0 +1,4 @@
+#name : filterWithName
+#group : CIFilter
+# --
+filterWithName:${1:(NSString *)name}

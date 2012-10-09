@@ -1,0 +1,4 @@
+#name : expressionWithFormat
+#group : NSExpression
+# --
+expressionWithFormat:${1:(NSString *)expressionFormat}

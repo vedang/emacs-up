@@ -1,0 +1,4 @@
+#name : enumerateTagsInRange:scheme:options
+#group : NSLinguisticTagger
+# --
+enumerateTagsInRange:${1:(NSRange)range} scheme:${2:(NSString *)tagScheme} options:${3:(NSLinguisticTaggerOptions)opts}

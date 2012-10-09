@@ -1,0 +1,4 @@
+#name : initWithTexture:size:flipped
+#group : CIImage
+# --
+initWithTexture:${1:(unsigned int)name} size:${2:(CGSize)size} flipped:${3:(BOOL)flag}

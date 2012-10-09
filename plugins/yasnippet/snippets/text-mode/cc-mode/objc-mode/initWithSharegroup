@@ -1,0 +1,4 @@
+#name : initWithSharegroup
+#group : GLKTextureLoader
+# --
+initWithSharegroup:${1:(EAGLSharegroup*)sharegroup}

@@ -1,0 +1,4 @@
+#name : initWithCVImageBuffer:options
+#group : CIImage
+# --
+initWithCVImageBuffer:${1:(CVImageBufferRef)imageBuffer} options:${2:(NSDictionary *)dict}

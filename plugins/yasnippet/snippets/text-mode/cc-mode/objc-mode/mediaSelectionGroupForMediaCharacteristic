@@ -1,0 +1,4 @@
+#name : mediaSelectionGroupForMediaCharacteristic
+#group : AVAsset
+# --
+mediaSelectionGroupForMediaCharacteristic:${1:(NSString *)mediaCharacteristic}

@@ -1,0 +1,4 @@
+#name : setDragState:animated
+#group : MKAnnotationView
+# --
+setDragState:${1:(MKAnnotationViewDragState)newDragState} animated:${2:(BOOL)animated}

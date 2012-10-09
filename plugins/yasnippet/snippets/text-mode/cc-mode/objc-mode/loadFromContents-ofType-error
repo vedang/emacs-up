@@ -1,0 +1,4 @@
+#name : loadFromContents:ofType:error
+#group : UIDocument
+# --
+loadFromContents:${1:(id)contents} ofType:${2:(NSString *)typeName} error:${3:(NSError **)outError}

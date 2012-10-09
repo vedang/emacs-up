@@ -1,0 +1,4 @@
+#name : setVideoAtPath:completionBlock
+#group : ALAsset
+# --
+setVideoAtPath:${1:(NSURL *)videoPathURL} completionBlock:${2:(ALAssetsLibraryWriteVideoCompletionBlock)completionBlock}

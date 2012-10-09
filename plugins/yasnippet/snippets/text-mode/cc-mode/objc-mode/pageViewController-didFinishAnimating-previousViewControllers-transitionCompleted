@@ -1,0 +1,4 @@
+#name : pageViewController:didFinishAnimating:previousViewControllers:transitionCompleted
+#group : UIPageViewController
+# --
+pageViewController:${1:(UIPageViewController *)pageViewController} didFinishAnimating:${2:(BOOL)finished} previousViewControllers:${3:(NSArray *)previousViewControllers} transitionCompleted:${4:(BOOL)completed}

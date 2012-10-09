@@ -1,0 +1,4 @@
+#name : splitViewController:shouldHideViewController:inOrientation
+#group : UISplitViewController
+# --
+splitViewController:${1:(UISplitViewController *)svc} shouldHideViewController:${2:(UIViewController *)vc} inOrientation:${3:(UIInterfaceOrientation)orientation}

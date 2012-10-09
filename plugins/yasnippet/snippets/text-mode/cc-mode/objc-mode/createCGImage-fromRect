@@ -1,0 +1,4 @@
+#name : createCGImage:fromRect
+#group : CIContext
+# --
+createCGImage:${1:(CIImage *)im} fromRect:${2:(CGRect)r}

@@ -1,0 +1,4 @@
+#name : setDelegateQueue
+#group : NSURLConnection
+# --
+setDelegateQueue:${1:(NSOperationQueue*)queue}

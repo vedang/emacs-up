@@ -1,0 +1,4 @@
+#name : setScopeBarButtonTitleTextAttributes:forState
+#group : UISearchBar
+# --
+setScopeBarButtonTitleTextAttributes:${1:(NSDictionary *)attributes} forState:${2:(UIControlState)state}

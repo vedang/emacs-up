@@ -1,0 +1,4 @@
+#name : printInteractionControllerParentViewController
+#group : UIPrintInteractionController
+# --
+printInteractionControllerParentViewController:${1:(UIPrintInteractionController *)printInteractionController}

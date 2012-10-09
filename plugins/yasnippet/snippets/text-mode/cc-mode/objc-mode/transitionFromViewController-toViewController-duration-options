@@ -1,0 +1,4 @@
+#name : transitionFromViewController:toViewController:duration:options
+#group : UIViewController
+# --
+transitionFromViewController:${1:(UIViewController *)fromViewController} toViewController:${2:(UIViewController *)toViewController} duration:${3:(NSTimeInterval)duration} options:${4:(UIViewAnimationOptions)options}

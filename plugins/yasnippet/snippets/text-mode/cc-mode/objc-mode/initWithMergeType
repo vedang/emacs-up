@@ -1,0 +1,4 @@
+#name : initWithMergeType
+#group : NSMergePolicy
+# --
+initWithMergeType:${1:(NSMergePolicyType)ty}

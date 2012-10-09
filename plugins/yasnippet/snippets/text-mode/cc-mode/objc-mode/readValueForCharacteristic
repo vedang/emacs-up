@@ -1,0 +1,4 @@
+#name : readValueForCharacteristic
+#group : CBPeripheral
+# --
+readValueForCharacteristic:${1:(CBCharacteristic *)characteristic}

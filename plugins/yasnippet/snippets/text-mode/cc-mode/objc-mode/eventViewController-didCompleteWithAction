@@ -1,0 +1,4 @@
+#name : eventViewController:didCompleteWithAction
+#group : EKEventViewController
+# --
+eventViewController:${1:(EKEventViewController *)controller} didCompleteWithAction:${2:(EKEventViewAction)action}

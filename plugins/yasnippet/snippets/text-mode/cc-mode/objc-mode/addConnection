@@ -1,0 +1,4 @@
+#name : addConnection
+#group : MIDINetworkSession
+# --
+addConnection:${1:(MIDINetworkConnection *)connection}

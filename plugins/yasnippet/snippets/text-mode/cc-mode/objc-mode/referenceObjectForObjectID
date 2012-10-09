@@ -1,0 +1,4 @@
+#name : referenceObjectForObjectID
+#group : NSIncrementalStore
+# --
+referenceObjectForObjectID:${1:(NSManagedObjectID *)objectID}

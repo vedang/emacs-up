@@ -1,0 +1,4 @@
+#name : centralManager:didDisconnectPeripheral:error
+#group : CBCentralManager
+# --
+centralManager:${1:(CBCentralManager *)central} didDisconnectPeripheral:${2:(CBPeripheral *)peripheral} error:${3:(NSError *)error}

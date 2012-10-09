@@ -1,0 +1,4 @@
+#name : imageWithContentsOfURL
+#group : CIImage
+# --
+imageWithContentsOfURL:${1:(NSURL *)url}

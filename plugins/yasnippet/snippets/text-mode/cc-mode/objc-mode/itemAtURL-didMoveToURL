@@ -1,0 +1,4 @@
+#name : itemAtURL:didMoveToURL
+#group : NSFileCoordinator
+# --
+itemAtURL:${1:(NSURL *)oldURL} didMoveToURL:${2:(NSURL *)newURL}

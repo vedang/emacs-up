@@ -1,0 +1,4 @@
+#name : JSONObjectWithData:options:error
+#group : NSJSONSerialization
+# --
+JSONObjectWithData:${1:(NSData *)data} options:${2:(NSJSONReadingOptions)opt} error:${3:(NSError **)error}

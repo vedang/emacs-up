@@ -1,0 +1,4 @@
+#name : sendAsynchronousRequest
+#group : NSURLConnection
+# --
+sendAsynchronousRequest:${1:(NSURLRequest *)request}

@@ -1,0 +1,4 @@
+#name : centralManager:didConnectPeripheral
+#group : CBCentralManager
+# --
+centralManager:${1:(CBCentralManager *)central} didConnectPeripheral:${2:(CBPeripheral *)peripheral}

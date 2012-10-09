@@ -1,0 +1,4 @@
+#name : printInteractionControllerWillDismissPrinterOptions
+#group : UIPrintInteractionController
+# --
+printInteractionControllerWillDismissPrinterOptions:${1:(UIPrintInteractionController *)printInteractionController}

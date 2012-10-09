@@ -1,0 +1,4 @@
+#name : URLForPublishingUbiquitousItemAtURL:expirationDate:error
+#group : NSFileManager
+# --
+URLForPublishingUbiquitousItemAtURL:${1:(NSURL *)url} expirationDate:${2:(NSDate **)outDate} error:${3:(NSError **)error}

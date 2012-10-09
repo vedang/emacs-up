@@ -1,0 +1,4 @@
+#name : setPropertiesToGroupBy
+#group : NSFetchRequest
+# --
+setPropertiesToGroupBy:${1:(NSArray *)array}

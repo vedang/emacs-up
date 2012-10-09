@@ -1,0 +1,4 @@
+#name : presentInView
+#group : ADInterstitialAd
+# --
+presentInView:${1:(UIView *)containerView}

@@ -1,0 +1,4 @@
+#name : connectionDidResumeDownloading:totalBytesWritten:expectedTotalBytes
+#group : NSURLConnection
+# --
+connectionDidResumeDownloading:${1:(NSURLConnection *)connection} totalBytesWritten:${2:(long long)totalBytesWritten} expectedTotalBytes:${3:(long long)expectedTotalBytes}

@@ -1,0 +1,4 @@
+#name : propertyForAxis1:axis2:axisN
+#group : UIAppearance
+# --
+propertyForAxis1:${1:(IntegerType)axis1} axis2:${2:(IntegerType)axis2} axisN:${3:(IntegerType)axisN}

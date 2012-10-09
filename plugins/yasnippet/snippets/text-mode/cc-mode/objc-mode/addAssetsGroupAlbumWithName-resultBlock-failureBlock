@@ -1,0 +1,4 @@
+#name : addAssetsGroupAlbumWithName:resultBlock:failureBlock
+#group : ALAssetsLibrary
+# --
+addAssetsGroupAlbumWithName:${1:(NSString *)name} resultBlock:${2:(ALAssetsLibraryGroupResultBlock)resultBlock} failureBlock:${3:(ALAssetsLibraryAccessFailureBlock)failureBlock}

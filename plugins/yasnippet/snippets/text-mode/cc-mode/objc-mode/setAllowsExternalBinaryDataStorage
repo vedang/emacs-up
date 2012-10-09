@@ -1,0 +1,4 @@
+#name : setAllowsExternalBinaryDataStorage
+#group : NSAttributeDescription
+# --
+setAllowsExternalBinaryDataStorage:${1:(BOOL)flag}

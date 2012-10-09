@@ -1,0 +1,4 @@
+#name : orthographyAtIndex:effectiveRange
+#group : NSLinguisticTagger
+# --
+orthographyAtIndex:${1:(NSUInteger)charIndex} effectiveRange:${2:(NSRangePointer)effectiveRange}

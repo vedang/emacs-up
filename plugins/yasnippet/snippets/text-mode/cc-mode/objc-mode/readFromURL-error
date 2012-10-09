@@ -1,0 +1,4 @@
+#name : readFromURL:error
+#group : UIDocument
+# --
+readFromURL:${1:(NSURL *)url} error:${2:(NSError **)outError}

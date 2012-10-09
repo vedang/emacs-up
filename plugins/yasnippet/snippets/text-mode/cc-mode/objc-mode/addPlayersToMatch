@@ -1,0 +1,4 @@
+#name : addPlayersToMatch
+#group : GKMatchmakerViewController
+# --
+addPlayersToMatch:${1:(GKMatch *)match}

@@ -1,0 +1,4 @@
+#name : enumerateValuesForProperties
+#group : MPMediaEntity
+# --
+enumerateValuesForProperties:${1:(NSSet *)properties}

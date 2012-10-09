@@ -1,0 +1,4 @@
+#name : enumerateObjectsAtIndexes:options
+#group : NSOrderedSet
+# --
+enumerateObjectsAtIndexes:${1:(NSIndexSet *)s} options:${2:(NSEnumerationOptions)opts}

@@ -1,0 +1,4 @@
+#name : setNotifyValue:forCharacteristic
+#group : CBPeripheral
+# --
+setNotifyValue:${1:(BOOL)notifyValue} forCharacteristic:${2:(CBCharacteristic *)characteristic}

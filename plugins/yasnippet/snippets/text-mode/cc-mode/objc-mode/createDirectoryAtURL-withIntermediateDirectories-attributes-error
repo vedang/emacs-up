@@ -1,0 +1,4 @@
+#name : createDirectoryAtURL:withIntermediateDirectories:attributes:error
+#group : NSFileManager
+# --
+createDirectoryAtURL:${1:(NSURL *)url} withIntermediateDirectories:${2:(BOOL)createIntermediates} attributes:${3:(NSDictionary *)attributes} error:${4:(NSError **)error}

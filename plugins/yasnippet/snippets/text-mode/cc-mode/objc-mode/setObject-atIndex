@@ -1,0 +1,4 @@
+#name : setObject:atIndex
+#group : NSOrderedSet
+# --
+setObject:${1:(id)obj} atIndex:${2:(NSUInteger)idx}

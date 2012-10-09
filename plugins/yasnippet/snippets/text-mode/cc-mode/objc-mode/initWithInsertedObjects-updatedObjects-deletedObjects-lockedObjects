@@ -1,0 +1,4 @@
+#name : initWithInsertedObjects:updatedObjects:deletedObjects:lockedObjects
+#group : NSSaveChangesRequest
+# --
+initWithInsertedObjects:${1:(NSSet*)insertedObjects} updatedObjects:${2:(NSSet*)updatedObjects} deletedObjects:${3:(NSSet*)deletedObjects} lockedObjects:${4:(NSSet*)lockedObjects}

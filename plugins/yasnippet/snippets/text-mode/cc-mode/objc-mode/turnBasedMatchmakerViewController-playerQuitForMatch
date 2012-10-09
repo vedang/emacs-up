@@ -1,0 +1,4 @@
+#name : turnBasedMatchmakerViewController:playerQuitForMatch
+#group : GKTurnBasedMatchmakerViewController
+# --
+turnBasedMatchmakerViewController:${1:(GKTurnBasedMatchmakerViewController *)viewController} playerQuitForMatch:${2:(GKTurnBasedMatch *)match}

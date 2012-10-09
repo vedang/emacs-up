@@ -1,0 +1,4 @@
+#name : addRecipientsWithEmailAddresses
+#group : GKFriendRequestComposeViewController
+# --
+addRecipientsWithEmailAddresses:${1:(NSArray *)emailAddresses}

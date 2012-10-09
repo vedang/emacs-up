@@ -1,0 +1,4 @@
+#name : prepareForReadingItemsAtURLs:options:writingItemsAtURLs:options:error
+#group : NSFileCoordinator
+# --
+prepareForReadingItemsAtURLs:${1:(NSArray *)readingURLs} options:${2:(NSFileCoordinatorReadingOptions)readingOptions} writingItemsAtURLs:${3:(NSArray *)writingURLs} options:${4:(NSFileCoordinatorWritingOptions)writingOptions} error:${5:(NSError **)outError}

@@ -1,0 +1,4 @@
+#name : vectorWithCGRect
+#group : CIVector
+# --
+vectorWithCGRect:${1:(CGRect)r}

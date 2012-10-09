@@ -1,0 +1,4 @@
+#name : drawPrintFormatter:forPageAtIndex
+#group : UIPrintPageRenderer
+# --
+drawPrintFormatter:${1:(UIPrintFormatter *)printFormatter} forPageAtIndex:${2:(NSInteger)pageIndex}

@@ -1,0 +1,4 @@
+#name : centralManager:didDiscoverPeripheral:advertisementData:RSSI
+#group : CBCentralManager
+# --
+centralManager:${1:(CBCentralManager *)central} didDiscoverPeripheral:${2:(CBPeripheral *)peripheral} advertisementData:${3:(NSDictionary *)advertisementData} RSSI:${4:(NSNumber *)RSSI}

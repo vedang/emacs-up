@@ -1,0 +1,4 @@
+#name : mediaSelectionOptionsFromArray:withMediaCharacteristics
+#group : AVMediaSelectionGroup
+# --
+mediaSelectionOptionsFromArray:${1:(NSArray *)array} withMediaCharacteristics:${2:(NSArray *)mediaCharacteristics}

@@ -1,0 +1,4 @@
+#name : initWithURL:statusCode:HTTPVersion:headerFields
+#group : NSURLResponse
+# --
+initWithURL:${1:(NSURL*)url} statusCode:${2:(NSInteger)statusCode} HTTPVersion:${3:(NSString*)HTTPVersion} headerFields:${4:(NSDictionary*)headerFields}

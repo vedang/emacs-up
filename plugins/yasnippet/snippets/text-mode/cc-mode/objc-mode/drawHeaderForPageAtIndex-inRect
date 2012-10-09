@@ -1,0 +1,4 @@
+#name : drawHeaderForPageAtIndex:inRect
+#group : UIPrintPageRenderer
+# --
+drawHeaderForPageAtIndex:${1:(NSInteger)pageIndex} inRect:${2:(CGRect)headerRect}

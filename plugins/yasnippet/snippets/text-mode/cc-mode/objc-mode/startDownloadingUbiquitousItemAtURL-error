@@ -1,0 +1,4 @@
+#name : startDownloadingUbiquitousItemAtURL:error
+#group : NSFileManager
+# --
+startDownloadingUbiquitousItemAtURL:${1:(NSURL *)url} error:${2:(NSError **)error}

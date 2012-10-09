@@ -1,0 +1,4 @@
+#name : updateChangeCount
+#group : UIDocument
+# --
+updateChangeCount:${1:(UIDocumentChangeKind)change}

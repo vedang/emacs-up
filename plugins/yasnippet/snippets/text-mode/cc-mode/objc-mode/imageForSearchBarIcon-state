@@ -1,0 +1,4 @@
+#name : imageForSearchBarIcon:state
+#group : UISearchBar
+# --
+imageForSearchBarIcon:${1:(UISearchBarIcon)icon} state:${2:(UIControlState)state}

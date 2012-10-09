@@ -1,0 +1,4 @@
+#name : featuresInImage
+#group : CIDetector
+# --
+featuresInImage:${1:(CIImage *)image}

@@ -1,0 +1,4 @@
+#name : addAssetWithRequest
+#group : NKIssue
+# --
+addAssetWithRequest:${1:(NSURLRequest *)request}

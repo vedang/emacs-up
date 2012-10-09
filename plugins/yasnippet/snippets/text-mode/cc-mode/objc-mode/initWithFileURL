@@ -1,0 +1,4 @@
+#name : initWithFileURL
+#group : UIDocument
+# --
+initWithFileURL:${1:(NSURL *)url}

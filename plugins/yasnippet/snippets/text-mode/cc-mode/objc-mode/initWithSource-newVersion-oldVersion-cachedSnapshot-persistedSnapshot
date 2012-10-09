@@ -1,0 +1,4 @@
+#name : initWithSource:newVersion:oldVersion:cachedSnapshot:persistedSnapshot
+#group : NSMergePolicy
+# --
+initWithSource:${1:(NSManagedObject*)srcObject} newVersion:${2:(NSUInteger)newvers} oldVersion:${3:(NSUInteger)oldvers} cachedSnapshot:${4:(NSDictionary*)cachesnap} persistedSnapshot:${5:(NSDictionary*)persnap}

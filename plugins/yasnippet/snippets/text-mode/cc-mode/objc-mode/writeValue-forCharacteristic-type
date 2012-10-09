@@ -1,0 +1,4 @@
+#name : writeValue:forCharacteristic:type
+#group : CBPeripheral
+# --
+writeValue:${1:(NSData *)data} forCharacteristic:${2:(CBCharacteristic *)characteristic} type:${3:(CBCharacteristicWriteType)type}

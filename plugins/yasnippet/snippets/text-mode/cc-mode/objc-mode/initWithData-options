@@ -1,0 +1,4 @@
+#name : initWithData:options
+#group : CIImage
+# --
+initWithData:${1:(NSData *)data} options:${2:(NSDictionary *)d}

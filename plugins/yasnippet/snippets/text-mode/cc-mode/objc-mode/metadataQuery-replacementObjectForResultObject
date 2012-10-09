@@ -1,0 +1,4 @@
+#name : metadataQuery:replacementObjectForResultObject
+#group : NSMetadata
+# --
+metadataQuery:${1:(NSMetadataQuery *)query} replacementObjectForResultObject:${2:(NSMetadataItem *)result}

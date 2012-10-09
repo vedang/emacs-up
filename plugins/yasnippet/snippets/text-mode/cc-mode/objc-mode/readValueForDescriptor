@@ -1,0 +1,4 @@
+#name : readValueForDescriptor
+#group : CBPeripheral
+# --
+readValueForDescriptor:${1:(CBDescriptor *)descriptor}

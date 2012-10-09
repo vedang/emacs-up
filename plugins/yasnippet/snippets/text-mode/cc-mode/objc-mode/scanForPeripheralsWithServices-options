@@ -1,0 +1,4 @@
+#name : scanForPeripheralsWithServices:options
+#group : CBCentralManager
+# --
+scanForPeripheralsWithServices:${1:(NSArray *)serviceUUIDs} options:${2:(NSDictionary *)options}

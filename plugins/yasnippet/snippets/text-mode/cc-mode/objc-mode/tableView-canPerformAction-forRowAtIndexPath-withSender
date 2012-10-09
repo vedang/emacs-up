@@ -1,0 +1,4 @@
+#name : tableView:canPerformAction:forRowAtIndexPath:withSender
+#group : UITableView
+# --
+tableView:${1:(UITableView *)tableView} canPerformAction:${2:(SEL)action} forRowAtIndexPath:${3:(NSIndexPath *)indexPath} withSender:${4:(id)sender}

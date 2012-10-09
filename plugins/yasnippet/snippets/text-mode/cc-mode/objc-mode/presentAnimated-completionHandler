@@ -1,0 +1,4 @@
+#name : presentAnimated:completionHandler
+#group : UIPrintInteractionController
+# --
+presentAnimated:${1:(BOOL)animated} completionHandler:${2:(UIPrintInteractionCompletionHandler)completion}

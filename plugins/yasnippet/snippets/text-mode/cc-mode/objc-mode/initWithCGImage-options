@@ -1,0 +1,4 @@
+#name : initWithCGImage:options
+#group : CIImage
+# --
+initWithCGImage:${1:(CGImageRef)image} options:${2:(NSDictionary *)d}

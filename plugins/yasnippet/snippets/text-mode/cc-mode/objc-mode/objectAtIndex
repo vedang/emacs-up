@@ -1,0 +1,4 @@
+#name : objectAtIndex
+#group : NSOrderedSet
+# --
+objectAtIndex:${1:(NSUInteger)idx}

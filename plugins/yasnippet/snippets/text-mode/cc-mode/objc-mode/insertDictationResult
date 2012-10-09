@@ -1,0 +1,4 @@
+#name : insertDictationResult
+#group : UITextInput
+# --
+insertDictationResult:${1:(NSArray *)dictationResult}

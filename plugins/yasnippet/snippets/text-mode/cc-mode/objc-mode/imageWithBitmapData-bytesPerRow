@@ -1,0 +1,4 @@
+#name : imageWithBitmapData:bytesPerRow
+#group : CIImage
+# --
+imageWithBitmapData:${1:(NSData *)d} bytesPerRow:${2:(size_t)bpr}

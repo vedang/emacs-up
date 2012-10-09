@@ -1,0 +1,4 @@
+#name : setPredicate
+#group : NSMetadata
+# --
+setPredicate:${1:(NSPredicate *)predicate}

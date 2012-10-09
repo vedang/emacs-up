@@ -1,0 +1,4 @@
+#name : textureWithContentsOfFile
+#group : GLKTextureLoader
+# --
+textureWithContentsOfFile:${1:(NSString *)path}

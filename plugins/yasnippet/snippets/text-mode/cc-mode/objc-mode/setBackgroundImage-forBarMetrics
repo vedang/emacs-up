@@ -1,0 +1,4 @@
+#name : setBackgroundImage:forBarMetrics
+#group : UINavigationBar
+# --
+setBackgroundImage:${1:(UIImage *)backgroundImage} forBarMetrics:${2:(UIBarMetrics)barMetrics}

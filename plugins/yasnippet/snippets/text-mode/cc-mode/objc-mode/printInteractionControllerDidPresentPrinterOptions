@@ -1,0 +1,4 @@
+#name : printInteractionControllerDidPresentPrinterOptions
+#group : UIPrintInteractionController
+# --
+printInteractionControllerDidPresentPrinterOptions:${1:(UIPrintInteractionController *)printInteractionController}

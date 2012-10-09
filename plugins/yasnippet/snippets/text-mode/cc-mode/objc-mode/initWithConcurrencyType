@@ -1,0 +1,4 @@
+#name : initWithConcurrencyType
+#group : NSManagedObjectContext
+# --
+initWithConcurrencyType:${1:(NSManagedObjectContextConcurrencyType)ct}

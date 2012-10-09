@@ -1,0 +1,4 @@
+#name : accountsWithAccountType
+#group : ACAccountStore
+# --
+accountsWithAccountType:${1:(ACAccountType *)accountType}

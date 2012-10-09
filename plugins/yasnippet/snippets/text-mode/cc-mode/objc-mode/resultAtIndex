@@ -1,0 +1,4 @@
+#name : resultAtIndex
+#group : NSMetadata
+# --
+resultAtIndex:${1:(NSUInteger)idx}

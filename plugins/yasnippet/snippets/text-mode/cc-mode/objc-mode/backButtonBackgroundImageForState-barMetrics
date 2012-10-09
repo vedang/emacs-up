@@ -1,0 +1,4 @@
+#name : backButtonBackgroundImageForState:barMetrics
+#group : UIBarButtonItem
+# --
+backButtonBackgroundImageForState:${1:(UIControlState)state} barMetrics:${2:(UIBarMetrics)barMetrics}

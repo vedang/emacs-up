@@ -1,0 +1,4 @@
+#name : connection:didWriteData:totalBytesWritten:expectedTotalBytes
+#group : NSURLConnection
+# --
+connection:${1:(NSURLConnection *)connection} didWriteData:${2:(long long)bytesWritten} totalBytesWritten:${3:(long long)totalBytesWritten} expectedTotalBytes:${4:(long long)expectedTotalBytes}

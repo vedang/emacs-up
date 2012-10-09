@@ -1,0 +1,4 @@
+#name : setShouldRefreshRefetchedObjects
+#group : NSFetchRequest
+# --
+setShouldRefreshRefetchedObjects:${1:(BOOL)flag}

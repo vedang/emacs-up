@@ -1,0 +1,4 @@
+#name : accessibilityScroll
+#group : UIAccessibility
+# --
+accessibilityScroll:${1:(UIAccessibilityScrollDirection)direction}

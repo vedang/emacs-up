@@ -1,0 +1,4 @@
+#name : resolveConflicts:error
+#group : NSMergePolicy
+# --
+resolveConflicts:${1:(NSArray*)list} error:${2:(NSError **)error}

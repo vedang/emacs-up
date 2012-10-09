@@ -1,0 +1,4 @@
+#name : setPositionAdjustment:forSearchBarIcon
+#group : UISearchBar
+# --
+setPositionAdjustment:${1:(UIOffset)adjustment} forSearchBarIcon:${2:(UISearchBarIcon)icon}

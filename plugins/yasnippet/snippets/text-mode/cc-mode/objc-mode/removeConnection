@@ -1,0 +1,4 @@
+#name : removeConnection
+#group : MIDINetworkSession
+# --
+removeConnection:${1:(MIDINetworkConnection *)connection}

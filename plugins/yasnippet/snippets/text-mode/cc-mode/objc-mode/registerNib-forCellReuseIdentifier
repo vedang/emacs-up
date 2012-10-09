@@ -1,0 +1,4 @@
+#name : registerNib:forCellReuseIdentifier
+#group : UITableView
+# --
+registerNib:${1:(UINib *)nib} forCellReuseIdentifier:${2:(NSString *)identifier}

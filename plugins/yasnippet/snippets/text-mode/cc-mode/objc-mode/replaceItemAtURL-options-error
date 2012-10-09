@@ -1,0 +1,4 @@
+#name : replaceItemAtURL:options:error
+#group : NSFileVersion
+# --
+replaceItemAtURL:${1:(NSURL *)url} options:${2:(NSFileVersionReplacingOptions)options} error:${3:(NSError **)error}

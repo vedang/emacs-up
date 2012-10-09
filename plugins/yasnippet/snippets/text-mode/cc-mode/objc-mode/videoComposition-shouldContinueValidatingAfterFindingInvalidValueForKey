@@ -1,0 +1,4 @@
+#name : videoComposition:shouldContinueValidatingAfterFindingInvalidValueForKey
+#group : AVVideoComposition
+# --
+videoComposition:${1:(AVVideoComposition *)videoComposition} shouldContinueValidatingAfterFindingInvalidValueForKey:${2:(NSString *)key}

@@ -1,0 +1,4 @@
+#name : accountTypeWithAccountTypeIdentifier
+#group : ACAccountStore
+# --
+accountTypeWithAccountTypeIdentifier:${1:(NSString *)typeIdentifier}

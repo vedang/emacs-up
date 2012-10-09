@@ -1,0 +1,4 @@
+#name : setViewControllers:direction:animated
+#group : UIPageViewController
+# --
+setViewControllers:${1:(NSArray *)viewControllers} direction:${2:(UIPageViewControllerNavigationDirection)direction} animated:${3:(BOOL)animated}

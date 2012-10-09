@@ -1,0 +1,4 @@
+#name : revertToContentsOfURL
+#group : UIDocument
+# --
+revertToContentsOfURL:${1:(NSURL *)url}

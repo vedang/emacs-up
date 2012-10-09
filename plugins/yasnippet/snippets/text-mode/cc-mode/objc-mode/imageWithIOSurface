@@ -1,0 +1,4 @@
+#name : imageWithIOSurface
+#group : CIImage
+# --
+imageWithIOSurface:${1:(IOSurfaceRef)surface}

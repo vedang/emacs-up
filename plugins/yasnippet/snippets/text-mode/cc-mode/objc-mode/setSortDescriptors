@@ -1,0 +1,4 @@
+#name : setSortDescriptors
+#group : NSMetadata
+# --
+setSortDescriptors:${1:(NSArray *)descriptors}

@@ -1,0 +1,4 @@
+#name : drawPageAtIndex:inRect
+#group : UIPrintPageRenderer
+# --
+drawPageAtIndex:${1:(NSInteger)pageIndex} inRect:${2:(CGRect)printableRect}

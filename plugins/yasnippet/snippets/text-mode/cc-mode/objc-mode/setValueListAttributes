@@ -1,0 +1,4 @@
+#name : setValueListAttributes
+#group : NSMetadata
+# --
+setValueListAttributes:${1:(NSArray *)attrs}

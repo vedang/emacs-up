@@ -1,0 +1,4 @@
+#name : startMagnetometerUpdatesToQueue:withHandler
+#group : CMMotionManager
+# --
+startMagnetometerUpdatesToQueue:${1:(NSOperationQueue *)queue} withHandler:${2:(CMMagnetometerHandler)handler}

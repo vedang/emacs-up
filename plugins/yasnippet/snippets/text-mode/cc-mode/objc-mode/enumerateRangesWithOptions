@@ -1,0 +1,4 @@
+#name : enumerateRangesWithOptions
+#group : NSIndexSet
+# --
+enumerateRangesWithOptions:${1:(NSEnumerationOptions)opts}

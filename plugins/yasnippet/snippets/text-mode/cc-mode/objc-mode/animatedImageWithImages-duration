@@ -1,0 +1,4 @@
+#name : animatedImageWithImages:duration
+#group : UIImage
+# --
+animatedImageWithImages:${1:(NSArray *)images} duration:${2:(NSTimeInterval)duration}

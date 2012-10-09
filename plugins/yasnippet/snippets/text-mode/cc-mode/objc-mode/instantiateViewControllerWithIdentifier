@@ -1,0 +1,4 @@
+#name : instantiateViewControllerWithIdentifier
+#group : UIStoryboard
+# --
+instantiateViewControllerWithIdentifier:${1:(NSString *)identifier}

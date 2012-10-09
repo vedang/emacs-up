@@ -1,0 +1,4 @@
+#name : presentedSubitemDidChangeAtURL
+#group : NSFilePresenter
+# --
+presentedSubitemDidChangeAtURL:${1:(NSURL *)url}

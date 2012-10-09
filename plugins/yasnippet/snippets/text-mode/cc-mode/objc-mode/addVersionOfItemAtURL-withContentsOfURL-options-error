@@ -1,0 +1,4 @@
+#name : addVersionOfItemAtURL:withContentsOfURL:options:error
+#group : NSFileVersion
+# --
+addVersionOfItemAtURL:${1:(NSURL *)url} withContentsOfURL:${2:(NSURL *)contentsURL} options:${3:(NSFileVersionAddingOptions)options} error:${4:(NSError **)outError}

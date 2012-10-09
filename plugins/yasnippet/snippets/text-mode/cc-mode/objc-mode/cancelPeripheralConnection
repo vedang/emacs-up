@@ -1,0 +1,4 @@
+#name : cancelPeripheralConnection
+#group : CBCentralManager
+# --
+cancelPeripheralConnection:${1:(CBPeripheral *)peripheral}

@@ -1,0 +1,4 @@
+#name : setImage:forSearchBarIcon:state
+#group : UISearchBar
+# --
+setImage:${1:(UIImage *)iconImage} forSearchBarIcon:${2:(UISearchBarIcon)icon} state:${3:(UIControlState)state}

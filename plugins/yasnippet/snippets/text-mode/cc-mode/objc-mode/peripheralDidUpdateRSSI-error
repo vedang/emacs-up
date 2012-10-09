@@ -1,0 +1,4 @@
+#name : peripheralDidUpdateRSSI:error
+#group : CBPeripheral
+# --
+peripheralDidUpdateRSSI:${1:(CBPeripheral *)peripheral} error:${2:(NSError *)error}

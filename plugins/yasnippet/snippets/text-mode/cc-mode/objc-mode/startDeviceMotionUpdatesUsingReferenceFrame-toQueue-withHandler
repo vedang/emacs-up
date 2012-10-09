@@ -1,0 +1,4 @@
+#name : startDeviceMotionUpdatesUsingReferenceFrame:toQueue:withHandler
+#group : CMMotionManager
+# --
+startDeviceMotionUpdatesUsingReferenceFrame:${1:(CMAttitudeReferenceFrame)referenceFrame} toQueue:${2:(NSOperationQueue *)queue} withHandler:${3:(CMDeviceMotionHandler)handler}

@@ -1,0 +1,4 @@
+#name : initWithSelectionStyle
+#group : EKCalendarChooser
+# --
+initWithSelectionStyle:${1:(EKCalendarChooserSelectionStyle)selectionStyle}

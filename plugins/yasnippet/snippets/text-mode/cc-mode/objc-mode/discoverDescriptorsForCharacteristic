@@ -1,0 +1,4 @@
+#name : discoverDescriptorsForCharacteristic
+#group : CBPeripheral
+# --
+discoverDescriptorsForCharacteristic:${1:(CBCharacteristic *)characteristic}

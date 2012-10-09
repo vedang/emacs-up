@@ -1,0 +1,4 @@
+#name : presentFromBarButtonItem:animated:completionHandler
+#group : UIPrintInteractionController
+# --
+presentFromBarButtonItem:${1:(UIBarButtonItem *)item} animated:${2:(BOOL)animated} completionHandler:${3:(UIPrintInteractionCompletionHandler)completion}

@@ -1,0 +1,4 @@
+#name : initWithColor
+#group : UIColor
+# --
+initWithColor:${1:(UIColor *)color}

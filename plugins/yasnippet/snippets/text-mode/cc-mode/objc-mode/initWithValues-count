@@ -1,0 +1,4 @@
+#name : initWithValues:count
+#group : CIVector
+# --
+initWithValues:${1:(const CGFloat *)values} count:${2:(size_t)count}

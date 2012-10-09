@@ -1,0 +1,4 @@
+#name : printInteractionController:choosePaper
+#group : UIPrintInteractionController
+# --
+printInteractionController:${1:(UIPrintInteractionController *)printInteractionController} choosePaper:${2:(NSArray *)paperList}

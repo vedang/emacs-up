@@ -1,0 +1,4 @@
+#name : localizedNameForCategory
+#group : CIFilter
+# --
+localizedNameForCategory:${1:(NSString *)category}

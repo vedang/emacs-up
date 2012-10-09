@@ -1,0 +1,4 @@
+#name : moveObjectsAtIndexes:toIndex
+#group : NSOrderedSet
+# --
+moveObjectsAtIndexes:${1:(NSIndexSet *)indexes} toIndex:${2:(NSUInteger)idx}

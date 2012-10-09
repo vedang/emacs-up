@@ -1,0 +1,4 @@
+#name : animatedResizableImageNamed:capInsets:duration
+#group : UIImage
+# --
+animatedResizableImageNamed:${1:(NSString *)name} capInsets:${2:(UIEdgeInsets)capInsets} duration:${3:(NSTimeInterval)duration}

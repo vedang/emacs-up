@@ -1,0 +1,4 @@
+#name : coordinateReadingItemAtURL:options:writingItemAtURL:options:error
+#group : NSFileCoordinator
+# --
+coordinateReadingItemAtURL:${1:(NSURL *)readingURL} options:${2:(NSFileCoordinatorReadingOptions)readingOptions} writingItemAtURL:${3:(NSURL *)writingURL} options:${4:(NSFileCoordinatorWritingOptions)writingOptions} error:${5:(NSError **)outError}

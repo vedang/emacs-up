@@ -1,0 +1,4 @@
+#name : colorWithRed:green:blue
+#group : CIColor
+# --
+colorWithRed:${1:(CGFloat)r} green:${2:(CGFloat)g} blue:${3:(CGFloat)b}

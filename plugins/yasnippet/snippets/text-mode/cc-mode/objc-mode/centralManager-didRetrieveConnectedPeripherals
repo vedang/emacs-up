@@ -1,0 +1,4 @@
+#name : centralManager:didRetrieveConnectedPeripherals
+#group : CBCentralManager
+# --
+centralManager:${1:(CBCentralManager *)central} didRetrieveConnectedPeripherals:${2:(NSArray *)peripherals}

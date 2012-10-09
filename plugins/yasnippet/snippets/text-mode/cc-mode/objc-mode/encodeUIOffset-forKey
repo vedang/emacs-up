@@ -1,0 +1,4 @@
+#name : encodeUIOffset:forKey
+#group : UIGeometry
+# --
+encodeUIOffset:${1:(UIOffset)offset} forKey:${2:(NSString *)key}

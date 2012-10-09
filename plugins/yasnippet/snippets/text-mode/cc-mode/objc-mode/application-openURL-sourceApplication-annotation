@@ -1,0 +1,4 @@
+#name : application:openURL:sourceApplication:annotation
+#group : UIApplication
+# --
+application:${1:(UIApplication *)application} openURL:${2:(NSURL *)url} sourceApplication:${3:(NSString *)sourceApplication} annotation:${4:(id)annotation}

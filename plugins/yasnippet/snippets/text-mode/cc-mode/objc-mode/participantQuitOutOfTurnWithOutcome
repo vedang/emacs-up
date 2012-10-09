@@ -1,0 +1,4 @@
+#name : participantQuitOutOfTurnWithOutcome
+#group : GKTurnBasedMatch
+# --
+participantQuitOutOfTurnWithOutcome:${1:(GKTurnBasedMatchOutcome)matchOutcome}

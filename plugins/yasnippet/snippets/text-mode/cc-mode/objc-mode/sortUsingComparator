@@ -1,0 +1,4 @@
+#name : sortUsingComparator
+#group : NSOrderedSet
+# --
+sortUsingComparator:${1:(NSComparator)cmptr}

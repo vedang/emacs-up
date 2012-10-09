@@ -1,0 +1,4 @@
+#name : identifierForNewStoreAtURL
+#group : NSIncrementalStore
+# --
+identifierForNewStoreAtURL:${1:(NSURL*)storeURL}

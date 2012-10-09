@@ -1,0 +1,4 @@
+#name : videoComposition:shouldContinueValidatingAfterFindingEmptyTimeRange
+#group : AVVideoComposition
+# --
+videoComposition:${1:(AVVideoComposition *)videoComposition} shouldContinueValidatingAfterFindingEmptyTimeRange:${2:(CMTimeRange)timeRange}

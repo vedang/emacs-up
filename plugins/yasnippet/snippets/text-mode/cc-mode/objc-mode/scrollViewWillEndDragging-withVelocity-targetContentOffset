@@ -1,0 +1,4 @@
+#name : scrollViewWillEndDragging:withVelocity:targetContentOffset
+#group : UIScrollView
+# --
+scrollViewWillEndDragging:${1:(UIScrollView *)scrollView} withVelocity:${2:(CGPoint)velocity} targetContentOffset:${3:(inout CGPoint *)targetContentOffset}

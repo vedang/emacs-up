@@ -1,0 +1,4 @@
+#name : setSearchFieldBackgroundImage:forState
+#group : UISearchBar
+# --
+setSearchFieldBackgroundImage:${1:(UIImage *)backgroundImage} forState:${2:(UIControlState)state}

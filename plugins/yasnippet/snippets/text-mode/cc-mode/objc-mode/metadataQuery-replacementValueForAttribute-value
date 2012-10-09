@@ -1,0 +1,4 @@
+#name : metadataQuery:replacementValueForAttribute:value
+#group : NSMetadata
+# --
+metadataQuery:${1:(NSMetadataQuery *)query} replacementValueForAttribute:${2:(NSString *)attrName} value:${3:(id)attrValue}

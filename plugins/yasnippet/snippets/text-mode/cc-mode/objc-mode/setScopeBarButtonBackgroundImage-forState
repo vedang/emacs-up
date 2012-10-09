@@ -1,0 +1,4 @@
+#name : setScopeBarButtonBackgroundImage:forState
+#group : UISearchBar
+# --
+setScopeBarButtonBackgroundImage:${1:(UIImage *)backgroundImage} forState:${2:(UIControlState)state}

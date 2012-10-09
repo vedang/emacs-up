@@ -1,0 +1,4 @@
+#name : commit
+#group : EKEventStore
+# --
+commit:${1:(NSError **)error}

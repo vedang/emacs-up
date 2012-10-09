@@ -1,0 +1,4 @@
+#name : writeValue:forDescriptor
+#group : CBPeripheral
+# --
+writeValue:${1:(NSData *)data} forDescriptor:${2:(CBDescriptor *)descriptor}

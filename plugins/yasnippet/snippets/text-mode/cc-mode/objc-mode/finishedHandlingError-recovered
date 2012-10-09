@@ -1,0 +1,4 @@
+#name : finishedHandlingError:recovered
+#group : UIDocument
+# --
+finishedHandlingError:${1:(NSError *)error} recovered:${2:(BOOL)recovered}

@@ -1,0 +1,4 @@
+#name : videoComposition:shouldContinueValidatingAfterFindingInvalidTrackIDInInstruction:layerInstruction:asset
+#group : AVVideoComposition
+# --
+videoComposition:${1:(AVVideoComposition *)videoComposition} shouldContinueValidatingAfterFindingInvalidTrackIDInInstruction:${2:(AVVideoCompositionInstruction *)videoCompositionInstruction} layerInstruction:${3:(AVVideoCompositionLayerInstruction *)layerInstruction} asset:${4:(AVAsset *)asset}

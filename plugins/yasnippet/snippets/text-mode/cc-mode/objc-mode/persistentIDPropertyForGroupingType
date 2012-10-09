@@ -1,0 +1,4 @@
+#name : persistentIDPropertyForGroupingType
+#group : MPMediaQuery
+# --
+persistentIDPropertyForGroupingType:${1:(MPMediaGrouping)groupingType}

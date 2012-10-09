@@ -1,0 +1,4 @@
+#name : initWithDayOfTheWeek:weekNumber
+#group : EKRecurrenceDayOfWeek
+# --
+initWithDayOfTheWeek:${1:(NSInteger)dayOfTheWeek} weekNumber:${2:(NSInteger)weekNumber}

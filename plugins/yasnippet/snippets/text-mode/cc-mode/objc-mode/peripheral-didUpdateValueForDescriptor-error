@@ -1,0 +1,4 @@
+#name : peripheral:didUpdateValueForDescriptor:error
+#group : CBPeripheral
+# --
+peripheral:${1:(CBPeripheral *)peripheral} didUpdateValueForDescriptor:${2:(CBDescriptor *)descriptor} error:${3:(NSError *)error}

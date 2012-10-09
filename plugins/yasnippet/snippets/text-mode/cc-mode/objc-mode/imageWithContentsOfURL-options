@@ -1,0 +1,4 @@
+#name : imageWithContentsOfURL:options
+#group : CIImage
+# --
+imageWithContentsOfURL:${1:(NSURL *)url} options:${2:(NSDictionary *)d}

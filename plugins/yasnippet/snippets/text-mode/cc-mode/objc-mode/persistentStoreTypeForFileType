@@ -1,0 +1,4 @@
+#name : persistentStoreTypeForFileType
+#group : UIManagedDocument
+# --
+persistentStoreTypeForFileType:${1:(NSString *)fileType}

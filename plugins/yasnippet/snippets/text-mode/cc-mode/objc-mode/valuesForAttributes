@@ -1,0 +1,4 @@
+#name : valuesForAttributes
+#group : NSMetadata
+# --
+valuesForAttributes:${1:(NSArray *)keys}

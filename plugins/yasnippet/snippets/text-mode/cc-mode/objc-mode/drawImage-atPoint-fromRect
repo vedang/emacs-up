@@ -1,0 +1,4 @@
+#name : drawImage:atPoint:fromRect
+#group : CIContext
+# --
+drawImage:${1:(CIImage *)im} atPoint:${2:(CGPoint)p} fromRect:${3:(CGRect)src}

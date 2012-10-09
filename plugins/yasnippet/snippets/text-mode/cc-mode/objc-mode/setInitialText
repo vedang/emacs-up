@@ -1,0 +1,4 @@
+#name : setInitialText
+#group : TWTweetComposeViewController
+# --
+setInitialText:${1:(NSString *)text}

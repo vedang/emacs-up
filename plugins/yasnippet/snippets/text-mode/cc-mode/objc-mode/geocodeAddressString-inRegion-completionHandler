@@ -1,0 +1,4 @@
+#name : geocodeAddressString:inRegion:completionHandler
+#group : CLGeocoder
+# --
+geocodeAddressString:${1:(NSString *)addressString} inRegion:${2:(CLRegion *)region} completionHandler:${3:(CLGeocodeCompletionHandler)completionHandler}

@@ -1,0 +1,4 @@
+#name : printInteractionControllerWillStartJob
+#group : UIPrintInteractionController
+# --
+printInteractionControllerWillStartJob:${1:(UIPrintInteractionController *)printInteractionController}

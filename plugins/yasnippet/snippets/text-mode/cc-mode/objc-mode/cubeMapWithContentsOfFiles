@@ -1,0 +1,4 @@
+#name : cubeMapWithContentsOfFiles
+#group : GLKTextureLoader
+# --
+cubeMapWithContentsOfFiles:${1:(NSArray *)paths}

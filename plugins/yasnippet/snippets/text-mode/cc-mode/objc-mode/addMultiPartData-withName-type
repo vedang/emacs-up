@@ -1,0 +1,4 @@
+#name : addMultiPartData:withName:type
+#group : TWRequest
+# --
+addMultiPartData:${1:(NSData*)data} withName:${2:(NSString*)name} type:${3:(NSString*)type}

@@ -1,0 +1,4 @@
+#name : sentenceRangeForRange
+#group : NSLinguisticTagger
+# --
+sentenceRangeForRange:${1:(NSRange)range}

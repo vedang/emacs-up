@@ -1,0 +1,4 @@
+#name : unresolvedConflictVersionsOfItemAtURL
+#group : NSFileVersion
+# --
+unresolvedConflictVersionsOfItemAtURL:${1:(NSURL *)url}

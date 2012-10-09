@@ -1,0 +1,4 @@
+#name : forwardingTargetForSelector
+#group : NSProxy
+# --
+forwardingTargetForSelector:${1:(SEL)aSelector}

@@ -1,0 +1,4 @@
+#name : writeContents:toURL:forSaveOperation:originalContentsURL:error
+#group : UIDocument
+# --
+writeContents:${1:(id)contents} toURL:${2:(NSURL *)url} forSaveOperation:${3:(UIDocumentSaveOperation)saveOperation} originalContentsURL:${4:(NSURL *)originalContentsURL} error:${5:(NSError **)outError}

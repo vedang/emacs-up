@@ -1,0 +1,4 @@
+#name : interstitialAdActionDidFinish
+#group : ADInterstitialAd
+# --
+interstitialAdActionDidFinish:${1:(ADInterstitialAd *)interstitialAd}

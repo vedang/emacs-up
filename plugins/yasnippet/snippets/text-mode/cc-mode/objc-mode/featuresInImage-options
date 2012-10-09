@@ -1,0 +1,4 @@
+#name : featuresInImage:options
+#group : CIDetector
+# --
+featuresInImage:${1:(CIImage *)image} options:${2:(NSDictionary *)options}

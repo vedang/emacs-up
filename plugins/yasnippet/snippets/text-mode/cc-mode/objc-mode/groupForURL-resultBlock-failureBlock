@@ -1,0 +1,4 @@
+#name : groupForURL:resultBlock:failureBlock
+#group : ALAssetsLibrary
+# --
+groupForURL:${1:(NSURL *)groupURL} resultBlock:${2:(ALAssetsLibraryGroupResultBlock)resultBlock} failureBlock:${3:(ALAssetsLibraryAccessFailureBlock)failureBlock}

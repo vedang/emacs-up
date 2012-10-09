@@ -1,0 +1,4 @@
+#name : handleInviteFromGameCenter
+#group : GKTurnBasedMatch
+# --
+handleInviteFromGameCenter:${1:(NSArray *)playersToInvite}

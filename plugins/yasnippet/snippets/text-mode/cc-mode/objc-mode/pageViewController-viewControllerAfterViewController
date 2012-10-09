@@ -1,0 +1,4 @@
+#name : pageViewController:viewControllerAfterViewController
+#group : UIPageViewController
+# --
+pageViewController:${1:(UIPageViewController *)pageViewController} viewControllerAfterViewController:${2:(UIViewController *)viewController}

@@ -1,0 +1,4 @@
+#name : setUbiquitous:itemAtURL:destinationURL:error
+#group : NSFileManager
+# --
+setUbiquitous:${1:(BOOL)flag} itemAtURL:${2:(NSURL *)url} destinationURL:${3:(NSURL *)destinationURL} error:${4:(NSError **)error}

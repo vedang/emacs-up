@@ -1,0 +1,4 @@
+#name : tagsInRange:scheme:options:tokenRanges
+#group : NSLinguisticTagger
+# --
+tagsInRange:${1:(NSRange)range} scheme:${2:(NSString *)tagScheme} options:${3:(NSLinguisticTaggerOptions)opts} tokenRanges:${4:(NSArray **)tokenRanges}

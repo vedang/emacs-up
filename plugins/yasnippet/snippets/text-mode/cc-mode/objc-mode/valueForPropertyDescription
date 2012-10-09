@@ -1,0 +1,4 @@
+#name : valueForPropertyDescription
+#group : NSIncrementalStoreNode
+# --
+valueForPropertyDescription:${1:(NSPropertyDescription*)prop}

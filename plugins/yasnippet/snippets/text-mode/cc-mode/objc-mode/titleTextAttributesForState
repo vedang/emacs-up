@@ -1,0 +1,4 @@
+#name : titleTextAttributesForState
+#group : UISegmentedControl
+# --
+titleTextAttributesForState:${1:(UIControlState)state}

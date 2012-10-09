@@ -1,0 +1,4 @@
+#name : initWithX:Y:Z:W
+#group : CIVector
+# --
+initWithX:${1:(CGFloat)x} Y:${2:(CGFloat)y} Z:${3:(CGFloat)z} W:${4:(CGFloat)w}

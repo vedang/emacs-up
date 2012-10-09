@@ -1,0 +1,4 @@
+#name : drawInRect:forPageAtIndex
+#group : UIPrintFormatter
+# --
+drawInRect:${1:(CGRect)rect} forPageAtIndex:${2:(NSInteger)pageIndex}

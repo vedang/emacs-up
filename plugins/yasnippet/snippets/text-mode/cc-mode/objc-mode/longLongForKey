@@ -1,0 +1,4 @@
+#name : longLongForKey
+#group : NSUbiquitousKeyValueStore
+# --
+longLongForKey:${1:(NSString *)aKey}

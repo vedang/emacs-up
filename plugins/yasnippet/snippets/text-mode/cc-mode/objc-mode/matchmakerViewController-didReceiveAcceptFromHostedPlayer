@@ -1,0 +1,4 @@
+#name : matchmakerViewController:didReceiveAcceptFromHostedPlayer
+#group : GKMatchmakerViewController
+# --
+matchmakerViewController:${1:(GKMatchmakerViewController *)viewController} didReceiveAcceptFromHostedPlayer:${2:(NSString *)playerID}

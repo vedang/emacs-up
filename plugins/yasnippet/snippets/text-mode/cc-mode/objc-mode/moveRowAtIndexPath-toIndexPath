@@ -1,0 +1,4 @@
+#name : moveRowAtIndexPath:toIndexPath
+#group : UITableView
+# --
+moveRowAtIndexPath:${1:(NSIndexPath *)indexPath} toIndexPath:${2:(NSIndexPath *)newIndexPath}

@@ -1,0 +1,4 @@
+#name : saveAccount:withCompletionHandler
+#group : ACAccountStore
+# --
+saveAccount:${1:(ACAccount *)account} withCompletionHandler:${2:(ACAccountStoreSaveCompletionHandler)completionHandler}

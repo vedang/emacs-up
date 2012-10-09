@@ -1,0 +1,4 @@
+#name : addContact
+#group : MIDINetworkSession
+# --
+addContact:${1:(MIDINetworkHost *)contact}

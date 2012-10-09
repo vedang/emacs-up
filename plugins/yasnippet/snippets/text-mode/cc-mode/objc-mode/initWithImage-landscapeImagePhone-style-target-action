@@ -1,0 +1,4 @@
+#name : initWithImage:landscapeImagePhone:style:target:action
+#group : UIBarButtonItem
+# --
+initWithImage:${1:(UIImage *)image} landscapeImagePhone:${2:(UIImage *)landscapeImagePhone} style:${3:(UIBarButtonItemStyle)style} target:${4:(id)target} action:${5:(SEL)action}

@@ -1,0 +1,4 @@
+#name : writeAdditionalContent:toURL:originalContentsURL:error
+#group : UIManagedDocument
+# --
+writeAdditionalContent:${1:(id)content} toURL:${2:(NSURL *)absoluteURL} originalContentsURL:${3:(NSURL *)absoluteOriginalContentsURL} error:${4:(NSError **)error}

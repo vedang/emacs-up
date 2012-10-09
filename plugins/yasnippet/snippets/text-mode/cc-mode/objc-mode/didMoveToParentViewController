@@ -1,0 +1,4 @@
+#name : didMoveToParentViewController
+#group : UIViewController
+# --
+didMoveToParentViewController:${1:(UIViewController *)parent}

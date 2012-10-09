@@ -1,0 +1,4 @@
+#name : interstitialAdDidLoad
+#group : ADInterstitialAd
+# --
+interstitialAdDidLoad:${1:(ADInterstitialAd *)interstitialAd}

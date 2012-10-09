@@ -1,0 +1,4 @@
+#name : imageByApplyingTransform
+#group : CIImage
+# --
+imageByApplyingTransform:${1:(CGAffineTransform)matrix}

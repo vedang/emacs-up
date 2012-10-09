@@ -1,0 +1,4 @@
+#name : temporaryDirectoryURLForNewVersionOfItemAtURL
+#group : NSFileVersion
+# --
+temporaryDirectoryURLForNewVersionOfItemAtURL:${1:(NSURL *)url}

@@ -1,0 +1,4 @@
+#name : isUbiquitousItemAtURL
+#group : NSFileManager
+# --
+isUbiquitousItemAtURL:${1:(NSURL *)url}

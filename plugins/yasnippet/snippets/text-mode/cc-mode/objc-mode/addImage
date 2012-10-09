@@ -1,0 +1,4 @@
+#name : addImage
+#group : TWTweetComposeViewController
+# --
+addImage:${1:(UIImage *)image}

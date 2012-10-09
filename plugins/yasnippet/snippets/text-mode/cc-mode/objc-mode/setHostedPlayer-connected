@@ -1,0 +1,4 @@
+#name : setHostedPlayer:connected
+#group : GKMatchmakerViewController
+# --
+setHostedPlayer:${1:(NSString *)playerID} connected:${2:(BOOL)connected}

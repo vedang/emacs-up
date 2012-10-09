@@ -1,0 +1,4 @@
+#name : glkViewControllerUpdate
+#group : GLKViewController
+# --
+glkViewControllerUpdate:${1:(GLKViewController *)controller}

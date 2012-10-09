@@ -1,0 +1,4 @@
+#name : colorWithString
+#group : CIColor
+# --
+colorWithString:${1:(NSString *)representation}

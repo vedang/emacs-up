@@ -1,0 +1,4 @@
+#name : expressionWithFormat:arguments
+#group : NSExpression
+# --
+expressionWithFormat:${1:(NSString *)expressionFormat} arguments:${2:(va_list)argList}

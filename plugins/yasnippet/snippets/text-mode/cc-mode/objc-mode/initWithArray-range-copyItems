@@ -1,0 +1,4 @@
+#name : initWithArray:range:copyItems
+#group : NSOrderedSet
+# --
+initWithArray:${1:(NSArray *)set} range:${2:(NSRange)range} copyItems:${3:(BOOL)flag}

@@ -1,0 +1,4 @@
+#name : setFinishedSelectedImage:withFinishedUnselectedImage
+#group : UITabBarItem
+# --
+setFinishedSelectedImage:${1:(UIImage *)selectedImage} withFinishedUnselectedImage:${2:(UIImage *)unselectedImage}

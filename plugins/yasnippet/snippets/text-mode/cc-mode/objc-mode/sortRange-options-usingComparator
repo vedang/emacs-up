@@ -1,0 +1,4 @@
+#name : sortRange:options:usingComparator
+#group : NSOrderedSet
+# --
+sortRange:${1:(NSRange)range} options:${2:(NSSortOptions)opts} usingComparator:${3:(NSComparator)cmptr}

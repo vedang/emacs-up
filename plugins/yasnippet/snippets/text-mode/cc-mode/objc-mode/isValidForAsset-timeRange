@@ -1,0 +1,4 @@
+#name : isValidForAsset:timeRange
+#group : AVVideoComposition
+# --
+isValidForAsset:${1:(AVAsset *)asset} timeRange:${2:(CMTimeRange)timeRange}

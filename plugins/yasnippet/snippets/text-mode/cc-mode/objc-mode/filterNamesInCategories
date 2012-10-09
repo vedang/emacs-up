@@ -1,0 +1,4 @@
+#name : filterNamesInCategories
+#group : CIFilter
+# --
+filterNamesInCategories:${1:(NSArray *)categories}

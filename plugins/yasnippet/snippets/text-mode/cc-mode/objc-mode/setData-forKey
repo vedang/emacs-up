@@ -1,0 +1,4 @@
+#name : setData:forKey
+#group : NSUbiquitousKeyValueStore
+# --
+setData:${1:(NSData *)aData} forKey:${2:(NSString *)aKey}

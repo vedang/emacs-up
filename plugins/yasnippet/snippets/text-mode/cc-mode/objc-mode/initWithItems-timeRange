@@ -1,0 +1,4 @@
+#name : initWithItems:timeRange
+#group : AVTimedMetadataGroup
+# --
+initWithItems:${1:(NSArray *)items} timeRange:${2:(CMTimeRange)timeRange}

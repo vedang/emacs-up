@@ -1,0 +1,4 @@
+#name : annotationsInMapRect
+#group : MKMapView
+# --
+annotationsInMapRect:${1:(MKMapRect)mapRect}

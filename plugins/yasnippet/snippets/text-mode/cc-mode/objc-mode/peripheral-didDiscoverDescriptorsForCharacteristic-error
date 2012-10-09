@@ -1,0 +1,4 @@
+#name : peripheral:didDiscoverDescriptorsForCharacteristic:error
+#group : CBPeripheral
+# --
+peripheral:${1:(CBPeripheral *)peripheral} didDiscoverDescriptorsForCharacteristic:${2:(CBCharacteristic *)characteristic} error:${3:(NSError *)error}

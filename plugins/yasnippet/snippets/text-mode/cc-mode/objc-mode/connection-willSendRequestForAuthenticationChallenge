@@ -1,0 +1,4 @@
+#name : connection:willSendRequestForAuthenticationChallenge
+#group : NSURLConnection
+# --
+connection:${1:(NSURLConnection *)connection} willSendRequestForAuthenticationChallenge:${2:(NSURLAuthenticationChallenge *)challenge}

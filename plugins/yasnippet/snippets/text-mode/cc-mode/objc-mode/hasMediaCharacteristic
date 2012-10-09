@@ -1,0 +1,4 @@
+#name : hasMediaCharacteristic
+#group : AVMediaSelectionGroup
+# --
+hasMediaCharacteristic:${1:(NSString *)mediaCharacteristic}

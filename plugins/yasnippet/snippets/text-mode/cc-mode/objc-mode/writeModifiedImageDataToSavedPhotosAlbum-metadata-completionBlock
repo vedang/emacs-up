@@ -1,0 +1,4 @@
+#name : writeModifiedImageDataToSavedPhotosAlbum:metadata:completionBlock
+#group : ALAsset
+# --
+writeModifiedImageDataToSavedPhotosAlbum:${1:(NSData *)imageData} metadata:${2:(NSDictionary *)metadata} completionBlock:${3:(ALAssetsLibraryWriteImageCompletionBlock)completionBlock}

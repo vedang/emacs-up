@@ -1,0 +1,4 @@
+#name : assetWithURL
+#group : AVAsset
+# --
+assetWithURL:${1:(NSURL *)URL}

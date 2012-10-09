@@ -1,0 +1,4 @@
+#name : connectionDidFinishDownloading:destinationURL
+#group : NSURLConnection
+# --
+connectionDidFinishDownloading:${1:(NSURLConnection *)connection} destinationURL:${2:(NSURL *)destinationURL}

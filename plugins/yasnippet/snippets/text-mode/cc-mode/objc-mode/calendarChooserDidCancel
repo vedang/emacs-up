@@ -1,0 +1,4 @@
+#name : calendarChooserDidCancel
+#group : EKCalendarChooser
+# --
+calendarChooserDidCancel:${1:(EKCalendarChooser *)calendarChooser}

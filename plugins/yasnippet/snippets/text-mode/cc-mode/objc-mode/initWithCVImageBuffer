@@ -1,0 +1,4 @@
+#name : initWithCVImageBuffer
+#group : CIImage
+# --
+initWithCVImageBuffer:${1:(CVImageBufferRef)imageBuffer}

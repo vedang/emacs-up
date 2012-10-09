@@ -1,0 +1,4 @@
+#name : saveEvent:span:commit:error
+#group : EKEventStore
+# --
+saveEvent:${1:(EKEvent *)event} span:${2:(EKSpan)span} commit:${3:(BOOL)commit} error:${4:(NSError **)error}

@@ -1,0 +1,4 @@
+#name : isPlayableExtendedMIMEType
+#group : AVAsset
+# --
+isPlayableExtendedMIMEType:${1:(NSString *)extendedMIMEType}

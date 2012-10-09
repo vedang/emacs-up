@@ -1,0 +1,4 @@
+#name : canPrintURL
+#group : UIPrintInteractionController
+# --
+canPrintURL:${1:(NSURL *)url}

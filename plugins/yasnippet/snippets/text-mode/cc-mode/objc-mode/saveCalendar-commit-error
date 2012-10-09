@@ -1,0 +1,4 @@
+#name : saveCalendar:commit:error
+#group : EKEventStore
+# --
+saveCalendar:${1:(EKCalendar *)calendar} commit:${2:(BOOL)commit} error:${3:(NSError **)error}

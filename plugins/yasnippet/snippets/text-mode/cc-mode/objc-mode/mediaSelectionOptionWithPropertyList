@@ -1,0 +1,4 @@
+#name : mediaSelectionOptionWithPropertyList
+#group : AVMediaSelectionGroup
+# --
+mediaSelectionOptionWithPropertyList:${1:(id)plist}

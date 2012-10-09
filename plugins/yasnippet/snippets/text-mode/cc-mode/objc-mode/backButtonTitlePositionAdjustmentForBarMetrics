@@ -1,0 +1,4 @@
+#name : backButtonTitlePositionAdjustmentForBarMetrics
+#group : UIBarButtonItem
+# --
+backButtonTitlePositionAdjustmentForBarMetrics:${1:(UIBarMetrics)barMetrics}

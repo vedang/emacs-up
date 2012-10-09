@@ -1,0 +1,4 @@
+#name : enumerateLinguisticTagsInRange:scheme:options:orthography
+#group : NSLinguisticTagger
+# --
+enumerateLinguisticTagsInRange:${1:(NSRange)range} scheme:${2:(NSString *)tagScheme} options:${3:(NSLinguisticTaggerOptions)opts} orthography:${4:(NSOrthography *)orthography}

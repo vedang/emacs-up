@@ -1,0 +1,4 @@
+#name : JSONObjectWithStream:options:error
+#group : NSJSONSerialization
+# --
+JSONObjectWithStream:${1:(NSInputStream *)stream} options:${2:(NSJSONReadingOptions)opt} error:${3:(NSError **)error}

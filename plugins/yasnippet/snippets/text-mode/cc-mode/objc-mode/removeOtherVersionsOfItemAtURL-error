@@ -1,0 +1,4 @@
+#name : removeOtherVersionsOfItemAtURL:error
+#group : NSFileVersion
+# --
+removeOtherVersionsOfItemAtURL:${1:(NSURL *)url} error:${2:(NSError **)outError}
