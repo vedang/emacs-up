@@ -1,7 +1,7 @@
 ;;; auto-complete-mode-config.el --- configuration for auto-complete-mode-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
-;;; Time-stamp: "2012-10-09 16:14:14 vedang"
+;;; Time-stamp: "2012-10-09 16:14:47 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -30,7 +30,8 @@
              '(ac-source-dictionary
                ac-source-words-in-buffer
                ac-source-words-in-same-mode-buffers
-               ac-source-words-in-all-buffer))
+               ac-source-words-in-all-buffer
+               ac-source-yasnippet))
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode html-mode
                 nxml-mode clojure-mode lisp-mode textile-mode markdown-mode
