@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-10-09 16:56:59 vedang"
+;;; Time-stamp: "2012-10-16 15:25:06 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -24,6 +24,8 @@
 (autoload 'writegood-mode "writegood-mode" "Write Good." t)
 (autoload 'markdown-mode "markdown-mode.el"
   "Major mode for editing Markdown files" t)
+(autoload 'golden-ratio-enable "golden-ratio"
+  "Enables golden-ratio's automatic window resizing" t)
 
 ;;; required magic
 (require 'ido-mode-config)
