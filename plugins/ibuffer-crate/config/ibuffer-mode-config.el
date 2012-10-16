@@ -1,7 +1,7 @@
 ;;; ibuffer-mode-config.el --- Configuration for ibuffer
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
-;;; Time-stamp: "2012-07-12 10:26:09 vedang"
+;;; Time-stamp: "2012-10-11 12:24:09 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -38,6 +38,8 @@
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)
                  (mode . clojure-mode)
+                 (mode . go-mode)
+                 (mode . objc-mode)
                  (mode . makefile-gmake-mode)))
                ("Org"
                 (or

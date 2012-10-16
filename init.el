@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-08-23 12:28:07 vedang"
+;;; Time-stamp: "2012-10-11 12:21:53 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -35,7 +35,7 @@
 
 (defvar vedang/programming-major-modes
   '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode
-             emacs-lisp-mode lisp-mode scheme-mode python-mode)
+             emacs-lisp-mode lisp-mode scheme-mode python-mode objc-mode)
   "List of programming modes that I use")
 (defvar vedang/lisp-major-modes
   '(emacs-lisp-mode lisp-mode clojure-mode scheme-mode)
