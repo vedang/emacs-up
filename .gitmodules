@@ -17,3 +17,6 @@
 	path = plugins/ibuffer-crate/lib/ibuffer-vc
 	url = git://github.com/purcell/ibuffer-vc.git
     ignore = dirty
+[submodule "plugins/misc/git-commit-mode"]
+	path = plugins/misc/git-commit-mode
+	url = git://github.com/rafl/git-commit-mode.git
