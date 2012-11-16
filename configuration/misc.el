@@ -7,7 +7,7 @@
   (kill-ring-save (line-beginning-position)
                   (line-beginning-position (+ 1 arg)))
   (message "%d line%s copied" arg (if (= 1 arg) "" "s")))
-(global-set-key (kbd "C-c C-k") 'copy-line)
+(global-set-key (kbd "C-c k") 'copy-line)
 
 
 ;;; function for moving a buffer and assoc file to new directory - Steve Yegge
