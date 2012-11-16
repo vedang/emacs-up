@@ -1,7 +1,7 @@
 ;;; osx.el --- emacs configuration for OS X
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
-;;; Time-stamp: "2012-10-09 23:34:52 vedang"
+;;; Time-stamp: "2012-10-19 20:00:33 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -97,7 +97,7 @@
 
 
 ;; modifications for objc-mode
-(eval-after-load "objc-mode"
+(eval-after-load "cc-mode"
   '(progn
      (require 'anything)
      (require 'anything-config)
@@ -115,6 +115,30 @@
 
      (define-key objc-mode-map
        (kbd "C-c p")
-       'objc-headline)))
+       'objc-headline)
+
+     (defun objc-in-header-file ()
+       (let* ((filename (buffer-file-name))
+              (extension (car (last (split-string filename "\\.")))))
+         (string= "h" extension)))
+
+     (defun objc-jump-to-extension (extension)
+       (let* ((filename (buffer-file-name))
+              (file-components (append (butlast (split-string filename
+                                                              "\\."))
+                                       (list extension))))
+         (find-file (mapconcat 'identity file-components "."))))
+
+     ;; Assumes that Header and Source file are in same directory
+     (defun objc-jump-between-header-source ()
+       (interactive)
+       (if (objc-in-header-file)
+           (objc-jump-to-extension "m")
+         (objc-jump-to-extension "h")))
+
+     (define-key objc-mode-map
+       (kbd "C-c t")
+       'objc-jump-between-header-source)))
+
 
 (provide 'osx)
