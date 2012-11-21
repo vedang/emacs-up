@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-10-16 15:25:06 vedang"
+;;; Time-stamp: "2012-11-22 00:25:46 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -38,6 +38,7 @@
 (require 'template)
 (template-initialize)
 (require 'w3m-load)
+(require 'multiple-cursors-config)
 
 ;;; Eval after loads
 (eval-after-load "org"
