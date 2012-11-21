@@ -20,6 +20,8 @@
 [submodule "plugins/misc/git-commit-mode"]
 	path = plugins/misc/git-commit-mode
 	url = git://github.com/rafl/git-commit-mode.git
+    ignore = dirty
 [submodule "plugins/multiple-cursors"]
 	path = plugins/multiple-cursors
 	url = git://github.com/magnars/multiple-cursors.el.git
+    ignore = dirty
