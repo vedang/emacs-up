@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-10-26 17:07:31 vedang"
+;;; Time-stamp: "2012-12-13 16:28:14 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -343,6 +343,19 @@ Subsequent calls expands the selection to larger semantic unit."
     ('error (message "You've reached the beginning of the presentation"))))
 
 (global-set-key (kbd "<f7>") 'jump-to-prev-slide)
+
+
+(defmacro safe-wrap (fn &rest clean-up)
+  "A wrapping over Emacs error handling"
+  `(unwind-protect
+       (let (retval)
+         (condition-case ex
+             (setq retval (progn ,fn))
+           ('error
+            (message (format "Caught exception: [%s]" ex))
+            (setq retval (cons 'exception (list ex)))))
+         retval)
+     ,@clean-up))
 
 
 (provide 'utility-functions)
