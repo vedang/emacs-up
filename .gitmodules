@@ -25,3 +25,6 @@
 	path = plugins/multiple-cursors
 	url = git://github.com/magnars/multiple-cursors.el.git
     ignore = dirty
+[submodule "plugins/org-mode-crate"]
+	path = plugins/org-mode-crate
+	url = git://github.com/vedang/org-mode-crate.git
