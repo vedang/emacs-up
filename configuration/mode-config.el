@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-11-22 00:25:46 vedang"
+;;; Time-stamp: "2012-12-18 15:15:08 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -41,9 +41,6 @@
 (require 'multiple-cursors-config)
 
 ;;; Eval after loads
-(eval-after-load "org"
-  '(progn
-     (require 'org-mode-config)))
 (eval-after-load "erc"
   '(progn
      (require 'erc-mode-config)))
@@ -73,6 +70,12 @@
 
 
 ;;; Load various emacs packs
+(add-to-list 'load-path (concat *plugins-dir* "org-mode-crate"))
+(setq org-directory "~/Documents/Notes-GTD")
+(require 'org-mode-crate-init)
+(eval-after-load "org-config"
+  '(progn
+     (require 'org-crate-config)))
 (add-to-list 'load-path (concat *plugins-dir* "clojure-emacs"))
 (require 'clojure-emacs-init)
 (add-to-list 'load-path (concat *plugins-dir* "python-emacs"))
