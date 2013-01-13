@@ -1,7 +1,7 @@
 ;;; multiple-cursors-config.el
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-11-22 00:32:58 vedang"
+;;; Time-stamp: "2013-01-13 13:42:18 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -20,6 +20,7 @@
 
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c >") 'mc/mark-next-word-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
