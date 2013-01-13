@@ -28,3 +28,6 @@
 [submodule "plugins/org-mode-crate"]
 	path = plugins/org-mode-crate
 	url = git://github.com/vedang/org-mode-crate.git
+[submodule "plugins/ace-jump"]
+	path = plugins/ace-jump
+	url = git://github.com/winterTTr/ace-jump-mode.git
