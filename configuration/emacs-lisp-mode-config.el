@@ -1,7 +1,7 @@
 ;;; emacs-lisp-mode-config.el --- Extra spice for emacs lisp
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-01-16 19:27:19 vedang"
+;;; Time-stamp: "2013-01-17 12:21:23 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -20,13 +20,11 @@
 (define-key emacs-lisp-mode-map (kbd "M-.") 'find-function-at-point)
 (define-key emacs-lisp-mode-map (kbd "C-c C-z") 'ielm)
 
-(defun compile-el-on-save ()
-  "If saving an elisp file, byte-compile it."
-  (add-hook 'after-save-hook 'emacs-lisp-byte-compile t t))
+;; (defun compile-el-on-save ()
+;;   "If saving an elisp file, byte-compile it."
+;;   (add-hook 'after-save-hook 'emacs-lisp-byte-compile t t))
 
-(add-hook 'emacs-lisp-mode-hook
-          (lambda ()
-            (compile-el-on-save)))
+;; (add-hook 'emacs-lisp-mode-hook 'compile-el-on-save)
 
 
 (defun rgr/toggle-context-help()
