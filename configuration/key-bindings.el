@@ -1,7 +1,7 @@
 ;;; key-bindings.el --- I need these key combos
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-09-21 11:25:04 vedang"
+;;; Time-stamp: "2013-01-17 15:12:24 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -79,6 +79,19 @@
 (define-key ctl-x-map "S" 'emacs-save-layout)
 (define-key ctl-x-map "F" 'emacs-load-layout)
 
+
+;; Custom 'apropos' key bindings
+;; http://www.masteringemacs.org/articles/2011/08/04/full-text-searching-info-mode-apropos/#comment-1409
+(global-set-key (kbd "C-h a") 'Apropos-Prefix)
+(define-prefix-command 'Apropos-Prefix nil "Apropos (a,d,f,i,l,v,C-v)")
+(define-key Apropos-Prefix (kbd "a")   'apropos)
+(define-key Apropos-Prefix (kbd "d")   'apropos-documentation)
+(define-key Apropos-Prefix (kbd "f")   'apropos-command)
+(define-key Apropos-Prefix (kbd "c")   'apropos-command)
+(define-key Apropos-Prefix (kbd "i")   'info-apropos)
+(define-key Apropos-Prefix (kbd "l")   'apropos-library)
+(define-key Apropos-Prefix (kbd "v")   'apropos-variable)
+(define-key Apropos-Prefix (kbd "C-v") 'apropos-value)
 
 ;; Aliases for common functions
 (defalias 'qrr 'query-replace-regexp)
