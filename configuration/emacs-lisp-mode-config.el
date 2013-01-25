@@ -1,7 +1,7 @@
 ;;; emacs-lisp-mode-config.el --- Extra spice for emacs lisp
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-01-17 12:21:23 vedang"
+;;; Time-stamp: "2013-01-25 13:17:24 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -68,6 +68,76 @@ context-help to false"
    (t ad-do-it)))
 
 (global-set-key (kbd "C-c h") 'rgr/toggle-context-help)
-(define-key emacs-lisp-mode-map (kbd "C-c C-k") 'eval-buffer)
+
+
+(defun helmut/elisp-disassemble (function)
+  (interactive (list (function-called-at-point)))
+  (disassemble function))
+
+
+(defun helmut/elisp-pp (sexp)
+  (with-output-to-temp-buffer "*Pp Eval Output*"
+    (pp sexp)
+    (with-current-buffer standard-output
+      (emacs-lisp-mode))))
+
+
+(defun helmut/elisp-macroexpand (form)
+  (interactive (list (form-at-point 'sexp)))
+  (helmut/elisp-pp (macroexpand form)))
+
+(defun helmut/elisp-macroexpand-all (form)
+  (interactive (list (form-at-point 'sexp)))
+  (helmut/elisp-pp (cl-macroexpand-all form)))
+
+(defun helmut/elisp-push-point-marker ()
+  (require 'etags)
+  (ring-insert find-tag-marker-ring (point-marker)))
+
+
+(defun helmut/elisp-find-definition (name)
+  "Jump to the definition of the function (or variable) at point."
+  (interactive (list (thing-at-point 'symbol)))
+  (cond (name
+         (let ((symbol (intern-soft name))
+               (search (lambda (fun sym)
+                         (let* ((r (save-excursion (funcall fun sym)))
+                                (buffer (car r))
+                                (point (cdr r)))
+                           (cond ((not point)
+                                  (error "Found no definition for %s in %s"
+                                         name buffer))
+                                 (t
+                                  (switch-to-buffer buffer)
+                                  (goto-char point)
+                                  (recenter 1)))))))
+           (cond ((fboundp symbol)
+                  (helmut/elisp-push-point-marker)
+                  (funcall search 'find-function-noselect symbol))
+                 ((boundp symbol)
+                  (helmut/elisp-push-point-marker)
+                  (funcall search 'find-variable-noselect symbol))
+                 (t
+                  (message "Symbol not bound: %S" symbol)))))
+        (t (message "No symbol at point"))))
+
+
+(defvar helmut/elisp-extra-keys
+  '(((kbd "C-c d")   'helmut/elisp-disassemble)
+    ((kbd "C-c m")   'helmut/elisp-macroexpand)
+    ((kbd "C-c M")   'helmut/elisp-macroexpand-all)
+    ((kbd "C-c C-c") 'compile-defun)
+    ((kbd "C-c C-k") 'eval-buffer)
+    ((kbd "C-c C-l") 'load-file)
+    ((kbd "C-c p")   'pp-eval-last-sexp)
+    ((kbd "M-.")     'helmut/elisp-find-definition)
+    ((kbd "M-,")     'pop-tag-mark)))
+
+
+(dolist (binding helmut/elisp-extra-keys)
+  (let ((key (eval (car binding))) (val (eval (cadr binding))))
+    (define-key emacs-lisp-mode-map key val)
+    (define-key lisp-interaction-mode-map key val)))
+
 
 (provide 'emacs-lisp-mode-config)
