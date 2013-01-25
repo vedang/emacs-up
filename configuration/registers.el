@@ -2,7 +2,7 @@
 ;;; (from emacs-starter-kit)
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-11-26 21:26:40 vedang"
+;;; Time-stamp: "2013-01-17 21:09:58 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -18,7 +18,7 @@
 
 
 (dolist (r `((?i (file . ,(concat *dotfiles-dir* "init.el")))
-             (?o (file . ,(concat *dotfiles-dir* "configuration/org-mode-config.el")))
+             (?o (file . ,(concat *dotfiles-dir* "configuration/org-crate-config.el")))
              (?m (file . ,"~/Documents/Personal/mahabharat/Mahabharat.sa"))))
   (set-register (car r) (cadr r)))
 
