@@ -1,7 +1,7 @@
 ;;; emacs-lisp-mode-config.el --- Extra spice for emacs lisp
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-01-25 13:17:24 vedang"
+;;; Time-stamp: "2013-01-26 18:46:46 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -122,6 +122,8 @@ context-help to false"
         (t (message "No symbol at point"))))
 
 
+(require 'list-callers)
+
 (defvar helmut/elisp-extra-keys
   '(((kbd "C-c d")   'helmut/elisp-disassemble)
     ((kbd "C-c m")   'helmut/elisp-macroexpand)
@@ -131,7 +133,8 @@ context-help to false"
     ((kbd "C-c C-l") 'load-file)
     ((kbd "C-c p")   'pp-eval-last-sexp)
     ((kbd "M-.")     'helmut/elisp-find-definition)
-    ((kbd "M-,")     'pop-tag-mark)))
+    ((kbd "M-,")     'pop-tag-mark)
+    ((kbd "C-c <")   'list-callers)))
 
 
 (dolist (binding helmut/elisp-extra-keys)
