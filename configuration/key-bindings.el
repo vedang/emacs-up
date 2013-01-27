@@ -1,7 +1,7 @@
 ;;; key-bindings.el --- I need these key combos
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-01-17 15:12:24 vedang"
+;;; Time-stamp: "2013-01-27 14:15:04 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -31,8 +31,6 @@
 (global-set-key (kbd "C-h a") 'apropos)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "C-c g") 'writegood-mode)
-(global-set-key (kbd "C-c c") 'mo-git-blame-current)
-(global-set-key (kbd "C-c f") 'mo-git-blame-file)
 (define-key global-map [(control f3)]  'cscope-set-initial-directory)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-+") 'text-scale-increase)
