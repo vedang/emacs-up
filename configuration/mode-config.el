@@ -47,6 +47,8 @@
 (template-initialize)
 (require 'w3m-load)
 (require 'multiple-cursors-config)
+(require 'thrift-mode)
+
 
 ;;; Eval after loads
 (eval-after-load "erc"
