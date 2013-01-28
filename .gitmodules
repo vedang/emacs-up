@@ -31,3 +31,6 @@
 [submodule "plugins/ace-jump"]
 	path = plugins/ace-jump
 	url = git://github.com/winterTTr/ace-jump-mode.git
+[submodule "plugins/wgrep"]
+	path = plugins/wgrep
+	url = git://github.com/magnars/Emacs-wgrep.git

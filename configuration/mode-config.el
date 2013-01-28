@@ -38,6 +38,7 @@
 ;;; required magic
 (require 'ido-mode-config)
 (require 'ibuffer-crate-init)
+(require 'wgrep)
 (require 'auto-complete-mode-config)
 (require 'isearch-mode-config)
 (require 'flymake-config)
