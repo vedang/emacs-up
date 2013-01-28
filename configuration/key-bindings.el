@@ -1,7 +1,7 @@
 ;;; key-bindings.el --- I need these key combos
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-01-27 14:15:04 vedang"
+;;; Time-stamp: "2013-01-27 15:58:11 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -35,6 +35,8 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-+") 'text-scale-increase)
 (define-key global-map (kbd "C--") 'text-scale-decrease)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
 (global-set-key (kbd "C-S-t") 'transpose-sexps)
 (global-set-key (kbd "C-c o") 'turn-on-paredit-nonlisp)
 

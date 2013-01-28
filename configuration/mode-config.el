@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-01-13 13:44:57 vedang"
+;;; Time-stamp: "2013-01-28 19:03:02 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -28,12 +28,11 @@
   "Enables golden-ratio's automatic window resizing" t)
 (autoload 'ace-jump-mode "ace-jump-mode"
   "Emacs quick move minor mode" t)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 (autoload 'ace-jump-mode-pop-mark "ace-jump-mode"
   "Ace jump back:-)" t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
 
 ;;; required magic
 (require 'ido-mode-config)
