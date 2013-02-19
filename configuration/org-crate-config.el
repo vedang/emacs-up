@@ -1,7 +1,7 @@
 ;;; org-crate-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 18 Dec 2012
-;;; Time-stamp: "2012-12-18 15:40:52 vedang"
+;;; Time-stamp: "2013-02-03 22:44:03 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -64,6 +64,15 @@
                                                             "/Birthdays.org")))
                             (org-agenda-overriding-header
                              "Deadlines and Scheduled")))
+                (tags-todo "@reading|@study"
+                           ((org-agenda-files (list org-personal-directory))
+                            (org-agenda-overriding-header
+                             "Reading and Study")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(effort-up priority-down category-keep))))
                 (tags-todo "goal|write|study|tweak|+fun-@office"
                            ((org-agenda-files (list org-personal-directory))
                             (org-agenda-overriding-header
