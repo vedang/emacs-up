@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-12-13 16:28:14 vedang"
+;;; Time-stamp: "2013-02-19 12:00:46 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -241,7 +241,7 @@ Subsequent calls expands the selection to larger semantic unit."
           (insert ";;") ;; create the file with non-zero size to appease autoload
           (save-buffer)))
       (message "Updating autoloads...")
-      (dolist (autoload-dir (list *plugins-dir* *config-dir*))
+      (dolist (autoload-dir (list *plugins-dir* *config-dir* *elpa-dir*))
         (let (emacs-lisp-mode-hook)
           (vedang/update-directory-autoloads autoload-dir)))))
   (load *autoload-file*))
