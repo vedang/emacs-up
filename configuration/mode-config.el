@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-01-28 19:03:02 vedang"
+;;; Time-stamp: "2013-03-06 16:43:11 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -77,6 +77,11 @@
            uniquify-separator "|"
            uniquify-after-kill-buffer-p t
            uniquify-ignore-buffers-re "^\\*")))
+(eval-after-load "sgml-mode"
+  '(progn
+     (require 'tagedit)
+     (tagedit-add-paredit-like-keybindings)
+     (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))))
 
 
 ;;; Load various emacs packs
