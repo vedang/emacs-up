@@ -1,7 +1,7 @@
 ;;; osx.el --- emacs configuration for OS X
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
-;;; Time-stamp: "2012-10-19 20:00:33 vedang"
+;;; Time-stamp: "2013-06-19 13:50:18 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -69,7 +69,7 @@
 
 ;; Setup document viewer to read xcode documentation
 (require 'xcode-document-viewer)
-(setq xcdoc:document-path "/Users/vedang/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS5_1.iOSLibrary.docset")
+(setq xcdoc:document-path "~/Library/Developer/Shared/Documentation/DocSets/com.apple.adc.documentation.AppleiOS5_1.iOSLibrary.docset")
 (setq xcdoc:open-w3m-other-buffer t)
 
 
@@ -78,6 +78,7 @@
 
 ;; path, because Mac is a bitch.
 (add-to-list 'exec-path "/usr/local/bin")
+(add-to-list 'exec-path "~/Documents/bin")
 
 
 ;; python path, because Mac doesn't share it's env variables
