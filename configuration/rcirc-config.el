@@ -48,9 +48,11 @@
 (setq rcirc-default-full-name "vedang manerikar")
 
 ;; Join these channels at startup.
-(setq rcirc-startup-channels-alist
-      '(("\\.freenode\\.net$" "#emacs" "#git" "#mongodb" "#redis" "#clojure")
-        ("\\.qotdinc\\.com$" "#dev" "#bakvaas")))
+(setq rcirc-server-alist '(("irc.freenode.net"
+                            :channels ("#emacs" "#git" "#clojure" "#redis"
+                                       "#mongodb"))
+                           ("irc.qotdinc.com"
+                            :channels ("#dev" "#bakvaas" "#nsfw"))))
 
 
 ;;; rcirc/reconnect command - EmacsWiki
@@ -80,7 +82,7 @@
 
 
 ;;; track activity when I'm in another buffer
-(eval-after-load 'rcirc '(rcirc-track-minor-mode 1))
+(eval-after-load 'rcirc '(rcirc-track-minor-mode))
 
 
 (provide 'rcirc-config)
