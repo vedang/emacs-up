@@ -1,7 +1,7 @@
 ;;; rcirc-config.el --- Configuration for RCIRC
 ;;; Author: Vedang Manerikar
 ;;; Created on: 04 Mar 2012
-;;; Time-stamp: "2012-03-06 19:38:02 vedang"
+;;; Time-stamp: "2013-07-18 00:17:30 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -35,6 +35,10 @@
 
 ;; Turn on logging everything to a special buffer, for debugging.
 (setq rcirc-debug-flag t)
+
+;; Other logging related stuff
+(setq rcirc-log-directory (concat *log-dir* "rcirc-logs/"))
+(setq rcirc-log-flag t)
 
 ;; Adjust the colours of one of the faces.
 (set-face-foreground 'rcirc-my-nick "red" nil)

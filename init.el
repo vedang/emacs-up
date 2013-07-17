@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-02-19 12:00:28 vedang"
+;;; Time-stamp: "2013-07-18 00:16:22 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -31,7 +31,8 @@
       *config-dir* (concat *dotfiles-dir* "configuration/")
       *elpa-dir* (concat *dotfiles-dir* "elpa/")
       *custom-file* (concat *dotfiles-dir* "custom.el")
-      *tempfiles-dir* (concat *dotfiles-dir* "temp-files/"))
+      *tempfiles-dir* (concat *dotfiles-dir* "temp-files/")
+      *log-dir* (concat *dotfiles-dir* "logs/"))
 
 
 (defvar vedang/programming-major-modes
