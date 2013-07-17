@@ -1,6 +1,6 @@
 (require 'cedet)
 (require 'android-mode)
-(require 'android)
+
 
 (setq android-mode-sdk-dir "/Users/vedang/Documents/bin/adt-bundle-mac-x86_64/sdk/")
 
