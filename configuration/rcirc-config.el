@@ -1,7 +1,7 @@
 ;;; rcirc-config.el --- Configuration for RCIRC
 ;;; Author: Vedang Manerikar
 ;;; Created on: 04 Mar 2012
-;;; Time-stamp: "2013-07-18 00:17:30 vedang"
+;;; Time-stamp: "2013-07-18 00:20:36 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -18,14 +18,31 @@
 
 (require 'rcirc)
 
+
+(setq rcirc-default-nick "h0bbit"
+      rcirc-default-user-name "vedang"
+      rcirc-default-full-name "vedang manerikar"
+      rcirc-debug-flag t
+      rcirc-log-directory (concat *log-dir* "rcirc-logs/")
+      rcirc-log-flag t
+      rcirc-time-format "%Y-%m-%d %H:%M "
+      rcirc-server-alist '(("irc.freenode.net"
+                            :channels ("#emacs" "#git" "#clojure" "#redis"
+                                       "#mongodb"))
+                           ("irc.qotdinc.com"
+                            :channels ("#dev" "#bakvaas" "#nsfw"))))
+
+
 ;; Don't print /away messages.
 ;; This does not require rcirc to be loaded already,
 ;; since rcirc doesn't define a 301 handler (yet).
 (defun rcirc-handler-301 (process cmd sender args)
   "/away message handler.")
 
+
 ;; Turn on spell checking.
 (add-hook 'rcirc-mode-hook 'turn-on-flyspell)
+
 
 ;; Keep input line at bottom.
 (add-hook 'rcirc-mode-hook
@@ -33,30 +50,9 @@
             (set (make-local-variable 'scroll-conservatively)
                  8192)))
 
-;; Turn on logging everything to a special buffer, for debugging.
-(setq rcirc-debug-flag t)
-
-;; Other logging related stuff
-(setq rcirc-log-directory (concat *log-dir* "rcirc-logs/"))
-(setq rcirc-log-flag t)
 
 ;; Adjust the colours of one of the faces.
 (set-face-foreground 'rcirc-my-nick "red" nil)
-
-;; Include date in time stamp.
-(setq rcirc-time-format "%Y-%m-%d %H:%M ")
-
-;; Change user info
-(setq rcirc-default-nick "h0bbit")
-(setq rcirc-default-user-name "vedang")
-(setq rcirc-default-full-name "vedang manerikar")
-
-;; Join these channels at startup.
-(setq rcirc-server-alist '(("irc.freenode.net"
-                            :channels ("#emacs" "#git" "#clojure" "#redis"
-                                       "#mongodb"))
-                           ("irc.qotdinc.com"
-                            :channels ("#dev" "#bakvaas" "#nsfw"))))
 
 
 ;;; rcirc/reconnect command - EmacsWiki
