@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-03-13 18:37:04 vedang"
+;;; Time-stamp: "2013-07-03 12:08:43 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -61,7 +61,8 @@
 (eval-after-load 'magit
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
-     (set-face-foreground 'magit-diff-del "red3")))
+     (set-face-foreground 'magit-diff-del "red3")
+     (setq magit-commit-signoff t)))
 (eval-after-load "erlang"
   '(progn
      (require 'erlang-mode-config)))
