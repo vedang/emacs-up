@@ -1,6 +1,7 @@
 *.elc
 loaddefs.el
 temp-files/*
+logs/*
 custom.el
 tramp
 \#*
