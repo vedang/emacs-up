@@ -1,14 +1,14 @@
 [submodule "plugins/python-emacs"]
 	path = plugins/python-emacs
-	url = git://github.com:vedang/python-emacs.git
+	url = git://github.com/vedang/python-emacs.git
     ignore = dirty
 [submodule "plugins/clojure-emacs"]
 	path = plugins/clojure-emacs
-	url = git://github.com:vedang/clojure-emacs.git
+	url = git://github.com/vedang/clojure-emacs.git
     ignore = dirty
 [submodule "plugins/revive-mode"]
 	path = plugins/revive-mode
-	url = git://github.com:vedang/revive-mode.git
+	url = git://github.com/vedang/revive-mode.git
     ignore=dirty
 [submodule "plugins/magit"]
 	path = plugins/magit
