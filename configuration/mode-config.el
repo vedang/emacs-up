@@ -1,7 +1,7 @@
 ;;; mode-config.el --- Main config file for the various emacs modes I use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-07-03 12:08:43 vedang"
+;;; Time-stamp: "2013-08-14 15:08:22 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -62,7 +62,10 @@
   '(progn
      (set-face-foreground 'magit-diff-add "green3")
      (set-face-foreground 'magit-diff-del "red3")
-     (setq magit-commit-signoff t)))
+     ;; TODO: I don't want to sign every commit
+     ;; but I'd like to sign other people's commits when I
+     ;; merge them into my code.
+     (setq magit-commit-signoff nil)))
 (eval-after-load "erlang"
   '(progn
      (require 'erlang-mode-config)))
