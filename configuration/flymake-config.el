@@ -50,7 +50,7 @@ makes)."
   ;; Flymake for LaTeX
   (defun flymake-get-tex-args (file-name)
     (list "chktex" (list "-g0" "-r" "-l"
-                         (expand-file-name (concat *dotfiles-dir*
+                         (expand-file-name (concat dotfiles-dirname
                           "plugins/latex/chktexcheckers"))
                          "-I" "-q" "-v0" file-name)))
   (push

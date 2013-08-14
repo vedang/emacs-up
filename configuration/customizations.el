@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2012-10-09 16:08:32 vedang"
+;;; Time-stamp: "2013-08-15 02:23:32 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -26,10 +26,10 @@
       confirm-kill-emacs 'y-or-n-p
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
-      save-place-file (concat *tempfiles-dir* "places")
+      save-place-file (concat tempfiles-dirname "places")
       column-number-mode t
       debug-on-error t
-      bookmark-default-file (concat *tempfiles-dir* "bookmarks.bmk")
+      bookmark-default-file (concat tempfiles-dirname "bookmarks.bmk")
       bookmark-save-flag 1
       display-buffer-reuse-frames t
       whitespace-line-column 80
@@ -51,11 +51,11 @@
 ;; Don't clutter up directories with files~
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
-                 (concat *tempfiles-dir* "backups"))))
+                 (concat tempfiles-dirname "backups"))))
       auto-save-list-file-prefix
-      (concat *tempfiles-dir* "auto-save-list/.auto-saves-")
+      (concat tempfiles-dirname "auto-save-list/.auto-saves-")
       auto-save-file-name-transforms
-      `((".*" ,(concat *tempfiles-dir* "auto-save-list/") t)))
+      `((".*" ,(concat tempfiles-dirname "auto-save-list/") t)))
 
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
 

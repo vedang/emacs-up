@@ -1,7 +1,7 @@
 ;;; utility-functions.el --- Useful Functions for day to day use
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-02-19 12:00:46 vedang"
+;;; Time-stamp: "2013-08-15 02:21:27 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -202,7 +202,7 @@ Subsequent calls expands the selection to larger semantic unit."
 (defun vedang/recompile-init (&optional force)
   "Byte-compile all your dotfiles again."
   (interactive "P")
-  (byte-recompile-directory *dotfiles-dir* 0 force))
+  (byte-recompile-directory dotfiles-dirname 0 force))
 
 
 (defun vedang/files-in-below-directory (directory)
@@ -233,7 +233,7 @@ Subsequent calls expands the selection to larger semantic unit."
 (defun vedang/regen-autoloads (&optional force-regen)
   "Regenerate the autoload definitions file if necessary and load it."
   (interactive "P")
-  (let ((generated-autoload-file *autoload-file*))
+  (let ((generated-autoload-file autoload-file))
     (when (or force-regen
               (not (file-exists-p generated-autoload-file)))
       (when (not (file-exists-p generated-autoload-file))
@@ -241,10 +241,10 @@ Subsequent calls expands the selection to larger semantic unit."
           (insert ";;") ;; create the file with non-zero size to appease autoload
           (save-buffer)))
       (message "Updating autoloads...")
-      (dolist (autoload-dir (list *plugins-dir* *config-dir* *elpa-dir*))
+      (dolist (autoload-dir (list plugins-dirname config-dirname elpa-dirname))
         (let (emacs-lisp-mode-hook)
           (vedang/update-directory-autoloads autoload-dir)))))
-  (load *autoload-file*))
+  (load autoload-file))
 
 
 (defun sudo-edit (&optional arg)

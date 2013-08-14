@@ -1,7 +1,7 @@
 ;;; org-mode-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 11 Mar 2012
-;;; Time-stamp: "2012-09-03 19:57:49 vedang"
+;;; Time-stamp: "2013-08-15 02:23:44 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -214,7 +214,7 @@
       org-clock-out-remove-zero-time-clocks t
       org-clock-out-when-done t
       org-clock-persist 'history
-      org-clock-persist-file (concat *tempfiles-dir* "org-clock-save")
+      org-clock-persist-file (concat tempfiles-dirname "org-clock-save")
       org-clock-auto-clock-resolution 'when-no-clock-is-running
       org-clock-report-include-clocking-task t)
 
@@ -547,7 +547,7 @@ as the default task."
 
 
 ;; settings for Beamer
-(setq org-ditaa-jar-path (concat *dotfiles-dir*
+(setq org-ditaa-jar-path (concat dotfiles-dirname
                                  "plugins/org-mode/contrib/scripts/ditaa.jar"))
 (org-babel-do-load-languages
  'org-babel-load-languages

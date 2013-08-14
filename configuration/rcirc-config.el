@@ -1,7 +1,7 @@
 ;;; rcirc-config.el --- Configuration for RCIRC
 ;;; Author: Vedang Manerikar
 ;;; Created on: 04 Mar 2012
-;;; Time-stamp: "2013-07-18 00:20:36 vedang"
+;;; Time-stamp: "2013-08-15 02:24:47 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -23,7 +23,7 @@
       rcirc-default-user-name "vedang"
       rcirc-default-full-name "vedang manerikar"
       rcirc-debug-flag t
-      rcirc-log-directory (concat *log-dir* "rcirc-logs/")
+      rcirc-log-directory (concat log-dirname "rcirc-logs/")
       rcirc-log-flag t
       rcirc-time-format "%Y-%m-%d %H:%M "
       rcirc-server-alist '(("irc.freenode.net"

@@ -1,7 +1,7 @@
 ;;; init.el --- Root emacs configuration file.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-07-18 00:16:22 vedang"
+;;; Time-stamp: "2013-08-15 02:24:34 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -24,15 +24,15 @@
 
 
 ;;; Some global defs
-(setq *dotfiles-dir* (file-name-directory
-                      (or (buffer-file-name) load-file-name))
-      *autoload-file* (concat *dotfiles-dir* "loaddefs.el")
-      *plugins-dir* (concat *dotfiles-dir* "plugins/")
-      *config-dir* (concat *dotfiles-dir* "configuration/")
-      *elpa-dir* (concat *dotfiles-dir* "elpa/")
-      *custom-file* (concat *dotfiles-dir* "custom.el")
-      *tempfiles-dir* (concat *dotfiles-dir* "temp-files/")
-      *log-dir* (concat *dotfiles-dir* "logs/"))
+(setq dotfiles-dirname (file-name-directory (or load-file-name
+                                                (buffer-file-name)))
+      autoload-file (concat dotfiles-dirname "loaddefs.el")
+      plugins-dirname (concat dotfiles-dirname "plugins/")
+      config-dirname (concat dotfiles-dirname "configuration/")
+      elpa-dirname (concat dotfiles-dirname "elpa/")
+      vedang-custom-file (concat dotfiles-dirname "custom.el")
+      tempfiles-dirname (concat dotfiles-dirname "temp-files/")
+      log-dirname (concat dotfiles-dirname "logs/"))
 
 
 (defvar vedang/programming-major-modes
@@ -45,13 +45,13 @@
 
 
 ;;; Create temp directories if necessary
-(make-directory *tempfiles-dir* t)
+(make-directory tempfiles-dirname t)
 
 
 ;;; From nflath.com
 ;;; add all subdirs under "~/.emacs.d/" to load-path
 (if (fboundp 'normal-top-level-add-subdirs-to-load-path)
-    (let* ((my-lisp-dir *dotfiles-dir*)
+    (let* ((my-lisp-dir dotfiles-dirname)
            (default-directory my-lisp-dir)
            (orig-load-path load-path))
       (setq load-path (cons my-lisp-dir nil))
@@ -66,7 +66,7 @@
 
 
 ;;; Require my configuration
-(load *custom-file* 'noerror)
+(load vedang-custom-file 'noerror)
 (require 'utility-functions)
 (require 'customizations)
 (require 'mode-config)

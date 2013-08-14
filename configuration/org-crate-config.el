@@ -1,7 +1,7 @@
 ;;; org-crate-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 18 Dec 2012
-;;; Time-stamp: "2013-02-03 22:44:03 vedang"
+;;; Time-stamp: "2013-08-15 02:23:37 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -24,7 +24,7 @@
       org-agenda-files (list org-directory
                              org-work-directory
                              org-personal-directory)
-      org-clock-persist-file (concat *tempfiles-dir* "org-clock-save"))
+      org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
 
 
 (add-to-list 'org-capture-templates
