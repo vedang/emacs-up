@@ -81,6 +81,11 @@
            uniquify-separator "|"
            uniquify-after-kill-buffer-p t
            uniquify-ignore-buffers-re "^\\*")))
+
+(add-to-list 'load-path (concat *plugins-dir* "s.el"))
+(add-to-list 'load-path (concat *plugins-dir* "dash.el"))
+(add-to-list 'load-path (concat *plugins-dir* "tagedit"))
+
 (eval-after-load "sgml-mode"
   '(progn
      (require 'tagedit)

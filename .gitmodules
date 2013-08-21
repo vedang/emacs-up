@@ -34,3 +34,12 @@
 [submodule "plugins/wgrep"]
 	path = plugins/wgrep
 	url = git://github.com/magnars/Emacs-wgrep.git
+[submodule "plugins/s.el"]
+    path = plugins/s.el
+    url = git://github.com/magnars/s.el.git
+[submodule "plugins/dash.el"]
+    path = plugins/dash.el
+    url = git://github.com/magnars/dash.el.git
+[submodule "plugins/tagedit.el"]
+    path = plugins/tagedit
+    url = git://github.com/magnars/tagedit.git
