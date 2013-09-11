@@ -1,7 +1,7 @@
 ;;; org-crate-config.el --- Configuration for org-mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 18 Dec 2012
-;;; Time-stamp: "2013-09-05 11:14:27 vedang"
+;;; Time-stamp: "2013-09-11 10:45:39 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -118,6 +118,11 @@
               ("I" "Inheritable Deadlines" todo "TODO|WAITING|IN-REVIEW|IN-QA|WORKING|SOMEDAY"
                ((org-agenda-overriding-header "Inheritable DEADLINEs")
                 (org-agenda-skip-function 'fc/skip-non-inheritable-deadlines))))))
+
+
+(setq org-link-abbrev-alist
+      '(("bug" . "http://bugzilla.helpshift.com/show_bug.cgi?id=%s")
+        ("google"   . "http://www.google.com/search?q=%s")))
 
 
 (provide 'org-crate-config)
