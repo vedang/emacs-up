@@ -50,4 +50,14 @@
 (el-get 'sync)
 
 
+;;; Define my programming modes.
+(defvar vedang/programming-major-modes
+  '(js2-mode c-mode c++-mode conf-mode clojure-mode erlang-mode
+             emacs-lisp-mode lisp-mode scheme-mode python-mode)
+  "List of programming modes that I use")
+(defvar vedang/lisp-major-modes
+  '(emacs-lisp-mode lisp-mode clojure-mode scheme-mode)
+  "List of lispy modes that I use")
+
+
 ;;; init.el ends here.
