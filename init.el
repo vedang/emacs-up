@@ -30,7 +30,8 @@
       vedang-custom-file (concat dotfiles-dirname "custom.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
       el-get-dirname (concat dotfiles-dirname "el-get/")
-      el-get-user-package-directory (concat el-get-dirname "el-get-init-files/"))
+      el-get-user-package-directory (concat el-get-dirname "el-get-init-files/")
+      site-lisp-dirname (concat dotfiles-dirname "site-lisp/"))
 
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
@@ -58,6 +59,12 @@
 (defvar vedang/lisp-major-modes
   '(emacs-lisp-mode lisp-mode clojure-mode scheme-mode)
   "List of lispy modes that I use")
+
+
+(add-to-list 'load-path site-lisp-dirname)
+(require 'site-lisp)
+(require 'local-lisp)
+(require 'utility-functions)
 
 
 ;;; init.el ends here.
