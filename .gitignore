@@ -1,0 +1,7 @@
+auto-save-list/
+temp-files/
+*.elc
+*~
+el-get/.status.el.old
+.loaddefs.el
+loaddefs.el
