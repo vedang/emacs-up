@@ -1,0 +1,5 @@
+(:name rust-mode
+       :type http
+       :url "https://raw.github.com/mozilla/rust/master/src/etc/emacs/rust-mode.el"
+       :description "Emacs mode for Rust"
+       :features rust-mode)

@@ -1,0 +1,4 @@
+(:name find-file-in-project
+       :type github
+       :pkgname "technomancy/find-file-in-project"
+       :description "Quick access to project files in Emacs")

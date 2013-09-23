@@ -1,0 +1,4 @@
+(:name quick-buffer-switch
+       :type github
+       :description "Quick switch to file or dir buffers."
+       :pkgname "renard/quick-buffer-switch")

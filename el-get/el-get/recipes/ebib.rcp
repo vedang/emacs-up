@@ -1,0 +1,6 @@
+(:name ebib
+       :type github
+       :website "http://ebib.sourceforge.net/index.html"
+       :description "Application to manage BibTeX database"
+       :pkgname "joostkremers/ebib"
+       :shallow nil)

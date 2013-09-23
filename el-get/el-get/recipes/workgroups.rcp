@@ -1,0 +1,5 @@
+(:name workgroups
+       :description "Workgroups for windows (for Emacs)"
+       :type github
+       :pkgname "tlh/workgroups.el"
+       :features "workgroups")

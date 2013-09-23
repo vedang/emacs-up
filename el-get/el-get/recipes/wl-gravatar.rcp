@@ -1,0 +1,4 @@
+(:name wl-gravatar
+       :description "Gravatar fetch/store functions"
+       :type github
+       :pkgname "dabrahams/wl-gravatar")

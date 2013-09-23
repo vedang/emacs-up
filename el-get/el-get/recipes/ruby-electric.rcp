@@ -1,0 +1,5 @@
+(:name ruby-electric
+       :description "Electric commands editing for ruby files"
+       :type github
+       :pkgname "qoobaa/ruby-electric"
+       :post-init (add-hook 'ruby-mode-hook 'ruby-electric-mode))

@@ -1,0 +1,4 @@
+(:name graphviz-dot-mode
+       :description "graphviz dot language mode"
+       :type github
+       :pkgname "ppareit/graphviz-dot-mode")

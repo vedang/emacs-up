@@ -1,0 +1,5 @@
+*.elc
+*~
+recipes/emacswiki/*
+recipes/elpa/*
+dir

@@ -1,0 +1,8 @@
+(:name muse
+       :description "An authoring and publishing tool for Emacs"
+       :type github
+       :pkgname "alexott/muse"
+       :load-path ("./lisp")
+       :build `(,(concat "make EMACS=" el-get-emacs))
+       :indo "texi"
+       :autoloads "muse-autoloads")

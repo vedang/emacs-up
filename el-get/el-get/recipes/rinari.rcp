@@ -1,0 +1,10 @@
+(:name rinari
+       :description "Rinari Is Not A Rails IDE"
+       :type github
+       :pkgname "eschulte/rinari"
+       :load-path ("." "util" "util/jump")
+       :compile ("\\.el$" "util")
+       :build (("bundle")
+               ("rake" "doc:install_info"))
+       :info "doc"
+       :features rinari)

@@ -1,0 +1,5 @@
+(:name swank-clojure
+       :website "https://github.com/technomancy/swank-clojure"
+       :description "Slime adapter for clojure"
+       :type github
+       :pkgname "technomancy/swank-clojure")

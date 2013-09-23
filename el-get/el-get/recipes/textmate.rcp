@@ -1,0 +1,6 @@
+(:name textmate
+       :description "TextMate minor mode for Emacs"
+       :type github
+       :pkgname "defunkt/textmate.el"
+       :features textmate
+       :post-init (textmate-mode))

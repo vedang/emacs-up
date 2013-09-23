@@ -1,0 +1,4 @@
+(:name csv-mode
+       :website "http://www.emacswiki.org/emacs/CsvMode"
+       :description "Major mode for editing CSV (comma separated value) files."
+       :type elpa)

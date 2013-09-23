@@ -1,0 +1,4 @@
+(:name vcomp
+       :type emacsmirror
+       :website "https://github.com/tarsius/vcomp"
+       :description "Compare version strings")
