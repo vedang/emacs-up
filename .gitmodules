@@ -30,3 +30,6 @@
 [submodule "plugins/wgrep"]
 	path = plugins/wgrep
 	url = git://github.com/magnars/Emacs-wgrep.git
+[submodule "plugins/git-modes"]
+	path = plugins/git-modes
+	url = https://github.com/magit/git-modes.git
