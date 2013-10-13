@@ -1,4 +1,0 @@
-(:name weather-metno
-       :description "Weather data from met.no in Emacs."
-       :type github
-       :pkgname "ruediger/weather-metno-el")

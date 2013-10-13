@@ -1,4 +1,0 @@
-(:name habitrpg
-       :type github
-       :description "Habitrpg integration."
-       :pkgname "ryjm/habitrpg.el")

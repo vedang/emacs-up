@@ -1,5 +1,0 @@
-(:name tab-group
-       :description "Grouped tabs and their tabbar"
-       :type github
-       :pkgname "tarao/tab-group-el"
-       :depends (tabbar))

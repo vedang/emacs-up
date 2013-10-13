@@ -1,5 +1,0 @@
-(:name org-caldav
-       :website "https://github.com/dengste/org-caldav"
-       :description "Two-way CalDAV synchronization for org-mode"
-       :type github
-       :pkgname "dengste/org-caldav")

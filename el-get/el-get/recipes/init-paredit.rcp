@@ -1,5 +1,0 @@
-(:name init-paredit
-       :type emacswiki
-       :description "Paredit configuration"
-       :features init-paredit
-       :depends paredit)

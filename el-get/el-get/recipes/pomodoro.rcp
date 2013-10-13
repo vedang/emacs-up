@@ -1,5 +1,0 @@
-(:name pomodoro
-       :type http
-       :description "Pomodoro Technique in Emacs."
-       :url "https://raw.github.com/syohex/emacs-utils/master/pomodoro.el"
-       :autoloads t)

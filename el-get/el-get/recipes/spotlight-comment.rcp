@@ -1,5 +1,0 @@
-(:name spotlight-comment
-       :type git
-       :website "https://gist.github.com/888153"
-       :description "Manipulate Spotlight comments in Dired"
-       :url "https://gist.github.com/888153.git")

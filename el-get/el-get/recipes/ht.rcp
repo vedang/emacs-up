@@ -1,5 +1,0 @@
-(:name ht
-       :website "https://github.com/Wilfred/ht.el"
-       :description "The missing hash table utility library for Emacs."
-       :type github
-       :pkgname "Wilfred/ht.el")

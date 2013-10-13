@@ -1,5 +1,0 @@
-(:name wtf
-       :type http
-       :website "http://mwolson.org/static/dist/wtf/wtf.el"
-       :description "Look up conversational and computing acronyms"
-       :url "http://mwolson.org/static/dist/wtf/wtf.el")

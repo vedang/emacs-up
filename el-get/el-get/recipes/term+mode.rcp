@@ -1,5 +1,0 @@
-(:name term+mode
-       :description "term+ with multiple modes"
-       :type github
-       :pkgname "tarao/term-plus-mode-el"
-       :depends (term+ multi-mode-util))

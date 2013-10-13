@@ -1,4 +1,0 @@
-(:name langtool
-       :description "Emacs frontend for LanguageTool (http://www.languagetool.org/)."
-       :type github
-       :pkgname "mhayashi1120/Emacs-langtool")

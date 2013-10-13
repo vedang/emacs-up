@@ -1,5 +1,0 @@
-(:name multi-mode-util
-       :description "multi-mode utility"
-       :type github
-       :pkgname "tarao/key-intercept-el"
-       :depends (multi-mode))

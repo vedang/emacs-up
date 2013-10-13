@@ -1,4 +1,0 @@
-(:name emacs-async
-       :description "Simple library for asynchronous processing in Emacs"
-       :type github
-       :pkgname "jwiegley/emacs-async")

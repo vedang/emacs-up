@@ -1,5 +1,0 @@
-(:name palimpsest-mode
-       :description "Various deletion strategies when editing text that should elude total oblivion. Implemented as a minor mode."
-       :type github
-       :pkgname "danielsz/Palimpsest"
-       :post-init (add-hook 'text-mode-hook 'palimpsest-mode))

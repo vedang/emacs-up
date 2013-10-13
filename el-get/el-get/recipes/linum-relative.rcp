@@ -1,4 +1,0 @@
-(:name linum-relative
-       :type emacswiki
-       :description "Display relative line number in the left margin"
-       :features linum-relative)

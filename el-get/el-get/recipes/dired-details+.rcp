@@ -1,5 +1,0 @@
-(:name dired-details+
-       :description "Extensions to `dired-details.el'."
-       :type emacswiki
-       :depends (dired-details)
-       :features "dired-details+")

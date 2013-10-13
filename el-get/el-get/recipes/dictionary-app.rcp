@@ -1,4 +1,0 @@
-(:name dictionary-app
-       :type github
-       :description "Search item to OSX Dictionary.app."
-       :pkgname "renard/dictionary-app")

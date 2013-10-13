@@ -1,6 +1,0 @@
-(:name helm-c-yasnippet
-       :type github
-       :pkgname "emacs-helm/helm-c-yasnippet"
-       :description "Helm source for yasnippet.el."
-       :features helm-c-yasnippet
-       :depends (helm yasnippet))

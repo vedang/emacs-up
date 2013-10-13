@@ -1,5 +1,0 @@
-(:name anything-complete
-       :description "completion with anything"
-       :type emacswiki
-       :feature anything-complete
-       :depends (anything))

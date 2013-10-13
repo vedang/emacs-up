@@ -1,4 +1,0 @@
-(:name osx-contacts
-       :type github
-       :description "Import Contacts.app contacts into bbdb."
-       :pkgname "renard/osx-contacts")

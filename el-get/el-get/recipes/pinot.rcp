@@ -1,4 +1,0 @@
-(:name pinot
-       :description "Use pinot desktop meta search engine via Emacs anything/helm interface."
-       :type github
-       :pkgname "tkf/emacs-pinot-search")

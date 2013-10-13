@@ -1,3 +1,0 @@
-(:name ert-expectations
-       :description "Minimalist unit testing framework"
-       :type emacswiki)

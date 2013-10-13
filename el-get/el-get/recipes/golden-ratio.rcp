@@ -1,4 +1,0 @@
-(:name golden-ratio
-       :description "Automatic resizing of Emacs windows to the golden ratio"
-       :type github
-       :pkgname "roman/golden-ratio.el")

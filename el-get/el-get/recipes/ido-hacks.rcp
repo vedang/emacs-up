@@ -1,5 +1,0 @@
-(:name ido-hacks
-       :description "Advices for ido-mode."
-       :type github
-       :pkgname "scottjad/ido-hacks"
-       :load    "ido-hacks.el")

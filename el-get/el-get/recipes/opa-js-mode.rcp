@@ -1,5 +1,0 @@
-(:name opa-js-mode
-       :website "https://opalang.org"
-       :description "Major mode for editing Opa-Js programs"
-       :type http
-       :url "https://raw.github.com/MLstate/opalang/master/tools/editors/emacs/opa-js-mode.el")

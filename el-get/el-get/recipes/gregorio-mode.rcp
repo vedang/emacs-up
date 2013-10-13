@@ -1,4 +1,0 @@
-(:name gregorio-mode 
-:description "Major derived mode for .gabc (gregorio) files" 
-:type github 
-:pkgname "cajetanus/gregorio-mode.el)
