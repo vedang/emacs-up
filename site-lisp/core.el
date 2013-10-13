@@ -35,13 +35,6 @@
       flyspell-issue-welcome-flag nil
       display-time-day-and-date t)
 
-(setq-default indent-tabs-mode nil  ;only spaces by default.
-              tab-width 4)
-
-(mouse-avoidance-mode 'banish)
-(delete-selection-mode t)
-(display-time)
-
 ;; Don't clutter up directories with files~
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
@@ -55,6 +48,31 @@
 (setq completion-ignored-extensions
       '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx"
         ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf"))
+
+;;; Everything in UTF8
+(prefer-coding-system 'utf-8)
+(set-language-environment 'UTF-8)
+(set-default-coding-systems 'utf-8)
+(setq file-name-coding-system 'utf-8)
+(setq buffer-file-coding-system 'utf-8)
+(setq coding-system-for-write 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-clipboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
+(setq default-process-coding-system '(utf-8 . utf-8))
+
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "firefox")
+
+
+(setq-default indent-tabs-mode nil  ;only spaces by default.
+              tab-width 4)
+
+
+(mouse-avoidance-mode 'banish)
+(delete-selection-mode t)
+(display-time)
 
 
 ;;; hooks

@@ -1,4 +1,4 @@
-;;; site-lisp.el --- Change the behavior of things that come built into 
+;;; site-lisp.el --- Change the behavior of things that come built into
 ;;; Emacs.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 22 Sep 2013
@@ -34,6 +34,23 @@
   (if (member major-mode vedang/programming-major-modes)
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
+
+
+;; when I create a temporary buffer, it should auto-detect the right
+;; mode to start in the buffer
+(setq default-major-mode (lambda ()
+                           (let ((buffer-file-name (or buffer-file-name
+                                                       (buffer-name))))
+                             (set-auto-mode))))
+
+
+;; Close emacsclient buffers using C-x k
+(add-hook 'server-switch-hook
+          (lambda ()
+            (when (current-local-map)
+              (use-local-map (copy-keymap (current-local-map))))
+            (when server-buffer-clients
+              (local-set-key (kbd "C-x k") 'server-edit))))
 
 
 (defalias 'yes-or-no-p 'y-or-n-p)
