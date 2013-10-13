@@ -87,7 +87,6 @@
 (add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(tex\\|ltx\\)$" . LaTeX-mode))
-(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
 (if (eq system-type 'darwin)
   (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
   (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode)))
