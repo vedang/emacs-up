@@ -16,9 +16,7 @@
 
 
 (global-smart-tab-mode 1)
-
-(require 'smartparens-config)
-(smartparens-global-strict-mode)
+(require 'vedang-smartparens-config)
 
 (provide 'local-lisp)
 
