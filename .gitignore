@@ -2,6 +2,5 @@ auto-save-list/
 temp-files/
 *.elc
 *~
-el-get/.status.el.old
-.loaddefs.el
+el-get/
 loaddefs.el

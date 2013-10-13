@@ -30,7 +30,7 @@
       vedang-custom-file (concat dotfiles-dirname "custom.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
       el-get-dirname (concat dotfiles-dirname "el-get/")
-      el-get-user-package-directory (concat el-get-dirname "el-get-init-files/")
+      el-get-user-package-directory (concat dotfiles-dirname "el-get-init-files/")
       el-get-status-file (concat dotfiles-dirname "el-get-status.el")
       site-lisp-dirname (concat dotfiles-dirname "site-lisp/"))
 
