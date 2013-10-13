@@ -1,4 +1,4 @@
-;;; vedang-smartparens-config.el - Configuration for smartparens mode
+;;; configure-smartparens.el - Configuration for smartparens mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -18,6 +18,7 @@
 (require 'smartparens-config)
 (smartparens-global-strict-mode)
 (show-smartparens-global-mode)
+(sp-pair "(" nil :insert "C-o")
 
 ;; Keybindings
 (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
@@ -68,4 +69,4 @@
 (define-key sp-keymap (kbd "s-s s") 'sp-split-sexp)
 
 
-(provide 'vedang-smartparens-config)
+(provide 'configure-smartparens)
