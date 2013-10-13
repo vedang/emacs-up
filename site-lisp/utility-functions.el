@@ -125,30 +125,6 @@ Subsequent calls expands the selection to larger semantic unit."
                     nil))))))
 
 
-;; (defun vedang/prog-mode-settings ()
-;;   "special settings for programming modes."
-;;   (when (memq major-mode vedang/programming-major-modes)
-;;     (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
-;;     (when (not (equal major-mode 'objc-mode))
-;;       (turn-on-whitespace-mode)) ;; tell me if lines exceed 80 columns
-;;     (when (memq major-mode vedang/lisp-major-modes)
-;;       (require 'paredit)
-;;       (paredit-mode t))          ;; Paredit goodness
-;;     (pretty-lambdas)))
-;; (add-hook 'find-file-hook 'vedang/prog-mode-settings)
-
-
-;; Indentation hook for C/C++ mode
-;; As defined in Documentation/CodingStyle
-(defun vedang/linux-c-indent ()
-  "adjusted defaults for C/C++ mode use with the Linux kernel."
-  (interactive)
-  (setq tab-width 8)
-  (setq indent-tabs-mode nil) ;; force spaces, to work with dumber editors
-  (setq c-basic-offset 8))
-(add-hook 'c-mode-hook 'vedang/linux-c-indent)
-(add-hook 'c-mode-hook (lambda() (c-set-style "K&R")))
-(add-hook 'c++-mode-hook 'vedang/linux-c-indent)
 
 
 (defun untabify-buffer ()
