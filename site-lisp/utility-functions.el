@@ -1,4 +1,4 @@
-;;; utility-functions.el --- Useful Functions for day to day use
+;;; utility-functions.el --- Useful Functions from around the web
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -17,12 +17,12 @@
 
 ;;; function to display Tip of the Day
 (defconst animate-n-steps 3)
-(require 'cl)
+(require 'cl-lib)
 (random t)
-(defun totd ()
+(defun uf/totd ()
   (interactive)
-  (let* ((commands (loop for s being the symbols
-                         when (commandp s) collect s))
+  (let* ((commands (cl-loop for s being the symbols
+                            when (commandp s) collect s))
          (command (nth (random (length commands)) commands)))
     (animate-string (concat ";; Initialization successful, welcome to "
                             (substring (emacs-version) 0 16)
@@ -32,12 +32,12 @@
                             (delete-other-windows)
                             "\n\nInvoke with:\n\n"
                             (where-is command t)
-                            (delete-other-windows)
-                            )0 0)))
+                            (delete-other-windows))
+                    0 0)))
 
 
 ;;; Function to launch a google search
-(defun google ()
+(defun uf/google ()
   "googles a query or a selected region"
   (interactive)
   (browse-url
@@ -50,7 +50,7 @@
 
 ;;; Function to mark complete word, and expand to sentence etc.
 ;;; by Nikolaj Schumacher, 2008-10-20. Released under GPL.
-(defun semnav-up (arg)
+(defun uf/semnav-up (arg)
   (interactive "p")
   (when (nth 3 (syntax-ppss))
     (if (> arg 0)
@@ -65,7 +65,7 @@
 
 
 ;;; by Nikolaj Schumacher, 2008-10-20. Released under GPL.
-(defun extend-selection (arg &optional incremental)
+(defun uf/extend-selection (arg &optional incremental)
   "Select the current word.
 Subsequent calls expands the selection to larger semantic unit."
   (interactive (list (prefix-numeric-value current-prefix-arg)
@@ -73,51 +73,49 @@ Subsequent calls expands the selection to larger semantic unit."
                          (eq last-command this-command))))
   (if incremental
       (progn
-        (semnav-up (- arg))
+        (uf/semnav-up (- arg))
         (forward-sexp)
         (mark-sexp -1))
     (if (> arg 1)
-        (extend-selection (1- arg) t)
+        (uf/extend-selection (1- arg) t)
       (if (looking-at "\\=\\(\\s_\\|\\sw\\)*\\_>")
           (goto-char (match-end 0))
         (unless (memq (char-before) '(?\) ?\"))
           (forward-sexp)))
       (mark-sexp -1))))
 
-(global-set-key (kbd "M-8") 'extend-selection)
-
 
 ;;; More Screen Space
 (when (executable-find "wmctrl") ; apt-get install wmctrl
-  (defun full-screen-toggle ()
+  (defun uf/full-screen-toggle ()
     (interactive)
     (shell-command "wmctrl -r :ACTIVE: -btoggle,fullscreen"))
-  (global-set-key (kbd "<f1>") 'full-screen-toggle))
+  (global-set-key (kbd "<f1>") 'uf/full-screen-toggle))
 
 
 ;;; turn-on functions for various utilities
 ;;; =======================================
 
 
-(defun turn-on-hl-line-mode ()
+(defun uf/turn-on-hl-line-mode ()
   "highlight the current line"
   (if window-system (hl-line-mode t)))
 
 
-(defun turn-on-whitespace-mode ()
+(require 'whitespace)
+(defun uf/turn-on-whitespace-mode ()
   (interactive)
-  (require 'whitespace)
   (setq whitespace-style '(face empty tabs lines trailing))
   (whitespace-mode t))
 
 
-(defun add-watchwords ()
+(defun uf/add-watchwords ()
   (font-lock-add-keywords
    nil '(("\\<\\(FIX\\|TODO\\|FIXME\\|HACK\\|REFACTOR\\):"
           1 font-lock-warning-face t))))
 
 
-(defun pretty-lambdas ()
+(defun uf/pretty-lambdas ()
   (font-lock-add-keywords
    nil `(("(?\\(lambda\\>\\)"
           (0 (progn (compose-region (match-beginning 1) (match-end 1)
@@ -125,28 +123,25 @@ Subsequent calls expands the selection to larger semantic unit."
                     nil))))))
 
 
-
-
-(defun untabify-buffer ()
+(defun uf/untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
 
 
-(defun indent-buffer ()
+(defun uf/indent-buffer ()
   (interactive)
   (indent-region (point-min) (point-max)))
 
 
-(defun cleanup-buffer ()
+(defun uf/cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer."
   (interactive)
-  (indent-buffer)
-  (untabify-buffer)
+  (uf/indent-buffer)
+  (uf/untabify-buffer)
   (delete-trailing-whitespace))
 
 
-
-(defun sudo-edit (&optional arg)
+(defun uf/sudo-edit (&optional arg)
   "Edit as root"
   (interactive "p")
   (if (or arg (not buffer-file-name))
@@ -154,7 +149,7 @@ Subsequent calls expands the selection to larger semantic unit."
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
 
-(defun revert-all-buffers ()
+(defun uf/revert-all-buffers ()
   "Refreshes all open buffers from their respective files."
   (interactive)
   (dolist (buf (buffer-list))
@@ -164,20 +159,18 @@ Subsequent calls expands the selection to larger semantic unit."
   (message "Refreshed open files."))
 
 
-(defun backward-kill-word-or-kill-region (&optional arg)
+(defun uf/backward-kill-word-or-kill-region (&optional arg)
   "Change C-w behavior"
   (interactive "p")
   (if (region-active-p)
       (kill-region (region-beginning) (region-end))
     (backward-kill-word arg)))
 
-(global-set-key (kbd "C-w") 'backward-kill-word-or-kill-region)
-
 
 ;; http://www.emacswiki.org/emacs/TransposeWindows
 ;;; When working with multiple windows it can be annoying if they get
 ;;; out of order. With this function it’s easy to fix that.
-(defun transpose-windows (arg)
+(defun uf/transpose-windows (arg)
   "Transpose the buffers shown in two windows."
   (interactive "p")
   (let ((selector (if (>= arg 0) 'next-window 'previous-window)))
@@ -189,11 +182,11 @@ Subsequent calls expands the selection to larger semantic unit."
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
-(global-set-key (kbd "C-x M-s") 'transpose-windows)
 
+;; Thank you @magnars
+;; =================
 
-;; thank you magnars
-(defun eval-and-replace ()
+(defun uf/eval-and-replace ()
   "Replace the preceding sexp with its value."
   (interactive)
   (backward-kill-sexp)
@@ -204,9 +197,7 @@ Subsequent calls expands the selection to larger semantic unit."
            (insert (current-kill 0)))))
 
 
-
-
-(defmacro safe-wrap (fn &rest clean-up)
+(defmacro uf/safe-wrap (fn &rest clean-up)
   "A wrapping over Emacs error handling"
   `(unwind-protect
        (let (retval)
