@@ -20,6 +20,9 @@
 (global-smart-tab-mode 1)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+;; TODO: Uncomment when the time is right.
+;; ;; This function comes from revive-mode
+;; (add-hook 'kill-emacs-hook 'emacs-save-layout)
 
 (provide 'local-lisp)
 

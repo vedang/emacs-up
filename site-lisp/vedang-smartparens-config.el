@@ -1,7 +1,7 @@
 ;;; vedang-smartparens-config.el - Configuration for smartparens mode
 ;;; Author: Vedang Manerikar
-;;; Created on: 08 Jan 2012
-;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
+;;; Created on: 13 Oct 2013
+;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
 

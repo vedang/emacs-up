@@ -63,6 +63,7 @@
 
 
 (add-to-list 'load-path site-lisp-dirname)
+(require 'core)
 (require 'site-lisp)
 (require 'local-lisp)
 (require 'utility-functions)

@@ -1,0 +1,84 @@
+;;; core.el --- customizing core emacs variables
+;;; Author: Vedang Manerikar
+;;; Created on: 13 Oct 2013
+;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
+
+;; This file is not part of GNU Emacs.
+
+;;; License:
+
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the Do What The Fuck You Want to
+;; Public License, Version 2, which is included with this distribution.
+;; See the file LICENSE.txt
+
+;;; Code:
+
+
+(setq user-full-name "Vedang Manerikar"
+      user-mail-address "vedang.manerikar@gmail.com"
+      message-log-max t
+      visible-bell t
+      echo-keystrokes 0.1
+      inhibit-startup-message t
+      font-lock-maximum-decoration t
+      confirm-kill-emacs 'y-or-n-p
+      require-final-newline t
+      ediff-window-setup-function 'ediff-setup-windows-plain
+      save-place-file (concat tempfiles-dirname "places")
+      column-number-mode t
+      debug-on-error t
+      bookmark-default-file (concat tempfiles-dirname "bookmarks.bmk")
+      bookmark-save-flag 1
+      display-buffer-reuse-frames t
+      whitespace-line-column 80
+      flyspell-issue-welcome-flag nil
+      display-time-day-and-date t)
+
+(setq-default indent-tabs-mode nil  ;only spaces by default.
+              tab-width 4)
+
+(mouse-avoidance-mode 'banish)
+(delete-selection-mode t)
+(display-time)
+
+;; Don't clutter up directories with files~
+(setq backup-directory-alist
+      `(("." . ,(expand-file-name
+                 (concat tempfiles-dirname "backups"))))
+      auto-save-list-file-prefix
+      (concat tempfiles-dirname "auto-save-list/.auto-saves-")
+      auto-save-file-name-transforms
+      `((".*" ,(concat tempfiles-dirname "auto-save-list/") t)))
+
+;; Completion ignores filenames ending in any string in this list.
+(setq completion-ignored-extensions
+      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx"
+        ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf"))
+
+
+;;; hooks
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'find-file-hook 'flymake-find-file-hook)
+(add-hook 'text-mode-hook 'turn-on-visual-line-mode)
+(add-hook 'text-mode-hook 'turn-on-flyspell)
+(add-hook 'fundamental-mode-hook 'turn-on-flyspell)
+
+
+;;; open these files in the appropriate mode
+(add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(tex\\|ltx\\)$" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown$" . markdown-mode))
+(if (eq system-type 'darwin)
+  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+  (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode)))
+
+(add-to-list 'safe-local-variable-values '(lexical-binding . t))
+
+
+;; Enable narrow-to-region, extremely useful for editing text
+(put 'narrow-to-region 'disabled nil)
+
+
+(provide 'core)
