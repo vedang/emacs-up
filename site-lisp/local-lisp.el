@@ -15,8 +15,11 @@
 ;;; Code:;;;
 
 
-(global-smart-tab-mode 1)
 (require 'vedang-smartparens-config)
+
+(global-smart-tab-mode 1)
+(global-set-key (kbd "C-x g") 'magit-status)
+
 
 (provide 'local-lisp)
 
