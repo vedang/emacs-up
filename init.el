@@ -30,9 +30,11 @@
       vedang-custom-file (concat dotfiles-dirname "custom.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
       el-get-dirname (concat dotfiles-dirname "el-get/")
-      el-get-user-package-directory (concat dotfiles-dirname "el-get-init-files/")
+      el-get-user-package-directory (concat dotfiles-dirname
+                                            "el-get-init-files/")
       el-get-status-file (concat dotfiles-dirname "el-get-status.el")
-      site-lisp-dirname (concat dotfiles-dirname "site-lisp/"))
+      site-lisp-dirname (concat dotfiles-dirname "site-lisp/")
+      enhance-dirname (concat dotfiles-dirname "enhance/"))
 
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
@@ -62,11 +64,18 @@
   "List of lispy modes that I use")
 
 
+;; The order of loading is important. Often times, the next package
+;; presumes that the previous one has been loaded.
 (add-to-list 'load-path site-lisp-dirname)
+(add-to-list 'load-path enhance-dirname)
+
 (require 'core)
 (require 'site-lisp)
 (require 'local-lisp)
 (require 'utility-functions)
+
+(require 'extra-hooks)
+(require 'extra-bindings)
 
 (load-theme 'zenburn t)
 ;;; init.el ends here.
