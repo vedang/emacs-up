@@ -68,5 +68,5 @@
 (require 'local-lisp)
 (require 'utility-functions)
 
-
+(load-theme 'zenburn t)
 ;;; init.el ends here.
