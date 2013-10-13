@@ -104,13 +104,6 @@ Subsequent calls expands the selection to larger semantic unit."
   (if window-system (hl-line-mode t)))
 
 
-(defun turn-on-paredit-nonlisp ()
-  (interactive)
-  (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-       '((lambda (endp delimiter) nil)))
-  (paredit-mode t))
-
-
 (defun turn-on-whitespace-mode ()
   (interactive)
   (require 'whitespace)
@@ -132,17 +125,17 @@ Subsequent calls expands the selection to larger semantic unit."
                     nil))))))
 
 
-(defun vedang/prog-mode-settings ()
-  "special settings for programming modes."
-  (when (memq major-mode vedang/programming-major-modes)
-    (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
-    (when (not (equal major-mode 'objc-mode))
-      (turn-on-whitespace-mode)) ;; tell me if lines exceed 80 columns
-    (when (memq major-mode vedang/lisp-major-modes)
-      (require 'paredit)
-      (paredit-mode t))          ;; Paredit goodness
-    (pretty-lambdas)))
-(add-hook 'find-file-hook 'vedang/prog-mode-settings)
+;; (defun vedang/prog-mode-settings ()
+;;   "special settings for programming modes."
+;;   (when (memq major-mode vedang/programming-major-modes)
+;;     (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
+;;     (when (not (equal major-mode 'objc-mode))
+;;       (turn-on-whitespace-mode)) ;; tell me if lines exceed 80 columns
+;;     (when (memq major-mode vedang/lisp-major-modes)
+;;       (require 'paredit)
+;;       (paredit-mode t))          ;; Paredit goodness
+;;     (pretty-lambdas)))
+;; (add-hook 'find-file-hook 'vedang/prog-mode-settings)
 
 
 ;; Indentation hook for C/C++ mode

@@ -17,6 +17,4 @@
 (require 'cl)
 (require 'uniquify)
 
-
-
 (provide 'site-lisp)

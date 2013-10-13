@@ -17,5 +17,8 @@
 
 (global-smart-tab-mode 1)
 
+(require 'smartparens-config)
+(smartparens-global-strict-mode)
+
 (provide 'local-lisp)
 
