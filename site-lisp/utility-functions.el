@@ -204,44 +204,6 @@ Subsequent calls expands the selection to larger semantic unit."
            (insert (current-kill 0)))))
 
 
-(defun incs (s &optional num)
-  (number-to-string (+ (or num 1) (string-to-number s))))
-
-
-(defun decs (s &optional num)
-  (number-to-string (- (string-to-number s) (or num 1))))
-
-
-(defun jump-to-next-slide ()
-  "Jump to the next slide of the presentation"
-  (interactive)
-  (condition-case ex
-      (find-file (car (file-expand-wildcards (concat
-                                              (unhandled-file-name-directory (buffer-file-name))
-                                              (incs (car (split-string (file-name-nondirectory (buffer-file-name))
-                                                                       "-")))
-                                              "-*"))))
-    ('error (progn
-              (message "Rewinding...")
-              (find-file (car (file-expand-wildcards (concat
-                                                      (unhandled-file-name-directory (buffer-file-name))
-                                                      "1-*"))))))))
-
-(global-set-key (kbd "<f8>") 'jump-to-next-slide)
-
-
-(defun jump-to-prev-slide ()
-  "Jump to the previous slide of the presentation"
-  (interactive)
-  (condition-case ex
-      (find-file (car (file-expand-wildcards (concat
-                                              (unhandled-file-name-directory (buffer-file-name))
-                                              (decs (car (split-string (file-name-nondirectory (buffer-file-name))
-                                                                       "-")))
-                                              "-*"))))
-    ('error (message "You've reached the beginning of the presentation"))))
-
-(global-set-key (kbd "<f7>") 'jump-to-prev-slide)
 
 
 (defmacro safe-wrap (fn &rest clean-up)
