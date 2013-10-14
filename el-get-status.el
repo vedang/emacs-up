@@ -1,4 +1,6 @@
-((cl-lib status "installed" recipe
+((ace-jump-mode status "installed" recipe
+                (:name ace-jump-mode :website "https://github.com/winterTTr/ace-jump-mode/wiki" :description "A quick cursor location minor mode for emacs" :type github :pkgname "winterTTr/ace-jump-mode" :features ace-jump-mode))
+ (cl-lib status "installed" recipe
          (:name cl-lib :builtin "24.3" :type elpa :description "Properly prefixed CL functions and macros" :url "http://elpa.gnu.org/packages/cl-lib.html"))
  (color-theme-zenburn status "installed" recipe
                       (:name color-theme-zenburn :description "Just some alien fruit salad to keep you in the zone" :website "https://github.com/bbatsov/zenburn-emacs" :type github :pkgname "bbatsov/zenburn-emacs" :post-init

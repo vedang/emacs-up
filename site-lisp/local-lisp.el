@@ -20,6 +20,11 @@
 (global-smart-tab-mode 1)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
 ;; TODO: Uncomment when the time is right.
 ;; ;; This function comes from revive-mode
 ;; (add-hook 'kill-emacs-hook 'emacs-save-layout)
