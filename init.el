@@ -67,13 +67,12 @@
 ;; The order of loading is important. Often times, the next package
 ;; presumes that the previous one has been loaded.
 (add-to-list 'load-path site-lisp-dirname)
-(add-to-list 'load-path enhance-dirname)
-
 (require 'core)
 (require 'site-lisp)
 (require 'local-lisp)
 (require 'utility-functions)
 
+(add-to-list 'load-path enhance-dirname)
 (require 'extra-hooks)
 (require 'extra-bindings)
 
