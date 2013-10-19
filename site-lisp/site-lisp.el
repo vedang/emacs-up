@@ -76,4 +76,8 @@ right mode to start in the buffer."
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 
+;; Require other site-lisp configuration
+(require 'configure-ido)
+
+
 (provide 'site-lisp)
