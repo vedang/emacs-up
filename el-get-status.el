@@ -39,5 +39,7 @@
  (smex status "installed" recipe
        (:name smex :description "M-x interface with Ido-style fuzzy matching." :type github :pkgname "nonsequitur/smex" :features smex :post-init
               (smex-initialize)))
+ (wgrep status "installed" recipe
+        (:name wgrep :description "Writable grep buffer and apply the changes to files" :type github :pkgname "mhayashi1120/Emacs-wgrep"))
  (writegood status "installed" recipe
             (:name writegood :type github :description "Polish up poor writing on the fly." :pkgname "bnbeckwith/writegood-mode")))

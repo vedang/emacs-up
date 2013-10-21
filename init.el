@@ -33,6 +33,8 @@
       el-get-user-package-directory (concat dotfiles-dirname
                                             "el-get-init-files/")
       el-get-status-file (concat dotfiles-dirname "el-get-status.el")
+      el-get-my-recipes (concat el-get-user-package-directory
+                                "personal-recipes/")
       site-lisp-dirname (concat dotfiles-dirname "site-lisp/")
       enhance-dirname (concat dotfiles-dirname "enhance/"))
 
@@ -51,6 +53,7 @@
       (goto-char (point-max))
       (eval-print-last-sexp))))
 
+(add-to-list 'el-get-recipe-path el-get-my-recipes)
 (el-get 'sync)
 
 
