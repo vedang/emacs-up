@@ -11,6 +11,8 @@
          (:name el-get :website "https://github.com/dimitri/el-get#readme" :description "Manage the external elisp bits and pieces you depend upon." :type github :branch "4.stable" :pkgname "dimitri/el-get" :info "." :load "el-get.el"))
  (git-modes status "installed" recipe
             (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
+ (ibuffer-vc status "installed" recipe
+             (:name ibuffer-vc :description "Group ibuffer's list by VC project, or show VC status" :type github :pkgname "purcell/ibuffer-vc"))
  (magit status "installed" recipe
         (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
                (cl-lib git-modes)

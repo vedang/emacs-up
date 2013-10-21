@@ -40,4 +40,4 @@
            nil require-match initial-input hist def))))
 
 
-(provide 'configure-ido)
+(provide 'init-ido)
