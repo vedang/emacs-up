@@ -1,4 +1,4 @@
-;;; configure-smartparens.el - Configuration for smartparens mode
+;;; init-smartparens.el - Configuration for smartparens mode
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -69,4 +69,4 @@
 (define-key sp-keymap (kbd "s-s s") 'sp-split-sexp)
 
 
-(provide 'configure-smartparens)
+(provide 'init-smartparens)
