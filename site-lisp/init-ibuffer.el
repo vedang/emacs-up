@@ -37,17 +37,23 @@
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)
                  (mode . clojure-mode)
+                 (mode . nrepl-repl-mode)
+                 (name . "nrepl")
                  (mode . go-mode)
                  (mode . objc-mode)
                  (mode . makefile-gmake-mode)))
                ("Org"
                 (or
                  (mode . org-mode)
+                 (derived-mode . org-mode)
+                 (mode . org-agenda-mode)
                  (mode . markdown-mode)))
                ("IRC"
                 (mode . rcirc-mode))
                ("Magit"
-                (derived-mode . magit-mode))
+                (or
+                 (derived-mode . magit-mode)
+                 (name . "magit")))
                ("Documents"
                 (or
                  (mode . LaTeX-mode)
