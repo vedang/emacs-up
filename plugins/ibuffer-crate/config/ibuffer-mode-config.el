@@ -1,7 +1,7 @@
 ;;; ibuffer-mode-config.el --- Configuration for ibuffer
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
-;;; Time-stamp: "2012-10-11 12:24:09 vedang"
+;;; Time-stamp: "2013-10-22 14:20:31 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -38,12 +38,16 @@
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)
                  (mode . clojure-mode)
+                 (mode . nrepl-repl-mode)
+                 (name . "nrepl")
                  (mode . go-mode)
                  (mode . objc-mode)
                  (mode . makefile-gmake-mode)))
                ("Org"
                 (or
                  (mode . org-mode)
+                 (derived-mode . org-mode)
+                 (mode . org-agenda-mode)
                  (mode . markdown-mode)))
                ("IRC"
                 (mode . rcirc-mode))
@@ -52,7 +56,9 @@
                  (mode . jabber-chat-mode)
                  (mode . jabber-roster-mode)))
                ("Magit"
-                (mode . magit-mode))
+                (or
+                 (derived-mode . magit-mode)
+                 (name . "magit")))
                ("Documents"
                 (or
                  (mode . LaTeX-mode)
