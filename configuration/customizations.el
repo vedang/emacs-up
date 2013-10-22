@@ -1,7 +1,7 @@
 ;;; customizations.el --- my customizations for emacs
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
-;;; Time-stamp: "2013-08-15 02:23:32 vedang"
+;;; Time-stamp: "2013-10-21 16:19:09 vedang"
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
@@ -62,7 +62,7 @@
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions
       '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx"
-        ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf"))
+        ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf" ".hbc"))
 
 
 ;;; hooks
