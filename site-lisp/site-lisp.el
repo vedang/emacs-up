@@ -79,6 +79,7 @@ right mode to start in the buffer."
 ;; Require other site-lisp configuration
 (require 'init-ido)
 (require 'init-ibuffer)
+(require 'init-isearch)
 
 
 (provide 'site-lisp)
