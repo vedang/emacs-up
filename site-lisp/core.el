@@ -33,6 +33,7 @@
       display-buffer-reuse-frames t
       whitespace-line-column 80
       flyspell-issue-welcome-flag nil
+      recenter-positions '(top middle bottom)
       display-time-day-and-date t)
 
 ;; Don't clutter up directories with files~
