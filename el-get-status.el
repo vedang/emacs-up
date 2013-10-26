@@ -12,6 +12,8 @@
        (:name dash :description "A modern list api for Emacs. No 'cl required." :type github :pkgname "magnars/dash.el"))
  (el-get status "installed" recipe
          (:name el-get :website "https://github.com/dimitri/el-get#readme" :description "Manage the external elisp bits and pieces you depend upon." :type github :branch "4.stable" :pkgname "dimitri/el-get" :info "." :load "el-get.el"))
+ (flymake-cursor status "installed" recipe
+                 (:name flymake-cursor :type github :pkgname "illusori/emacs-flymake-cursor" :description "displays flymake error msg in minibuffer after delay (illusori/github)" :website "http://github.com/illusori/emacs-flymake-cursor"))
  (fuzzy status "installed" recipe
         (:name fuzzy :website "https://github.com/auto-complete/fuzzy-el" :description "Fuzzy matching utilities for GNU Emacs" :type github :pkgname "auto-complete/fuzzy-el"))
  (git-modes status "installed" recipe
@@ -22,6 +24,7 @@
            (:name isearch+ :auto-generated t :type emacswiki :description "Extensions to `isearch.el' (incremental search)." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/isearch+.el"))
  (isearch-prop status "installed" recipe
                (:name isearch-prop :auto-generated t :type emacswiki :description "Search text-property or overlay-property contexts." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/isearch-prop.el"))
+ (linkd status "required" recipe nil)
  (magit status "installed" recipe
         (:name magit :website "https://github.com/magit/magit#readme" :description "It's Magit! An Emacs mode for Git." :type github :pkgname "magit/magit" :depends
                (cl-lib git-modes)
