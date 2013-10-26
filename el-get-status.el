@@ -51,6 +51,8 @@
                                     '("\\.\\(md\\|mdown\\|markdown\\)\\'" . markdown-mode))))
  (multiple-cursors status "installed" recipe
                    (:name multiple-cursors :description "An experiment in adding multiple cursors to emacs" :type github :pkgname "magnars/multiple-cursors.el" :features multiple-cursors))
+ (org-mode-crate status "installed" recipe
+                 (:name org-mode-crate :description "A pre-defined org environment for the consummate gtd'er" :type github :branch "reboot" :pkgname "vedang/org-mode-crate"))
  (popup status "installed" recipe
         (:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :pkgname "auto-complete/popup-el"))
  (s status "installed" recipe
