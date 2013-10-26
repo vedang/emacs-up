@@ -17,5 +17,9 @@
 
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(eval-after-load 'info
+  '(progn (info-initialize)
+          (add-to-list 'Info-directory-list
+                       (concat el-get-dirname "magit/"))))
 
 (provide 'init-magit)
