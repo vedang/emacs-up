@@ -51,6 +51,7 @@
 (define-key sp-keymap (kbd "M-D") 'sp-splice-sexp)
 (define-key sp-keymap (kbd "C-S-<delete>") 'sp-splice-sexp-killing-forward)
 (define-key sp-keymap (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
+(define-key sp-keymap (kbd "M-<up>") 'sp-splice-sexp-killing-backward)
 (define-key sp-keymap (kbd "C-M-S-<backspace>") 'sp-splice-sexp-killing-around)
 (define-key sp-keymap (kbd "C-M-]") 'sp-select-next-thing-exchange)
 (define-key sp-keymap (kbd "C-]") 'sp-select-next-thing)
