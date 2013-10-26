@@ -82,5 +82,7 @@ right mode to start in the buffer."
 (require 'init-isearch)
 (require 'init-flymake)
 
+(eval-after-load "rcirc" '(require 'init-rcirc))
+
 
 (provide 'site-lisp)
