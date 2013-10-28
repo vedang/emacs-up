@@ -25,6 +25,8 @@
            (:name el-spice :description "Additional flavour for your Emacs Lisp programming" :type github :depends
                   (thingatpt+)
                   :pkgname "vedang/el-spice"))
+ (emacs-eclim status "installed" recipe
+              (:name emacs-eclim :description "The power of eclim inside Emacs" :type github :pkgname "senny/emacs-eclim"))
  (epl status "installed" recipe
       (:name epl :description "EPL provides a convenient high-level API for various package.el versions, and aims to overcome its most striking idiocies." :type github :pkgname "cask/epl"))
  (flymake-cursor status "installed" recipe
