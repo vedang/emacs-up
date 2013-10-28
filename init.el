@@ -79,4 +79,5 @@
 (require 'extra-bindings)
 
 (load-theme 'zenburn t)
+(server-start)
 ;;; init.el ends here.
