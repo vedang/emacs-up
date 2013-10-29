@@ -35,4 +35,10 @@
 (define-key ac-menu-map (kbd "C-n") 'ac-next)
 (define-key ac-menu-map (kbd "C-p") 'ac-previous)
 
+(defun iac/set-auto-complete-as-completion-at-point-function ()
+  (setq completion-at-point-functions '(auto-complete)))
+
+(add-hook 'auto-complete-mode-hook
+          'iac/set-auto-complete-as-completion-at-point-function)
+
 (provide 'init-auto-complete)

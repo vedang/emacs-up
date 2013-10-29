@@ -21,14 +21,18 @@ activate it there."
     (ac-nrepl-setup)))
 
 
-(eval-after-load "nrepl"
+(eval-after-load "cider"
   '(progn
-     (add-hook 'nrepl-repl-mode-hook 'ian/activate-ac-nrepl?)
-     (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)))
+     (add-hook 'cider-repl-mode-hook 'ian/activate-ac-nrepl?)
+     (add-hook 'cider-mode-hook 'ac-nrepl-setup)))
 
 
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-repl-mode))
+  '(progn (add-to-list 'ac-modes 'cider-repl-mode)
+          (add-hook 'cider-repl-mode-hook
+                    'iac/set-auto-complete-as-completion-at-point-function)
+          (add-hook 'cider-mode-hook
+                    'iac/set-auto-complete-as-completion-at-point-function)))
 
 
 (provide 'init-ac-nrepl)

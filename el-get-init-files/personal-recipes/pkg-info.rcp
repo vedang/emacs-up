@@ -3,4 +3,4 @@
        :type github
        :branch "0.2"
        :pkgname "lunaryorn/pkg-info.el"
-       :depends (s epl))
+       :depends (s dash))

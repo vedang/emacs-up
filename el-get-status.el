@@ -1,5 +1,5 @@
 ((ac-nrepl status "installed" recipe
-           (:name ac-nrepl :description "Nrepl completion source for Emacs auto-complete package" :type github :pkgname "purcell/ac-nrepl" :depends
+           (:name ac-nrepl :description "Cider completion source for Emacs auto-complete package" :type github :pkgname "clojure-emacs/ac-nrepl" :depends
                   (auto-complete cider)
                   :features ac-nrepl))
  (ace-jump-mode status "installed" recipe
@@ -27,8 +27,6 @@
                   :pkgname "vedang/el-spice"))
  (emacs-eclim status "installed" recipe
               (:name emacs-eclim :description "The power of eclim inside Emacs" :type github :pkgname "senny/emacs-eclim"))
- (epl status "installed" recipe
-      (:name epl :description "EPL provides a convenient high-level API for various package.el versions, and aims to overcome its most striking idiocies." :type github :pkgname "cask/epl"))
  (flymake-cursor status "installed" recipe
                  (:name flymake-cursor :type github :pkgname "illusori/emacs-flymake-cursor" :description "displays flymake error msg in minibuffer after delay (illusori/github)" :website "http://github.com/illusori/emacs-flymake-cursor"))
  (fuzzy status "installed" recipe
@@ -68,7 +66,7 @@
                  (:name org-mode-crate :description "A pre-defined org environment for the consummate gtd'er" :type github :branch "reboot" :pkgname "vedang/org-mode-crate"))
  (pkg-info status "installed" recipe
            (:name pkg-info :description "Provide information about Emacs packages." :type github :branch "0.2" :pkgname "lunaryorn/pkg-info.el" :depends
-                  (s epl)))
+                  (s dash)))
  (popup status "installed" recipe
         (:name popup :website "https://github.com/auto-complete/popup-el" :description "Visual Popup Interface Library for Emacs" :type github :pkgname "auto-complete/popup-el"))
  (s status "installed" recipe
