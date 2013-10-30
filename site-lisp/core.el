@@ -29,6 +29,7 @@
       column-number-mode t
       debug-on-error t
       bookmark-default-file (concat tempfiles-dirname "bookmarks.bmk")
+      eshell-history-file-name (concat tempfiles-dirname "eshell-history")
       bookmark-save-flag 1
       display-buffer-reuse-frames t
       whitespace-line-column 80
