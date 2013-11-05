@@ -16,25 +16,30 @@
 
 
 (require 'smartparens-config)
+
 (smartparens-global-strict-mode)
 (show-smartparens-global-mode)
+(sp-use-paredit-bindings)
+
 (sp-pair "(" nil :insert "C-o")
 
 (setq sp-hybrid-kill-entire-symbol nil)
 
 
 ;; Keybindings
-(define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
-(define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
 
-(define-key sp-keymap (kbd "C-M-d") 'sp-down-sexp)
+;; Unbind `M-s' (set by paredit keybindings above) because it's bound
+;; to some handy occur related functions
+(define-key sp-keymap (kbd "M-s") nil)
+
+;; Other key-bindings - apart from paredit key-bindings.
+;; Taken from the Smartparens wiki page.
 (define-key sp-keymap (kbd "C-M-a") 'sp-backward-down-sexp)
 (define-key sp-keymap (kbd "C-S-a") 'sp-beginning-of-sexp)
 (define-key sp-keymap (kbd "C-S-d") 'sp-end-of-sexp)
 
 (define-key sp-keymap (kbd "C-M-e") 'sp-up-sexp)
 (define-key emacs-lisp-mode-map (kbd ")") 'sp-up-sexp)
-(define-key sp-keymap (kbd "C-M-u") 'sp-backward-up-sexp)
 (define-key sp-keymap (kbd "C-M-t") 'sp-transpose-sexp)
 
 (define-key sp-keymap (kbd "C-M-n") 'sp-next-sexp)
@@ -46,16 +51,7 @@
 (define-key sp-keymap (kbd "M-<delete>") 'sp-unwrap-sexp)
 (define-key sp-keymap (kbd "M-<backspace>") 'sp-backward-unwrap-sexp)
 
-(define-key sp-keymap (kbd "C-)") 'sp-forward-slurp-sexp)
-(define-key sp-keymap (kbd "C-}") 'sp-forward-barf-sexp)
-(define-key sp-keymap (kbd "C-(") 'sp-backward-slurp-sexp)
-(define-key sp-keymap (kbd "C-{") 'sp-backward-barf-sexp)
-
 (define-key sp-keymap (kbd "M-D") 'sp-splice-sexp)
-(define-key sp-keymap (kbd "C-S-<delete>") 'sp-splice-sexp-killing-forward)
-(define-key sp-keymap (kbd "C-M-<backspace>") 'sp-splice-sexp-killing-backward)
-(define-key sp-keymap (kbd "M-<up>") 'sp-splice-sexp-killing-backward)
-(define-key sp-keymap (kbd "C-M-S-<backspace>") 'sp-splice-sexp-killing-around)
 (define-key sp-keymap (kbd "C-M-]") 'sp-select-next-thing-exchange)
 (define-key sp-keymap (kbd "C-]") 'sp-select-next-thing)
 
