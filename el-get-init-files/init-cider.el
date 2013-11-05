@@ -16,8 +16,9 @@
 
 
 (setq cider-repl-popup-stacktraces t
-      cider-history-file (concat tempfiles-dirname "nrepl-history.txt")
-      cider-history-size most-positive-fixnum
+      cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
+      cider-repl-history-size most-positive-fixnum
+      cider-repl-wrap-history t
       nrepl-buffer-name-separator "-"
       nrepl-buffer-name-show-port t)
 
