@@ -20,6 +20,9 @@
 (show-smartparens-global-mode)
 (sp-pair "(" nil :insert "C-o")
 
+(setq sp-hybrid-kill-entire-symbol nil)
+
+
 ;; Keybindings
 (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
 (define-key sp-keymap (kbd "C-M-b") 'sp-backward-sexp)
