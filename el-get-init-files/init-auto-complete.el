@@ -28,17 +28,11 @@
                ac-source-yasnippet))
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode text-mode html-mode
-                nxml-mode lisp-mode textile-mode markdown-mode objc-mode))
+                nxml-mode textile-mode markdown-mode objc-mode))
   (add-to-list 'ac-modes mode))
 
 (setq ac-comphist-file (concat tempfiles-dirname "ac-comphist.dat"))
 (define-key ac-menu-map (kbd "C-n") 'ac-next)
 (define-key ac-menu-map (kbd "C-p") 'ac-previous)
-
-(defun iac/set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions '(auto-complete)))
-
-(add-hook 'auto-complete-mode-hook
-          'iac/set-auto-complete-as-completion-at-point-function)
 
 (provide 'init-auto-complete)
