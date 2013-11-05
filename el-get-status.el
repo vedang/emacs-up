@@ -1,5 +1,5 @@
 ((ac-nrepl status "installed" recipe
-           (:name ac-nrepl :description "Cider completion source for Emacs auto-complete package" :type github :pkgname "clojure-emacs/ac-nrepl" :depends
+           (:name ac-nrepl :description "Nrepl completion source for Emacs auto-complete package" :type github :pkgname "clojure-emacs/ac-nrepl" :depends
                   (auto-complete cider)
                   :features ac-nrepl))
  (ace-jump-mode status "installed" recipe
