@@ -27,6 +27,15 @@
 
 (help-at-pt-set-timer)
 
+(defun iee/eclim-maven-resolve-dependencies ()
+  "Run the mvn goal dependency:resolve."
+  (interactive)
+  (eclim-maven-run "dependency:resolve"))
+
+(defun iee/eclim-maven-update-classpath ()
+  "Run the mvn goal eclipse:eclipse"
+  (interactive)
+  (eclim-maven-run "eclipse:eclipse"))
 (eval-after-load 'auto-complete-mode
   '(progn
      (require 'ac-emacs-eclim-source)
