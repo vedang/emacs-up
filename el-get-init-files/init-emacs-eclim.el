@@ -27,7 +27,9 @@
 
 (help-at-pt-set-timer)
 
-(require 'ac-emacs-eclim-source)
-(ac-emacs-eclim-config)
+(eval-after-load 'auto-complete-mode
+  '(progn
+     (require 'ac-emacs-eclim-source)
+     (ac-emacs-eclim-config)))
 
 (provide 'init-emacs-eclim)
