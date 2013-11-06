@@ -36,6 +36,18 @@
   "Run the mvn goal eclipse:eclipse"
   (interactive)
   (eclim-maven-run "eclipse:eclipse"))
+
+(define-key eclim-mode-map (kbd "C-c C-e p q") 'eclim-problems)
+(define-key eclim-mode-map (kbd "C-c C-e p o") 'eclim-problems-open)
+(define-key eclim-mode-map (kbd "C-c C-e p n") 'eclim-problems-next)
+;; Re-map `eclim-project-create' to C so that I can use c for
+;; `eclim-problems-correct'
+(define-key eclim-mode-map (kbd "C-c C-e p C") 'eclim-project-create)
+(define-key eclim-mode-map (kbd "C-c C-e p c") 'eclim-problems-correct)
+(define-key eclim-mode-map (kbd "M-.") 'eclim-java-find-declaration)
+;; find-references = list-callers.
+(define-key eclim-mode-map (kbd "C-c C-e l") 'eclim-java-find-references)
+
 (eval-after-load 'auto-complete-mode
   '(progn
      (require 'ac-emacs-eclim-source)
