@@ -82,4 +82,11 @@
 (load-theme 'zenburn t)
 (load custom-file 'noerror)
 (server-start)
+(message "My .emacs loaded in %ds"
+         (cl-destructuring-bind (hi lo ms psec) (current-time)
+           (- (+ hi lo)
+              (+ (first *emacs-load-start*)
+                 (second *emacs-load-start*)))))
+(uf/totd)
+
 ;;; init.el ends here.
