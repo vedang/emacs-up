@@ -77,6 +77,7 @@
 (add-to-list 'load-path enhance-dirname)
 (require 'extra-hooks)
 (require 'extra-bindings)
+(require 'registers)
 
 (load-theme 'zenburn t)
 (load custom-file 'noerror)
