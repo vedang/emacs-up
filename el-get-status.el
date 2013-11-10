@@ -85,4 +85,24 @@
  (wgrep status "installed" recipe
         (:name wgrep :description "Writable grep buffer and apply the changes to files" :type github :pkgname "mhayashi1120/Emacs-wgrep"))
  (writegood status "installed" recipe
-            (:name writegood :type github :description "Polish up poor writing on the fly." :pkgname "bnbeckwith/writegood-mode")))
+            (:name writegood :type github :description "Polish up poor writing on the fly." :pkgname "bnbeckwith/writegood-mode"))
+ (yasnippet status "installed" recipe
+            (:name yasnippet :website "https://github.com/capitaomorte/yasnippet.git" :description "YASnippet is a template system for Emacs." :type github :pkgname "capitaomorte/yasnippet" :features "yasnippet" :pre-init
+                   (unless
+                       (or
+                        (boundp 'yas/snippet-dirs)
+                        (get 'yas/snippet-dirs 'customized-value))
+                     (setq yas/snippet-dirs
+                           (list
+                            (concat el-get-dir
+                                    (file-name-as-directory "yasnippet")
+                                    "snippets"))))
+                   :post-init
+                   (put 'yas/snippet-dirs 'standard-value
+                        (list
+                         (list 'quote
+                               (list
+                                (concat el-get-dir
+                                        (file-name-as-directory "yasnippet")
+                                        "snippets")))))
+                   :compile nil :submodule nil)))

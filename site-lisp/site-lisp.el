@@ -84,5 +84,6 @@ right mode to start in the buffer."
 
 (eval-after-load "rcirc" '(require 'init-rcirc))
 
+(add-to-list 'hippie-expand-try-functions-list 'yas/hippie-try-expand t)
 
 (provide 'site-lisp)

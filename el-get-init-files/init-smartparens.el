@@ -12,7 +12,7 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
-;;; Code:;;;
+;;; Code:
 
 
 (require 'smartparens-config)
