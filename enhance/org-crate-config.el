@@ -23,6 +23,7 @@
       org-agenda-files (list org-directory
                              org-work-directory
                              org-personal-directory)
+      org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
       org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
 
 
