@@ -4,3 +4,4 @@ temp-files/
 *~
 el-get/
 loaddefs.el
+tramp
