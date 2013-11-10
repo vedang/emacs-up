@@ -27,7 +27,7 @@
 (setq dotfiles-dirname (file-name-directory (or load-file-name
                                                 (buffer-file-name)))
       autoload-file (concat dotfiles-dirname "loaddefs.el")
-      vedang-custom-file (concat dotfiles-dirname "custom.el")
+      custom-file (concat dotfiles-dirname "custom.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
       el-get-dirname (concat dotfiles-dirname "el-get/")
       el-get-user-package-directory (concat dotfiles-dirname
@@ -79,5 +79,6 @@
 (require 'extra-bindings)
 
 (load-theme 'zenburn t)
+(load custom-file 'noerror)
 (server-start)
 ;;; init.el ends here.
