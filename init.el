@@ -28,6 +28,7 @@
                                                 (buffer-file-name)))
       autoload-file (concat dotfiles-dirname "loaddefs.el")
       custom-file (concat dotfiles-dirname "custom.el")
+      personal-file (concat dotfiles-dirname "personal.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
       el-get-dirname (concat dotfiles-dirname "el-get/")
       el-get-user-package-directory (concat dotfiles-dirname
@@ -105,6 +106,8 @@
 
 (load-theme 'zenburn t)
 (load custom-file 'noerror)
+(load personal-file 'noerror)
+
 (server-start)
 (message "My .emacs loaded in %ds"
          (cl-destructuring-bind (hi lo ms psec) (current-time)

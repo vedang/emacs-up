@@ -5,3 +5,4 @@ temp-files/
 el-get/
 loaddefs.el
 tramp
+personal.el

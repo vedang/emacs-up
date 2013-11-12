@@ -15,7 +15,9 @@
 ;;; Code:;;;
 
 
-(setq org-directory "~/play/notes-gtd")
+;; Set `org-directory' in personal-config, something that is not under
+;; version control and can therefore be different on different
+;; machines.
 
 ;; Agenda does not have a key-binding by default in Emacs 24.
 ;; Provide one as a starting point.
