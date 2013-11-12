@@ -32,7 +32,6 @@
       el-get-dirname (concat dotfiles-dirname "el-get/")
       el-get-user-package-directory (concat dotfiles-dirname
                                             "el-get-init-files/")
-      el-get-status-file (concat dotfiles-dirname "el-get-status.el")
       el-get-my-recipes (concat el-get-user-package-directory
                                 "personal-recipes/")
       site-lisp-dirname (concat dotfiles-dirname "site-lisp/")
@@ -45,6 +44,28 @@
 ;;; El-Get for great good
 (add-to-list 'load-path (concat el-get-dirname "el-get"))
 
+(defvar el-get-my-packages '(ac-nrepl
+                             ace-jump-mode
+                             auto-complete
+                             cider
+                             clojure-mode
+                             color-theme-zenburn
+                             emacs-eclim
+                             el-spice
+                             flymake-cursor
+                             ibuffer-vc
+                             magit
+                             markdown-mode
+                             multiple-cursors
+                             org-mode-crate
+                             smart-tab
+                             smartparens
+                             smex
+                             unbound
+                             wgrep
+                             writegood
+                             yasnippet))
+
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -55,7 +76,7 @@
       (eval-print-last-sexp))))
 
 (add-to-list 'el-get-recipe-path el-get-my-recipes)
-(el-get 'sync)
+(el-get 'sync el-get-my-packages)
 
 
 ;;; Define my programming modes.
