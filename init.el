@@ -100,6 +100,8 @@
 (require 'extra-hooks)
 (require 'extra-bindings)
 (require 'registers)
+(when (eq system-type 'darwin)
+  (require 'osx))
 
 (load-theme 'zenburn t)
 (load custom-file 'noerror)
