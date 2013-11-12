@@ -35,10 +35,6 @@
             (:name git-modes :description "GNU Emacs modes for various Git-related files" :type github :pkgname "magit/git-modes"))
  (ibuffer-vc status "installed" recipe
              (:name ibuffer-vc :description "Group ibuffer's list by VC project, or show VC status" :type github :pkgname "purcell/ibuffer-vc"))
- (isearch+ status "installed" recipe
-           (:name isearch+ :auto-generated t :type emacswiki :description "Extensions to `isearch.el' (incremental search)." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/isearch+.el"))
- (isearch-prop status "installed" recipe
-               (:name isearch-prop :auto-generated t :type emacswiki :description "Search text-property or overlay-property contexts." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/isearch-prop.el"))
  (linkd status "installed" recipe
         (:name linkd :type http-tar :description "Make hypertext with active links in any buffer" :options
                ("xzvf")
