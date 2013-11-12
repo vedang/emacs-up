@@ -75,9 +75,9 @@
        (:name smex :description "M-x interface with Ido-style fuzzy matching." :type github :pkgname "nonsequitur/smex" :features smex :post-init
               (smex-initialize)))
  (thingatpt+ status "installed" recipe
-             (:name thingatpt+ :auto-generated t :type emacswiki :description "Extensions to `thingatpt.el'." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/thingatpt+.el"))
+             (:name thingatpt+ :type emacswiki :description "Extensions to `thingatpt.el'." :website "https://raw.github.com/emacsmirror/emacswiki.org/master/thingatpt+.el"))
  (unbound status "installed" recipe
-          (:name unbound :auto-generated t :type emacswiki :description "find convenient unbound keystrokes" :website "https://raw.github.com/emacsmirror/emacswiki.org/master/unbound.el"))
+          (:name unbound :type emacswiki :description "find convenient unbound keystrokes" :website "https://raw.github.com/emacsmirror/emacswiki.org/master/unbound.el"))
  (wgrep status "installed" recipe
         (:name wgrep :description "Writable grep buffer and apply the changes to files" :type github :pkgname "mhayashi1120/Emacs-wgrep"))
  (writegood status "installed" recipe
