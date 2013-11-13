@@ -2,4 +2,5 @@
        :description "A pre-defined org environment for the consummate gtd'er"
        :type github
        :branch "reboot"
+       :depends (org-mode)
        :pkgname "vedang/org-mode-crate")
