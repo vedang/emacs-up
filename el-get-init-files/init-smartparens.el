@@ -21,7 +21,19 @@
 (show-smartparens-global-mode)
 (sp-use-paredit-bindings)
 
-(sp-pair "(" nil :insert "C-o")
+(defun vm/wrap-or-insert-with-pair (p)
+  "Allow for behavior like `paredit'. Wrap around the sexp by
+providing an argument."
+  `(lambda (&optional arg)
+     (interactive "P")
+     (if arg
+         (sp-wrap-with-pair ,p)
+       (sp-insert-pair ,p))))
+
+(define-key sp-keymap (kbd "C-o") (vm/wrap-or-insert-with-pair "("))
+(define-key sp-keymap (kbd "(") (vm/wrap-or-insert-with-pair "("))
+(define-key sp-keymap (kbd "{") (vm/wrap-or-insert-with-pair "{"))
+(define-key sp-keymap (kbd "[") (vm/wrap-or-insert-with-pair "["))
 
 (setq sp-hybrid-kill-entire-symbol nil)
 
