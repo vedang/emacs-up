@@ -1,6 +1,6 @@
 (:name pkg-info
        :description "Provide information about Emacs packages."
        :type github
-       :branch "0.2"
+       :checkout "0.2"
        :pkgname "lunaryorn/pkg-info.el"
        :depends (s dash))
