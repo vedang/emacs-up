@@ -109,6 +109,13 @@
        'icl/midje-jump-between-tests-and-code)))
 
 
+(eval-after-load 'smartparens-mode
+  '(progn
+     (define-key clojure-mode-map (kbd ")") 'sp-up-sexp)
+     (define-key clojure-mode-map (kbd "]") 'sp-up-sexp)
+     (define-key clojure-mode-map (kbd "}") 'sp-up-sexp)))
+
+
 (provide 'init-clojure-mode)
 
 ;;; init-clojure-mode ends here
