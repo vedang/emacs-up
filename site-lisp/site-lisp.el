@@ -44,7 +44,7 @@ right mode to start in the buffer."
   (let ((buffer-file-name (or buffer-file-name
                               (buffer-name))))
     (set-auto-mode)))
-(setq default-major-mode 'sl/set-auto-major-mode)
+;(setq default-major-mode 'sl/set-auto-major-mode)
 
 
 ;; Bindings
