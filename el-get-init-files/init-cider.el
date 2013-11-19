@@ -23,11 +23,16 @@
       nrepl-buffer-name-show-port t)
 
 
-(eval-after-load 'cider
+(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-repl-mode-hook 'subword-mode)
+(define-key cider-mode-map (kbd "C-c z") 'cider-selector)
+
+
+(eval-after-load 'smartparens-mode
   '(progn
-     (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
-     (add-hook 'cider-repl-mode-hook 'subword-mode)
-     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)))
+     (define-key cider-repl-mode-map (kbd ")") 'sp-up-sexp)
+     (define-key cider-repl-mode-map (kbd "]") 'sp-up-sexp)
+     (define-key cider-repl-mode-map (kbd "}") 'sp-up-sexp)))
 
 
 (provide 'init-cider)
