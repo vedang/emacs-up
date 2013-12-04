@@ -5,7 +5,18 @@
  ;; If there is more than one, they won't work right.
  '(safe-local-variable-values
    (quote
-    ((eval define-clojure-indent
+    ((eval font-lock-add-keywords nil
+           (\`
+            (((\,
+               (concat "("
+                       (regexp-opt
+                        (quote
+                         ("sp-do-move-op" "sp-do-move-cl" "sp-do-put-op" "sp-do-put-cl" "sp-do-del-op" "sp-do-del-cl"))
+                        t)
+                       "\\_>"))
+              1
+              (quote font-lock-variable-name-face)))))
+     (eval define-clojure-indent
            (clj-action
             (quote defun))
            (implement-action 4))
