@@ -15,6 +15,10 @@
 ;;; Code:
 
 
+(when (not (boundp 'tempfiles-dirname))
+  (setq tempfiles-dirname "~/.emacs.d/"))
+
+
 (setq cider-repl-popup-stacktraces t
       cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
       cider-repl-history-size most-positive-fixnum
