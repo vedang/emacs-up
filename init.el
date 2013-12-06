@@ -64,6 +64,7 @@
                              smex
                              unbound
                              wgrep
+                             workgroups
                              writegood
                              yasnippet))
 
