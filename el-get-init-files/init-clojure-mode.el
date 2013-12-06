@@ -106,14 +106,12 @@
      ;; Didn't want to change lib mode, so removing it here.
      (add-hook 'clojure-mode-hook 'icl/midje-test-maybe-enable)
      (define-key clojure-mode-map (kbd "C-c t")
-       'icl/midje-jump-between-tests-and-code)))
-
-
-(eval-after-load 'smartparens-mode
-  '(progn
-     (define-key clojure-mode-map (kbd ")") 'sp-up-sexp)
-     (define-key clojure-mode-map (kbd "]") 'sp-up-sexp)
-     (define-key clojure-mode-map (kbd "}") 'sp-up-sexp)))
+       'icl/midje-jump-between-tests-and-code)
+     (eval-after-load 'smartparens
+       '(progn
+          (define-key clojure-mode-map (kbd ")") 'sp-up-sexp)
+          (define-key clojure-mode-map (kbd "]") 'sp-up-sexp)
+          (define-key clojure-mode-map (kbd "}") 'sp-up-sexp)))))
 
 
 (provide 'init-clojure-mode)
