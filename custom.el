@@ -63,3 +63,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(set-frame-font "-*-Menlo-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1" nil t)
