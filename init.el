@@ -61,7 +61,10 @@
       '((:name cider
                :checkout "90c226a48e5db04c7bc28ce5df2a32fa228fce55")
         (:name org-mode
-               :checkout "release_7.9.3f")))
+               :checkout "release_7.9.3f")
+        (:name writegood
+               :post-init (progn
+                            (global-set-key (kbd "C-c g") 'writegood-mode)))))
 
 (defvar el-get-my-packages (append
                             '(ac-nrepl
@@ -82,7 +85,6 @@
                               unbound
                               wgrep
                               workgroups
-                              writegood
                               yasnippet)
                             (mapcar 'el-get-source-name el-get-sources)))
 
