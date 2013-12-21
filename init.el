@@ -45,28 +45,39 @@
 ;;; El-Get for great good
 (add-to-list 'load-path (concat el-get-dirname "el-get"))
 
-(defvar el-get-my-packages '(ac-nrepl
-                             ace-jump-mode
-                             auto-complete
-                             cider
-                             clojure-mode
-                             color-theme-zenburn
-                             emacs-eclim
-                             el-spice
-                             flymake-cursor
-                             ibuffer-vc
-                             magit
-                             markdown-mode
-                             multiple-cursors
-                             org-mode-crate
-                             smart-tab
-                             smartparens
-                             smex
-                             unbound
-                             wgrep
-                             workgroups
-                             writegood
-                             yasnippet))
+;; Tie volatile stuff down, so that configuration does not break.
+(setq el-get-sources
+      '((:name cider
+               :checkout "b1be94e")
+        (:name pkg-info
+               :checkout "0.2"
+               :depends (s dash))
+        (:name org-mode
+               :checkout "release_7.9.3f")))
+
+(defvar el-get-my-packages (append
+                            '(ac-nrepl
+                              ace-jump-mode
+                              auto-complete
+                              clojure-mode
+                              color-theme-zenburn
+                              emacs-eclim
+                              el-spice
+                              flymake-cursor
+                              ibuffer-vc
+                              magit
+                              markdown-mode
+                              multiple-cursors
+                              org-mode-crate
+                              smart-tab
+                              smartparens
+                              smex
+                              unbound
+                              wgrep
+                              workgroups
+                              writegood
+                              yasnippet)
+                            (mapcar 'el-get-source-name el-get-sources)))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
