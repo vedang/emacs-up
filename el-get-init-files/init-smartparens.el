@@ -81,4 +81,18 @@ providing an argument."
 (define-key sp-keymap (kbd "s-s s") 'sp-split-sexp)
 
 
+;; SP config for other modes.
+(eval-after-load 'cider-repl-mode
+  '(progn
+     (define-key cider-repl-mode-map (kbd ")") 'sp-up-sexp)
+     (define-key cider-repl-mode-map (kbd "]") 'sp-up-sexp)
+     (define-key cider-repl-mode-map (kbd "}") 'sp-up-sexp)))
+
+(eval-after-load 'clojure-mode
+  '(progn
+     (define-key clojure-mode-map (kbd ")") 'sp-up-sexp)
+     (define-key clojure-mode-map (kbd "]") 'sp-up-sexp)
+     (define-key clojure-mode-map (kbd "}") 'sp-up-sexp)))
+
+
 (provide 'init-smartparens)

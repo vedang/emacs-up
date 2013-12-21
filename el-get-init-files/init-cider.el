@@ -31,12 +31,6 @@
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (eval-after-load 'cider-mode
   '(define-key cider-mode-map (kbd "C-c z") 'cider-selector))
-(eval-after-load 'cider-repl-mode
-  '(eval-after-load 'smartparens
-     '(progn
-        (define-key cider-repl-mode-map (kbd ")") 'sp-up-sexp)
-        (define-key cider-repl-mode-map (kbd "]") 'sp-up-sexp)
-        (define-key cider-repl-mode-map (kbd "}") 'sp-up-sexp))))
 
 
 (provide 'init-cider)
