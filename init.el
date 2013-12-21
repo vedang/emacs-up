@@ -30,70 +30,15 @@
       custom-file (concat dotfiles-dirname "custom.el")
       personal-file (concat dotfiles-dirname "personal.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
-      el-get-dirname (concat dotfiles-dirname "el-get/")
-      el-get-user-package-directory (concat dotfiles-dirname
-                                            "el-get-init-files/")
-      el-get-my-recipes (concat el-get-user-package-directory
-                                "personal-recipes/")
       site-lisp-dirname (concat dotfiles-dirname "site-lisp/")
       enhance-dirname (concat dotfiles-dirname "enhance/"))
 
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
-
+(add-to-list 'load-path dotfiles-dirname)
 
 ;;; El-Get for great good
-(add-to-list 'load-path (concat el-get-dirname "el-get"))
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (let (el-get-master-branch
-          el-get-install-skip-emacswiki-recipes)
-      (goto-char (point-max))
-      (eval-print-last-sexp))))
-
-(add-to-list 'el-get-recipe-path el-get-my-recipes)
-
-;; Tie volatile stuff down, so that configuration does not break.
-(setq el-get-sources
-      '((:name cider
-               :checkout "90c226a48e5db04c7bc28ce5df2a32fa228fce55")
-        (:name org-mode
-               :checkout "release_7.9.3f")
-        (:name writegood
-               :post-init (progn
-                            (global-set-key (kbd "C-c g") 'writegood-mode)))))
-
-(defvar el-get-my-packages (append
-                            '(ac-nrepl
-                              ace-jump-mode
-                              auto-complete
-                              clojure-mode
-                              color-theme-zenburn
-                              el-spice
-                              flymake-cursor
-                              ibuffer-vc
-                              magit
-                              markdown-mode
-                              multiple-cursors
-                              org-mode-crate
-                              smart-tab
-                              smartparens
-                              smex
-                              unbound
-                              wgrep
-                              workgroups
-                              yasnippet)
-                            (mapcar 'el-get-source-name el-get-sources)))
-
-(when on-my-machine
-  ;; Load packages with Third Party dependencies only on my machine.
-  (setq el-get-my-packages (append '(emacs-eclim) el-get-my-packages)))
-
-(el-get 'sync el-get-my-packages)
-
+(require 'init-el-get)
 
 ;;; Define my programming modes.
 (defvar vedang/programming-major-modes
