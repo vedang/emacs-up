@@ -82,7 +82,7 @@ providing an argument."
 
 
 ;; SP config for other modes.
-(eval-after-load 'cider-repl-mode
+(eval-after-load 'cider-repl
   '(progn
      (define-key cider-repl-mode-map (kbd ")") 'sp-up-sexp)
      (define-key cider-repl-mode-map (kbd "]") 'sp-up-sexp)

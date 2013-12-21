@@ -45,13 +45,21 @@
 ;;; El-Get for great good
 (add-to-list 'load-path (concat el-get-dirname "el-get"))
 
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (let (el-get-master-branch
+          el-get-install-skip-emacswiki-recipes)
+      (goto-char (point-max))
+      (eval-print-last-sexp))))
+
+(add-to-list 'el-get-recipe-path el-get-my-recipes)
+
 ;; Tie volatile stuff down, so that configuration does not break.
 (setq el-get-sources
       '((:name cider
-               :checkout "b1be94e")
-        (:name pkg-info
-               :checkout "0.2"
-               :depends (s dash))
+               :checkout "90c226a48e5db04c7bc28ce5df2a32fa228fce55")
         (:name org-mode
                :checkout "release_7.9.3f")))
 
@@ -79,16 +87,6 @@
                               yasnippet)
                             (mapcar 'el-get-source-name el-get-sources)))
 
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (let (el-get-master-branch
-          el-get-install-skip-emacswiki-recipes)
-      (goto-char (point-max))
-      (eval-print-last-sexp))))
-
-(add-to-list 'el-get-recipe-path el-get-my-recipes)
 (el-get 'sync el-get-my-packages)
 
 
