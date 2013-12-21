@@ -16,7 +16,7 @@
 
 
 (defvar *emacs-load-start* (current-time))
-
+(defvar on-my-machine (string-match "ninjakombda" (system-name)))
 
 ;;; No GUI
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
@@ -69,7 +69,6 @@
                               auto-complete
                               clojure-mode
                               color-theme-zenburn
-                              emacs-eclim
                               el-spice
                               flymake-cursor
                               ibuffer-vc
@@ -86,6 +85,10 @@
                               writegood
                               yasnippet)
                             (mapcar 'el-get-source-name el-get-sources)))
+
+(when on-my-machine
+  ;; Load packages with Third Party dependencies only on my machine.
+  (setq el-get-my-packages (append '(emacs-eclim) el-get-my-packages)))
 
 (el-get 'sync el-get-my-packages)
 
