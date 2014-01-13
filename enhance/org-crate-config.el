@@ -45,7 +45,7 @@
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
-                             '(effort-up category-keep))))
+                             '(priority-down effort-up category-keep))))
                 (tags-todo "productive+@office|future+@office|fun+@office"
                            ((org-agenda-overriding-header
                              "Other Fun Tasks")
