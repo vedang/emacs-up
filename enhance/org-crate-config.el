@@ -38,6 +38,14 @@
                ((agenda "" ((org-agenda-files (list org-work-directory))
                             (org-agenda-overriding-header
                              "Deadlines and Scheduled")))
+                (tags-todo "bug"
+                      ((org-agenda-overriding-header
+                        "Bugs To Fix")
+                       (org-agenda-todo-ignore-scheduled t)
+                       (org-agenda-todo-ignore-deadlines t)
+                       (org-tags-match-list-sublevels t)
+                       (org-agenda-sorting-strategy
+                        '(priority-down effort-up category-keep))))
                 (tags-todo "+release-future|+next+@office-future|+imp+@office-future"
                            ((org-agenda-overriding-header
                              "Do These Tasks Next")
@@ -53,7 +61,7 @@
                             (org-agenda-todo-ignore-deadlines t)
                             (org-tags-match-list-sublevels t)
                             (org-agenda-sorting-strategy
-                             '(effort-up category-keep))))
+                             '(priority-down effort-up category-keep))))
                 (tags "refile"
                       ((org-agenda-overriding-header
                         "Notes and Tasks to Refile")))
