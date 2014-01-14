@@ -81,6 +81,7 @@ right mode to start in the buffer."
 (require 'init-ibuffer)
 (require 'init-isearch)
 (require 'init-flymake)
+(require 'init-recentf)
 
 (eval-after-load "rcirc" '(require 'init-rcirc))
 
