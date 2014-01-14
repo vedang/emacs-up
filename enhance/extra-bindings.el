@@ -51,4 +51,8 @@
 (define-key Apropos-Prefix (kbd "C-v") 'apropos-value)
 
 
+;; Stop IELM from being stupid
+(eval-after-load 'ielm
+  '(define-key ielm-map (kbd "C-j") 'newline-and-indent))
+
 (provide 'extra-bindings)
