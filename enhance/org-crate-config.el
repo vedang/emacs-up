@@ -46,6 +46,12 @@
                        (org-tags-match-list-sublevels t)
                        (org-agenda-sorting-strategy
                         '(priority-down effort-up category-keep))))
+                (todo "IN-REVIEW|IN-QA|FOLLOWUP"
+                      ((org-agenda-overriding-header
+                        "Follow up")
+                       (org-agenda-todo-ignore-with-date nil)
+                       (org-agenda-sorting-strategy
+                        '(priority-down effort-up category-keep))))
                 (tags-todo "+release-future|+next+@office-future|+imp+@office-future"
                            ((org-agenda-overriding-header
                              "Do These Tasks Next")
