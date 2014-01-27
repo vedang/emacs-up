@@ -49,6 +49,7 @@
                               auto-complete
                               clojure-mode
                               color-theme-zenburn
+                              dash
                               el-spice
                               flymake-cursor
                               ibuffer-vc
@@ -56,6 +57,7 @@
                               markdown-mode
                               multiple-cursors
                               org-mode-crate
+                              s
                               smart-tab
                               smartparens
                               smex
