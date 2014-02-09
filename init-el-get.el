@@ -36,7 +36,9 @@
 ;; Tie volatile stuff down, so that configuration does not break.
 (setq el-get-sources
       '((:name cider
-               :checkout "90c226a48e5db04c7bc28ce5df2a32fa228fce55")
+               ;; Previously working checkout
+               ;; :checkout "90c226a48e5db04c7bc28ce5df2a32fa228fce55"
+               :checkout "bdcfceb2956c9137ef355afbb637a85bb249dd1d")
         (:name org-mode
                :checkout "release_7.9.3f")
         (:name writegood
