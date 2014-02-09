@@ -19,6 +19,8 @@
 ;; version control and can therefore be different on different
 ;; machines.
 
+;; Similarly, set `bh/organization-task-id' in personal-config
+
 ;; Agenda does not have a key-binding by default in Emacs 24.
 ;; Provide one as a starting point.
 (global-set-key (kbd "<f12>") 'org-agenda)

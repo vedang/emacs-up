@@ -15,9 +15,6 @@
 ;;; Code:
 
 
-(defvar bh/organization-task-id "a87c0695-ab23-44ab-a270-df6e86ec015e")
-
-
 (setq org-work-directory (concat org-directory "/work")
       org-personal-directory (concat org-directory "/personal")
       org-agenda-files (list org-directory
