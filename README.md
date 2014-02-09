@@ -49,3 +49,21 @@ An extensible, easy to maintain emacs config for your coding needs.
 3. ...
 
 4. Profit!
+
+
+## Caveats
+
+1. Org Mode:
+
+   For org-mode to work, you'll have to set your `org-directory`. To
+   do this, add the line
+
+   <code>
+   (setq org-directory "/path/to/org/directory")
+   </code>
+
+   at the end of the init.el file. Evaluate the line by pressing `C-x
+   C-e` at the end of it.
+
+   For more information about the org config, take a look at
+   https://github.com/vedang/org-mode-crate
