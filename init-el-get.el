@@ -39,8 +39,6 @@
                ;; Previously working checkout
                ;; :checkout "90c226a48e5db04c7bc28ce5df2a32fa228fce55"
                :checkout "bdcfceb2956c9137ef355afbb637a85bb249dd1d")
-        (:name org-mode
-               :checkout "release_7.9.3f")
         (:name writegood
                :post-init (progn
                             (global-set-key (kbd "C-c g") 'writegood-mode)))))
@@ -58,6 +56,7 @@
                               magit
                               markdown-mode
                               multiple-cursors
+                              org-mode
                               org-mode-crate
                               s
                               smart-tab
