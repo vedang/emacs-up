@@ -75,9 +75,10 @@
 
      (if/flymake-delete-unnecessary-modes flymake-disabled-modes)
 
-     (add-to-list 'flymake-allowed-file-name-masks
-                  '("\\.java\\'"
-                    if/flymake-javachecks-init
-                    flymake-simple-cleanup))))
+     ;; (add-to-list 'flymake-allowed-file-name-masks
+     ;;              '("\\.java\\'"
+     ;;                if/flymake-javachecks-init
+     ;;                flymake-simple-cleanup))
+     ))
 
 (provide 'init-flymake)
