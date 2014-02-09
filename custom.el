@@ -56,6 +56,11 @@
      (eval define-clojure-indent
            (cluster-spec 1)
            (group-spec 1))
+     (eval define-clojure-indent
+           (facts
+             (quote defun))
+           (fact-group
+             (quote defun)))
      (lexical-binding . t)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
