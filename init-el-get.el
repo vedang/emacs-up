@@ -65,7 +65,7 @@
                               smex
                               unbound
                               wgrep
-                              workgroups
+                              ;; workgroups - don't find this so useful.
                               yasnippet)
                             (mapcar 'el-get-source-name el-get-sources)))
 
