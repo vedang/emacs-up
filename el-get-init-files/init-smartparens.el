@@ -35,7 +35,8 @@ providing an argument."
 (define-key sp-keymap (kbd "{") (vm/wrap-or-insert-with-pair "{"))
 (define-key sp-keymap (kbd "[") (vm/wrap-or-insert-with-pair "["))
 
-(setq sp-hybrid-kill-entire-symbol nil)
+(setq sp-hybrid-kill-entire-symbol nil
+      blink-matching-paren nil)
 
 
 ;; Keybindings
