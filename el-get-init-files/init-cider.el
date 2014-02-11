@@ -25,7 +25,8 @@
       cider-repl-print-length 100
       cider-repl-wrap-history t
       nrepl-buffer-name-separator "-"
-      nrepl-buffer-name-show-port t)
+      nrepl-buffer-name-show-port t
+      cider-switch-to-repl-command 'cider-switch-to-current-repl-buffer)
 
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
