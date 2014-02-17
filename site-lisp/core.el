@@ -65,9 +65,6 @@
 (set-selection-coding-system 'utf-8)
 (setq default-process-coding-system '(utf-8 . utf-8))
 
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox")
-
 
 (setq-default indent-tabs-mode nil  ;only spaces by default.
               tab-width 4)
