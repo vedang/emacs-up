@@ -48,6 +48,7 @@
                               ace-jump-mode
                               auto-complete
                               clojure-mode
+                              clj-refactor
                               color-theme-zenburn
                               dash
                               el-spice
