@@ -28,7 +28,11 @@
 
 (eval-after-load "org"
   '(progn (require 'org-mode-crate)
-          (require 'org-crate-config)))
+          (require 'org-crate-config)
+	  (define-key org-mode-map (kbd "C-c c SPC") 'ace-jump-mode)
+	  (define-key org-mode-map (kbd "C-x x SPC") 'ace-jump-mode-pop-mark)))
+
+
 
 
 (provide 'init-org-mode-crate)
