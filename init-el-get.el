@@ -37,8 +37,9 @@
 (setq el-get-sources
       '((:name cider
                ;; Previously working checkout
-               ;; :checkout "90c226a48e5db04c7bc28ce5df2a32fa228fce55"
-               :checkout "bdcfceb2956c9137ef355afbb637a85bb249dd1d")
+               ;; :checkout "bdcfceb2956c9137ef355afbb637a85bb249dd1d"
+               :checkout 8fb457d5dd39d22d831f2c5fe23432f53e421b8d
+               )
         (:name writegood
                :post-init (progn
                             (global-set-key (kbd "C-c g") 'writegood-mode)))))
@@ -59,13 +60,12 @@
                               multiple-cursors
                               org-mode
                               org-mode-crate
+                              paredit
                               s
                               smart-tab
-                              smartparens
                               smex
                               unbound
                               wgrep
-                              ;; workgroups - don't find this so useful.
                               yasnippet)
                             (mapcar 'el-get-source-name el-get-sources)))
 
