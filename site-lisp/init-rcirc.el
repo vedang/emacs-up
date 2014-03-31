@@ -15,19 +15,13 @@
 ;;; Code:
 
 
-(setq rcirc-default-nick "h0bbit"
-      rcirc-default-user-name "vedang"
-      rcirc-default-full-name "vedang manerikar"
-      rcirc-debug-flag t
+;; Set these variables as per your personal requirement:
+;; `rcirc-default-nick', `rcirc-default-user-name' `rcirc-default-full-name'
+;; `rcirc-keywords' `rcirc-server-alist'
+(setq rcirc-debug-flag t
       rcirc-log-directory (concat tempfiles-dirname "rcirc-logs/")
       rcirc-log-flag t
-      rcirc-time-format "%Y-%m-%d %H:%M "
-      rcirc-keywords '("vedang" "h0bbit_" "bedango")
-      rcirc-server-alist '(("irc.freenode.net"
-                            :channels ("#emacs" "#git" "#clojure" "#redis"
-                                       "#mongodb"))
-                           ("irc.qotdinc.com"
-                            :channels ("#dev" "#bakvaas" "#nsfw"))))
+      rcirc-time-format "%Y-%m-%d %H:%M ")
 
 
 ;; Don't print /away messages.
