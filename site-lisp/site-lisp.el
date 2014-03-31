@@ -25,6 +25,7 @@
 
 (require 'saveplace)
 
+(add-hook 'occur-mode-hook 'next-error-follow-minor-mode)
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)
