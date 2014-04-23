@@ -57,6 +57,15 @@
 ;; path related stuff, because Mac is a bitch.
 (add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "~/Documents/bin")
+(eval-after-load 'esh-util
+  '(progn
+     ;; requires dash. should be loaded at this point.
+     (setq-default eshell-path-env
+                   (concat (apply 'concat
+                                  (-interleave exec-path
+                                               (-repeat (-count 'identity exec-path)
+                                                        ":")))
+                           eshell-path-env))))
 
 ;; python path, because Mac doesn't share it's env variables
 (setenv "PYTHONPATH"
