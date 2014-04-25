@@ -46,9 +46,12 @@ An extensible, easy to maintain emacs config for your coding needs.
    packages that Emacs-Up needs. This can take a lot of time. Don't
    worry, your perfect environment is being baked with love.
 
-3. ...
+3. Follow the instructions in Caveats to install third party software
+   required for various modes.
 
-4. Profit!
+4. ...
+
+5. Profit!
 
 
 ## Caveats
@@ -62,8 +65,19 @@ An extensible, easy to maintain emacs config for your coding needs.
    (setq org-directory "/path/to/org/directory")
    </code>
 
-   at the end of the init.el file. Evaluate the line by pressing `C-x
-   C-e` at the end of it.
+   somewhere in your Emacs config. I recommend that you create the
+   file `~/.emacs.d/personal.el` and add the code to that
+   file. Evaluate the line by pressing `C-x C-e` at the end of it.
 
    For more information about the org config, take a look at
-   https://github.com/vedang/org-mode-crate
+   [vedang/org-mode-crate](https://github.com/vedang/org-mode-crate)
+
+2. Clojure interactive development through Cider
+
+   [cider](https://github.com/clojure-emacs/cider) needs a one time
+   setup of
+   [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl)
+   middleware in order to work properly. Please follow the
+   instructions
+   [here](https://github.com/clojure-emacs/cider#cider-nrepl-middleware)
+   to install `cider-nrepl`

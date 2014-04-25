@@ -37,12 +37,11 @@
 (setq el-get-sources
       '((:name cider
                ;; Previously working checkout
-               ;; :checkout "bdcfceb2956c9137ef355afbb637a85bb249dd1d"
-               :checkout 8fb457d5dd39d22d831f2c5fe23432f53e421b8d
+               ;; :checkout "8fb457d5dd39d22d831f2c5fe23432f53e421b8d"
+               :checkout "b1c162cf691bd850153c0a7a9b75be8b04984641"
                )
         (:name writegood
-               :post-init (progn
-                            (global-set-key (kbd "C-c g") 'writegood-mode)))))
+               :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))))
 
 (defvar el-get-my-packages (append
                             '(ac-nrepl
