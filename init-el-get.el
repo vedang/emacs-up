@@ -36,10 +36,7 @@
 ;; Tie volatile stuff down, so that configuration does not break.
 (setq el-get-sources
       '((:name cider
-               ;; Previously working checkout
-               ;; :checkout "b1c162cf691bd850153c0a7a9b75be8b04984641"
-               :checkout "9a5b389c2acbf5a9bb4c340bb0907cce9fcaf1b8"
-               )
+               :checkout "v0.6.0")
         (:name writegood
                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
         (:name yasnippet
