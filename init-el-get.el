@@ -41,7 +41,10 @@
                :checkout "9a5b389c2acbf5a9bb4c340bb0907cce9fcaf1b8"
                )
         (:name writegood
-               :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))))
+               :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+        (:name yasnippet
+               :checkout "4ccf133d49088b9914ab65fcd9694f641e45a082")))
+
 
 (defvar el-get-my-packages (append
                             '(ac-nrepl
@@ -64,8 +67,7 @@
                               smart-tab
                               smex
                               unbound
-                              wgrep
-                              yasnippet)
+                              wgrep)
                             (mapcar 'el-get-source-name el-get-sources)))
 
 (when on-my-machine
