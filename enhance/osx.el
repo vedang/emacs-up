@@ -67,9 +67,5 @@
                                                         ":")))
                            eshell-path-env))))
 
-;; python path, because Mac doesn't share it's env variables
-(setenv "PYTHONPATH"
-        "/usr/bin:/usr/local/bin:/usr/local/lib/python2.7/site-packages")
-
 
 (provide 'osx)

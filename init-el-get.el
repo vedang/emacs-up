@@ -43,7 +43,9 @@
         (:name writegood
                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
         (:name yasnippet
-               :checkout "4ccf133d49088b9914ab65fcd9694f641e45a082")))
+               :checkout "4ccf133d49088b9914ab65fcd9694f641e45a082")
+        (:name elpy
+               :checkout "v1.3.0")))
 
 
 (defvar el-get-my-packages (append

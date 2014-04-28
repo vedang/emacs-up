@@ -7,6 +7,8 @@ An extensible, easy to maintain emacs config for your coding needs.
    - Clojure Mode
    - Emacs Lisp Mode
    - Org Mode
+   - Python Mode
+
 
 2. Other minor but important additions:
    - Ace Jump Mode
@@ -24,7 +26,6 @@ An extensible, easy to maintain emacs config for your coding needs.
 1. Working and well-tuned configurations for:
    - Go Mode
    - Java Mode
-   - Python Mode
    - Erlang Mode
 
 2. Email through Emacs
@@ -81,3 +82,13 @@ An extensible, easy to maintain emacs config for your coding needs.
    instructions
    [here](https://github.com/clojure-emacs/cider#cider-nrepl-middleware)
    to install `cider-nrepl`
+
+3. Python interactive development through Elpy
+
+   [Elpy](https://github.com/jorgenschaefer/elpy/) needs a one-time
+   setup of the following packages: `ipython`, `elpy` and `jedi`. You
+   can install them as follows:
+
+   <code>
+   $ sudo pip install ipython elpy jedi
+   </code>
