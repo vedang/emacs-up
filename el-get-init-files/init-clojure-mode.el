@@ -97,7 +97,6 @@
      (put-clojure-indent 'describe 'defun)
      (put-clojure-indent 'given 'defun)
      (put-clojure-indent 'using 'defun)
-     (put-clojure-indent 'given 'defun)
      (add-hook 'clojure-mode-hook 'icl/pretty-fns)
      (add-hook 'clojure-mode-hook 'icl/pretty-sets)
      (add-hook 'clojure-mode-hook 'icl/pretty-reader-macros)
@@ -106,7 +105,13 @@
      ;; Didn't want to change lib mode, so removing it here.
      (add-hook 'clojure-mode-hook 'icl/midje-test-maybe-enable)
      (define-key clojure-mode-map (kbd "C-c t")
-       'icl/midje-jump-between-tests-and-code)))
+       'icl/midje-jump-between-tests-and-code)
+     (eval-after-load 'org
+      '(progn (add-hook 'clojure-mode-hook 'turn-on-orgstruct)
+              (add-hook 'clojure-mode-hook 'turn-on-orgstruct++)
+              (defun define-orgstruct-heading ()
+                (setq-local orgstruct-heading-prefix-regexp ";;; * "))
+              (add-hook 'clojure-mode-hook 'define-orgstruct-heading)))))
 
 
 (provide 'init-clojure-mode)
