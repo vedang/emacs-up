@@ -15,5 +15,7 @@
 ;;; Code:
 
 
-(add-to-list 'yas-snippet-dirs (concat enhance-dirname "snippets"))
+(eval-after-load 'yasnippet
+  (add-to-list 'yas-snippet-dirs (concat enhance-dirname "snippets")))
+
 (yas-global-mode 1)
