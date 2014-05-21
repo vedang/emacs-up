@@ -50,7 +50,7 @@
 ;; Completion ignores filenames ending in any string in this list.
 (setq completion-ignored-extensions
       '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx"
-        ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf"))
+        ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf" ".hbc"))
 
 ;;; Everything in UTF8
 (prefer-coding-system 'utf-8)
