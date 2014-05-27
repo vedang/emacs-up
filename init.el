@@ -29,15 +29,16 @@
       autoload-file (concat dotfiles-dirname "loaddefs.el")
       custom-file (concat dotfiles-dirname "custom.el")
       personal-file (concat dotfiles-dirname "personal.el")
+      el-get-config-file (concat dotfiles-dirname "init-el-get.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
       site-lisp-dirname (concat dotfiles-dirname "site-lisp/")
       enhance-dirname (concat dotfiles-dirname "enhance/"))
 
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
-(add-to-list 'load-path dotfiles-dirname)
 
 ;;; El-Get for great good
+(load el-get-config-file)
 (require 'init-el-get)
 
 ;;; Define my programming modes.
