@@ -136,4 +136,6 @@
         ("google"   . "http://www.google.com/search?q=%s")))
 
 
+(setq org-html-head-extra "<style type=\"text/css\">  body { font-family:sans-serif; font-size: small; } code {font-size: medium;} </style>")
+
 (provide 'org-crate-config)
