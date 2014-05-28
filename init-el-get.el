@@ -71,7 +71,7 @@
 
 (when on-my-machine
   ;; Load packages with Third Party dependencies only on my machine.
-  (setq el-get-my-packages (append '(emacs-eclim) el-get-my-packages)))
+  (setq el-get-my-packages (append el-get-my-packages '(emacs-eclim))))
 
 (el-get 'sync el-get-my-packages)
 
