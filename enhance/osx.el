@@ -55,7 +55,6 @@
 
 
 ;; path related stuff, because Mac is a bitch.
-(add-to-list 'exec-path "/usr/local/bin")
 (add-to-list 'exec-path "~/Documents/bin")
 (eval-after-load 'esh-util
   '(progn

@@ -36,6 +36,7 @@
 
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
+(add-to-list 'exec-path "/usr/local/bin")
 
 ;;; El-Get for great good
 (load el-get-config-file)
