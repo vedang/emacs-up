@@ -106,12 +106,13 @@
      (add-hook 'clojure-mode-hook 'icl/midje-test-maybe-enable)
      (define-key clojure-mode-map (kbd "C-c t")
        'icl/midje-jump-between-tests-and-code)
-     (eval-after-load 'org
-      '(progn (add-hook 'clojure-mode-hook 'turn-on-orgstruct)
-              (add-hook 'clojure-mode-hook 'turn-on-orgstruct++)
-              (defun define-orgstruct-heading ()
-                (setq-local orgstruct-heading-prefix-regexp ";;; * "))
-              (add-hook 'clojure-mode-hook 'define-orgstruct-heading)))))
+     ;; (eval-after-load 'org
+     ;;  '(progn (add-hook 'clojure-mode-hook 'turn-on-orgstruct)
+     ;;          (add-hook 'clojure-mode-hook 'turn-on-orgstruct++)
+     ;;          (defun define-orgstruct-heading ()
+     ;;            (setq-local orgstruct-heading-prefix-regexp ";;; * "))
+     ;;          (add-hook 'clojure-mode-hook 'define-orgstruct-heading)))
+     ))
 
 
 (provide 'init-clojure-mode)
