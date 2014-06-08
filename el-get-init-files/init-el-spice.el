@@ -16,5 +16,5 @@
 
 (add-hook 'emacs-lisp-mode-hook 'el-spice-mode)
 (add-hook 'lisp-interaction-mode-hook 'el-spice-mode)
-
+(add-hook 'ielm-mode-hook 'el-spice-mode)
 (provide 'init-el-spice)
