@@ -37,6 +37,10 @@
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
 (add-to-list 'exec-path "/usr/local/bin")
+(load custom-file 'noerror)
+(load personal-file 'noerror)
+(add-to-list 'load-path site-lisp-dirname)
+(add-to-list 'load-path enhance-dirname)
 
 ;;; El-Get for great good
 (load el-get-config-file)
@@ -51,12 +55,10 @@
 
 ;; The order of loading is important. Often times, the next package
 ;; presumes that the previous one has been loaded.
-(add-to-list 'load-path site-lisp-dirname)
 (require 'core)
 (require 'site-lisp)
 (require 'utility-functions)
 
-(add-to-list 'load-path enhance-dirname)
 (require 'extra-hooks)
 (require 'extra-bindings)
 (require 'registers)
@@ -64,8 +66,6 @@
   (require 'osx))
 
 (load-theme 'zenburn t)
-(load custom-file 'noerror)
-(load personal-file 'noerror)
 
 (server-start)
 (message "My .emacs loaded in %ds"

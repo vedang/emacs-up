@@ -46,11 +46,16 @@
                :checkout "v1.3.0")))
 
 
+;;; This is the order in which the packages are loaded. Changing this
+;;; order can sometimes lead to nasty surprises, especially when you
+;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
 (defvar el-get-my-packages (append
-                            '(ac-nrepl
-                              ace-jump-mode
+                            '(ace-jump-mode
+                              org-mode
+                              org-mode-crate
                               auto-complete
                               clojure-mode
+                              ac-nrepl
                               clj-refactor
                               color-theme-zenburn
                               dash
@@ -60,8 +65,6 @@
                               magit
                               markdown-mode
                               multiple-cursors
-                              org-mode
-                              org-mode-crate
                               paredit
                               s
                               smart-tab
