@@ -19,11 +19,18 @@
       user-full-name (notmuch-user-name)
       message-send-mail-function 'message-send-mail-with-sendmail
       ;; we substitute sendmail with msmtp
-      sendmail-program "/usr/local/bin/msmtp")
+      sendmail-program "/usr/local/bin/msmtp"
+      notmuch-archive-tags '("-inbox" "-unread" "+archived"))
 
+(defun vedang/notmuch-archive-all ()
+  "Archive all the emails in the current view."
+  (interactive)
+  (notmuch-search-archive-thread nil (point-min) (point-max)))
 
 (define-key notmuch-show-mode-map (kbd "r") 'notmuch-show-reply)
 (define-key notmuch-show-mode-map (kbd "R") 'notmuch-show-reply-sender)
 (define-key notmuch-search-mode-map (kbd "r") 'notmuch-search-reply-to-thread)
 (define-key notmuch-search-mode-map (kbd "R") 'notmuch-search-reply-to-thread-sender)
+(define-key notmuch-search-mode-map (kbd "A") 'vedang/notmuch-archive-all)
+
 (provide 'init-notmuch)
