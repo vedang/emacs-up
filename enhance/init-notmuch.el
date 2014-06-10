@@ -36,4 +36,26 @@
 ;; Sign messages by default.
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
 
+(defun my-notmuch-show-view-as-patch ()
+  "View the the current message as a patch."
+  (interactive)
+  (let* ((id (notmuch-show-get-message-id))
+         (subject (concat "Subject: " (notmuch-show-get-subject) "\n"))
+         (diff-default-read-only t)
+         (buf (get-buffer-create (concat "*notmuch-patch-" id "*")))
+         (map (make-sparse-keymap)))
+    (define-key map "q" 'notmuch-kill-this-buffer)
+    (switch-to-buffer buf)
+    (let ((inhibit-read-only t))
+      (erase-buffer)
+      (insert subject)
+      (insert (notmuch-get-bodypart-internal id 1 nil)))
+    (set-buffer-modified-p nil)
+    (diff-mode)
+    (lexical-let ((new-ro-bind (cons 'buffer-read-only map)))
+      (add-to-list 'minor-mode-overriding-map-alist new-ro-bind))
+    (goto-char (point-min))))
+
+(define-key 'notmuch-show-mode-map (kbd "D") 'my-notmuch-show-view-as-patch)
+
 (provide 'init-notmuch)
