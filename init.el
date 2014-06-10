@@ -64,6 +64,10 @@
 (require 'registers)
 (when (eq system-type 'darwin)
   (require 'osx))
+(when on-my-machine
+  (autoload 'notmuch "notmuch" "notmuch mail" t)
+  (eval-after-load 'notmuch
+    '(progn (require 'init-notmuch))))
 
 (load-theme 'zenburn t)
 
