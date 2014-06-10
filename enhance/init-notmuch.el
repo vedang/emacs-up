@@ -33,4 +33,7 @@
 (define-key notmuch-search-mode-map (kbd "R") 'notmuch-search-reply-to-thread-sender)
 (define-key notmuch-search-mode-map (kbd "A") 'vedang/notmuch-archive-all)
 
+;; Sign messages by default.
+(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+
 (provide 'init-notmuch)
