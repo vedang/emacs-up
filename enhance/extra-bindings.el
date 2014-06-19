@@ -55,4 +55,7 @@
 (eval-after-load 'ielm
   '(define-key ielm-map (kbd "C-j") 'newline-and-indent))
 
+;; Keybindings for notmuch
+(global-set-key (kbd "<f10>") 'notmuch)
+
 (provide 'extra-bindings)
