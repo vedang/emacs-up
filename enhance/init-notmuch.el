@@ -44,6 +44,10 @@ deletion by cron job."
 ;; Sign messages by default.
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
 
+;; Integrate with org-mode
+(require 'org-notmuch nil t)
+
+;;; EmacsWiki
 (defun my-notmuch-show-view-as-patch ()
   "View the the current message as a patch."
   (interactive)
