@@ -35,20 +35,20 @@
                ((agenda "" ((org-agenda-files (list org-work-directory))
                             (org-agenda-overriding-header
                              "Deadlines and Scheduled")))
-                (tags-todo "bug"
-                      ((org-agenda-overriding-header
-                        "Bugs To Fix")
-                       (org-agenda-todo-ignore-scheduled t)
-                       (org-agenda-todo-ignore-deadlines t)
-                       (org-tags-match-list-sublevels t)
-                       (org-agenda-sorting-strategy
-                        '(priority-down effort-up category-keep))))
-                (todo "IN-REVIEW|IN-QA|FOLLOWUP"
-                      ((org-agenda-overriding-header
-                        "Follow up")
-                       (org-agenda-todo-ignore-with-date nil)
-                       (org-agenda-sorting-strategy
-                        '(priority-down effort-up category-keep))))
+                (tags-todo "+oncall|+highpriority"
+                           ((org-agenda-overriding-header
+                             "On Call Followup")
+                            (org-agenda-todo-ignore-scheduled t)
+                            (org-agenda-todo-ignore-deadlines t)
+                            (org-tags-match-list-sublevels t)
+                            (org-agenda-sorting-strategy
+                             '(priority-down effort-up category-keep))))
+                (tags-todo "+inreview|+inqa|+followup-oncall-highpriority"
+                           ((org-agenda-overriding-header
+                             "Follow up on these tasks")
+                            (org-agenda-todo-ignore-with-date nil)
+                            (org-agenda-sorting-strategy
+                             '(priority-down effort-up category-keep))))
                 (tags-todo "+release-future|+next+@office-future|+imp+@office-future"
                            ((org-agenda-overriding-header
                              "Do These Tasks Next")
@@ -126,7 +126,7 @@
               ("d" "Delegated Tasks" todo "DELEGATED"
                ((org-use-tag-inheritance nil)
                 (org-agenda-todo-ignore-with-date nil)))
-              ("I" "Inheritable Deadlines" todo "TODO|WAITING|IN-REVIEW|IN-QA|WORKING|SOMEDAY"
+              ("I" "Inheritable Deadlines" todo "TODO|WAITING|WORKING|FOLLOWUP"
                ((org-agenda-overriding-header "Inheritable DEADLINEs")
                 (org-agenda-skip-function 'fc/skip-non-inheritable-deadlines))))))
 
