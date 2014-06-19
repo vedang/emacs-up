@@ -27,11 +27,19 @@
   (interactive)
   (notmuch-search-archive-thread nil (point-min) (point-max)))
 
+(defun vedang/notmuch-delete-all ()
+  "Archive all the emails in the current view. Mark them for
+deletion by cron job."
+  (interactive)
+  (notmuch-search-tag-all '("+deleteme"))
+  (vedang/notmuch-archive-all))
+
 (define-key notmuch-show-mode-map (kbd "r") 'notmuch-show-reply)
 (define-key notmuch-show-mode-map (kbd "R") 'notmuch-show-reply-sender)
 (define-key notmuch-search-mode-map (kbd "r") 'notmuch-search-reply-to-thread)
 (define-key notmuch-search-mode-map (kbd "R") 'notmuch-search-reply-to-thread-sender)
 (define-key notmuch-search-mode-map (kbd "A") 'vedang/notmuch-archive-all)
+(define-key notmuch-search-mode-map (kbd "D") 'vedang/notmuch-delete-all)
 
 ;; Sign messages by default.
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
