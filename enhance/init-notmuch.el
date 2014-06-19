@@ -20,6 +20,7 @@
       message-send-mail-function 'message-send-mail-with-sendmail
       ;; we substitute sendmail with msmtp
       sendmail-program "/usr/local/bin/msmtp"
+      message-sendmail-envelope-from 'header
       notmuch-archive-tags '("-inbox" "-unread" "+archived"))
 
 (defun vedang/notmuch-archive-all ()
