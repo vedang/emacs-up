@@ -34,6 +34,7 @@
 (add-to-list 'el-get-recipe-path el-get-my-recipes)
 
 ;; Tie volatile stuff down, so that configuration does not break.
+;; Add configuration for recipes that need very minor configuration.
 (setq el-get-sources
       '((:name cider
                :checkout "v0.6.0")
@@ -42,6 +43,8 @@
         (:name yasnippet
                :checkout "4ccf133d49088b9914ab65fcd9694f641e45a082"
                :after (progn (yas-global-mode 1)))
+        (:name dash-at-point
+               :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
         (:name elpy
                :checkout "v1.3.0")))
 
