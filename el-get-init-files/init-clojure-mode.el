@@ -73,7 +73,7 @@
   (interactive)
   (find-file (format "%s/src/%s.clj"
                      (locate-dominating-file buffer-file-name "src/")
-                     (icl/midje-implementation-for (clojure-find-package)))))
+                     (icl/midje-implementation-for (clojure-find-ns)))))
 
 
 (defun icl/midje-jump-between-tests-and-code ()
@@ -85,7 +85,7 @@
 
 (defun icl/midje-test-maybe-enable ()
   "Stop clojure-test-mode from loading, instead use my midje functions"
-  (let ((ns (clojure-find-package)))
+  (let ((ns (clojure-find-ns)))
     (when (and ns (string-match "test\\(\\.\\|$\\)" ns))
       (if (and (listp clojure-mode-hook)
                (memq 'clojure-test-maybe-enable clojure-mode-hook))
@@ -94,6 +94,7 @@
 
 (eval-after-load 'clojure-mode
   '(progn
+     (require 'clojure-mode-extra-font-locking)
      (put-clojure-indent 'describe 'defun)
      (put-clojure-indent 'given 'defun)
      (put-clojure-indent 'using 'defun)
@@ -104,6 +105,7 @@
      ;; Activating clojure-test-mode is irritating for me.
      ;; Didn't want to change lib mode, so removing it here.
      (add-hook 'clojure-mode-hook 'icl/midje-test-maybe-enable)
+     (add-hook 'clojure-mode-hook 'subword-mode)
      (define-key clojure-mode-map (kbd "C-c t")
        'icl/midje-jump-between-tests-and-code)
      ;; (eval-after-load 'org
