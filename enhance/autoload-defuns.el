@@ -26,7 +26,8 @@
   "List the .el files in DIRECTORY and in it's sub-directories."
   (let* ((current-directory-list (directory-files-and-attributes directory t))
          (el-files-list (delq nil (mapcar (lambda (lst)
-                                            (and (equal ".el" (substring (car lst) -3))
+                                            (and (or (equal ".el" (substring (car lst) -3))
+                                                     (equal ".el.gz" (substring (car lst) -6)))
                                                  (car lst)))
                                           current-directory-list)))
          (dirs-list (delq nil (mapcar (lambda (lst)
@@ -37,13 +38,20 @@
                                       current-directory-list))))
     (apply #'append el-files-list
            (mapcar (lambda (d)
-                     (vedang/el-files-in-dir d))
+                     (ad/el-files-in-dir d))
                    dirs-list))))
+
+
+(defun ad/byte-recompile-files (file-dir &optional force arg load)
+  "Recompile all el files in this dir and all dirs below it. Like
+`byte-recompile-file', but better."
+  (dolist (el-file (ad/el-files-in-dir file-dir))
+    (byte-recompile-file el-file force arg load)))
 
 
 (defun ad/update-directory-autoloads (autoload-dir)
   "Update directory autoloads, but better"
-  (dolist (el-file (vedang/el-files-in-dir autoload-dir))
+  (dolist (el-file (ad/el-files-in-dir autoload-dir))
     (update-file-autoloads el-file t)))
 
 
@@ -61,7 +69,7 @@
       (message "Updating autoloads...")
       (dolist (autoload-dir (list plugins-dirname config-dirname elpa-dirname))
         (let (emacs-lisp-mode-hook)
-          (vedang/update-directory-autoloads autoload-dir)))))
+          (ad/update-directory-autoloads autoload-dir)))))
   (load autoload-file))
 
 
