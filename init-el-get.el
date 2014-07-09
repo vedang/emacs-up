@@ -56,11 +56,10 @@
                             '(ace-jump-mode
                               org-mode
                               org-mode-crate
-                              auto-complete
                               clojure-mode
-                              ac-nrepl
                               clj-refactor
                               color-theme-zenburn
+                              company-mode
                               dash
                               el-spice
                               flymake-cursor

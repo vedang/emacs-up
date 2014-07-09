@@ -17,5 +17,8 @@
 
 
 (add-hook 'after-init-hook 'global-company-mode)
-(global-set-key (kbd "TAB") 'company-complete)
-(setq company-minimum-prefix-length 2)
+(setq company-idle-delay t
+      company-require-match nil)
+(eval-after-load 'company
+  '(progn (define-key company-active-map [tab] 'company-complete)
+          (define-key company-active-map (kbd "TAB") 'company-complete)))
