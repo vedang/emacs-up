@@ -37,11 +37,13 @@
 ;; Add configuration for recipes that need very minor configuration.
 (setq el-get-sources
       '((:name cider
-               :checkout "v0.6.0")
+               ;;:checkout "v0.6.0"
+               :checkout "89ff2a1"
+               )
         (:name writegood
                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
         (:name yasnippet
-               :checkout "4ccf133d49088b9914ab65fcd9694f641e45a082"
+               :checkout "4ccf133"
                :after (progn (yas-global-mode 1)))
         (:name dash-at-point
                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
