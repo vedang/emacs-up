@@ -22,4 +22,7 @@
           (add-to-list 'Info-directory-list
                        (concat el-get-dirname "magit/"))))
 
+(eval-after-load 'magit
+  '(progn (setq-default magit-auto-revert-mode-lighter nil)))
+
 (provide 'init-magit)
