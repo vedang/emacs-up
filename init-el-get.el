@@ -61,6 +61,7 @@
                               color-theme-zenburn
                               company-mode
                               dash
+                              diminish
                               el-spice
                               flymake-cursor
                               ibuffer-vc
