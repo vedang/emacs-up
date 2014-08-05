@@ -20,5 +20,6 @@
 (setq company-idle-delay t
       company-require-match nil)
 (eval-after-load 'company
-  '(progn (define-key company-active-map [tab] 'company-complete)
+  '(progn (setq-default company-lighter " cmp")
+          (define-key company-active-map [tab] 'company-complete)
           (define-key company-active-map (kbd "TAB") 'company-complete)))
