@@ -17,4 +17,5 @@
 (add-hook 'emacs-lisp-mode-hook 'el-spice-mode)
 (add-hook 'lisp-interaction-mode-hook 'el-spice-mode)
 (add-hook 'ielm-mode-hook 'el-spice-mode)
+(setq-default el-spice-lighter nil)
 (provide 'init-el-spice)
