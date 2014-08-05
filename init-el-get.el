@@ -37,9 +37,7 @@
 ;; Add configuration for recipes that need very minor configuration.
 (setq el-get-sources
       '((:name cider
-               ;;:checkout "v0.6.0"
-               :checkout "89ff2a1"
-               )
+               :checkout "v0.7.0")
         (:name writegood
                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
         (:name yasnippet

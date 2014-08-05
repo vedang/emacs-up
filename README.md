@@ -75,15 +75,13 @@ An extensible, easy to maintain emacs config for your coding needs.
 
 2. Clojure interactive development through Cider
 
-   ~~[cider](https://github.com/clojure-emacs/cider) needs a one time
+   [cider](https://github.com/clojure-emacs/cider) needs a one time
    setup of
    [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl)
    middleware in order to work properly. Please follow the
    instructions
    [here](https://github.com/clojure-emacs/cider#cider-nrepl-middleware)
-   to install `cider-nrepl`~~
-   
-   Both `cider` and `cider-nrepl` are not as stable as I'd wish them to be. Due to this, I'm tying down my `cider` version to v0.6.0, which is the last version to work without `cider-nrepl`. I'll upgrade `cider` and change the installation instructions as soon as I'm confident in it's stability. Until then, move on, nothing to do in this section.
+   to install `cider-nrepl` (ver v0.7.0).
 
 3. Python interactive development through Elpy
 

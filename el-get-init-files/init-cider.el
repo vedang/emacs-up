@@ -27,7 +27,8 @@
       nrepl-buffer-name-separator "-"
       nrepl-buffer-name-show-port t
       nrepl-log-messages t
-      cider-switch-to-repl-command 'cider-switch-to-current-repl-buffer)
+      cider-switch-to-repl-command 'cider-switch-to-current-repl-buffer
+      cider-mode-line nil)
 
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
