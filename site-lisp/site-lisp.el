@@ -84,7 +84,10 @@ right mode to start in the buffer."
 (require 'init-flymake)
 (require 'init-recentf)
 
-(eval-after-load "rcirc" '(require 'init-rcirc))
+(eval-after-load 'rcirc
+  '(require 'init-rcirc))
+(eval-after-load 'eldoc
+  '(setq eldoc-minor-mode-string nil))
 
 (add-to-list 'hippie-expand-try-functions-list 'yas/hippie-try-expand t)
 
