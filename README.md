@@ -86,9 +86,10 @@ An extensible, easy to maintain emacs config for your coding needs.
 3. Python interactive development through Elpy
 
    [Elpy](https://github.com/jorgenschaefer/elpy/) needs a one-time
-   setup of the following packages: `ipython`, `elpy` and `jedi`. You
+   setup of the following packages: `ipython` and `rope`. You
    can install them as follows:
 
    <code>
-   $ sudo pip install ipython elpy jedi
+   $ sudo pip install ipython rope
+   </code>
    </code>

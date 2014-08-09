@@ -44,9 +44,7 @@
                :checkout "4ccf133"
                :after (progn (yas-global-mode 1)))
         (:name dash-at-point
-               :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
-        (:name elpy
-               :checkout "v1.3.0")))
+               :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))))
 
 
 ;;; This is the order in which the packages are loaded. Changing this
@@ -65,6 +63,7 @@
      company-mode
      dash
      diminish
+     elpy
      el-spice
      flymake-cursor
      ibuffer-vc
