@@ -72,7 +72,8 @@
      (require 'flymake-cursor)
      (global-set-key (kbd "<f3>") 'flymake-goto-prev-error)
      (global-set-key (kbd "<f2>") 'flymake-goto-next-error)
-
+     (global-set-key (kbd "C-c C-p") 'flymake-goto-prev-error)
+     (global-set-key (kbd "C-c C-n") 'flymake-goto-next-error)
      (if/flymake-delete-unnecessary-modes flymake-disabled-modes)
 
      ;; (add-to-list 'flymake-allowed-file-name-masks
