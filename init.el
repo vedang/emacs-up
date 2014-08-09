@@ -36,11 +36,13 @@
 
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
-(add-to-list 'exec-path "/usr/local/bin")
+
 (load custom-file 'noerror)
 (load personal-file 'noerror)
 (add-to-list 'load-path site-lisp-dirname)
 (add-to-list 'load-path enhance-dirname)
+(when (eq system-type 'darwin)
+  (require 'osx))
 
 ;;; El-Get for great good
 (load el-get-config-file)
@@ -62,8 +64,6 @@
 (require 'extra-hooks)
 (require 'extra-bindings)
 (require 'registers)
-(when (eq system-type 'darwin)
-  (require 'osx))
 (when on-my-machine
   (autoload 'notmuch "notmuch" "notmuch mail" t)
   (eval-after-load 'notmuch

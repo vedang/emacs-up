@@ -52,33 +52,36 @@
 ;;; This is the order in which the packages are loaded. Changing this
 ;;; order can sometimes lead to nasty surprises, especially when you
 ;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
-(defvar el-get-my-packages (append
-                            '(ace-jump-mode
-                              org-mode
-                              org-mode-crate
-                              clojure-mode
-                              clj-refactor
-                              color-theme-zenburn
-                              company-mode
-                              dash
-                              diminish
-                              el-spice
-                              flymake-cursor
-                              ibuffer-vc
-                              magit
-                              markdown-mode
-                              multiple-cursors
-                              paredit
-                              s
-                              smart-tab
-                              smex
-                              unbound
-                              wgrep)
-                            (mapcar 'el-get-source-name el-get-sources)))
-
-(when on-my-machine
-  ;; Load packages with Third Party dependencies only on my machine.
-  (setq el-get-my-packages (append el-get-my-packages '(emacs-eclim))))
+(defvar el-get-my-packages
+  (append
+   (when (eq system-type 'darwin)
+     '(exec-path-from-shell))
+   '(ace-jump-mode
+     org-mode
+     org-mode-crate
+     clojure-mode
+     clj-refactor
+     color-theme-zenburn
+     company-mode
+     dash
+     diminish
+     el-spice
+     flymake-cursor
+     ibuffer-vc
+     magit
+     markdown-mode
+     multiple-cursors
+     paredit
+     s
+     smart-tab
+     smex
+     unbound
+     wgrep)
+   (mapcar 'el-get-source-name el-get-sources)
+   (when on-my-machine
+     ;; Load packages with Third Party
+     ;; dependencies only on my machine.
+     '(emacs-eclim))))
 
 (el-get 'sync el-get-my-packages)
 
