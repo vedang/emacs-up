@@ -17,7 +17,7 @@
 
 
 (add-hook 'after-init-hook 'global-company-mode)
-(setq company-idle-delay t
+(setq company-idle-delay 0
       company-require-match nil)
 (eval-after-load 'company
   '(progn (setq-default company-lighter " cmp")
