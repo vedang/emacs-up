@@ -66,6 +66,14 @@
      elpy
      el-spice
      flymake-cursor
+     go-mode
+     go-company
+     go-def
+     go-eldoc
+     go-errcheck-el
+     go-flymake
+     go-imports
+     go-lint
      ibuffer-vc
      magit
      markdown-mode

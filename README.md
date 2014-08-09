@@ -8,6 +8,7 @@ An extensible, easy to maintain emacs config for your coding needs.
    - Emacs Lisp Mode
    - Org Mode
    - Python Mode
+   - Go Mode
 
 
 2. Other minor but important additions:
@@ -24,12 +25,20 @@ An extensible, easy to maintain emacs config for your coding needs.
 ## Things that are in the pipeline
 
 1. Working and well-tuned configurations for:
-   - Go Mode
    - Java Mode
    - Erlang Mode
 
 2. Email through Emacs
 
+## Pre-requisites ##
+
+The following tools should be installed and available on the system:
+- [git](http://git-scm.com/)
+- [mercurial](http://mercurial.selenic.com/)
+- [bazaar](http://bazaar.canonical.com/en/)
+
+Make sure that they are on $PATH. If you are on a Mac, `git` needs to
+be available at `/usr/local/bin/git`
 
 ## Installation Instructions
 
@@ -92,4 +101,15 @@ An extensible, easy to maintain emacs config for your coding needs.
    <code>
    $ sudo pip install ipython rope
    </code>
+
+4. Golang development
+
+   Golang integration with Emacs is a breeze, as long as you have set
+   the GOPATH correctly, as described
+   [here](http://golang.org/doc/code.html). By default, emacs
+   auto-completion will not show golang builtins as options. If you
+   want to enable this behaviour, run the following code:
+
+   <code>
+   $ gocode set propose-builtins true
    </code>
