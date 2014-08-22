@@ -13,12 +13,13 @@ An extensible, easy to maintain emacs config for your coding needs.
 
 2. Other minor but important additions:
    - Ace Jump Mode
-   - Auto Complete Mode
+   - Company Mode
    - Ido Mode in high gear
    - Magit
    - Multiple Cursors
-   - Smartparens
+   - Paredit
    - YASnippets
+   - Correct path manipulation on OS X
 
 3. Better defaults than "pure" Emacs.
 
@@ -36,7 +37,7 @@ The following tools should be installed and available on the system:
 - [git](http://git-scm.com/)
 - [mercurial](http://mercurial.selenic.com/)
 - [bazaar](http://bazaar.canonical.com/en/)
-
+- [aspell](http://aspell.net/)
 Make sure that they are on $PATH. If you are on a Mac, `git` needs to
 be available at `/usr/local/bin/git`
 
@@ -53,8 +54,13 @@ be available at `/usr/local/bin/git`
 2. Start Emacs. Make yourself a cup of tea.
 
    The first boot will trigger a (one-time) download of all the
-   packages that Emacs-Up needs. This can take a lot of time. Don't
-   worry, your perfect environment is being baked with love.
+   packages that Emacs-Up needs. This can take a lot of time.
+
+   Sometimes (rarely) Emacs will stop and throw an error. If this
+   happens, try re-starting Emacs. If the error is still being thrown,
+   file an issue with me. Don't forget to include the stacktrace.
+
+   Don't worry, your perfect environment is being baked with love.
 
 3. Follow the instructions in Caveats to install third party software
    required for various modes.
