@@ -50,10 +50,11 @@
 ;;; This is the order in which the packages are loaded. Changing this
 ;;; order can sometimes lead to nasty surprises, especially when you
 ;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
+(when (eq system-type 'darwin)
+  (el-get 'sync '(exec-path-from-shell)))
+
 (defvar el-get-my-packages
   (append
-   (when (eq system-type 'darwin)
-     '(exec-path-from-shell))
    (when (and (boundp configure-clojure-p)
               configure-clojure-p)
      '(clojure-mode
