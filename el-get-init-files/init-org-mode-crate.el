@@ -34,6 +34,4 @@
           (define-key org-mode-map (kbd "C-x x SPC") 'ace-jump-mode-pop-mark)))
 
 
-
-
 (provide 'init-org-mode-crate)

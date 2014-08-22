@@ -16,7 +16,7 @@
 
 
 (defvar *emacs-load-start* (current-time))
-(defvar on-my-machine (string-match "ninjakombda" (system-name)))
+(defvar on-my-machine (string-match "humblekombda" (system-name)))
 
 ;;; No GUI
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
@@ -46,7 +46,7 @@
   (require 'osx))
 
 ;;; El-Get for great good
-(load features-file)
+(load features-file 'noerror)
 (load el-get-config-file)
 
 ;;; Define my programming modes.
