@@ -31,7 +31,7 @@
 
 
 (setq org-agenda-custom-commands
-      (quote (("a" "Work Agenda"
+      (quote (("w" "Work Agenda"
                ((agenda "" ((org-agenda-files (list org-work-directory))
                             (org-agenda-overriding-header
                              "Deadlines and Scheduled")))
@@ -69,7 +69,7 @@
                       ((org-agenda-overriding-header
                         "Notes and Tasks to Refile")))
                 nil))
-              ("b" "Personal Agenda"
+              ("p" "Personal Agenda"
                ((agenda "" ((org-agenda-files (list org-personal-directory
                                                     (concat org-directory
                                                             "/Birthdays.org")))
@@ -123,19 +123,17 @@
                  '(org-agenda-skip-subtree-if 'notregexp "^\\* Organization"))
                 (org-agenda-overriding-header
                  "Set default clocking task with C-u C-u I")))
-              ("d" "Delegated Tasks" todo "DELEGATED"
+              ("d" "Delegated Tasks" todo "FOLLOWUP"
                ((org-use-tag-inheritance nil)
                 (org-agenda-todo-ignore-with-date nil)))
               ("I" "Inheritable Deadlines" todo "TODO|WAITING|WORKING|FOLLOWUP"
                ((org-agenda-overriding-header "Inheritable DEADLINEs")
                 (org-agenda-skip-function 'fc/skip-non-inheritable-deadlines))))))
 
-
 (setq org-link-abbrev-alist
-      '(("bug" . "http://bugzilla.helpshift.com/show_bug.cgi?id=%s")
-        ("google"   . "http://www.google.com/search?q=%s")))
+      '(("google"   . "http://www.google.com/search?q=%s")))
 
-
-(setq org-html-head-extra "<style type=\"text/css\">  body { font-family:sans-serif; font-size: small; } code {font-size: medium;} </style>")
+(setq org-html-head-extra
+      "<style type=\"text/css\">  body { font-family:sans-serif; font-size: small; } code {font-size: medium;} </style>")
 
 (provide 'org-crate-config)
