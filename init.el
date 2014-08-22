@@ -30,6 +30,7 @@
       custom-file (concat dotfiles-dirname "custom.el")
       personal-file (concat dotfiles-dirname "personal.el")
       el-get-config-file (concat dotfiles-dirname "init-el-get.el")
+      features-file (concat dotfiles-dirname "features.el")
       tempfiles-dirname (concat dotfiles-dirname "temp-files/")
       site-lisp-dirname (concat dotfiles-dirname "site-lisp/")
       enhance-dirname (concat dotfiles-dirname "enhance/"))
@@ -45,6 +46,7 @@
   (require 'osx))
 
 ;;; El-Get for great good
+(load features-file)
 (load el-get-config-file)
 
 ;;; Define my programming modes.

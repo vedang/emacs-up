@@ -54,26 +54,34 @@
   (append
    (when (eq system-type 'darwin)
      '(exec-path-from-shell))
+   (when (and (boundp configure-clojure-p)
+              configure-clojure-p)
+     '(clojure-mode
+       clj-refactor))
+   (when (and (boundp configure-python-p)
+              configure-python-p)
+     '(elpy))
+   (when (and (boundp configure-go-p)
+              configure-go-p)
+     (if (executable-find "go")
+         '(go-mode
+           go-company
+           go-def
+           go-eldoc
+           go-errcheck-el
+           go-flymake
+           go-imports
+           go-lint)
+       (error "Golang programming is configured, but I can't find the go binary! Have you read the README file?")))
    '(ace-jump-mode
      org-mode
      org-mode-crate
-     clojure-mode
-     clj-refactor
      color-theme-zenburn
      company-mode
      dash
      diminish
-     elpy
      el-spice
      flymake-cursor
-     go-mode
-     go-company
-     go-def
-     go-eldoc
-     go-errcheck-el
-     go-flymake
-     go-imports
-     go-lint
      ibuffer-vc
      magit
      markdown-mode
