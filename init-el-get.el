@@ -91,5 +91,3 @@
      '(emacs-eclim))))
 
 (el-get 'sync el-get-my-packages)
-
-(provide 'init-el-get)

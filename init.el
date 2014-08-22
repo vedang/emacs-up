@@ -46,7 +46,6 @@
 
 ;;; El-Get for great good
 (load el-get-config-file)
-(require 'init-el-get)
 
 ;;; Define my programming modes.
 (defvar vedang/programming-major-modes
