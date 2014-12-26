@@ -27,6 +27,12 @@
 
 (add-hook 'occur-mode-hook 'next-error-follow-minor-mode)
 
+(require 'dired)
+(require 'wdired)
+(setq wdired-allow-to-change-permissions t
+      wdired-use-interactive-rename nil
+      wdired-confirm-overwrite t)
+
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)
   (if (member major-mode vedang/programming-major-modes)
