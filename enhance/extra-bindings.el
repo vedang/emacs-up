@@ -27,10 +27,6 @@
 ;;; Window switching. (C-x o goes to the next window)
 ;;; Emacs-starter-kit
 (windmove-default-keybindings) ;; Shift+direction
-;; back one
-(global-set-key (kbd "C-x O") (lambda () (interactive) (other-window -1)))
-;; forward two
-(global-set-key (kbd "C-x C-o") (lambda () (interactive) (other-window 2)))
 
 ;;; Keybindings from Steve Yegge's Effective Emacs
 (global-set-key (kbd "C-x C-m") 'execute-extended-command) ;; faster M-x
