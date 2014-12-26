@@ -6,3 +6,6 @@ el-get/
 loaddefs.el
 tramp
 personal.el
+elpa/
+ido.last
+url/
