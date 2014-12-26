@@ -44,7 +44,14 @@
                :checkout "4ccf133"
                :after (progn (yas-global-mode 1)))
         (:name dash-at-point
-               :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))))
+               :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
+        (:name ace-window
+               :after (progn (global-set-key (kbd "A-w") 'ace-window)))
+        (:name change-inner
+               :after (progn (global-set-key (kbd "M-i") 'change-inner)
+                             (global-set-key (kbd "M-o") 'change-outer)))
+        (:name expand-region
+               :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))))
 
 
 ;;; This is the order in which the packages are loaded. Changing this
@@ -77,13 +84,16 @@
    '(ace-jump-mode
      org-mode
      org-mode-crate
+     org-jira
      color-theme-zenburn
      company-mode
      dash
      diminish
      el-spice
      flymake-cursor
+     grep+
      ibuffer-vc
+     lua-mode
      magit
      markdown-mode
      multiple-cursors

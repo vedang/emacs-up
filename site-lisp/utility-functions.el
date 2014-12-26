@@ -65,6 +65,9 @@
 
 
 ;;; by Nikolaj Schumacher, 2008-10-20. Released under GPL.
+;; NOTE: This function is rendered unnecessary since we now install
+;; `magnars/expange-region'. Keeping this around because it's a nice
+;; function that I like.
 (defun uf/extend-selection (arg &optional incremental)
   "Select the current word.
 Subsequent calls expands the selection to larger semantic unit."

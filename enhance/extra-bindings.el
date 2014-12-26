@@ -16,7 +16,6 @@
 
 (require 'utility-functions)
 (global-set-key (kbd "C-w") 'uf/backward-kill-word-or-kill-region)
-(global-set-key (kbd "M-8") 'uf/extend-selection)
 (global-set-key (kbd "C-x M-s") 'uf/transpose-windows)
 (global-set-key (kbd "C-c n") 'uf/cleanup-buffer)
 
