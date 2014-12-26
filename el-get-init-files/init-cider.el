@@ -34,7 +34,10 @@
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (eval-after-load 'cider-mode
-  '(define-key cider-mode-map (kbd "C-c z") 'cider-selector))
+  '(progn
+     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
+     (unless (fboundp 'eldoc-beginning-of-sexp)
+       (defalias 'eldoc-beginning-of-sexp 'elisp--beginning-of-sexp))))
 
 
 (provide 'init-cider)
