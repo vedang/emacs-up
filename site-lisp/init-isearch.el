@@ -50,13 +50,17 @@ vice-versa. depending on the `use-default?' arg."
 (add-hook 'isearch-mode-hook 'is/subst-isearch-yank-word-or-char)
 
 
+(defun is/activate-occur ()
+  (interactive)
+  (let ((case-fold-search isearch-case-fold-search))
+    (occur (if isearch-regexp
+               isearch-string
+             (regexp-quote isearch-string)))))
+
+
 ;; Activate occur easily inside isearch
 (define-key isearch-mode-map (kbd "C-o")
-  (lambda () (interactive)
-    (let ((case-fold-search isearch-case-fold-search))
-      (occur (if isearch-regexp
-                 isearch-string
-               (regexp-quote isearch-string))))))
+  'is/activate-occur)
 
 
 ;; Use regex searches by default.
