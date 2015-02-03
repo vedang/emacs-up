@@ -1,5 +1,12 @@
-# Emacs-Up
-An extensible, easy to maintain emacs config for your coding needs.
+Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
+
+***
+- [Things that are built-in](#things-that-are-built-in)
+- [Things that are in the pipeline](#things-that-are-in-the-pipeline)
+- [Pre-requisites](#pre-requisites)
+- [Installation Instructions](#installation-instructions)
+- [Caveats](#caveats)
+- [Upgrade Instructions](#upgrade-instructions)
 
 ## Things that are built-in
 
@@ -31,7 +38,7 @@ An extensible, easy to maintain emacs config for your coding needs.
 
 2. Email through Emacs
 
-## Pre-requisites ##
+## Pre-requisites 
 
 The following tools should be installed and available on the system:
 - [git](http://git-scm.com/)
@@ -62,8 +69,8 @@ be available at `/usr/local/bin/git`
 
    Don't worry, your perfect environment is being baked with love.
 
-3. Follow the instructions in Caveats to install third party software
-   required for various modes.
+3. Follow the instructions in the [Caveats](#caveats) section to install 
+   third party software required for various modes.
 
 4. ...
 
@@ -96,7 +103,7 @@ be available at `/usr/local/bin/git`
    middleware in order to work properly. Please follow the
    instructions
    [here](https://github.com/clojure-emacs/cider#cider-nrepl-middleware)
-   to install `cider-nrepl` (ver v0.7.0).
+   to install `cider-nrepl` (curr ver v0.8.2).
 
 3. Python interactive development through Elpy
 
@@ -119,3 +126,14 @@ be available at `/usr/local/bin/git`
    <code>
    $ gocode set propose-builtins true
    </code>
+   
+## Upgrade Instructions
+
+1. Close running `emacs` session
+2. Fetch the latest changes from `vedang/emacs-up`
+3. Start `emacs` and run the following code:
+   <pre>
+   M-x el-get-self-update
+   M-x el-get-update-all
+   </pre>
+4. Restart `emacs`
