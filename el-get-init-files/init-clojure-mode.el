@@ -76,9 +76,18 @@
                      (icl/midje-implementation-for (clojure-find-ns)))))
 
 
+(defun icl/clojure-in-tests-p ()
+  "Check whether the current file is a test file.
+  Two checks are made - whether the namespace of the file has the
+  word test in it and whether the file lives under the test/
+  directory."
+  (or (string-match-p "test\." (clojure-find-ns))
+      (string-match-p "/test" (buffer-file-name))))
+
+
 (defun icl/midje-jump-between-tests-and-code ()
   (interactive)
-  (if (clojure-in-tests-p)
+  (if (icl/clojure-in-tests-p)
       (icl/midje-jump-to-implementation)
     (icl/midje-jump-to-test)))
 
