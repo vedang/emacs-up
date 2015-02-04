@@ -65,7 +65,8 @@
    (when (and (boundp configure-clojure-p)
               configure-clojure-p)
      '(clojure-mode
-       clj-refactor))
+       clj-refactor
+       clojure-snippets))
    (when (and (boundp configure-python-p)
               configure-python-p)
      '(elpy))
