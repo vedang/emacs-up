@@ -36,22 +36,25 @@
 ;; Tie volatile stuff down, so that configuration does not break.
 ;; Add configuration for recipes that need very minor configuration.
 (setq el-get-sources
-      '((:name cider
-               :checkout "v0.8.2")
-        (:name writegood
-               :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
-        (:name yasnippet
-               :checkout "197ef7f"
-               :after (progn (yas-global-mode 1)))
-        (:name dash-at-point
-               :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
-        (:name ace-window
-               :after (progn (global-set-key (kbd "A-w") 'ace-window)))
-        (:name change-inner
-               :after (progn (global-set-key (kbd "M-i") 'change-inner)
-                             (global-set-key (kbd "M-o") 'change-outer)))
-        (:name expand-region
-               :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))))
+      (append
+       (when (and (boundp configure-clojure-p)
+                  configure-clojure-p)
+         '((:name cider
+                  :checkout "v0.8.2")))
+       '((:name writegood
+                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+         (:name yasnippet
+                :checkout "197ef7f"
+                :after (progn (yas-global-mode 1)))
+         (:name dash-at-point
+                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
+         (:name ace-window
+                :after (progn (global-set-key (kbd "A-w") 'ace-window)))
+         (:name change-inner
+                :after (progn (global-set-key (kbd "M-i") 'change-inner)
+                              (global-set-key (kbd "M-o") 'change-outer)))
+         (:name expand-region
+                :after (progn (global-set-key (kbd "C-=") 'er/expand-region))))))
 
 
 ;;; This is the order in which the packages are loaded. Changing this
