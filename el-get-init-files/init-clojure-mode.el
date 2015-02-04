@@ -43,8 +43,13 @@
 ;;; Hat-tip : Kapil Reddy
 ;;; https://github.com/kapilreddy/dotemacs/blob/5d6cfc2215b8f1eb2dd0ca14d871478fee053db3/configurations/clojure-config.el
 
+(defun icl/clojure-underscores-for-hyphens (namespace)
+  "Replace all hyphens in NAMESPACE with underscores."
+  (replace-regexp-in-string "-" "_" namespace))
+
+
 (defun icl/midje-test-for (namespace)
-  (let* ((namespace (clojure-underscores-for-hyphens namespace))
+  (let* ((namespace (icl/clojure-underscores-for-hyphens namespace))
          (segments (split-string namespace "\\."))
          (test-segments (append (list "test") segments)))
     (mapconcat 'identity test-segments "/")))
@@ -60,7 +65,7 @@
 
 
 (defun icl/midje-implementation-for (namespace)
-  (let* ((namespace (clojure-underscores-for-hyphens namespace))
+  (let* ((namespace (icl/clojure-underscores-for-hyphens namespace))
          (segments (split-string (replace-regexp-in-string "_test"
                                                            ""
                                                            namespace)
@@ -92,13 +97,18 @@
     (icl/midje-jump-to-test)))
 
 
+;; *** DEPRECATED ***
 (defun icl/midje-test-maybe-enable ()
-  "Stop clojure-test-mode from loading, instead use my midje functions"
+  "Stop clojure-test-mode from loading, instead use my midje functions
+
+  Deprecation Notice: `clojure-test-mode' no longer exists,
+  making this function unnecessary. It will be removed in a
+  future version."
   (let ((ns (clojure-find-ns)))
     (when (and ns (string-match "test\\(\\.\\|$\\)" ns))
-      (if (and (listp clojure-mode-hook)
-               (memq 'clojure-test-maybe-enable clojure-mode-hook))
-          (remove-hook 'clojure-mode-hook 'clojure-test-maybe-enable)))))
+      (when (and (listp clojure-mode-hook)
+                 (memq 'clojure-test-maybe-enable clojure-mode-hook))
+        (remove-hook 'clojure-mode-hook 'clojure-test-maybe-enable)))))
 
 
 (eval-after-load 'clojure-mode
@@ -110,9 +120,10 @@
      (add-hook 'clojure-mode-hook 'icl/pretty-fns)
      (add-hook 'clojure-mode-hook 'icl/pretty-sets)
      (add-hook 'clojure-mode-hook 'icl/pretty-reader-macros)
-     ;; I use Midje for writing clojure tests.
-     ;; Activating clojure-test-mode is irritating for me.
-     ;; Didn't want to change lib mode, so removing it here.
+     ;; *** DEPRECATED ***
+     ;; Adding the `icl/midje-test-maybe-enable' hook is unnecessary,
+     ;; since `clojure-test-mode' no longer exists. The call and
+     ;; associated function will be deleted in a future commit
      (add-hook 'clojure-mode-hook 'icl/midje-test-maybe-enable)
      (add-hook 'clojure-mode-hook 'subword-mode)
      (define-key clojure-mode-map (kbd "C-c t")
