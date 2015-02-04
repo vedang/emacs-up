@@ -19,6 +19,6 @@
 ;; Eg: if you program in clojure, you should set `configure-clojure-p' to `t'
 
 
-(setq configure-clojure-p nil
-      configure-go-p nil
-      configure-python-p nil)
+(setq configure-clojure-p t
+      configure-go-p t
+      configure-python-p t)
