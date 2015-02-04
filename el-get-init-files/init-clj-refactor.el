@@ -15,12 +15,13 @@
 ;;; Code:
 
 
-(eval-after-load "clojure-mode"
+(defun turn-on-clj-refactor ()
+  (clj-refactor-mode 1)
+  (cljr-add-keybindings-with-prefix "C-c m"))
+
+(eval-after-load 'clojure-mode
   '(progn
-     (add-hook 'clojure-mode-hook
-               (lambda ()
-                 (clj-refactor-mode 1)
-                 (cljr-add-keybindings-with-prefix "C-c m")))))
+     (add-hook 'clojure-mode-hook 'turn-on-clj-refactor)))
 
 
 (provide 'init-clj-refactor)
