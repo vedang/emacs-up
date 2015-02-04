@@ -41,7 +41,7 @@
         (:name writegood
                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
         (:name yasnippet
-               :checkout "4ccf133"
+               :checkout "197ef7f"
                :after (progn (yas-global-mode 1)))
         (:name dash-at-point
                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
