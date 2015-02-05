@@ -95,6 +95,4 @@ right mode to start in the buffer."
 (eval-after-load 'eldoc
   '(setq eldoc-minor-mode-string nil))
 
-(add-to-list 'hippie-expand-try-functions-list 'yas/hippie-try-expand t)
-
 (provide 'site-lisp)

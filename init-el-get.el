@@ -43,9 +43,14 @@
                   :checkout "v0.8.2")))
        '((:name writegood
                 :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+         (:name smart-tab
+                :after (progn (setq smart-tab-using-hippie-expand t)
+                              (global-smart-tab-mode 1)))
          (:name yasnippet
                 :checkout "197ef7f"
-                :after (progn (yas-global-mode 1)))
+                :after (progn (yas-global-mode 1)
+                              (add-to-list 'hippie-expand-try-functions-list
+                                           'yas/hippie-try-expand)))
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
          (:name ace-window
@@ -103,7 +108,6 @@
      multiple-cursors
      paredit
      s
-     smart-tab
      smex
      unbound
      wgrep)
