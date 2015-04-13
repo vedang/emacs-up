@@ -57,7 +57,7 @@ right mode to start in the buffer."
 ;; Bindings
 (global-set-key (kbd "M-j") 'pop-to-mark-command)
 (global-set-key (kbd "RET") 'reindent-then-newline-and-indent)
-(global-set-key (kbd "M-g") 'goto-line)
+(global-set-key (kbd "A-l") 'goto-line)
 (global-set-key (kbd "C-x n r") 'narrow-to-region)
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "M-/") 'hippie-expand)
