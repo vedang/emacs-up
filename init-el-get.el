@@ -50,7 +50,7 @@
                 :checkout "197ef7f"
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
-                                           'yas/hippie-try-expand)))
+                                           'yas-hippie-try-expand)))
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
          (:name ace-window
