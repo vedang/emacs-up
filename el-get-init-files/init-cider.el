@@ -28,7 +28,9 @@
       nrepl-buffer-name-show-port t
       nrepl-log-messages t
       cider-switch-to-repl-command 'cider-switch-to-current-repl-buffer
-      cider-mode-line nil)
+      cider-mode-line nil
+      cider-annotate-completion-candidates t
+      cider-completion-annotations-include-ns t)
 
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
