@@ -30,7 +30,8 @@
       cider-switch-to-repl-command 'cider-switch-to-current-repl-buffer
       cider-mode-line nil
       cider-annotate-completion-candidates t
-      cider-completion-annotations-include-ns t)
+      cider-completion-annotations-include-ns t
+      cider-show-error-buffer 'except-in-repl)
 
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
