@@ -40,7 +40,7 @@
        (when (and (boundp configure-clojure-p)
                   configure-clojure-p)
          '((:name cider
-                  :checkout "v0.8.2")))
+                  :checkout "v0.9.0")))
        '((:name writegood
                 :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
          (:name smart-tab

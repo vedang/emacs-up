@@ -30,17 +30,16 @@
       cider-switch-to-repl-command 'cider-switch-to-current-repl-buffer
       cider-mode-line nil
       cider-annotate-completion-candidates t
-      cider-completion-annotations-include-ns t
-      cider-show-error-buffer 'except-in-repl)
+      cider-completion-annotations-include-ns 'always
+      cider-show-error-buffer 'except-in-repl
+      cider-prompt-for-symbol nil)
 
 
-(add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)
+(add-hook 'cider-mode-hook 'eldoc-mode)
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (eval-after-load 'cider-mode
   '(progn
-     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
-     (unless (fboundp 'eldoc-beginning-of-sexp)
-       (defalias 'eldoc-beginning-of-sexp 'elisp--beginning-of-sexp))))
+     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)))
 
 
 (provide 'init-cider)
