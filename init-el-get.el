@@ -102,6 +102,7 @@
      flymake-cursor
      grep+
      ibuffer-vc
+     ledger-mode
      lua-mode
      magit
      markdown-mode
