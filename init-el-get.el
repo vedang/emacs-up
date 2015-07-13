@@ -33,6 +33,12 @@
 
 (add-to-list 'el-get-recipe-path el-get-my-recipes)
 
+;;; This is the order in which the packages are loaded. Changing this
+;;; order can sometimes lead to nasty surprises, especially when you
+;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
+(when (eq system-type 'darwin)
+  (el-get 'sync '(exec-path-from-shell)))
+
 ;; Tie volatile stuff down, so that configuration does not break.
 ;; Add configuration for recipes that need very minor configuration.
 (setq el-get-sources
@@ -41,6 +47,13 @@
                   configure-clojure-p)
          '((:name cider
                   :checkout "v0.9.0")))
+       (when (and (boundp configure-rust-p)
+                  configure-rust-p)
+         (if (executable-find "rustc")
+             '((:name rust-mode
+                      :after (progn (add-to-list 'auto-mode-alist
+                                                 '("\\.rs\\'" . rust-mode)))))
+           (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
        '((:name writegood
                 :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
          (:name smart-tab
@@ -61,12 +74,6 @@
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-=") 'er/expand-region))))))
 
-
-;;; This is the order in which the packages are loaded. Changing this
-;;; order can sometimes lead to nasty surprises, especially when you
-;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
-(when (eq system-type 'darwin)
-  (el-get 'sync '(exec-path-from-shell)))
 
 (defvar el-get-my-packages
   (append
@@ -89,7 +96,7 @@
            go-flymake
            go-imports
            go-lint)
-       (error "Golang programming is configured, but I can't find the go binary! Have you read the README file?")))
+       (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
    '(ace-jump-mode
      org-mode
      org-mode-crate

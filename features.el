@@ -21,4 +21,5 @@
 
 (setq configure-clojure-p t
       configure-go-p t
-      configure-python-p t)
+      configure-python-p t
+      configure-rust-p t)
