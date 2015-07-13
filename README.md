@@ -16,7 +16,7 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
    - Org Mode
    - Python Mode
    - Go Mode
-
+   - Rust Mode
 
 2. Other minor but important additions:
    - Ace Jump Mode
@@ -38,7 +38,7 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
 
 2. Email through Emacs
 
-## Pre-requisites 
+## Pre-requisites
 
 The following tools should be installed and available on the system:
 - [git](http://git-scm.com/)
@@ -69,7 +69,7 @@ be available at `/usr/local/bin/git`
 
    Don't worry, your perfect environment is being baked with love.
 
-3. Follow the instructions in the [Caveats](#caveats) section to install 
+3. Follow the instructions in the [Caveats](#caveats) section to install
    third party software required for various modes.
 
 4. ...
@@ -99,11 +99,15 @@ be available at `/usr/local/bin/git`
 
    [cider](https://github.com/clojure-emacs/cider) needs a one time
    setup of
-   [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl)
+   [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl) and
+   [refactor-nrepl](https://github.com/clojure-emacs/refactor-nrepl)
    middleware in order to work properly. Please follow the
    instructions
    [here](https://github.com/clojure-emacs/cider#cider-nrepl-middleware)
-   to install `cider-nrepl` (curr ver v0.8.2).
+   to install `cider-nrepl` (curr ver v0.9.0). Please follow the
+   instructions
+   [here](https://github.com/clojure-emacs/clj-refactor.el#setup) to
+   install `refactor-nrepl` (curr ver v1.1.0).
 
 3. Python interactive development through Elpy
 
@@ -126,7 +130,15 @@ be available at `/usr/local/bin/git`
    <code>
    $ gocode set propose-builtins true
    </code>
-   
+
+5. Rust development
+
+   Rust integration is simplistic - depends on `rust-mode` for all
+   functionality - and only requires the presence of the rustlang
+   compiler. Refer
+   [this document](http://doc.rust-lang.org/book/installing-rust.html)
+   for instructions.
+
 ## Upgrade Instructions
 
 1. Close running `emacs` session
