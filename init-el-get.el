@@ -117,6 +117,7 @@
      paredit
      s
      smex
+     toml-mode
      unbound
      wgrep)
    (mapcar 'el-get-source-name el-get-sources)
