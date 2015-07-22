@@ -66,8 +66,6 @@
                                            'yas-hippie-try-expand)))
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
-         (:name ace-window
-                :after (progn (global-set-key (kbd "A-w") 'ace-window)))
          (:name change-inner
                 :after (progn (global-set-key (kbd "M-i") 'change-inner)
                               (global-set-key (kbd "M-o") 'change-outer)))
@@ -97,7 +95,8 @@
            go-imports
            go-lint)
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
-   '(ace-jump-mode
+   '(avy
+     ace-window
      org-mode
      org-mode-crate
      org-jira
