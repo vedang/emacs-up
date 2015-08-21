@@ -46,7 +46,9 @@
        (when (and (boundp configure-clojure-p)
                   configure-clojure-p)
          '((:name cider
-                  :checkout "v0.9.0")))
+                  :checkout "v0.9.1")
+           (:name clj-refactor
+                  :checkout "1.1.0")))
        (when (and (boundp configure-rust-p)
                   configure-rust-p)
          (if (executable-find "rustc")
@@ -78,7 +80,6 @@
    (when (and (boundp configure-clojure-p)
               configure-clojure-p)
      '(clojure-mode
-       clj-refactor
        clojure-snippets))
    (when (and (boundp configure-python-p)
               configure-python-p)
