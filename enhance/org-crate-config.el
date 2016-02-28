@@ -136,4 +136,13 @@
 (setq org-html-head-extra
       "<style type=\"text/css\">  body { font-family:sans-serif; font-size: small; } code {font-size: medium;} </style>")
 
+;; https://lists.gnu.org/archive/html/emacs-orgmode/2011-06/msg00716.html
+(defun vm/org-extract-link ()
+  "Extract the link location at point and put it on the killring."
+  (interactive)
+  (when (org-in-regexp org-bracket-link-regexp 1)
+    (kill-new (org-link-unescape (org-match-string-no-properties 1)))))
+
+(global-set-key (kbd "C-c M-l") 'vm/org-extract-link)
+
 (provide 'org-crate-config)
