@@ -52,6 +52,10 @@
            (:name flycheck-clojure
                   :after (progn (eval-after-load 'flycheck
                                   '(flycheck-clojure-setup))))))
+       (when (and (boundp configure-python-p)
+                  configure-python-p)
+         '((:name elpy
+                  :after (progn (elpy-enable)))))
        (when (and (boundp configure-rust-p)
                   configure-rust-p)
          (if (executable-find "rustc")
@@ -84,9 +88,6 @@
               configure-clojure-p)
      '(clojure-mode
        clojure-snippets))
-   (when (and (boundp configure-python-p)
-              configure-python-p)
-     '(elpy))
    (when (and (boundp configure-go-p)
               configure-go-p)
      (if (executable-find "go")
