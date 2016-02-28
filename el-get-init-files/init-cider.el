@@ -19,11 +19,17 @@
   (setq tempfiles-dirname "~/.emacs.d/"))
 
 
+(defun cider-repl-prompt-on-newline (namespace)
+  "Return a prompt string with newline"
+  (concat namespace ">\n"))
+
+
 (setq cider-repl-popup-stacktraces t
       cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
       cider-repl-history-size most-positive-fixnum
       cider-repl-print-length 100
       cider-repl-wrap-history t
+      cider-repl-prompt-function 'cider-repl-prompt-on-newline
       nrepl-buffer-name-separator "-"
       nrepl-buffer-name-show-port t
       nrepl-log-messages t
