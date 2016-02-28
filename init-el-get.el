@@ -69,7 +69,6 @@
                 :after (progn (setq smart-tab-using-hippie-expand t)
                               (global-smart-tab-mode 1)))
          (:name yasnippet
-                :checkout "197ef7f"
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
                                            'yas-hippie-try-expand)))
