@@ -48,7 +48,10 @@
          '((:name cider
                   :checkout "v0.9.1")
            (:name clj-refactor
-                  :checkout "1.1.0")))
+                  :checkout "1.1.0")
+           (:name flycheck-clojure
+                  :after (progn (eval-after-load 'flycheck
+                                  '(flycheck-clojure-setup))))))
        (when (and (boundp configure-rust-p)
                   configure-rust-p)
          (if (executable-find "rustc")
@@ -107,6 +110,8 @@
      diminish
      el-spice
      flymake-cursor
+     flycheck
+     flycheck-pos-tip
      grep+
      ibuffer-vc
      ledger-mode
