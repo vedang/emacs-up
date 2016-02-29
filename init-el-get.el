@@ -87,6 +87,11 @@
               configure-clojure-p)
      '(clojure-mode
        clojure-snippets))
+   (when (and (boundp configure-scheme-p)
+              configure-scheme-p)
+     (if (executable-find "csi")
+         '(geiser)
+       (error "Scheme programming (via Chicken) is configured, but I can't find the `csi' binary! Have you read the README file?")))
    (when (and (boundp configure-go-p)
               configure-go-p)
      (if (executable-find "go")

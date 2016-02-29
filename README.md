@@ -11,22 +11,23 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
 ## Things that are built-in
 
 1. Working and well-tuned configurations for:
-   - Clojure Mode
-   - Emacs Lisp Mode
-   - Org Mode
-   - Python Mode
-   - Go Mode
-   - Rust Mode
+   - Clojure Programming (CIDER + other minor modes)
+   - Emacs Lisp Programming (ElSpice + other minor modes)
+   - Note-taking and Task-tracking through Org Mode
+   - Python Programming (ElPy + other minor modes)
+   - Go Programming (Official Modes provided by the Golang Team)
+   - Rust Programming
+   - Scheme Programming (Geiser + other minor modes)
 
 2. Other minor but important additions:
-   - Ace Jump Mode
-   - Company Mode
-   - Ido Mode in high gear
-   - Magit
-   - Multiple Cursors
-   - Paredit
-   - YASnippets
-   - Correct path manipulation on OS X
+   - Avy Mode (Jumping and Navigation)
+   - Company Mode (Completion)
+   - Ido Mode in high gear (Completion and Navigation)
+   - Magit (Git Interface)
+   - Multiple Cursors (Editing)
+   - Paredit (Editing Lispy things)
+   - YASnippets (Templating and Boiler Plate)
+   - Correct path manipulation on OS X (System)
 
 3. Better defaults than "pure" Emacs.
 
@@ -104,7 +105,7 @@ be available at `/usr/local/bin/git`
    middleware in order to work properly. Please follow the
    instructions
    [here](https://github.com/clojure-emacs/cider#cider-nrepl-middleware)
-   to install `cider-nrepl` (curr ver v0.9.0). Please follow the
+   to install `cider-nrepl` (curr ver v0.9.1). Please follow the
    instructions
    [here](https://github.com/clojure-emacs/clj-refactor.el#setup) to
    install `refactor-nrepl` (curr ver v1.1.0).
@@ -112,12 +113,8 @@ be available at `/usr/local/bin/git`
 3. Python interactive development through Elpy
 
    [Elpy](https://github.com/jorgenschaefer/elpy/) needs a one-time
-   setup of the following packages: `ipython` and `rope`. You
-   can install them as follows:
-
-   <code>
-   $ sudo pip install ipython rope
-   </code>
+   setup of Python packages. Please follow the installation
+   instructions on the Elpy Page.
 
 4. Golang development
 
@@ -138,6 +135,18 @@ be available at `/usr/local/bin/git`
    compiler. Refer
    [this document](http://doc.rust-lang.org/book/installing-rust.html)
    for instructions.
+
+6. Scheme development
+
+   Scheme integration is provided or Chicken Scheme, and interactive
+   development is implemented through Geiser. Refer
+   [this document](http://code.call-cc.org/) for instructions to
+   install Chicken Scheme. On a Mac, it can be easily installed
+   through Homebrew using:
+
+   <code>
+   $ brew install chicken
+   </code>
 
 ## Upgrade Instructions
 
