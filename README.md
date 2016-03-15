@@ -98,17 +98,22 @@ be available at `/usr/local/bin/git`
 
 2. Clojure interactive development through Cider
 
-   [cider](https://github.com/clojure-emacs/cider) needs a one time
-   setup of
-   [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl) and
-   [refactor-nrepl](https://github.com/clojure-emacs/refactor-nrepl)
+   [cider](https://github.com/clojure-emacs/cider/tree/v0.11.0) needs
+   a one time setup of
+   [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl/tree/v0.11.0),
+   [refactor-nrepl](https://github.com/clojure-emacs/refactor-nrepl/tree/v2.0.0)
+   and
+   [squigly-clojure](https://github.com/clojure-emacs/squiggly-clojure)
    middleware in order to work properly. Please follow the
    instructions
-   [here](https://github.com/clojure-emacs/cider#cider-nrepl-middleware)
-   to install `cider-nrepl` (curr ver v0.9.1). Please follow the
+   [here](https://github.com/clojure-emacs/cider/tree/v0.11.0#setting-up-a-standalone-repl)
+   to install `cider-nrepl` (curr ver v0.11.0). Please follow the
    instructions
-   [here](https://github.com/clojure-emacs/clj-refactor.el#setup) to
-   install `refactor-nrepl` (curr ver v1.1.0).
+   [here](https://github.com/clojure-emacs/clj-refactor.el/tree/2.0.0#setup)
+   to install `refactor-nrepl` (curr ver v2.0.0). Please follow the
+   instructions
+   [here](https://github.com/clojure-emacs/squiggly-clojure#dependencies-in-clojure)
+   to install `squigly-clojure` (curr ver v0.1.5).
 
 3. Python interactive development through Elpy
 

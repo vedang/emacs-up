@@ -46,9 +46,9 @@
        (when (and (boundp configure-clojure-p)
                   configure-clojure-p)
          '((:name cider
-                  :checkout "v0.9.1")
+                  :checkout "v0.11.0")
            (:name clj-refactor
-                  :checkout "1.1.0")
+                  :checkout "2.0.0")
            (:name flycheck-clojure
                   :after (progn (eval-after-load 'flycheck
                                   '(flycheck-clojure-setup))))))
@@ -65,6 +65,10 @@
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
        '((:name writegood
                 :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+         (:name flycheck-pos-tip
+                :after (progn (eval-after-load 'flycheck
+                                '(setq flycheck-display-errors-function
+                                       #'flycheck-pos-tip-error-messages))))
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t)
                               (global-smart-tab-mode 1)))
@@ -116,7 +120,6 @@
      el-spice
      flymake-cursor
      flycheck
-     flycheck-pos-tip
      grep+
      ibuffer-vc
      ledger-mode

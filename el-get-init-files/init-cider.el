@@ -30,6 +30,7 @@
       cider-repl-print-length 100
       cider-repl-wrap-history t
       cider-repl-prompt-function 'cider-repl-prompt-on-newline
+      cider-repl-display-help-banner nil
       nrepl-buffer-name-separator "-"
       nrepl-buffer-name-show-port t
       nrepl-log-messages t
