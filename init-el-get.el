@@ -117,6 +117,7 @@
      company-mode
      dash
      diminish
+     edebug-x
      el-spice
      flymake-cursor
      flycheck
@@ -124,6 +125,7 @@
      ibuffer-vc
      ledger-mode
      lua-mode
+     macrostep
      magit
      markdown-mode
      multiple-cursors
