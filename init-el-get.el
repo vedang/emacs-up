@@ -85,7 +85,9 @@
                 :after (progn (global-set-key (kbd "M-i") 'change-inner)
                               (global-set-key (kbd "M-o") 'change-outer)))
          (:name expand-region
-                :after (progn (global-set-key (kbd "C-=") 'er/expand-region))))))
+                :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
+         (:name ag
+                :after (progn (setq ag-highlight-search t))))))
 
 
 (defvar el-get-my-packages
