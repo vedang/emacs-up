@@ -1,4 +1,5 @@
 ;;; init-cider.el --- Configuration for Cider.
+;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 27 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -19,9 +20,10 @@
   (setq tempfiles-dirname "~/.emacs.d/"))
 
 
-(defun cider-repl-prompt-on-newline (namespace)
-  "Return a prompt string with newline"
-  (concat namespace ">\n"))
+(defun cider-repl-prompt-on-newline (ns)
+  "Return a prompt string with newline.
+NS is the namespace information passed into the function by cider."
+  (concat ns ">\n"))
 
 
 (setq cider-repl-popup-stacktraces t
@@ -46,7 +48,8 @@
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (eval-after-load 'cider-mode
   '(progn
-     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)))
+     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
+     (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)))
 
 
 (provide 'init-cider)
