@@ -1,4 +1,5 @@
-;;; configure-ido.el - Configuration for ido mode
+;;; init-ido.el --- Configuration for ido mode
+;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 18 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

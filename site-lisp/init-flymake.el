@@ -34,13 +34,11 @@
 ;; http://git.vo20.nl/
 ;; Fix for nasty `cannot open doc string file` flymake error
 (defun if/flymake-create-temp-intemp (file-name prefix)
-  "Return file name in temporary directory for checking FILE-NAME.
-  This is a replacement for `flymake-create-temp-inplace'. The
-  difference is that it gives a file name in
+  "Return file name in temporary directory for checking
+  FILE-NAME. This is a replacement for `flymake-create-temp-inplace'.
+  The difference is that it gives a file name in
   `temporary-file-directory' instead of the same directory as
-  FILE-NAME.
-
-  For the use of PREFIX see that function.
+  FILE-NAME.  For the use of PREFIX see that function.
 
   Note that not making the temporary file in another directory
   \(like here) will not if the file you are checking depends on
@@ -83,3 +81,4 @@
      ))
 
 (provide 'init-flymake)
+;;; init-flymake.el ends here

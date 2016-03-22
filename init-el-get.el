@@ -65,10 +65,13 @@
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
        '((:name writegood
                 :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+         (:name flycheck
+                :after (progn (global-flycheck-mode 1)))
          (:name flycheck-pos-tip
                 :after (progn (eval-after-load 'flycheck
-                                '(setq flycheck-display-errors-function
-                                       #'flycheck-pos-tip-error-messages))))
+                                '(progn (require 'flycheck-pos-tip)
+                                        (setq flycheck-display-errors-function
+                                              #'flycheck-pos-tip-error-messages)))))
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t)
                               (global-smart-tab-mode 1)))
@@ -119,8 +122,6 @@
      diminish
      edebug-x
      el-spice
-     flymake-cursor
-     flycheck
      grep+
      ibuffer-vc
      ledger-mode
