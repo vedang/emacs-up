@@ -48,9 +48,10 @@
       `((".*" ,(concat tempfiles-dirname "auto-save-list/") t)))
 
 ;; Completion ignores filenames ending in any string in this list.
-(setq completion-ignored-extensions
-      '(".o" ".elc" "~" ".bin" ".class" ".exe" ".ps" ".abs" ".mx"
-        ".~jv" ".rbc" ".pyc" ".beam" ".aux" ".out" ".pdf" ".hbc"))
+(setq vm/completion-ignored-extensions
+      '(".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".beam" ".out" ".hbc"))
+(dolist (ext vm/completion-ignored-extensions)
+  (add-to-list 'completion-ignored-extensions ext))
 
 ;;; Everything in UTF8
 (prefer-coding-system 'utf-8)
