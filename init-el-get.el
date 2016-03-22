@@ -124,7 +124,9 @@
      diminish
      edebug-x
      el-spice
+     emacs-async
      grep+
+     helm
      ibuffer-vc
      ledger-mode
      lua-mode

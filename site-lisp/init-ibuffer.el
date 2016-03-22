@@ -23,7 +23,8 @@
   (ibuffer)
   (ibuffer-switch-to-saved-filter-groups "default"))
 
-(global-set-key (kbd "C-x C-b") 'ii/turn-on-ibuffer)
+;;; Commented out to try `helm-mini' for a while
+;; (global-set-key (kbd "C-x C-b") 'ii/turn-on-ibuffer)
 
 
 (setq ibuffer-saved-filter-groups
@@ -61,3 +62,4 @@
 
 
 (provide 'init-ibuffer)
+;;; init-ibuffer ends here
