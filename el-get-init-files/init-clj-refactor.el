@@ -19,6 +19,8 @@
   (clj-refactor-mode 1)
   (cljr-add-keybindings-with-prefix "C-c m"))
 
+(setq cljr-favor-prefix-notation nil)
+
 (eval-after-load 'clojure-mode
   '(progn
      (add-hook 'clojure-mode-hook 'turn-on-clj-refactor)))
