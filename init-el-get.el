@@ -51,8 +51,9 @@
                   ;; v2.2.0 is untagged
                   :checkout "531a09f")
            (:name flycheck-clojure
-                  :after (progn (eval-after-load 'flycheck
-                                  '(flycheck-clojure-setup))))))
+                  :after (progn ;; (eval-after-load 'flycheck
+                                ;;   '(flycheck-clojure-setup))
+                                ))))
        (when (and (boundp configure-python-p)
                   configure-python-p)
          '((:name elpy
@@ -128,6 +129,7 @@
      edebug-x
      el-spice
      emacs-async
+     flymake-cursor
      grep+
      helm
      ibuffer-vc
