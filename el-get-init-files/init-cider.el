@@ -48,8 +48,11 @@ NS is the namespace information passed into the function by cider."
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (eval-after-load 'cider-mode
   '(progn
-     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
-     (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)))
+     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)))
+(eval-after-load 'cider-repl-mode
+  '(progn
+     (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)
+     (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer)))
 
 
 (provide 'init-cider)
