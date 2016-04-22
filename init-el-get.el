@@ -88,7 +88,9 @@
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
          (:name ag
-                :after (progn (setq ag-highlight-search t))))))
+                :after (progn (setq ag-highlight-search t)))
+         (:name unicode-fonts
+                :after (progn (unicode-fonts-setup))))))
 
 
 (defvar el-get-my-packages
