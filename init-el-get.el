@@ -46,9 +46,10 @@
        (when (and (boundp configure-clojure-p)
                   configure-clojure-p)
          '((:name cider
-                  :checkout "v0.11.0")
+                  :checkout "v0.12.0")
            (:name clj-refactor
-                  :checkout "2.0.0")
+                  ;; v2.2.0 is untagged
+                  :checkout "531a09f")
            (:name flycheck-clojure
                   :after (progn (eval-after-load 'flycheck
                                   '(flycheck-clojure-setup))))))
