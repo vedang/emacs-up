@@ -17,10 +17,11 @@
 
 (defvar paredit-major-modes
   '(emacs-lisp-mode lisp-mode lisp-interaction-mode clojure-mode cider-repl-mode
-                    scheme-mode ielm-mode)
-  "List of lispy modes that I use")
+                    scheme-mode ielm-mode es-mode)
+  "List of modes where I want paredit to always work.")
 
 (defun turn-on-paredit ()
+  "Utility function to turn on Paredit."
   (enable-paredit-mode)
   (show-paren-mode))
 
@@ -34,3 +35,7 @@
      ;; functions by default
      (define-key paredit-mode-map (kbd "M-s") nil)
      (define-key paredit-mode-map (kbd "M-D") 'paredit-splice-sexp)))
+
+
+(provide 'init-paredit)
+;;; init-paredit.el ends here

@@ -65,8 +65,19 @@
                       :after (progn (add-to-list 'auto-mode-alist
                                                  '("\\.rs\\'" . rust-mode)))))
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
-       '((:name writegood
-                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+       '((:name ag
+                :after (progn (setq ag-highlight-search t)))
+         (:name change-inner
+                :after (progn (global-set-key (kbd "M-i") 'change-inner)
+                              (global-set-key (kbd "M-o") 'change-outer)))
+         (:name dash-at-point
+                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
+         (:name expand-region
+                :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
+         (:name es-mode
+                :after (progn (add-to-list 'auto-mode-alist
+                                           '("\\.es$" . es-mode))
+                              (setq es-always-pretty-print t)))
          (:name flycheck
                 :after (progn (global-flycheck-mode 1)))
          (:name flycheck-pos-tip
@@ -77,21 +88,14 @@
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t)
                               (global-smart-tab-mode 1)))
+         (:name unicode-fonts
+                :after (progn (unicode-fonts-setup)))
+         (:name writegood
+                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
-                                           'yas-hippie-try-expand)))
-         (:name dash-at-point
-                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
-         (:name change-inner
-                :after (progn (global-set-key (kbd "M-i") 'change-inner)
-                              (global-set-key (kbd "M-o") 'change-outer)))
-         (:name expand-region
-                :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
-         (:name ag
-                :after (progn (setq ag-highlight-search t)))
-         (:name unicode-fonts
-                :after (progn (unicode-fonts-setup))))))
+                                           'yas-hippie-try-expand))))))
 
 
 (defvar el-get-my-packages

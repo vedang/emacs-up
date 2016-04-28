@@ -6,7 +6,8 @@
  '(package-selected-packages (quote (inflections queue)))
  '(safe-local-variable-values
    (quote
-    ((eval font-lock-add-keywords nil
+    ((checkdoc-package-keywords-flag)
+     (eval font-lock-add-keywords nil
            (\`
             (((\,
                (concat "("
