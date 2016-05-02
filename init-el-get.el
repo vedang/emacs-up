@@ -14,13 +14,13 @@
 
 ;;; Code:
 
-(setq el-get-dirname (concat dotfiles-dirname "el-get/")
+(setq el-get-dir (concat dotfiles-dirname "el-get/")
       el-get-user-package-directory (concat dotfiles-dirname
                                             "el-get-init-files/")
       el-get-my-recipes (concat el-get-user-package-directory
                                 "personal-recipes/"))
 
-(add-to-list 'load-path (concat el-get-dirname "el-get"))
+(add-to-list 'load-path (concat el-get-dir "el-get"))
 
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
