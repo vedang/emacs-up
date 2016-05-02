@@ -36,7 +36,6 @@ NS is the namespace information passed into the function by cider."
       nrepl-buffer-name-separator "-"
       nrepl-buffer-name-show-port t
       nrepl-log-messages t
-      cider-switch-to-repl-command 'cider-switch-to-current-repl-buffer
       cider-mode-line nil
       cider-annotate-completion-candidates t
       cider-completion-annotations-include-ns 'always
@@ -44,13 +43,14 @@ NS is the namespace information passed into the function by cider."
       cider-prompt-for-symbol nil)
 
 
-(add-hook 'cider-mode-hook 'eldoc-mode)
-(add-hook 'cider-repl-mode-hook 'subword-mode)
 (eval-after-load 'cider-mode
   '(progn
+     (add-hook 'cider-mode-hook 'eldoc-mode)
      (define-key cider-mode-map (kbd "C-c z") 'cider-selector)))
+
 (eval-after-load 'cider-repl
   '(progn
+     (add-hook 'cider-repl-mode-hook 'subword-mode)
      (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)
      (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer)))
 
