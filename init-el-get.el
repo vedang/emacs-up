@@ -65,9 +65,7 @@
                       :after (progn (add-to-list 'auto-mode-alist
                                                  '("\\.rs\\'" . rust-mode)))))
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
-       '((:name ag
-                :after (progn (setq ag-highlight-search t)))
-         (:name change-inner
+       '((:name change-inner
                 :after (progn (global-set-key (kbd "M-i") 'change-inner)
                               (global-set-key (kbd "M-o") 'change-outer)))
          (:name dash-at-point
@@ -121,7 +119,8 @@
            go-imports
            go-lint)
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
-   '(avy
+   '(ag
+     avy
      ace-window
      org-mode
      org-mode-crate
