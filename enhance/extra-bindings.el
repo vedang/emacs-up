@@ -27,11 +27,6 @@
 ;;; Emacs-starter-kit
 (windmove-default-keybindings) ;; Shift+direction
 
-;;; Keybindings from Steve Yegge's Effective Emacs
-(global-set-key (kbd "C-x C-m") 'execute-extended-command) ;; faster M-x
-(global-set-key (kbd "C-c C-m") 'execute-extended-command)
-
-
 ;; Custom 'apropos' key bindings
 ;; http://www.masteringemacs.org/articles/2011/08/04/full-text-searching-info-mode-apropos/#comment-1409
 (global-set-key (kbd "C-h a") 'Apropos-Prefix)

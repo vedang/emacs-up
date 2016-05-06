@@ -16,9 +16,8 @@
 
 
 (smex-initialize)
-;; Moving Smex to M-c while I try out `helm'
-(global-set-key (kbd "M-c") 'smex)
-(global-set-key (kbd "M-C") 'smex-major-mode-commands)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
 
 
 (provide 'init-smex)
