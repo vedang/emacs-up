@@ -1,4 +1,5 @@
 ;;; init-paredit.el --- Paredit goodness everywhere
+;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 01 Apr 2014
 ;;; Copyright (c) 2013, 2014 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -34,7 +35,9 @@
      ;; Unbind `M-s' because it's bound to some handy occur related
      ;; functions by default
      (define-key paredit-mode-map (kbd "M-s") nil)
-     (define-key paredit-mode-map (kbd "M-D") 'paredit-splice-sexp)))
+     (define-key paredit-mode-map (kbd "M-D") 'paredit-splice-sexp)
+     (define-key paredit-mode-map (kbd "C-A-d") 'paredit-forward-down)
+     (define-key paredit-mode-map (kbd "C-A-u") 'paredit-backward-up)))
 
 
 (provide 'init-paredit)
