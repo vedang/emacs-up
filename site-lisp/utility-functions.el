@@ -163,7 +163,10 @@ Subsequent calls expands the selection to larger semantic unit."
 
 
 (defun uf/backward-kill-word-or-kill-region (&optional arg)
-  "Change C-w behavior"
+  "Rebind `C-w' to work differently based on whether a region is active.
+If the region is selected, retain the original behaviour,
+otherwise call `backward-kill-word' instead.  ARG is passed to
+`backward-kill-word'."
   (interactive "p")
   (if (region-active-p)
       (kill-region (region-beginning) (region-end))

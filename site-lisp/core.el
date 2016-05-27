@@ -35,6 +35,7 @@
       whitespace-line-column 80
       flyspell-issue-welcome-flag nil
       recenter-positions '(top middle bottom)
+      sentence-end-double-space nil
       display-time-day-and-date t)
 
 ;; Don't clutter up directories with files~
