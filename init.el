@@ -1,4 +1,5 @@
 ;;; init.el --- Root emacs configuration file.
+;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -71,7 +72,6 @@
 
 (require 'extra-hooks)
 (require 'extra-bindings)
-(require 'registers)
 (when on-my-machine
   (autoload 'notmuch "notmuch" "notmuch mail" t)
   (eval-after-load 'notmuch

@@ -1,0 +1,35 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("issue-archiving-dev-spec"
+ (filename . "~/Documents/gtd/work/docs/dev-spec-issue-archiving.org")
+ (front-context-string . "#+TITLE: [Dev Sp")
+ (rear-context-string)
+ (position . 1))
+("org-crate-config"
+ (filename . "~/.emacs.d/enhance/org-crate-config.el")
+ (front-context-string . ";;; org-crate-co")
+ (rear-context-string)
+ (position . 1))
+("init file"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . "\n;; Create temp ")
+ (rear-context-string . "me \"enhance/\"))\n")
+ (position . 1640))
+("org-capture-last-stored-marker"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . "\n;; Create temp ")
+ (rear-context-string . "me \"enhance/\"))\n")
+ (position . 1640))
+("org-refile-last-stored"
+ (filename . "~/Documents/gtd/personal/pajor.org")
+ (front-context-string . "** WORKING Migra")
+ (rear-context-string . ":20]\n     :END:\n")
+ (position . 85254))
+("org-capture-last-stored"
+ (filename . "~/Documents/gtd/remember-notes.org")
+ (front-context-string . "* TODO Add a rev")
+ (rear-context-string . "8-06 Thu 13:27]\n")
+ (position . 5376))
+)

@@ -28,7 +28,6 @@
       save-place-file (concat tempfiles-dirname "places")
       column-number-mode t
       debug-on-error t
-      bookmark-default-file (concat tempfiles-dirname "bookmarks.bmk")
       eshell-history-file-name (concat tempfiles-dirname "eshell-history")
       gc-cons-threshold 1800000
       bookmark-save-flag 1
