@@ -36,7 +36,8 @@
       flyspell-issue-welcome-flag nil
       recenter-positions '(top middle bottom)
       sentence-end-double-space nil
-      display-time-day-and-date t)
+      display-time-day-and-date t
+      tramp-default-method "ssh")
 
 ;; Don't clutter up directories with files~
 (setq backup-directory-alist
