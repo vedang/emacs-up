@@ -28,6 +28,7 @@
 (add-hook 'occur-mode-hook 'next-error-follow-minor-mode)
 
 (require 'dired)
+(require 'dired-x)
 (require 'wdired)
 (setq wdired-allow-to-change-permissions t
       wdired-use-interactive-rename nil
