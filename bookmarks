@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("issue-archiving-dev-spec"
+(("init el-get file"
+ (filename . "~/.emacs.d/init-el-get.el")
+ (front-context-string . ";;; init-el-get.")
+ (rear-context-string)
+ (position . 1))
+("issue-archiving-dev-spec"
  (filename . "~/Documents/gtd/work/docs/dev-spec-issue-archiving.org")
  (front-context-string . "#+TITLE: [Dev Sp")
  (rear-context-string)
