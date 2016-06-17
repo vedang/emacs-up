@@ -31,6 +31,10 @@
       eshell-history-file-name (concat tempfiles-dirname "eshell-history")
       gc-cons-threshold 1800000
       bookmark-save-flag 1
+      ;; Same location for bookmark file as default, but this change
+      ;; makes the bookmark file independent of the .emacs.d
+      ;; directory.
+      bookmark-default-file (concat dotfiles-dirname "bookmarks")
       display-buffer-reuse-frames t
       whitespace-line-column 80
       flyspell-issue-welcome-flag nil
