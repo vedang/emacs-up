@@ -139,7 +139,8 @@
      flymake-cursor
      grep+
      helm
-     ibuffer-vc
+     ; ibuffer-vc - commenting this out for a while, I believe that it
+     ; is broken at the moment.
      ledger-mode
      lua-mode
      macrostep

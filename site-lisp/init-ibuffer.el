@@ -23,8 +23,7 @@
   (ibuffer)
   (ibuffer-switch-to-saved-filter-groups "default"))
 
-;;; Commented out to try `helm-mini' for a while
-;; (global-set-key (kbd "C-x C-b") 'ii/turn-on-ibuffer)
+(global-set-key (kbd "C-x C-b") 'ii/turn-on-ibuffer)
 
 
 (setq ibuffer-saved-filter-groups
@@ -43,22 +42,21 @@
                  (mode . go-mode)
                  (mode . objc-mode)
                  (mode . makefile-gmake-mode)))
-               ("Org"
+               ("Writing"
                 (or
                  (mode . org-mode)
                  (derived-mode . org-mode)
                  (mode . org-agenda-mode)
-                 (mode . markdown-mode)))
+                 (mode . markdown-mode)
+                 (mode . LaTeX-mode)
+                 (mode . fundamental-mode)
+                 (mode . text-mode)))
                ("IRC"
                 (mode . rcirc-mode))
                ("Magit"
                 (or
                  (derived-mode . magit-mode)
-                 (name . "magit")))
-               ("Documents"
-                (or
-                 (mode . LaTeX-mode)
-                 (mode . fundamental-mode)))))))
+                 (name . "magit")))))))
 
 
 (provide 'init-ibuffer)
