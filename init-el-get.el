@@ -72,10 +72,6 @@
                 :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
-         (:name es-mode
-                :after (progn (add-to-list 'auto-mode-alist
-                                           '("\\.es$" . es-mode))
-                              (setq es-always-pretty-print t)))
          (:name flycheck
                 :after (progn (global-flycheck-mode 1)))
          (:name flycheck-pos-tip
@@ -138,6 +134,7 @@
      edebug-x
      el-spice
      emacs-async
+     es-mode
      flymake-cursor
      grep+
      helm
