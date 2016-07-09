@@ -130,6 +130,7 @@
      org-mode
      org-mode-crate
      org-jira
+     org-tree-slide
      color-theme-zenburn
      company-mode
      dash
