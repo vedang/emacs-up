@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("personal elisp settings"
+(("init org-mode-crate"
+ (filename . "~/.emacs.d/el-get-init-files/init-org-mode-crate.el")
+ (front-context-string . ";;; init-org-mod")
+ (rear-context-string)
+ (position . 1))
+("personal elisp settings"
  (filename . "~/.emacs.d/personal.el")
  (front-context-string . "(setq org-direct")
  (rear-context-string)
