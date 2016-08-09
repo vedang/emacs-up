@@ -1,8 +1,8 @@
-;;; init-el-get.el - El-get for Great Good.
+;;; init-el-get.el --- El-get for Great Good.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 22 Dec 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
-
+;;; Commentary:
 ;; This file is not part of GNU Emacs.
 
 ;;; License:
@@ -46,10 +46,13 @@
        (when (and (boundp configure-clojure-p)
                   configure-clojure-p)
          '((:name cider
-                  :checkout "v0.12.0")
+                  ;; v0.13.0 is untagged :(
+                  :checkout "b8932a3")
            (:name clj-refactor
                   ;; v2.2.0 is untagged
-                  :checkout "531a09f")
+                  ;; actual 2.2.0 bump for `clj-refactor.el' => "531a09f"
+                  ;; last `clj-refactor.el' commit where version is "2.2.0" =>
+                  :checkout "a8d0f50")
            (:name flycheck-clojure
                   :after (progn ;; (eval-after-load 'flycheck
                                 ;;   '(flycheck-clojure-setup))

@@ -26,10 +26,8 @@ NS is the namespace information passed into the function by cider."
   (concat ns ">\n"))
 
 
-(setq cider-repl-popup-stacktraces t
-      cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
+(setq cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
       cider-repl-history-size most-positive-fixnum
-      cider-repl-print-length 100
       cider-repl-wrap-history t
       cider-repl-prompt-function 'cider-repl-prompt-on-newline
       cider-repl-display-help-banner nil
@@ -39,7 +37,7 @@ NS is the namespace information passed into the function by cider."
       cider-mode-line nil
       cider-annotate-completion-candidates t
       cider-completion-annotations-include-ns 'always
-      cider-show-error-buffer 'except-in-repl
+      cider-show-error-buffer 'always
       cider-prompt-for-symbol nil)
 
 
