@@ -44,7 +44,7 @@
  (position . 85254))
 ("org-capture-last-stored"
  (filename . "~/Documents/gtd/remember-notes.org")
- (front-context-string . "* TODO Add a rev")
- (rear-context-string . "8-06 Thu 13:27]\n")
- (position . 5376))
+ (front-context-string . "* TODO Unblock t")
+ (rear-context-string . "raction Manga]]\n")
+ (position . 5947))
 )
