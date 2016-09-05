@@ -32,7 +32,7 @@
   "Archive all the emails in the current view. Mark them for
 deletion by cron job."
   (interactive)
-  (notmuch-search-tag-all '("+deleteme"))
+  (notmuch-search-tag-all '("+deleted"))
   (vedang/notmuch-archive-all))
 
 (define-key notmuch-show-mode-map (kbd "r") 'notmuch-show-reply)
@@ -72,3 +72,4 @@ deletion by cron job."
 (define-key 'notmuch-show-mode-map (kbd "D") 'my-notmuch-show-view-as-patch)
 
 (provide 'init-notmuch)
+;;; init-notmuch.el ends here

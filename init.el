@@ -73,6 +73,7 @@
 (require 'extra-hooks)
 (require 'extra-bindings)
 (when on-my-machine
+  (setq notmuch-init-file (concat enhance-dirname "init-notmuch.el"))
   (autoload 'notmuch "notmuch" "notmuch mail" t)
   (eval-after-load 'notmuch
     '(progn (require 'init-notmuch))))
