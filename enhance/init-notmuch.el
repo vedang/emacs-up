@@ -82,5 +82,15 @@ deletion by cron job."
              '(:name "hs-archive"
                      :query "tag:inbox AND from:bots@helpshift.com"
                      :key "H"))
+
+(setq notmuch-address-selection-function
+      (lambda (prompt collection initial-input)
+        (completing-read prompt
+                         (cons initial-input collection)
+                         nil
+                         t
+                         nil
+                         'notmuch-address-history)))
+
 (provide 'init-notmuch)
 ;;; init-notmuch.el ends here
