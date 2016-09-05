@@ -151,6 +151,7 @@
      markdown-mode
      multiple-cursors
      paredit
+     rst-mode
      s
      smex
      toml-mode
