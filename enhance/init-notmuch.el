@@ -72,5 +72,15 @@ deletion by cron job."
 
 (define-key 'notmuch-show-mode-map (kbd "D") 'my-notmuch-show-view-as-patch)
 
+(add-to-list 'notmuch-saved-searches
+             '(:name "hs-inbox"
+                     :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com)"
+                     :count-query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND tag:unread"
+                     :key "h"))
+
+(add-to-list 'notmuch-saved-searches
+             '(:name "hs-archive"
+                     :query "tag:inbox AND from:bots@helpshift.com"
+                     :key "H"))
 (provide 'init-notmuch)
 ;;; init-notmuch.el ends here
