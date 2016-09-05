@@ -131,6 +131,7 @@
      org-jira
      org-tree-slide
      color-theme-zenburn
+     color-theme-idea-darkula
      company-mode
      dash
      diminish
@@ -141,8 +142,8 @@
      flymake-cursor
      grep+
      helm
-     ; ibuffer-vc - commenting this out for a while, I believe that it
-     ; is broken at the moment.
+     ;; ibuffer-vc - commenting this out for a while, I believe that it
+     ;; is broken at the moment.
      ledger-mode
      lua-mode
      macrostep
