@@ -53,5 +53,7 @@
 (eval-after-load 'goto-addr
   '(progn (define-key goto-address-highlight-keymap (kbd "C-c C-o")
             'goto-address-at-point)))
+(eval-after-load 'shr
+  '(progn (define-key shr-map (kbd "C-c C-o") 'shr-browse-url)))
 
 (provide 'extra-bindings)
