@@ -27,7 +27,7 @@
 (add-to-list 'org-capture-templates
              '("h" "Habit" entry
                (file (concat org-directory "/remember-notes.org"))
-               "*  %?   :refile:\n%U\n%a\nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n  %i"))
+               "*  %?   \n%U\n%a\nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n  %i"))
 
 
 (setq org-agenda-custom-commands
