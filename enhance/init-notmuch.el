@@ -36,12 +36,19 @@ deletion by cron job."
   (notmuch-search-tag-all '("+deleted"))
   (vedang/notmuch-archive-all))
 
-(define-key notmuch-show-mode-map (kbd "r") 'notmuch-show-reply)
-(define-key notmuch-show-mode-map (kbd "R") 'notmuch-show-reply-sender)
-(define-key notmuch-search-mode-map (kbd "r") 'notmuch-search-reply-to-thread)
-(define-key notmuch-search-mode-map (kbd "R") 'notmuch-search-reply-to-thread-sender)
-(define-key notmuch-search-mode-map (kbd "A") 'vedang/notmuch-archive-all)
-(define-key notmuch-search-mode-map (kbd "D") 'vedang/notmuch-delete-all)
+(eval-after-load 'notmuch-show
+  '(progn (define-key notmuch-show-mode-map (kbd "r")
+            'notmuch-show-reply)
+          (define-key notmuch-show-mode-map (kbd "R")
+            'notmuch-show-reply-sender)
+          (define-key notmuch-search-mode-map (kbd "r")
+            'notmuch-search-reply-to-thread)
+          (define-key notmuch-search-mode-map (kbd "R")
+            'notmuch-search-reply-to-thread-sender)
+          (define-key notmuch-search-mode-map (kbd "A")
+            'vedang/notmuch-archive-all)
+          (define-key notmuch-search-mode-map (kbd "D")
+            'vedang/notmuch-delete-all)))
 
 ;; Sign messages by default.
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
