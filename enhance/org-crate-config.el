@@ -130,9 +130,6 @@
                ((org-agenda-overriding-header "Inheritable DEADLINEs")
                 (org-agenda-skip-function 'fc/skip-non-inheritable-deadlines))))))
 
-(setq org-link-abbrev-alist
-      '(("google"   . "http://www.google.com/search?q=%s")))
-
 (setq org-html-head-extra
       "<style type=\"text/css\">  body { font-family:sans-serif; font-size: small; } code {font-size: medium;} </style>")
 
