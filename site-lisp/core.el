@@ -41,6 +41,7 @@
       recenter-positions '(top middle bottom)
       sentence-end-double-space nil
       display-time-day-and-date t
+      prettify-symbols-unprettify-at-point 'right-edge
       tramp-default-method "ssh")
 
 ;; Don't clutter up directories with files~
