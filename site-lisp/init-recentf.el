@@ -135,5 +135,4 @@ FILE has been displayed."
      (if arg (nth arg recently-killed-list)
        (car recently-killed-list)))))
 
-
 (provide 'init-recentf)

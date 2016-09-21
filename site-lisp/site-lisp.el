@@ -89,6 +89,7 @@ right mode to start in the buffer."
 (require 'init-ibuffer)
 (require 'init-isearch)
 (require 'init-recentf)
+(save-place-mode)
 
 (eval-after-load 'rcirc
   '(require 'init-rcirc))
