@@ -14,14 +14,25 @@
 
 ;;; Code:
 
-(setq el-get-dir (concat dotfiles-dirname "el-get/")
-      el-get-user-package-directory (concat dotfiles-dirname
-                                            "el-get-init-files/")
-      el-get-my-recipes (concat el-get-user-package-directory
-                                "personal-recipes/"))
+(defvar el-get-dir
+  (concat dotfiles-dirname "el-get/")
+  "The sub-directory where el-get packages are installed.")
+(defvar el-get-user-package-directory
+  (concat dotfiles-dirname "el-get-init-files/")
+  "The sub-directory where optional user-configuration for various packages, and user-defined recipes live.")
+(defvar el-get-my-recipes
+  (concat el-get-user-package-directory "personal-recipes/")
+  "The sub-directory where user-defined recipes live, if the user needs to define and install his/her own recipes.")
 
+;; Make the el-get directories if required
+(make-directory el-get-dir t)
+(make-directory el-get-my-recipes t)
+
+;; Add el-get to the load-path. From this point onward, we're plugged
+;; into the el-get package management system.
 (add-to-list 'load-path (concat el-get-dir "el-get"))
 
+;; Install el-get if it isn't already present
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
       (url-retrieve-synchronously
@@ -31,6 +42,7 @@
       (goto-char (point-max))
       (eval-print-last-sexp))))
 
+;; Add our personal recipes to el-get's recipe path
 (add-to-list 'el-get-recipe-path el-get-my-recipes)
 
 ;;; This is the order in which the packages are loaded. Changing this
