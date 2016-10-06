@@ -94,7 +94,7 @@ Ideally, this will be ~/.emacs.d.")
   (eval-after-load 'notmuch
     '(progn (require 'init-notmuch))))
 
-(load-theme 'zenburn t)
+(load-theme 'idea-darkula t)
 
 (server-start)
 (message "My .emacs loaded in %ds"
