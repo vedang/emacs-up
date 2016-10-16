@@ -1,0 +1,7 @@
+(:name helm-cider
+       :description "Helm interface to CIDER"
+       :website "https://github.com/clojure-emacs/helm-cider"
+       :type github
+       :depends (cider helm seq)
+       :minimum-emacs-version "24.4"
+       :pkgname "clojure-emacs/helm-cider")
