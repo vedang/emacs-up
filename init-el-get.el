@@ -152,6 +152,7 @@
      flymake-cursor
      grep+
      helm
+     helm-ag
      ;; ibuffer-vc - commenting this out for a while, I believe that it
      ;; is broken at the moment.
      ledger-mode
