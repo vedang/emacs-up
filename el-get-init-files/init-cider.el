@@ -44,7 +44,9 @@ NS is the namespace information passed into the function by cider."
 (eval-after-load 'cider-mode
   '(progn
      (add-hook 'cider-mode-hook 'eldoc-mode)
-     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)))
+     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
+     (define-key cider-mode-map (kbd "C-c C-d n") 'cider-browse-ns)
+     (define-key cider-mode-map (kbd "C-c C-d C-n") 'cider-browse-ns)))
 
 (eval-after-load 'cider-repl
   '(progn

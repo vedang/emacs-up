@@ -58,13 +58,9 @@
        (when (and (boundp configure-clojure-p)
                   configure-clojure-p)
          '((:name cider
-                  ;; v0.13.0 is untagged :(
-                  :checkout "b8932a3")
+                  :checkout "v0.14.0")
            (:name clj-refactor
-                  ;; v2.2.0 is untagged
-                  ;; actual 2.2.0 bump for `clj-refactor.el' => "531a09f"
-                  ;; last `clj-refactor.el' commit where version is "2.2.0" =>
-                  :checkout "a8d0f50")
+                  :checkout "2.2.0")
            (:name flycheck-clojure
                   :after (progn ;; (eval-after-load 'flycheck
                                 ;;   '(flycheck-clojure-setup))
