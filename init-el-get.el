@@ -172,6 +172,6 @@
    (when on-my-machine
      ;; Load packages with Third Party
      ;; dependencies only on my machine.
-     '(emacs-eclim))))
+     '(eclim))))
 
 (el-get 'sync el-get-my-packages)

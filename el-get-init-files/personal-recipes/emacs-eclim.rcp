@@ -1,5 +1,0 @@
-(:name emacs-eclim
-       :description "The power of eclim inside Emacs"
-       :type github
-       :depends (s)
-       :pkgname "senny/emacs-eclim")

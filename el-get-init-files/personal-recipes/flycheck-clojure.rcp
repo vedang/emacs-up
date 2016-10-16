@@ -1,6 +1,0 @@
-(:name flycheck-clojure
-       :type github
-       :pkgname "clojure-emacs/squiggly-clojure"
-       :description "On-the-fly syntax checking extension for Clojure"
-       :load-path ("elisp/flycheck-clojure/")
-       :depends (flycheck flycheck-pos-tip))
