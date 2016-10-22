@@ -92,6 +92,8 @@
                                 '(progn (require 'flycheck-pos-tip)
                                         (setq flycheck-display-errors-function
                                               #'flycheck-pos-tip-error-messages)))))
+         (:name helm-projectile
+                :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t)
                               (global-smart-tab-mode 1)))

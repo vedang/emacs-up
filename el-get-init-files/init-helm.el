@@ -47,6 +47,8 @@
 (global-set-key (kbd "C-x c SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-x c r i") 'helm-register)
+;; I want to use <C-x c p> for helm-projectile
+(global-set-key (kbd "C-x c P") 'helm-list-emacs-process)
 
 ;; rebind tab to run persistent action. now <tab> and <C-j> will both
 ;; perform persistent actions

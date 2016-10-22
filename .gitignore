@@ -9,3 +9,8 @@ personal.el
 elpa/
 ido.last
 url/
+projectile.cache
+projectile-bookmarks.eld
+var/
+eshell/
+helm-doc.org
