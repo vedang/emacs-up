@@ -17,7 +17,7 @@
 
 (require 'helm-ag)
 
-(setq helm-ag-insert-thing-at-point 'symbol
+(setq helm-ag-insert-at-point 'symbol
       helm-ag-fuzzy-match t)
 
 (global-set-key (kbd "C-x c M-g a") 'helm-do-ag-project-root)
