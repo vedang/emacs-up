@@ -59,8 +59,6 @@
                   configure-clojure-p)
          '((:name cider
                   :checkout "v0.14.0")
-           (:name helm-cider
-                  :after (progn (helm-cider-mode 1)))
            (:name clj-refactor
                   :checkout "2.2.0")
            (:name flycheck-clojure
@@ -117,6 +115,7 @@
    (when (and (boundp configure-clojure-p)
               configure-clojure-p)
      '(clojure-mode
+       helm-cider
        clojure-snippets))
    (when (and (boundp configure-scheme-p)
               configure-scheme-p)
