@@ -26,27 +26,30 @@ NS is the namespace information passed into the function by cider."
   (concat ns ">\n"))
 
 
-(setq cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
-      cider-repl-history-size most-positive-fixnum
-      cider-repl-wrap-history t
-      cider-repl-prompt-function 'cider-repl-prompt-on-newline
-      cider-repl-display-help-banner nil
-      nrepl-buffer-name-separator "-"
-      nrepl-buffer-name-show-port t
-      nrepl-log-messages t
-      cider-mode-line nil
-      cider-annotate-completion-candidates t
-      cider-completion-annotations-include-ns 'always
-      cider-show-error-buffer 'always
-      cider-prompt-for-symbol nil)
+
 
 
 (eval-after-load 'cider-mode
   '(progn
      (add-hook 'cider-mode-hook 'eldoc-mode)
      (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
-     (define-key cider-mode-map (kbd "C-c C-d n") 'cider-browse-ns)
-     (define-key cider-mode-map (kbd "C-c C-d C-n") 'cider-browse-ns)))
+     (setq cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
+           cider-repl-history-size most-positive-fixnum
+           cider-repl-wrap-history t
+           cider-repl-prompt-function 'cider-repl-prompt-on-newline
+           cider-repl-display-help-banner nil
+           nrepl-buffer-name-separator "-"
+           nrepl-buffer-name-show-port t
+           nrepl-log-messages t
+           cider-mode-line nil
+           cider-annotate-completion-candidates t
+           cider-completion-annotations-include-ns 'always
+           cider-show-error-buffer 'always
+           cider-prompt-for-symbol nil
+           cider-apropos-actions
+           '(("find-def" . cider--find-var)
+             ("display-doc" . cider-doc-lookup)
+             ("lookup-on-grimoire" . cider-grimoire-lookup)))))
 
 (eval-after-load 'cider-repl
   '(progn
@@ -56,5 +59,4 @@ NS is the namespace information passed into the function by cider."
 
 
 (provide 'init-cider)
-
 ;;; init-cider ends here
