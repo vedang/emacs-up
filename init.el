@@ -21,6 +21,14 @@
 (defvar *emacs-load-start* (current-time))
 (defvar on-my-machine (string-match "humblekombda" (system-name)))
 
+(defvar emacs-up--version "v3.1.0"
+  "The current version of the Emacs Up Starter Kit.")
+
+(defun emacs-up-version ()
+  "Return the current version of the Emacs Up Starter Kit."
+  (interactive)
+  (message "Emacs Up %s" emacs-up--version))
+
 ;;; No GUI
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
