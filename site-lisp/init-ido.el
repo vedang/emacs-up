@@ -18,7 +18,8 @@
 
 (ido-mode 'both)
 (ido-everywhere)
-
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
 
 (setq ido-enable-flex-matching t
       ido-create-new-buffer 'always
@@ -28,17 +29,18 @@
 
 (add-hook 'ido-make-buffer-list-hook 'ido-summary-buffers-to-end)
 
-
-(defadvice completing-read
-  (around ido-steroids activate)
-  "ido on steroids :D from EmacsWiki"
-  (if (boundp 'ido-cur-list)
-      ad-do-it
-    (setq ad-return-value
-          (ido-completing-read
-           prompt
-           (all-completions "" collection predicate)
-           nil require-match initial-input hist def))))
+;;; My old and excellent IDO completion hack. keeping it around for
+;;; reference.
+;; (defadvice completing-read
+;;   (around ido-steroids activate)
+;;   "ido on steroids :D from EmacsWiki"
+;;   (if (boundp 'ido-cur-list)
+;;       ad-do-it
+;;     (setq ad-return-value
+;;           (ido-completing-read
+;;            prompt
+;;            (all-completions "" collection predicate)
+;;            nil require-match initial-input hist def))))
 
 
 (provide 'init-ido)
