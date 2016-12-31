@@ -140,6 +140,7 @@
   (when (org-in-regexp org-bracket-link-regexp 1)
     (kill-new (org-link-unescape (org-match-string-no-properties 1)))))
 
-(global-set-key (kbd "C-c M-l") 'vm/org-extract-link)
+(eval-after-load 'org
+  '(progn (global-set-key (kbd "C-c M-l") 'vm/org-extract-link)))
 
 (provide 'org-crate-config)
