@@ -16,6 +16,7 @@
 
 
 (global-set-key (kbd "C-x g") 'magit-status)
+(setq magit-completing-read-function 'magit-ido-completing-read)
 
 (eval-after-load 'info
   '(progn (info-initialize)
