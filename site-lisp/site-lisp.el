@@ -1,5 +1,6 @@
-;;; site-lisp.el --- Change the behavior of things that come built into
-;;; Emacs.
+;;; site-lisp.el --- Change the behavior of things that come built
+;;; into Emacs
+;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 22 Sep 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -13,7 +14,7 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
-;;; Code:;;;
+;;; Code:
 
 (require 'cl-lib)
 
@@ -89,6 +90,7 @@ right mode to start in the buffer."
 (require 'init-ibuffer)
 (require 'init-isearch)
 (require 'init-recentf)
+(require 'init-flyspell)
 (save-place-mode)
 
 (eval-after-load 'rcirc
@@ -97,3 +99,4 @@ right mode to start in the buffer."
   '(setq eldoc-minor-mode-string nil))
 
 (provide 'site-lisp)
+;;; site-lisp.el ends here

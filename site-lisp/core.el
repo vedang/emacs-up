@@ -37,7 +37,6 @@
       bookmark-default-file (concat dotfiles-dirname "bookmarks")
       display-buffer-reuse-frames t
       whitespace-line-column 80
-      flyspell-issue-welcome-flag nil
       recenter-positions '(top middle bottom)
       sentence-end-double-space nil
       display-time-day-and-date t
@@ -85,8 +84,6 @@
 ;;; hooks
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
-(add-hook 'text-mode-hook 'turn-on-flyspell)
-(add-hook 'fundamental-mode-hook 'turn-on-flyspell)
 
 
 ;;; open these files in the appropriate mode
