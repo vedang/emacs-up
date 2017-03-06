@@ -35,7 +35,7 @@
                ((agenda "" ((org-agenda-files (list org-work-directory))
                             (org-agenda-overriding-header
                              "Deadlines and Scheduled")))
-                (tags-todo "+oncall|+highpriority"
+                (tags-todo "+oncall-backlog|+highpriority"
                            ((org-agenda-overriding-header
                              "On Call Followup")
                             (org-agenda-todo-ignore-scheduled t)
