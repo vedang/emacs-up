@@ -41,6 +41,7 @@
       sentence-end-double-space nil
       display-time-day-and-date t
       prettify-symbols-unprettify-at-point 'right-edge
+      set-mark-command-repeat-pop t
       tramp-default-method "ssh")
 
 ;; Don't clutter up directories with files~
