@@ -76,13 +76,25 @@
                       :after (progn (add-to-list 'auto-mode-alist
                                                  '("\\.rs\\'" . rust-mode)))))
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
-       '((:name change-inner
+       '((:name dash-at-point
+                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
+
+         ;; Change-Inner, Expand-Region and Multiple-Cursors are
+         ;; interesting selection and editing tools that go together.
+         (:name change-inner
                 :after (progn (global-set-key (kbd "M-i") 'change-inner)
                               (global-set-key (kbd "M-o") 'change-outer)))
-         (:name dash-at-point
-                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
          (:name expand-region
-                :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
+                :after (progn (global-set-key (kbd "C-c = =")
+                                              'er/expand-region)))
+         (:name multiple-cursors
+                :after (progn (global-set-key (kbd "C-c = 0")
+                                              'mc/mark-next-like-this)
+                              (global-set-key (kbd "C-c = -")
+                                              'mc/mark-all-dwim)
+                              (global-set-key (kbd "C-c = _")
+                                              'mc/mark-all-symbols-like-this-in-defun)))
+
          (:name flycheck
                 :after (progn (global-flycheck-mode 1)))
          (:name flycheck-pos-tip
@@ -90,8 +102,10 @@
                                 '(progn (require 'flycheck-pos-tip)
                                         (setq flycheck-display-errors-function
                                               #'flycheck-pos-tip-error-messages)))))
+
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
+
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t)
                               (global-smart-tab-mode 1)))
@@ -162,7 +176,6 @@
      macrostep
      magit
      markdown-mode
-     multiple-cursors
      paredit
      rst-mode
      s
