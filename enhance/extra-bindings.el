@@ -18,6 +18,7 @@
 (global-set-key (kbd "C-w") 'uf/backward-kill-word-or-kill-region)
 (global-set-key (kbd "C-x M-s") 'uf/transpose-windows)
 (global-set-key (kbd "C-c n") 'uf/cleanup-buffer)
+(global-set-key (kbd "A-q") 'uf/unfill-paragraph)
 
 (require 'presenting)
 (global-set-key (kbd "<f7>") 'pr/jump-to-prev-slide)
