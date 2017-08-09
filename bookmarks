@@ -2,7 +2,21 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("init org-mode-crate"
+(("SICP info"
+ (front-context-string . "\n   Lisp was not")
+ (rear-context-string . " of the period.\n")
+ (position . 44144)
+ (filename . "/Users/vedang/.emacs.d/el-get/sicp/sicp")
+ (info-node . "Chapter 1")
+ (handler . Info-bookmark-jump))
+("Org-Mode info"
+ (front-context-string . "\n2.8 Drawers\n===")
+ (rear-context-string . "ument structure\n")
+ (position . 66439)
+ (filename . "/Users/vedang/.emacs.d/el-get/org-mode/doc/org")
+ (info-node . "Drawers")
+ (handler . Info-bookmark-jump))
+("init org-mode-crate"
  (filename . "~/.emacs.d/el-get-init-files/init-org-mode-crate.el")
  (front-context-string . ";;; init-org-mod")
  (rear-context-string)
@@ -17,11 +31,6 @@
  (front-context-string . ";;; init-el-get.")
  (rear-context-string)
  (position . 1))
-("issue-archiving-dev-spec"
- (filename . "~/Documents/gtd/work/docs/dev-spec-issue-archiving.org")
- (front-context-string . "#+TITLE: [Dev Sp")
- (rear-context-string)
- (position . 1))
 ("org-crate-config"
  (filename . "~/.emacs.d/enhance/org-crate-config.el")
  (front-context-string . ";;; org-crate-co")
@@ -33,18 +42,18 @@
  (rear-context-string . "me \"enhance/\"))\n")
  (position . 1640))
 ("org-capture-last-stored-marker"
- (filename . "~/Documents/gtd/work/fsone.org")
- (front-context-string . "** TODO [#A] Rev")
- (rear-context-string . "arendra:mourjo:\n")
- (position . 28322))
+ (filename . "~/Documents/gtd/work/winor.org")
+ (front-context-string . "** TODO Review [")
+ (rear-context-string . "[2017 Roadmap]]\n")
+ (position . 100585))
 ("org-refile-last-stored"
- (filename . "~/Documents/gtd/work/fsone.org")
- (front-context-string . "** TODO [#A] Rev")
- (rear-context-string . "arendra:mourjo:\n")
- (position . 28322))
+ (filename . "~/Documents/gtd/work/winor.org")
+ (front-context-string . "** TODO Review [")
+ (rear-context-string . "[2017 Roadmap]]\n")
+ (position . 100585))
 ("org-capture-last-stored"
  (filename . "~/Documents/gtd/remember-notes.org")
- (front-context-string . "* TODO Talk to k")
- (rear-context-string . " (2w) Shalaka]]\n")
- (position . 8431))
+ (front-context-string . "* TODO Review [[")
+ (rear-context-string . "ure-templates]]\n")
+ (position . 5730))
 )
