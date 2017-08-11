@@ -36,6 +36,12 @@ deletion by cron job."
   (notmuch-search-tag-all '("+deleted"))
   (vedang/notmuch-archive-all))
 
+(defun vedang/notmuch-search-delete-and-archive-thread ()
+  "Archive the currently selected thread. Add the deleted tag as well."
+  (interactive)
+  (notmuch-search-add-tag '("+deleted"))
+  (notmuch-search-archive-thread))
+
 (defun vedang/notmuch-filter-by-from ()
   "Filter the current search view to show all emails sent from the sender of the current thread."
   (interactive)
@@ -62,7 +68,9 @@ deletion by cron job."
           (define-key notmuch-search-mode-map (kbd "D")
             'vedang/notmuch-delete-all)
           (define-key notmuch-search-mode-map (kbd "L")
-            'vedang/notmuch-filter-by-from)))
+            'vedang/notmuch-filter-by-from)
+          (define-key notmuch-search-mode-map (kbd "d")
+            'vedang/notmuch-search-delete-and-archive-thread)))
 
 ;; Sign messages by default.
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
