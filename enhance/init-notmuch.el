@@ -36,6 +36,18 @@ deletion by cron job."
   (notmuch-search-tag-all '("+deleted"))
   (vedang/notmuch-archive-all))
 
+(defun vedang/notmuch-filter-by-from ()
+  "Filter the current search view to show all emails sent from the sender of the current thread."
+  (interactive)
+  (let* ((notmuch-addr-sexp (first
+                             (notmuch-call-notmuch-sexp "address"
+                                                        "--format=sexp"
+                                                        "--format-version=1"
+                                                        "--output=sender"
+                                                        (notmuch-search-find-thread-id))))
+         (from-addr (plist-get notmuch-addr-sexp :address)))
+    (notmuch-search-filter (concat "from:" from-addr))))
+
 (eval-after-load 'notmuch-show
   '(progn (define-key notmuch-show-mode-map (kbd "r")
             'notmuch-show-reply)
@@ -48,7 +60,9 @@ deletion by cron job."
           (define-key notmuch-search-mode-map (kbd "A")
             'vedang/notmuch-archive-all)
           (define-key notmuch-search-mode-map (kbd "D")
-            'vedang/notmuch-delete-all)))
+            'vedang/notmuch-delete-all)
+          (define-key notmuch-search-mode-map (kbd "L")
+            'vedang/notmuch-filter-by-from)))
 
 ;; Sign messages by default.
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
