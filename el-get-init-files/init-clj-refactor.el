@@ -20,9 +20,9 @@
   (cljr-add-keybindings-with-prefix "C-c m"))
 
 (setq cljr-favor-prefix-notation nil ; don't mess up namespaces on cleanup
-      ;; don't build asts on starup, this leads to running the test
-      ;; suite on connect.
-      cljr-eagerly-build-asts-on-startup nil
+      ;; build asts on starup
+      cljr-eagerly-build-asts-on-startup t
+      cljr-warn-on-eval nil
       ;; don't stop on analyzer failures. examples: not finding a
       ;; data-reader.
       cljr-ignore-analyzer-errors t)
