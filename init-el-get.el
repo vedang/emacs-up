@@ -109,7 +109,10 @@
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
          (:name smart-tab
-                :after (progn (setq smart-tab-using-hippie-expand t)
+                :after (progn (setq smart-tab-using-hippie-expand t
+                                    smart-tab-expand-eolp nil
+                                    smart-tab-user-provided-completion-function 'company-complete
+                                    smart-tab-completion-functions-alist '((ledger-mode . dabbrev-completion)))
                               (global-smart-tab-mode 1)))
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
