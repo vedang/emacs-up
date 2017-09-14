@@ -106,11 +106,15 @@ deletion by cron job."
                      :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com)"
                      :count-query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND tag:unread"
                      :key "h"))
-
 (add-to-list 'notmuch-saved-searches
              '(:name "hs-archive"
                      :query "tag:inbox AND from:bots@helpshift.com"
                      :key "H"))
+(add-to-list 'notmuch-saved-searches
+             '(:name "non-jira hs-inbox"
+                     :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND NOT from:jira@helpshift.atlassian.net"
+                     :key "j"))
+
 
 (setq notmuch-address-selection-function
       (lambda (prompt collection initial-input)
