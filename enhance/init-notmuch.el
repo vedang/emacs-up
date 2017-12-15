@@ -63,6 +63,8 @@ deletion by cron job."
             'notmuch-search-reply-to-thread)
           (define-key notmuch-search-mode-map (kbd "R")
             'notmuch-search-reply-to-thread-sender)
+          (define-key notmuch-search-mode-map (kbd "/")
+            'notmuch-search-filter)
           (define-key notmuch-search-mode-map (kbd "A")
             'vedang/notmuch-archive-all)
           (define-key notmuch-search-mode-map (kbd "D")
