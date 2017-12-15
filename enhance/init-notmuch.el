@@ -116,6 +116,10 @@ deletion by cron job."
              '(:name "non-jira hs-inbox"
                      :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND NOT from:jira@helpshift.atlassian.net"
                      :key "j"))
+(add-to-list 'notmuch-saved-searches
+             '(:name "only-jira"
+                     :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND from:jira@helpshift.atlassian.net"
+                     :key "J"))
 
 
 (setq notmuch-address-selection-function
