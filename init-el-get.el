@@ -86,6 +86,8 @@
          (:name change-inner
                 :after (progn (global-set-key (kbd "M-i") 'change-inner)
                               (global-set-key (kbd "M-o") 'change-outer)))
+         (:name edit-server
+                :after (progn (edit-server-start)))
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-c = =")
                                               'er/expand-region)))
