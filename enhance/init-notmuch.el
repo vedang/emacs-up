@@ -22,7 +22,8 @@
       sendmail-program "/usr/local/bin/msmtp"
       message-sendmail-envelope-from 'header
       mail-specify-envelope-from t
-      notmuch-archive-tags '("-inbox" "-unread" "+archived"))
+      notmuch-archive-tags '("-inbox" "-unread" "+archived")
+      notmuch-search-oldest-first nil)
 
 (defun vedang/notmuch-archive-all ()
   "Archive all the emails in the current view."
