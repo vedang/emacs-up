@@ -43,8 +43,9 @@
       ispell-program-name "/usr/local/bin/aspell"
       epg-gpg-program "/usr/local/bin/gpg"
       ;; source dirs
-      source-directory "/Library/Caches/Homebrew/emacs--git/src/"
-      find-function-C-source-directory "/Library/Caches/Homebrew/emacs--git/src/")
+      ;; Note: These are hard-coded to my machine.
+      source-directory (expand-file-name "~/src/emacs/src/")
+      find-function-C-source-directory (expand-file-name "~/src/emacs/src/"))
 
 
 ;; full screen toggle, will only work if emacs is installed from
