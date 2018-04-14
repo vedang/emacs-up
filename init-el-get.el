@@ -112,6 +112,12 @@
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
+         (:name org-pomodoro
+                :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
+                                    org-pomodoro-clock-break t)
+                              (global-set-key (kbd "C-c C-x c p")
+                                              'org-pomodoro)))
+
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t
                                     smart-tab-expand-eolp nil
