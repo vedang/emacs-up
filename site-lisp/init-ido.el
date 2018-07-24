@@ -18,7 +18,7 @@
 
 (ido-mode 'both)
 (ido-everywhere)
-(require 'ido-ubiquitous)
+(require 'ido-completing-read+)
 (ido-ubiquitous-mode 1)
 
 (setq ido-enable-flex-matching t

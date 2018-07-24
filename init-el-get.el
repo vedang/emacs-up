@@ -185,7 +185,7 @@
      helm-ag
      ;; ibuffer-vc - commenting this out for a while, I believe that it
      ;; is broken at the moment.
-     ido-ubiquitous
+     ido-completing-read-plus
      ledger-mode
      lua-mode
      macrostep
