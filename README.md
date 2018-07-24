@@ -133,13 +133,19 @@ be available at `/usr/local/bin/git`
    $ gocode set propose-builtins true
    </code>
 
+   If you do not wish to install Golang specific recipes, go to
+   `features.el` in the main directory and set the value of
+   `configure-go-p` to `nil`.
+
 5. Rust development
 
    Rust integration is simplistic - depends on `rust-mode` for all
    functionality - and only requires the presence of the rustlang
-   compiler. Refer
-   [this document](http://doc.rust-lang.org/book/installing-rust.html)
-   for instructions.
+   compiler. Refer [this
+   document](http://doc.rust-lang.org/book/installing-rust.html) for
+   instructions. If you do not wish to install Rust specific recipes,
+   go to `features.el` in the main directory and set the value of
+   `configure-rust-p` to `nil`.
 
 6. Scheme development
 
@@ -152,6 +158,10 @@ be available at `/usr/local/bin/git`
    <code>
    $ brew install chicken
    </code>
+
+   If you do not wish to install Scheme specific recipes, go to
+   `features.el` in the main directory and set the value of
+   `configure-scheme-p` to `nil`.
 
 ## Upgrade Instructions
 
