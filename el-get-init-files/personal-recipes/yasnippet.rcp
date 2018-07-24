@@ -1,0 +1,12 @@
+(:name yasnippet
+       :website "https://github.com/capitaomorte/yasnippet.git"
+       :description "YASnippet is a template system for Emacs."
+       :type github
+       :pkgname "capitaomorte/yasnippet"
+       :compile "yasnippet.el"
+       :depends (request cl-lib)
+       ;; Yasnippet used to have submodules which failed to checkout
+       ;; on Windows (see #1511), keep them disabled though there are
+       ;; no submodules anymore.  See the `yasnippet-snippets' package
+       ;; to get the snippets which previously came with yasnippet.
+       :submodule nil)
