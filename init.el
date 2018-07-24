@@ -102,7 +102,7 @@ Ideally, this will be ~/.emacs.d.")
   (eval-after-load 'notmuch
     '(progn (require 'init-notmuch))))
 
-(load-theme 'idea-darkula t)
+(add-hook 'after-init-hook (lambda () (load-theme 'idea-darkula t)))
 
 (server-start)
 (message "My .emacs loaded in %ds"
