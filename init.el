@@ -19,7 +19,10 @@
   (error "Unsupported Emacs Version! Please upgrade to Emacs 25 or above.  Emacs installation instructions: https://www.gnu.org/software/emacs/download.html"))
 
 (defvar *emacs-load-start* (current-time))
-(defvar on-my-machine (string-match "humblekombda" (system-name)))
+;; ninja
+;; master
+;; humble
+(defvar on-my-machine (string-match "meditatingkombda" (system-name)))
 
 (defvar emacs-up--version "v3.1.0"
   "The current version of the Emacs Up Starter Kit.")
