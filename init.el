@@ -97,6 +97,11 @@ Ideally, this will be ~/.emacs.d.")
 (require 'extra-hooks)
 (require 'extra-bindings)
 (when on-my-machine
+  ;; notmuch Emacs support should be installed alongwith notmuch. On
+  ;; OSX, this can be done with:
+
+  ;; $ brew install notmuch --with-emacs
+  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/notmuch")
   (setq notmuch-init-file (concat enhance-dirname "init-notmuch.el"))
   (autoload 'notmuch "notmuch" "notmuch mail" t)
   (eval-after-load 'notmuch
