@@ -1,0 +1,4 @@
+(:name sesman
+       :description "Session manager for Emacs based IDEs."
+       :type github
+       :pkgname "vspinu/sesman")
