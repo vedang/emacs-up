@@ -55,6 +55,18 @@ deletion by cron job."
          (from-addr (plist-get notmuch-addr-sexp :address)))
     (notmuch-search-filter (concat "from:" from-addr))))
 
+(defun vedang/notmuch-search-by-from ()
+  "Show all emails sent from the sender of the current thread."
+  (interactive)
+  (let* ((notmuch-addr-sexp (first
+                             (notmuch-call-notmuch-sexp "address"
+                                                        "--format=sexp"
+                                                        "--format-version=1"
+                                                        "--output=sender"
+                                                        (notmuch-search-find-thread-id))))
+         (from-addr (plist-get notmuch-addr-sexp :address)))
+    (notmuch-search (concat "from:" from-addr))))
+
 (eval-after-load 'notmuch-show
   '(progn (define-key notmuch-show-mode-map (kbd "r")
             'notmuch-show-reply)
@@ -72,6 +84,8 @@ deletion by cron job."
             'vedang/notmuch-delete-all)
           (define-key notmuch-search-mode-map (kbd "L")
             'vedang/notmuch-filter-by-from)
+          (define-key notmuch-search-mode-map (kbd ";")
+            'vedang/notmuch-search-by-from)
           (define-key notmuch-search-mode-map (kbd "d")
             'vedang/notmuch-search-delete-and-archive-thread)))
 
