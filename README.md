@@ -18,6 +18,7 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
    - Go Programming (Official Modes provided by the Golang Team)
    - Rust Programming
    - Scheme Programming (Geiser + other minor modes)
+   - Email through Emacs (Notmuch + mbsync + msmtp)
 
 2. Other minor but important additions:
    - Avy Mode (Jumping and Navigation)
@@ -37,8 +38,6 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
    - Java Mode
    - Erlang Mode
 
-2. Email through Emacs
-
 ## Pre-requisites
 
 The following tools should be installed and available on the system:
@@ -46,8 +45,15 @@ The following tools should be installed and available on the system:
 - [mercurial](http://mercurial.selenic.com/)
 - [bazaar](http://bazaar.canonical.com/en/)
 - [aspell](http://aspell.net/)
+- [automake](https://www.gnu.org/software/automake/)
+
 Make sure that they are on $PATH. If you are on a Mac, `git` needs to
-be available at `/usr/local/bin/git`
+be available at `/usr/local/bin/git`. NOTE: On a Mac, these can all be
+installed through Homebrew as follows:
+<code>
+$ brew install chicken
+</code>
+
 
 ## Installation Instructions
 
