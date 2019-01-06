@@ -170,6 +170,7 @@
      org-mode-crate
      org-jira
      org-tree-slide
+     ox-hugo
      color-theme-zenburn
      color-theme-idea-darkula
      company-mode
