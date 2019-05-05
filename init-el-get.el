@@ -118,6 +118,12 @@
                               (global-set-key (kbd "C-c C-x c p")
                                               'org-pomodoro)))
 
+         (:name sicp
+                :after (progn
+                         (eval-after-load 'info
+                           '(progn (info-initialize)
+                                   (add-to-list 'Info-directory-list
+                                                (concat el-get-dir "sicp/"))))))
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t
                                     smart-tab-expand-eolp nil
