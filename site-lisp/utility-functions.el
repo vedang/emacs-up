@@ -252,4 +252,66 @@ otherwise call `backward-kill-word' instead.  ARG is passed to
         (emacs-lisp-docstring-fill-column t))
     (fill-paragraph nil region)))
 
+(defun uf/org-mermaid-convert-timestamps ()
+  "Convert all org timestamps in the current buffer to standard mermaid."
+  (interactive)
+  (goto-char (point-min))
+  (let ((org-time-stamp-custom-formats
+         '("%Y-%m-%d" . "%Y-%m-%d %H:%M"))
+        (org-display-custom-times 't))
+    (while (re-search-forward (org-re-timestamp 'all) nil t)
+      (replace-match
+       (save-match-data
+         (org-timestamp-translate (org-timestamp-from-string (match-string 0))))
+       nil
+       t
+       nil))))
+
+(defun uf/find-next-section-and-merge-single-dup ()
+  "Look for the next section in the gantt diagram. Check if there
+is a duplicate section, merge the two if you find one."
+  (if (re-search-forward "section \\(.?+\\)\n" nil t)
+      (progn (message "Found: %s" (match-string 1))
+             (let ((curr-section-header-beg-pt (match-beginning 0))
+                   (curr-section-header-end-pt (match-end 0))
+                   (find-dup-sections-re (format "section %s\n" (match-string 1)))
+                   (new-section-beg-pt (when (re-search-forward "section" nil t)
+                                         (match-beginning 0))))
+               (goto-char curr-section-header-end-pt)
+               (if (and new-section-beg-pt
+                        (re-search-forward find-dup-sections-re nil t))
+                   (let ((dup-section-beg-pt (match-beginning 0))
+                         (curr-pt (point))
+                         (dup-section-end-pt (when (or (re-search-forward "section" nil t)
+                                                       (re-search-forward "#\\+end_src" nil t))
+                                               (match-beginning 0))))
+                     (kill-region curr-pt dup-section-end-pt)
+                     (delete-region dup-section-beg-pt curr-pt)
+                     (goto-char new-section-beg-pt)
+                     (forward-line -1)
+                     (yank)
+                     (goto-char curr-section-header-beg-pt))
+                 (when new-section-beg-pt
+                   (goto-char new-section-beg-pt)))))
+    (progn (message "No Section Found! Exiting!")
+           (goto-char (point-max)))))
+
+(defun uf/org-mermaid-gantt-merge-duplicate-sections ()
+  "In the current buffer, check if the same section has been
+  duplicated and remove the duplicates by merging duplicate
+  sections."
+  (interactive)
+  (goto-char (point-min))
+  (while (not (eq (point) (point-max)))
+    (uf/find-next-section-and-merge-single-dup)))
+
+(defun uf/process-org-mermaid-file ()
+  "Clean up current buffer for optimal mermaid graphs."
+  (interactive)
+  (uf/org-mermaid-gantt-merge-duplicate-sections)
+  (save-buffer)
+  (uf/org-mermaid-convert-timestamps)
+  (delete-trailing-whitespace)
+  (save-buffer))
+
 (provide 'utility-functions)

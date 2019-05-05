@@ -112,6 +112,11 @@
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
+         (:name ob-mermaid
+                :after (progn
+                         (setq ob-mermaid-cli-path
+                               (expand-file-name "~/node_modules/.bin/mmdc"))))
+
          (:name org-pomodoro
                 :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
                                     org-pomodoro-clock-break t)
