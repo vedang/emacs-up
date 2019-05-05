@@ -38,9 +38,13 @@
                  (mode . emacs-lisp-mode)
                  (mode . clojure-mode)
                  (mode . nrepl-repl-mode)
-                 (name . "nrepl")
+                 (name . "cider-repl")
                  (mode . go-mode)
                  (mode . objc-mode)
+                 (mode . mhtml-mode)
+                 (mode . css-mode)
+                 (mode . scss-mode)
+                 (mode . java-mode)
                  (mode . makefile-gmake-mode)))
                ("Writing"
                 (or
