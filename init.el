@@ -110,7 +110,18 @@ Ideally, this will be ~/.emacs.d.")
   (eval-after-load 'notmuch
     '(progn (require 'init-notmuch))))
 
-(add-hook 'after-init-hook (lambda () (load-theme 'idea-darkula t)))
+(add-hook 'after-init-hook (lambda ()
+                             ;; config for leuven
+                             (progn (require 'leuven-theme)
+                                    (require 'leuven-dark-theme)
+                                    (load-theme 'leuven t))
+                             ;; config for poet
+                             ;; (progn (set-face-attribute 'default nil :family "Iosevka" :height 130)
+                             ;;        (set-face-attribute 'fixed-pitch nil :family "Iosevka")
+                             ;;        (set-face-attribute 'variable-pitch nil :family "Baskerville")
+                             ;;        (require 'poet-dark-monochrome-theme)
+                             ;;        (load-theme 'poet-dark-monochrome t))
+                             ))
 
 (server-start)
 (message "My .emacs loaded in %ds"

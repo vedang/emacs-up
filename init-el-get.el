@@ -173,6 +173,8 @@
      ox-hugo
      color-theme-zenburn
      color-theme-idea-darkula
+     color-theme-leuven
+     poet
      company-mode
      dash
      diminish
