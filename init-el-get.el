@@ -118,6 +118,10 @@
                               (global-set-key (kbd "C-c C-x c p")
                                               'org-pomodoro)))
 
+         (:name org-board
+                :after (progn (global-set-key (kbd "C-c o")
+                                              org-board-keymap)))
+
          (:name sicp
                 :after (progn
                          (eval-after-load 'info
