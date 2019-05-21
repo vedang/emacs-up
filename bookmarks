@@ -2,7 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("SICP info"
+(("CSAT Email – Part 2.json"
+ (filename . "~/src/data/qordoba/CSAT Email – Part 2.json/")
+ (front-context-string . ".DS_Store\n  -rwx")
+ (rear-context-string . "48 May  6 12:10 ")
+ (position . 275))
+("info tutorial"
+ (front-context-string . "\n2.6 Emacs Info-")
+ (rear-context-string . ",  Up: Advanced\n")
+ (position . 44178)
+ (filename . "/Applications/Emacs.app/Contents/Resources/info/info")
+ (info-node . "Emacs Info Variables")
+ (handler . Info-bookmark-jump))
+("SICP info"
  (front-context-string . "\n   Lisp was not")
  (rear-context-string . " of the period.\n")
  (position . 44144)
@@ -47,13 +59,13 @@
  (rear-context-string . " 2017 Roadmap]]\n")
  (position . 105869))
 ("org-refile-last-stored"
- (filename . "~/Documents/gtd/work/hscore.org")
- (front-context-string . "** PROJECT [1/1]")
- (rear-context-string . ", Suvrat, Amogh\n")
- (position . 1331))
+ (filename . "~/Documents/gtd/personal/tasks.org")
+ (front-context-string . "** TODO Reminder")
+ (rear-context-string . "[12/14] Errands\n")
+ (position . 249749))
 ("org-capture-last-stored"
- (filename . "~/Documents/gtd/remember-notes.org")
- (front-context-string . "* TODO [#A] Revi")
- (rear-context-string . "ure-templates]]\n")
- (position . 5730))
+ (filename . "~/Documents/gtd/refile.org")
+ (front-context-string . "* TODO Design ba")
+ (rear-context-string . "ock-test code]]\n")
+ (position . 6010))
 )
