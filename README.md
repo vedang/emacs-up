@@ -43,16 +43,24 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
 The following tools should be installed and available on the system:
 - [git](http://git-scm.com/)
 - [mercurial](http://mercurial.selenic.com/)
-- [bazaar](http://bazaar.canonical.com/en/)
+- [subversion](https://subversion.apache.org/)
 - [aspell](http://aspell.net/)
 - [automake](https://www.gnu.org/software/automake/)
+- [Texinfo](https://www.gnu.org/software/texinfo/)
+- [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
 
 Make sure that they are on $PATH. If you are on a Mac, `git` needs to
-be available at `/usr/local/bin/git`. NOTE: On a Mac, these can all be
-installed through Homebrew as follows:
-<code>
-$ brew install chicken
-</code>
+be available at `/usr/local/bin/git`.
+
+1. On a Mac, these can all be installed through Homebrew as follows:
+   <code>
+   $ brew install git mercurial aspell automake texinfo subversion the_silver_searcher
+   </code>
+
+2. On Ubuntu, these can all be installed through Apt as follows:
+   <code>
+   $ apt install git mercurial aspell automake texinfo subversion silversearcher_ag
+   </code>
 
 
 ## Installation Instructions
@@ -148,7 +156,7 @@ $ brew install chicken
    Rust integration is simplistic - depends on `rust-mode` for all
    functionality - and only requires the presence of the rustlang
    compiler. Refer [this
-   document](http://doc.rust-lang.org/book/installing-rust.html) for
+   document](https://www.rust-lang.org/learn/get-started) for
    instructions. If you do not wish to install Rust specific recipes,
    go to `features.el` in the main directory and set the value of
    `configure-rust-p` to `nil`.

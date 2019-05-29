@@ -10,8 +10,9 @@
  '(cider-repl-print-length 200)
  '(custom-safe-themes
    (quote
-    ("170bb47b35baa3d2439f0fd26b49f4278e9a8decf611aa33a0dad1397620ddc3" "fa2af0c40576f3bde32290d7f4e7aa865eb6bf7ebe31eb9e37c32aa6f4ae8d10" default)))
+    ("02591317120fb1d02f8eb4ad48831823a7926113fa9ecfb5a59742420de206e0" "170bb47b35baa3d2439f0fd26b49f4278e9a8decf611aa33a0dad1397620ddc3" "fa2af0c40576f3bde32290d7f4e7aa865eb6bf7ebe31eb9e37c32aa6f4ae8d10" default)))
  '(hl-sexp-background-color "#060404")
+ '(org-agenda-files nil)
  '(package-selected-packages (quote (inflections queue)))
  '(safe-local-variable-values
    (quote
