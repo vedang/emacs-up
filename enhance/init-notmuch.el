@@ -19,7 +19,7 @@
       user-full-name (notmuch-user-name)
       message-send-mail-function 'message-send-mail-with-sendmail
       ;; we substitute sendmail with msmtp
-      sendmail-program "/usr/local/bin/msmtp"
+      sendmail-program (executable-find "msmtp")
       message-sendmail-envelope-from 'header
       mail-specify-envelope-from t
       notmuch-archive-tags '("-inbox" "-unread" "+archived")
