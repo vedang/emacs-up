@@ -146,8 +146,7 @@
          (:name xterm-color
                 :after (progn (require 'xterm-color)
                               (add-hook 'comint-preoutput-filter-functions 'xterm-color-filter)
-                              (setq comint-output-filter-functions (remove 'ansi-color-process-output comint-output-filter-functions))
-                              (setq font-lock-unfontify-region-function 'xterm-color-unfontify-region)))
+                              (setq comint-output-filter-functions (remove 'ansi-color-process-output comint-output-filter-functions))))
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
