@@ -48,7 +48,7 @@
 ;;; This is the order in which the packages are loaded. Changing this
 ;;; order can sometimes lead to nasty surprises, especially when you
 ;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
-(when (eq system-type 'darwin)
+(when (memq window-system '(mac ns x))
   (el-get 'sync '(exec-path-from-shell)))
 
 ;; Tie volatile stuff down, so that configuration does not break.

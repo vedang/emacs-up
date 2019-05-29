@@ -14,10 +14,8 @@
 ;; See the file LICENSE.txt
 
 ;;; Code:
-(when (eq window-system 'ns)
-  (progn (exec-path-from-shell-initialize)
-         (exec-path-from-shell-copy-env "PYTHONPATH")
-         (exec-path-from-shell-copy-env "GOPATH")))
-
+ (progn (exec-path-from-shell-initialize)
+        (exec-path-from-shell-copy-env "PYTHONPATH")
+        (exec-path-from-shell-copy-env "GOPATH"))
 
 (provide 'init-exec-path-from-shell)
