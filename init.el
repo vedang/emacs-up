@@ -22,7 +22,8 @@
 ;; ninja
 ;; master
 ;; humble
-(defvar on-my-machine (string-match "meditatingkombda" (system-name)))
+(defvar on-my-machine (or (string-match "meditatingkombda" (system-name))
+                          (string-match "zenkombda" (system-name))))
 
 (defvar emacs-up--version "v3.1.0"
   "The current version of the Emacs Up Starter Kit.")
@@ -136,7 +137,6 @@ Ideally, this will be ~/.emacs.d.")
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 (package-initialize)
-
 
 (provide 'init)
 ;;; init.el ends here

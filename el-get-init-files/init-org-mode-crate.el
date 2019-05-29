@@ -1,4 +1,4 @@
-;;; init-org-mode-crate.el - Personal Configuration on top of org-mode-crate
+;;; init-org-mode-crate.el --- Personal Configuration on top of org-mode-crate
 ;;; Author: Vedang Manerikar
 ;;; Created on: 21 Oct 2013
 ;;; Copyright (c) 2012, 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -12,8 +12,7 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
-;;; Code:;;;
-
+;;; Commentary:
 
 ;; Set `org-directory' in personal-config, something that is not under
 ;; version control and can therefore be different on different
@@ -23,6 +22,9 @@
 
 ;; Agenda does not have a key-binding by default in Emacs 24.
 ;; Provide one as a starting point.
+
+;;; Code:
+
 (global-set-key (kbd "<f12>") 'org-agenda)
 (message "Press <f12> to get started with your agenda...")
 
@@ -33,3 +35,4 @@
 
 
 (provide 'init-org-mode-crate)
+;;; init-org-mode-crate.el ends here
