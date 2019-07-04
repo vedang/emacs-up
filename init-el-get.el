@@ -216,7 +216,8 @@
      smex
      toml-mode
      unbound
-     wgrep)
+     wgrep
+     yaml-mode)
    (mapcar 'el-get-source-name el-get-sources)
    (when on-my-machine
      ;; Load packages with Third Party
