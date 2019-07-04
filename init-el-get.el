@@ -126,6 +126,9 @@
          (:name org-board
                 :after (progn (global-set-key (kbd "C-c o")
                                               org-board-keymap)))
+         (:name ox-hugo
+                :after (with-eval-after-load 'ox
+                         (require 'ox-hugo)))
 
          (:name sicp
                 :after (progn
@@ -184,7 +187,6 @@
      org-mode-crate
      org-jira
      org-tree-slide
-     ox-hugo
      color-theme-zenburn
      color-theme-idea-darkula
      color-theme-leuven
