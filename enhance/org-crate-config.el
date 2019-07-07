@@ -19,7 +19,12 @@
       org-personal-directory (concat org-directory "/personal")
       org-agenda-files (list org-directory
                              org-work-directory
-                             org-personal-directory)
+                             org-personal-directory
+                             (concat org-personal-directory "/vault")
+                             (concat org-personal-directory "/notes")
+                             (concat org-personal-directory "/books")
+                             (concat org-personal-directory "/ideas")
+                             (concat org-personal-directory "/linklog"))
       org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
       org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
 
