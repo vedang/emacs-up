@@ -28,6 +28,8 @@
 
 (setq ibuffer-saved-filter-groups
       (quote (("default"
+               ("Shell"
+                (mode . shell-mode))
                ("Programming"
                 (or
                  (mode . c-mode)
