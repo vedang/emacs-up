@@ -76,7 +76,8 @@
          (if (executable-find "rustc")
              '((:name rust-mode
                       :after (progn (add-to-list 'auto-mode-alist
-                                                 '("\\.rs\\'" . rust-mode)))))
+                                                 '("\\.rs\\'" . rust-mode))))
+               (:name flycheck-rust))
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
        '((:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
