@@ -206,6 +206,7 @@
      ;; ibuffer-vc - commenting this out for a while, I believe that it
      ;; is broken at the moment.
      ido-completing-read-plus
+     jinja2-mode
      ledger-mode
      lua-mode
      macrostep
