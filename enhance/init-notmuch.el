@@ -67,34 +67,6 @@ deletion by cron job."
          (from-addr (plist-get notmuch-addr-sexp :address)))
     (notmuch-search (concat "from:" from-addr))))
 
-(eval-after-load 'notmuch-show
-  '(progn (define-key notmuch-show-mode-map (kbd "r")
-            'notmuch-show-reply)
-          (define-key notmuch-show-mode-map (kbd "R")
-            'notmuch-show-reply-sender)
-          (define-key notmuch-search-mode-map (kbd "r")
-            'notmuch-search-reply-to-thread)
-          (define-key notmuch-search-mode-map (kbd "R")
-            'notmuch-search-reply-to-thread-sender)
-          (define-key notmuch-search-mode-map (kbd "/")
-            'notmuch-search-filter)
-          (define-key notmuch-search-mode-map (kbd "A")
-            'vedang/notmuch-archive-all)
-          (define-key notmuch-search-mode-map (kbd "D")
-            'vedang/notmuch-delete-all)
-          (define-key notmuch-search-mode-map (kbd "L")
-            'vedang/notmuch-filter-by-from)
-          (define-key notmuch-search-mode-map (kbd ";")
-            'vedang/notmuch-search-by-from)
-          (define-key notmuch-search-mode-map (kbd "d")
-            'vedang/notmuch-search-delete-and-archive-thread)))
-
-;; Sign messages by default.
-(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
-
-;; Integrate with org-mode
-(require 'org-notmuch nil t)
-
 ;;; EmacsWiki
 (defun my-notmuch-show-view-as-patch ()
   "View the the current message as a patch."
@@ -116,7 +88,34 @@ deletion by cron job."
       (add-to-list 'minor-mode-overriding-map-alist new-ro-bind))
     (goto-char (point-min))))
 
-(define-key 'notmuch-show-mode-map (kbd "D") 'my-notmuch-show-view-as-patch)
+(eval-after-load 'notmuch-show
+  '(progn (define-key notmuch-show-mode-map (kbd "r")
+            'notmuch-show-reply)
+          (define-key notmuch-show-mode-map (kbd "R")
+            'notmuch-show-reply-sender)
+          (define-key notmuch-search-mode-map (kbd "r")
+            'notmuch-search-reply-to-thread)
+          (define-key notmuch-search-mode-map (kbd "R")
+            'notmuch-search-reply-to-thread-sender)
+          (define-key notmuch-search-mode-map (kbd "/")
+            'notmuch-search-filter)
+          (define-key notmuch-search-mode-map (kbd "A")
+            'vedang/notmuch-archive-all)
+          (define-key notmuch-search-mode-map (kbd "D")
+            'vedang/notmuch-delete-all)
+          (define-key notmuch-search-mode-map (kbd "L")
+            'vedang/notmuch-filter-by-from)
+          (define-key notmuch-search-mode-map (kbd ";")
+            'vedang/notmuch-search-by-from)
+          (define-key notmuch-search-mode-map (kbd "d")
+            'vedang/notmuch-search-delete-and-archive-thread)
+          (define-key 'notmuch-show-mode-map (kbd "D")
+            'my-notmuch-show-view-as-patch)))
+
+;; Sign messages by default.
+(add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
+
+;; Integrate with org-mode
 
 (add-to-list 'notmuch-saved-searches
              '(:name "hs-inbox"
