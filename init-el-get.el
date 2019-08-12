@@ -213,6 +213,7 @@
      magit
      markdown-mode
      paredit
+     paredit-cheatsheet
      rst-mode
      s
      smex
