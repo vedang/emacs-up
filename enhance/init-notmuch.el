@@ -116,6 +116,7 @@ deletion by cron job."
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
 
 ;; Integrate with org-mode
+(require 'ol-notmuch)
 
 (add-to-list 'notmuch-saved-searches
              '(:name "hs-inbox"
