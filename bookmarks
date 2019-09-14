@@ -59,10 +59,10 @@
  (rear-context-string . " 2017 Roadmap]]\n")
  (position . 105869))
 ("org-refile-last-stored"
- (filename . "~/Documents/gtd/personal/tasks.org")
- (front-context-string . "** TODO Reminder")
- (rear-context-string . "[12/14] Errands\n")
- (position . 249749))
+ (filename . "~/Documents/gtd/work/team.org")
+ (front-context-string . "**** TODO [#A] R")
+ (rear-context-string . "ese with himani\n")
+ (position . 322572))
 ("org-capture-last-stored"
  (filename . "~/Documents/gtd/refile.org")
  (front-context-string . "* TODO Design ba")
