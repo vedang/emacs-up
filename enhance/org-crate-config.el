@@ -12,20 +12,14 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
+;;; Commentary:
+
+;; Expects `org-directory', `org-work-directory',
+;; `org-personal-directory' and `org-agenda-files' to be defined
+;; before this file is loaded. (for example, in `personal.el' file)
+
 ;;; Code:
-
-
-(setq org-work-directory (concat org-directory "/work")
-      org-personal-directory (concat org-directory "/personal")
-      org-agenda-files (list org-directory
-                             org-work-directory
-                             org-personal-directory
-                             (concat org-personal-directory "/vault")
-                             (concat org-personal-directory "/notes")
-                             (concat org-personal-directory "/books")
-                             (concat org-personal-directory "/ideas")
-                             (concat org-personal-directory "/linklog"))
-      org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
+(setq org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
       org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
 
 
