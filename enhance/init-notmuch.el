@@ -23,7 +23,8 @@
       message-sendmail-envelope-from 'header
       mail-specify-envelope-from t
       notmuch-archive-tags '("-inbox" "-unread" "+archived")
-      notmuch-search-oldest-first nil)
+      notmuch-search-oldest-first nil
+      notmuch-show-indent-content nil)
 
 (defun vedang/notmuch-archive-all ()
   "Archive all the emails in the current view."
@@ -135,6 +136,10 @@ deletion by cron job."
              '(:name "only-jira"
                      :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND from:jira@helpshift.atlassian.net"
                      :key "J"))
+(add-to-list 'notmuch-saved-searches
+             '(:name "non-helpshift-inbox"
+                     :query "tag:inbox AND NOT to:helpshift.com"
+                     :key "I"))
 
 
 (setq notmuch-address-selection-function
