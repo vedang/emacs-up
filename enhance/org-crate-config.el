@@ -25,8 +25,8 @@
 
 (add-to-list 'org-capture-templates
              '("h" "Habit" entry
-               (file (concat org-directory "/remember-notes.org"))
-               "*  %?   \n%U\n%a\nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: NEXT\n:END:\n  %i"))
+               (file org-default-notes-file)
+               "*  %?   \n%U\n%a\nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n  %i"))
 
 
 (setq org-agenda-custom-commands
@@ -117,12 +117,7 @@
                ((org-agenda-overriding-header "Habits")
                 (org-agenda-sorting-strategy
                  '(todo-state-down effort-up category-keep))))
-              ("c" "Select default clocking task" tags "LEVEL=1-refile"
-               ((org-agenda-skip-function
-                 '(org-agenda-skip-subtree-if 'notregexp "^\\* Organization"))
-                (org-agenda-overriding-header
-                 "Set default clocking task with C-u C-u I")))
-              ("d" "Delegated Tasks" todo "FOLLOWUP"
+              ("d" "Delegated Tasks" todo "FOLLOWUP|DELEGATED"
                ((org-use-tag-inheritance nil)
                 (org-agenda-todo-ignore-with-date nil)))
               ("I" "Inheritable Deadlines" todo "TODO|WAITING|WORKING|FOLLOWUP"
