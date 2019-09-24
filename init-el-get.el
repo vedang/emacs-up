@@ -220,7 +220,8 @@
      toml-mode
      unbound
      wgrep
-     yaml-mode)
+     yaml-mode
+     yasnippet-snippets)
    (mapcar 'el-get-source-name el-get-sources)
    (when on-my-machine
      ;; Load packages with Third Party
