@@ -12,6 +12,10 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
+;;; Commentary:
+;; This file contains the basic configuration needed to get started
+;; with Emacs.
+
 ;;; Code:
 
 
@@ -58,6 +62,10 @@
       '(".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".beam" ".out" ".hbc"))
 (dolist (ext vm/completion-ignored-extensions)
   (add-to-list 'completion-ignored-extensions ext))
+
+;; Set path for saving desktop
+(require 'desktop)
+(add-to-list 'desktop-path tempfiles-dirname)
 
 ;;; Everything in UTF8
 (prefer-coding-system 'utf-8)
