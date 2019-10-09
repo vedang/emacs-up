@@ -200,6 +200,8 @@
      el-spice
      emacs-async
      es-mode
+     flycheck-clj-kondo
+     flycheck-joker
      flymake-cursor
      grep+
      helm
