@@ -80,7 +80,7 @@
                (:name flycheck-rust))
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
        '((:name dash-at-point
-                :after (progn (global-set-key (kbd "C-c d") 'dash-at-point)))
+                :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
          ;; Change-Inner, Expand-Region and Multiple-Cursors are
          ;; interesting selection and editing tools that go together.
@@ -195,6 +195,7 @@
      company-mode
      dash
      diminish
+     dumb-jump
      edebug-x
      el-spice
      emacs-async
