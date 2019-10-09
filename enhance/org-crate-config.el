@@ -22,11 +22,18 @@
 (setq org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
       org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
 
+(defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
+
 
 (add-to-list 'org-capture-templates
              '("h" "Habit" entry
                (file org-default-notes-file)
-               "*  %?   \n%U\n%a\nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n  %i"))
+               "*  %?  \nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n%U\n%a\n  %i"))
+(add-to-list 'org-capture-templates
+             '("u" "Update" checkitem
+               ;; vm/org-updates-heading-id
+               (id "6a134484-7349-49b7-b580-3045bc87358f")
+               "- [ ] %? \nCAPTURED: %U"))
 
 
 (setq org-agenda-custom-commands
