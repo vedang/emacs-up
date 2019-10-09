@@ -64,8 +64,8 @@
  (rear-context-string . "ese with himani\n")
  (position . 322572))
 ("org-capture-last-stored"
- (filename . "~/Documents/gtd/refile.org")
- (front-context-string . "* TODO Design ba")
- (rear-context-string . "ock-test code]]\n")
- (position . 6010))
+ (filename . "~/Documents/gtd/work/team.org")
+ (front-context-string . "   - [ ] this is")
+ (rear-context-string . " to avoid this.\n")
+ (position . 619870))
 )
