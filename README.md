@@ -48,18 +48,19 @@ The following tools should be installed and available on the system:
 - [automake](https://www.gnu.org/software/automake/)
 - [Texinfo](https://www.gnu.org/software/texinfo/)
 - [The Silver Searcher](https://github.com/ggreer/the_silver_searcher)
+- [Shellcheck](https://github.com/koalaman/shellcheck)
 
 Make sure that they are on $PATH. If you are on a Mac, `git` needs to
 be available at `/usr/local/bin/git`.
 
 1. On a Mac, these can all be installed through Homebrew as follows:
    <code>
-   $ brew install git mercurial aspell automake texinfo subversion the_silver_searcher
+   $ brew install git mercurial aspell automake texinfo subversion the_silver_searcher shellcheck
    </code>
 
 2. On Ubuntu, these can all be installed through Apt as follows:
    <code>
-   $ apt install git mercurial aspell automake texinfo subversion silversearcher_ag
+   $ apt install git mercurial aspell automake texinfo subversion silversearcher_ag shellcheck
    </code>
 
 
@@ -112,22 +113,13 @@ be available at `/usr/local/bin/git`.
 
 2. Clojure interactive development through Cider
 
-   [cider](https://github.com/clojure-emacs/cider/tree/v0.11.0) needs
-   a one time setup of
-   [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl/tree/v0.11.0),
-   [refactor-nrepl](https://github.com/clojure-emacs/refactor-nrepl/tree/v2.0.0)
-   and
-   [squigly-clojure](https://github.com/clojure-emacs/squiggly-clojure)
+   [cider](https://github.com/clojure-emacs/cider/) needs a one time
+   setup of
+   [cider-nrepl](https://github.com/clojure-emacs/cider-nrepl/),
+   [refactor-nrepl](https://github.com/clojure-emacs/refactor-nrepl/)
    middleware in order to work properly. Please follow the
-   instructions
-   [here](https://github.com/clojure-emacs/cider/tree/v0.11.0#setting-up-a-standalone-repl)
-   to install `cider-nrepl` (curr ver v0.11.0). Please follow the
-   instructions
-   [here](https://github.com/clojure-emacs/clj-refactor.el/tree/2.0.0#setup)
-   to install `refactor-nrepl` (curr ver v2.0.0). Please follow the
-   instructions
-   [here](https://github.com/clojure-emacs/squiggly-clojure#dependencies-in-clojure)
-   to install `squigly-clojure` (curr ver v0.1.5).
+   installation instructions in the respective repos to install
+   `cider-nrepl` and `refactor-nrepl`.
 
 3. Python interactive development through Elpy
 
