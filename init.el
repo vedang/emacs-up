@@ -112,7 +112,8 @@ Ideally, this will be ~/.emacs.d.")
     '(progn (require 'init-notmuch))))
 
 (add-hook 'after-init-hook (lambda ()
-                             (color-theme-billw)
+                             (load-theme 'idea-darkula t)
+                             ;; (color-theme-billw)
                              ;; config for leuven
                              ;; (progn (require 'leuven-theme)
                              ;;        (require 'leuven-dark-theme)
