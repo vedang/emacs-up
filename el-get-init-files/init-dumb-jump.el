@@ -23,6 +23,7 @@
 (define-key dumb-jump-mode-map (kbd "C-c d q")
   'dumb-jump-quick-look)
 
+(define-key dumb-jump-mode-map (kbd "C-M-q") nil)
 ;;(setq dumb-jump-selector 'helm)
 
 ;; (defun dumb-jump--xref-backend () 'dumb-jump)
