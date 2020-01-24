@@ -16,6 +16,8 @@
 ;;; Code:;;;
 
 
+(require 'helm-config)
+
 ;; I don't want helm everywhere, only when I explicitly invoke it with
 ;; keys I've bound it to. Modifying the completing-read handlers to
 ;; explicitly mention that I want to use ido everywhere.
