@@ -15,3 +15,9 @@ var/
 eshell/
 helm-doc.org
 .git-fetch
+transient/
+tutorial/
+history
+smex-items
+emojis/
+bookmarks
