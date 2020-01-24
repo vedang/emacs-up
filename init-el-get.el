@@ -137,6 +137,18 @@
          (:name org-board
                 :after (progn (global-set-key (kbd "C-c o")
                                               org-board-keymap)))
+         (:name org-brain
+                :after (progn (eval-after-load 'org-mode-crate
+                                '(push '("b" "Brain" plain (function org-brain-goto-end)
+                                         "* %i%?" :empty-lines 1)
+                                       org-capture-templates))
+                              (setq org-brain-visualize-default-choices 'all
+                                    org-brain-title-max-length 20
+                                    org-brain-include-file-entries nil
+                                    org-brain-file-entries-use-title nil
+                                    org-brain-show-resources t
+                                    org-brain-show-text t)
+                              (global-set-key (kbd "C-c v") 'org-brain-visualize)))
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
