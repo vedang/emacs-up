@@ -109,6 +109,17 @@
                                         (setq flycheck-display-errors-function
                                               #'flycheck-pos-tip-error-messages)))))
 
+         (:name helm-org
+                :before (progn (require 'helm-config))
+                :after (progn (require 'helm-org)
+                              (add-to-list 'helm-completing-read-handlers-alist
+                                           '(org-capture . helm-org-completing-read-tags))
+                              (add-to-list 'helm-completing-read-handlers-alist
+                                           '(org-set-tags . helm-org-completing-read-tags))
+                              (global-set-key (kbd "C-x c o b")
+                                              'helm-org-in-buffer-headings)
+                              (global-set-key (kbd "C-x c o a")
+                                              'helm-org-agenda-files-headings)))
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
