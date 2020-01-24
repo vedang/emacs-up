@@ -101,9 +101,8 @@
                                               'mc/mark-all-symbols-like-this-in-defun)))
 
          (:name flycheck
-                :after (progn (setq flycheck-global-modes
-                                    '(not org-mode))
-                              (global-flycheck-mode 1)))
+                :after (progn (setq flycheck-global-modes '(not org-mode))
+                              (global-flycheck-mode)))
          (:name flycheck-pos-tip
                 :after (progn (eval-after-load 'flycheck
                                 '(progn (require 'flycheck-pos-tip)
