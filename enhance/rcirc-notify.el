@@ -147,10 +147,14 @@ then this controls the timeout of that popup."
 (defun rcirc-notify-page-me (msg)
   (cond
     ((executable-find "notify-send")
-     (start-process "page-me" nil
+     (start-process "page-me"
+                    nil
                     ;; 8640000 ms = 1 day
-                    "notify-send" "-u" "normal" "-i" "gtk-dialog-info"
-                    "-t" (format "%s" rcirc-notify-popup-timeout) "rcirc"
+                    "notify-send"
+                    "-u" "normal"
+                    "-i" "gtk-dialog-info"
+                    "-t" (format "%s" rcirc-notify-popup-timeout)
+                    "rcirc: "
                     msg))
     ((executable-find "terminal-notifier")
      (start-process "page-me" "*debug*" "terminal-notifier" "-activate" "org.gnu.Emacs" "-message" msg "-title" "RCIRC"))
@@ -168,7 +172,7 @@ then this controls the timeout of that popup."
 			     "-e" ,(concat "notify with name \"rcirc\" title \"rcirc\" description \""
 					   msg "\" application name \"Emacs\"")
 			     "-e" "end tell")))
-    (t (error "No method available to page you."))))
+    (t (error "No method available to page you"))))
 
 (defun rcirc-notify (sender &optional text)
   (when window-system
