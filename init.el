@@ -113,15 +113,20 @@ Ideally, this will be ~/.emacs.d.")
 
 (add-hook 'after-init-hook (lambda ()
                              (load-theme 'idea-darkula t)
+                             ;; (color-theme-idea-darkula)
                              ;; (color-theme-billw)
                              ;; config for leuven
                              ;; (progn (require 'leuven-theme)
                              ;;        (require 'leuven-dark-theme)
-                             ;;        (load-theme 'leuven t))
+                             ;;        (load-theme 'leuven-dark t))
                              ;; config for poet
-                             ;; (progn (set-face-attribute 'default nil :family "Iosevka" :height 130)
-                             ;;        (set-face-attribute 'fixed-pitch nil :family "Iosevka")
-                             ;;        (set-face-attribute 'variable-pitch nil :family "Baskerville")
+                             ;; (progn (set-face-attribute 'default nil
+                             ;;                            :family "Iosevka"
+                             ;;                            :height 130)
+                             ;;        (set-face-attribute 'fixed-pitch nil
+                             ;;                            :family "Iosevka")
+                             ;;        (set-face-attribute 'variable-pitch nil
+                             ;;                            :family "Baskerville")
                              ;;        (require 'poet-dark-theme)
                              ;;        (load-theme 'poet-dark t))
                              ))
