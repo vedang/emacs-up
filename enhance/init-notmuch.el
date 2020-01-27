@@ -137,6 +137,10 @@ deletion by cron job."
                      :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND from:jira@helpshift.atlassian.net"
                      :key "J"))
 (add-to-list 'notmuch-saved-searches
+             '(:name "hsbug"
+                     :query "tag:inbox AND (to:vedang@helpshift.com OR from:helpshift.com) AND from:jira@helpshift.atlassian.net AND HSBUG"
+                     :key "B"))
+(add-to-list 'notmuch-saved-searches
              '(:name "non-helpshift-inbox"
                      :query "tag:inbox AND NOT to:helpshift.com"
                      :key "I"))
