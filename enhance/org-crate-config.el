@@ -25,6 +25,7 @@
 
 (defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
 
+;;; My personal capture templates
 (push '("j" "Journal" entry
         (file+olp+datetree org-journal-file)
         "* %?\n%i" :time-prompt t)
@@ -41,6 +42,17 @@
         "- [ ] %? \nCAPTURED: %U")
       org-capture-templates)
 
+;;; My personal tag hotkeys
+(push '("engmgmt" . ?e) org-tag-alist)
+(push '("engmgmt" . ?e) org-tag-alist)
+(push '("refile" . ?r) org-tag-alist)
+(push '("bug" . ?b) org-tag-alist)
+(push '("study" . ?s) org-tag-alist)
+(push '("goal" . ?g) org-tag-alist)
+(push '("tweak" . ?t) org-tag-alist)
+(push '("productive" . ?p) org-tag-alist)
+(push '("feedback" . ?f) org-tag-alist)
+(push '("future" . ?F) org-tag-alist)
 
 (setq org-html-head-extra
       "<style type=\"text/css\">  body { font-family:sans-serif; font-size: small; } code {font-size: medium;} </style>")
