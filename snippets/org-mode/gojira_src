@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: gojira_src
+# key: gojira
+# --
+#+begin_src shell :results value code
+$0
+#+end_src
