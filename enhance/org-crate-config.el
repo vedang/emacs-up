@@ -67,4 +67,30 @@
 (eval-after-load 'org
   '(progn (global-set-key (kbd "C-c M-l") 'vm/org-extract-link)))
 
+(eval-after-load 'org-super-agenda
+  '(setq org-super-agenda-groups
+         '((:name "These are your IMPORTANT Tasks"
+                  :tag "important"
+                  :order 0)
+           (:name "Your Meetings today"
+                  :and (:date today :not (:habit t))
+                  :order 1)
+           (:name "These are your URGENT Tasks"
+                  :deadline past
+                  :deadline today
+                  :order 2)
+           (:name "Habits"
+                  :habit t
+                  :order 3)
+           (:name "Upcoming Tasks"
+                  :scheduled t
+                  :deadline t
+                  :order 4)
+           (:name "Clocked today"
+                  :log t
+                  :order 5)
+           ;; After the last group, the agenda will display items that didn't
+           ;; match any of these groups, with the default order position of 99
+           )))
+
 (provide 'org-crate-config)
