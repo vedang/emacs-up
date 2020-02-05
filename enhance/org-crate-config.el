@@ -93,4 +93,6 @@
            ;; match any of these groups, with the default order position of 99
            )))
 
+(setq org-agenda-dim-blocked-tasks nil)
+
 (provide 'org-crate-config)
