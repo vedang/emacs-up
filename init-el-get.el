@@ -208,6 +208,7 @@
      ace-window
      org-mode
      org-mode-crate
+     org-gcal
      org-jira
      org-tree-slide
      color-theme-zenburn
