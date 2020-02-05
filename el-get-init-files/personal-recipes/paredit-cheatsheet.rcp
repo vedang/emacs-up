@@ -1,5 +1,0 @@
-(:name paredit-cheatsheet
-       :description "A cheatsheet for Paredit for Emacs"
-       :type github
-       :depends (paredit)
-       :pkgname "georgek/paredit-cheatsheet")
