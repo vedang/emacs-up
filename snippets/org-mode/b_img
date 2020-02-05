@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: b_img
+# key: b_img
+# --
+#+caption: ${1:FIXME:caption}
+#+attr_latex: ${2::width 0.75\textwidth}
+[[file:${3:images/temp_img.png}]]$0

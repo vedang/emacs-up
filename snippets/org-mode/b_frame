@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: b_frame
+# key: b_frame
+# --
+** ${1:Frame Title}
+*** ${3:Image Reference Title}                                 :B_ignoreheading:
+    :PROPERTIES:
+    :BEAMER_env: ignoreheading
+    :END:
+#+attr_latex: :width 0.75\textwidth
+#+caption: ${4:FIXME: caption}
+[[file:${5:images/temp_img.png}]]
+*** Speaker Note                                                     :B_note:
+    :PROPERTIES:
+    :BEAMER_env: note
+    :END:
+${2:Speaker Text}
+$0
