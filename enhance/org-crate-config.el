@@ -20,6 +20,7 @@
 ;; Personal Config:
 ;; Expects `org-journal-file' to be defined (for example, in `personal.el' file)
 ;;; Code:
+
 (setq org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
       org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
 
@@ -95,4 +96,19 @@
 
 (setq org-agenda-dim-blocked-tasks nil)
 
+;;; Use `terminal-notifier' to push notifications on osx, if this
+;;; program is not installed, ignore notifications.
+(defun vm/org-notify-message (msg)
+  "Push MSG as a notification via `terminal-notifier'"
+  (when (executable-find "terminal-notifier")
+    (start-process "page-me"
+                   "*debug*"
+                   "terminal-notifier"
+                   "-activate" "org.gnu.Emacs"
+                   "-message" msg
+                   "-title" "Org Mode")))
+
+(setq org-show-notification-handler 'vm/org-notify-message)
+
 (provide 'org-crate-config)
+;;; org-crate-config.el ends here.
