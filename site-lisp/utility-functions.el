@@ -314,4 +314,12 @@ is a duplicate section, merge the two if you find one."
   (delete-trailing-whitespace)
   (save-buffer))
 
+(defun uf/create-datetree-heading ()
+  "Take a date input and create a datetree heading within subtree at point."
+  (interactive)
+  (org-datetree-find-date-create
+   (calendar-gregorian-from-absolute
+    (org-time-string-to-absolute (org-read-date)))
+   'subtree-at-point))
+
 (provide 'utility-functions)
