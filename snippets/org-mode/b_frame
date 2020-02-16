@@ -10,9 +10,9 @@
 #+attr_latex: :width 0.75\textwidth
 #+caption: ${4:FIXME: caption}
 [[file:${5:images/temp_img.png}]]
-*** Speaker Note                                                     :B_note:
+*** Speaker Note                                                     :B_noteNH:
     :PROPERTIES:
-    :BEAMER_env: note
+    :BEAMER_env: noteNH
     :END:
 ${2:Speaker Text}
 $0
