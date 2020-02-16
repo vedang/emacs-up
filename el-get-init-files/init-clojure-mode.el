@@ -128,6 +128,7 @@
      (add-hook 'clojure-mode-hook 'subword-mode)
      (define-key clojure-mode-map (kbd "C-c t")
        'icl/midje-jump-between-tests-and-code)
+     (require 'flycheck-clj-kondo)
      ;; (eval-after-load 'org
      ;;  '(progn (add-hook 'clojure-mode-hook 'turn-on-orgstruct)
      ;;          (add-hook 'clojure-mode-hook 'turn-on-orgstruct++)
