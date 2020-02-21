@@ -148,7 +148,21 @@
                                     org-brain-file-entries-use-title nil
                                     org-brain-show-resources t
                                     org-brain-show-text t)
-                              (global-set-key (kbd "C-c v") 'org-brain-visualize)))
+                              (global-set-key (kbd "C-c v")
+                                              'org-brain-visualize)
+                              (eval-after-load 'org-noter
+                                '(progn (defun org-brain-open-org-noter (entry)
+                                          "Open `org-noter' on the ENTRY.
+If run interactively, get ENTRY from context."
+                                          (interactive (list (org-brain-entry-at-pt)))
+                                          (org-with-point-at (org-brain-entry-marker entry)
+                                            (org-noter)))
+                                        (define-key org-brain-visualize-mode-map
+                                          (kbd "\C-c n")
+                                          'org-brain-open-org-noter)))))
+         (:name org-noter
+                :after (progn (add-hook 'org-noter-insert-heading-hook
+                                        #'org-id-get-create)))
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
