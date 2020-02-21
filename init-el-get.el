@@ -166,7 +166,8 @@ If run interactively, get ENTRY from context."
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
-
+         (:name pdf-tools
+                :after (progn (pdf-tools-install)))
          (:name sicp
                 :after (progn
                          (eval-after-load 'info
