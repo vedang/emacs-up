@@ -112,13 +112,14 @@ Ideally, this will be ~/.emacs.d.")
     '(progn (require 'init-notmuch))))
 
 (add-hook 'after-init-hook (lambda ()
-                             (load-theme 'idea-darkula t)
+                             ;; (load-theme 'idea-darkula t)
                              ;; (color-theme-idea-darkula)
                              ;; (color-theme-billw)
                              ;; config for leuven
-                             ;; (progn (require 'leuven-theme)
-                             ;;        (require 'leuven-dark-theme)
-                             ;;        (load-theme 'leuven-dark t))
+                             (progn (require 'leuven-theme)
+                                    (require 'leuven-dark-theme)
+                                    (load-theme 'leuven-dark t)
+                                    )
                              ;; config for poet
                              ;; (progn (set-face-attribute 'default nil
                              ;;                            :family "Iosevka"
