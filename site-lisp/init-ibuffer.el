@@ -54,6 +54,7 @@
                  (mode . org-mode)
                  (derived-mode . org-mode)
                  (mode . org-agenda-mode)
+                 (mode . org-brain-visualize-mode)
                  (mode . markdown-mode)
                  (mode . notmuch-message-mode)
                  (mode . LaTeX-mode)
