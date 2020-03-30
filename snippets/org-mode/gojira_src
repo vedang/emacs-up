@@ -3,5 +3,5 @@
 # key: gojira
 # --
 #+begin_src shell :results value code
-$0
+jira view --field=summary,status,labels $0
 #+end_src
