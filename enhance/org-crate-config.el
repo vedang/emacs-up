@@ -37,12 +37,6 @@
         "*  %?  \nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n%U\n%a\n  %i")
       org-capture-templates)
 
-(push '("u" "Update" checkitem
-        ;; vm/org-updates-heading-id
-        (id "6a134484-7349-49b7-b580-3045bc87358f")
-        "- [ ] %? \nCAPTURED: %U")
-      org-capture-templates)
-
 ;;; My personal tag hotkeys
 (push '("engmgmt" . ?e) org-tag-alist)
 (push '("engmgmt" . ?e) org-tag-alist)
