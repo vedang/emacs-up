@@ -155,5 +155,11 @@ deletion by cron job."
                          nil
                          'notmuch-address-history)))
 
+(defun disable-auto-fill ()
+  "I don't want `auto-fill-mode'"
+  (auto-fill-mode -1))
+
+(add-hook 'message-mode-hook 'disable-auto-fill)
+
 (provide 'init-notmuch)
 ;;; init-notmuch.el ends here
