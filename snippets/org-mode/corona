@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: corona
+# key: corona
+# --
+- Lunch:
+  + $0
+- Dinner:
+- Misc:
