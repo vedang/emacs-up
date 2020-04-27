@@ -55,30 +55,33 @@
 ;; Add configuration for recipes that need very minor configuration.
 (setq el-get-sources
       (append
+
        (when (and (boundp configure-clojure-p)
                   configure-clojure-p)
-         '((:name cider
-                  ;; :checkout "v0.15.1"
-                  )
-           (:name clj-refactor
-                  ;; :checkout "2.3.1"
-                  )
+         '((:name cider)
+
+           (:name clj-refactor)
+
            (:name flycheck-clojure
                   :after (progn ;; (eval-after-load 'flycheck
                                 ;;   '(flycheck-clojure-setup))
-                                ))))
+                           ))))
+
        (when (and (boundp configure-python-p)
                   configure-python-p)
          '((:name elpy
                   :after (progn (elpy-enable)))))
+
        (when (and (boundp configure-rust-p)
                   configure-rust-p)
          (if (executable-find "rustc")
              '((:name rust-mode
                       :after (progn (add-to-list 'auto-mode-alist
                                                  '("\\.rs\\'" . rust-mode))))
+
                (:name flycheck-rust))
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
+
        '((:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
@@ -89,9 +92,11 @@
                               (global-set-key (kbd "M-o") 'change-outer)))
          (:name edit-server
                 :after (progn (edit-server-start)))
+
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-c = =")
                                               'er/expand-region)))
+
          (:name multiple-cursors
                 :after (progn (global-set-key (kbd "C-c = 0")
                                               'mc/mark-next-like-this)
@@ -103,6 +108,7 @@
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode))
                               (global-flycheck-mode)))
+
          (:name flycheck-pos-tip
                 :after (progn (eval-after-load 'flycheck
                                 '(progn (require 'flycheck-pos-tip)
@@ -120,6 +126,7 @@
                                               'helm-org-in-buffer-headings)
                               (global-set-key (kbd "C-x c o a")
                                               'helm-org-agenda-files-headings)))
+
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
@@ -127,12 +134,6 @@
                 :after (progn
                          (setq ob-mermaid-cli-path
                                (expand-file-name "~/node_modules/.bin/mmdc"))))
-
-         (:name org-pomodoro
-                :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
-                                    org-pomodoro-clock-break t)
-                              (global-set-key (kbd "C-c C-x c p")
-                                              'org-pomodoro)))
 
          (:name org-board
                 :after (progn (global-set-key (kbd "C-c o")
@@ -144,7 +145,8 @@
                                     org-brain-file-entries-use-title nil
                                     org-brain-show-resources t
                                     org-brain-show-text t
-                                    org-brain-visualize-use-capture-templates t)
+                                    org-brain-visualize-use-capture-templates t
+                                    org-brain-scan-directories-recursively nil)
                               (global-set-key (kbd "C-c v")
                                               'org-brain-visualize)
                               (eval-after-load 'org-noter
@@ -157,34 +159,51 @@ If run interactively, get ENTRY from context."
                                         (define-key org-brain-visualize-mode-map
                                           (kbd "\C-c n")
                                           'org-brain-open-org-noter)))))
+
+         (:name org-chef)
+
          (:name org-noter
                 :after (progn (add-hook 'org-noter-insert-heading-hook
                                         #'org-id-get-create)))
+
+         (:name org-pomodoro
+                :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
+                                    org-pomodoro-clock-break t)
+                              (global-set-key (kbd "C-c C-x c p")
+                                              'org-pomodoro)))
+
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
+
          (:name pdf-tools
                 :after (progn (pdf-tools-install)))
+
          (:name sicp
                 :after (progn
                          (eval-after-load 'info
                            '(progn (info-initialize)
                                    (add-to-list 'Info-directory-list
                                                 (concat el-get-dir "sicp/"))))))
+
          (:name smart-tab
                 :after (progn (setq smart-tab-using-hippie-expand t
                                     smart-tab-expand-eolp nil
                                     smart-tab-user-provided-completion-function 'company-complete
                                     smart-tab-completion-functions-alist '((ledger-mode . dabbrev-completion)))
                               (global-smart-tab-mode 1)))
+
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
+
          (:name writegood
                 :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+
          (:name xterm-color
                 :after (progn (require 'xterm-color)
                               (add-hook 'comint-preoutput-filter-functions 'xterm-color-filter)
                               (setq comint-output-filter-functions (remove 'ansi-color-process-output comint-output-filter-functions))))
+
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
@@ -193,16 +212,19 @@ If run interactively, get ENTRY from context."
 
 (defvar el-get-my-packages
   (append
+
    (when (and (boundp configure-clojure-p)
               configure-clojure-p)
      '(clojure-mode
        helm-cider
        clojure-snippets))
+
    (when (and (boundp configure-scheme-p)
               configure-scheme-p)
      (if (executable-find "csi")
          '(geiser)
        (error "Scheme programming (via Chicken) is configured, but I can't find the `csi' binary! Have you read the README file?")))
+
    (when (and (boundp configure-go-p)
               configure-go-p)
      (if (executable-find "go")
@@ -215,9 +237,11 @@ If run interactively, get ENTRY from context."
            go-imports
            go-lint)
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
+
    '(ag
      avy
      ace-window
+     auctex
      org-mode
      org-mode-crate
      org-gcal
@@ -226,8 +250,8 @@ If run interactively, get ENTRY from context."
      color-theme-zenburn
      color-theme-idea-darkula
      color-theme-leuven
-     poet
      company-mode
+     company-auctex
      dash
      diminish
      dumb-jump
@@ -245,6 +269,7 @@ If run interactively, get ENTRY from context."
      ;; is broken at the moment.
      ido-completing-read-plus
      jinja2-mode
+     keycast
      ledger-mode
      lua-mode
      macrostep
@@ -260,7 +285,9 @@ If run interactively, get ENTRY from context."
      wgrep
      yaml-mode
      yasnippet-snippets)
+
    (mapcar 'el-get-source-name el-get-sources)
+
    (when on-my-machine
      ;; Load packages with Third Party
      ;; dependencies only on my machine.
