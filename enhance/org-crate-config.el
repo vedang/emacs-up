@@ -104,5 +104,8 @@
 
 (setq org-show-notification-handler 'vm/org-notify-message)
 
+;;; Use Plantuml for diagrams
+;; This value is set in my personal.el file
+;; (setq org-plantuml-jar-path "")
 (provide 'org-crate-config)
 ;;; org-crate-config.el ends here.
