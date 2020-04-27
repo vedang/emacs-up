@@ -2,31 +2,44 @@
 # name: hsperfreview
 # key: hsperfreview
 # --
-#+title: $1's Performance review for the period $2
+#+title: ${1:First Name} ${2:Last Name}'s Performance review for the period ${3:Q4, 2019 -- Q1, 2020}
 #+date: `(current-time-string)`
 * Manager's Review
-- Manager: $3
-- Candidate: $1
-- Current Role: $4
-- Performance Rating: $5
-- Potential Next Role: $6
-- Timeline to the next promotion: $7
-** What did $1 do well?
-*** What is $1's super-power?
+- Manager: ${4:Full Name}
+- Candidate: $1 $2
+- Current Role: $5
+- Performance Rating: $6
+- Potential Next Role: $7
+- Timeline to the next promotion: $8
+
+** What did $1 do well? (Accomplishments)
+- List of Concrete Accomplishments over $3
+  These should be significant accomplishments
+- Peer feedback
+  Praise. Refer to Officevibe, Small Improvements, Slack etc. Try and keep it relevant to list of accomplishments (and significant).
+
+*** What does $1 do best?
+Describe their biggest strength and how they can improve further on it.
 $0
-*** Other notes for $1
-*** Peer Feedback for $1
+
+*** High level feedback (Summary) for $1
+Short para setting up a story arc of how far the person has come, sentence or two of how they did in this cycle, end on a high-level overview of what is next.
+
 ** What can $1 improve on?
+What is *most* holding $1 back from the next level? Use the levels document for guidance. What is the opinion of other managers?
+
 *** Area 1:
 - Should contain
   + Concrete examples and peer feedback
   + Concrete suggestions
 - What fully achieving this looks like:
+
 *** Area 2:
 - Should contain
   + Concrete examples and peer feedback
   + Concrete suggestions
 - What fully achieving this looks like:
+
 *** Area 3:
 - Should contain
   + Concrete examples and peer feedback
@@ -34,9 +47,11 @@ $0
 - What fully achieving this looks like:
 
 * Self Review
-- Author: $1
+- Author: $1 $2
 - Performance Rating:
 ** What did I do well?
 ** What can I improve on?
 
 * Follow up between Manager and Candidate
+- Action Items on $1 $2:
+- Action Items on $3:
