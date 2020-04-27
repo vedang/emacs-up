@@ -38,6 +38,7 @@ NS is the namespace information passed into the function by cider."
            cider-repl-wrap-history t
            cider-repl-prompt-function 'cider-repl-prompt-on-newline
            cider-repl-display-help-banner nil
+           cider-repl-use-pretty-printing nil
            nrepl-buffer-name-separator "-"
            nrepl-buffer-name-show-port t
            nrepl-log-messages t
