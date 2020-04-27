@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: b_frame2
+# key: b_frame2
+# --
+* ${1:Frame Title}
+** Speaker Note                                                     :B_noteNH:
+   :PROPERTIES:
+   :BEAMER_env: noteNH
+   :END:
+${2:Speaker Text}
+$0
