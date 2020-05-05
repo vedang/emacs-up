@@ -169,8 +169,7 @@ If run interactively, get ENTRY from context."
          (:name org-pomodoro
                 :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
                                     org-pomodoro-clock-break t)
-                              (global-set-key (kbd "C-c C-x c p")
-                                              'org-pomodoro)))
+                              (global-set-key (kbd "C-x c P") 'org-pomodoro)))
 
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
