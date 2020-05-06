@@ -140,7 +140,7 @@
                                               org-board-keymap)))
          (:name org-brain
                 :after (progn (setq org-brain-visualize-default-choices 'all
-                                    org-brain-title-max-length 40
+                                    org-brain-title-max-length 60
                                     org-brain-include-file-entries nil
                                     org-brain-file-entries-use-title nil
                                     org-brain-show-resources t
