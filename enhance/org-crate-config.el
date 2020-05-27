@@ -22,7 +22,8 @@
 ;;; Code:
 
 (setq org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
-      org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
+      org-clock-persist-file (concat tempfiles-dirname "org-clock-save")
+      org-meetings-file (concat org-work-directory "/meetings.org"))
 
 (defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
 
@@ -34,8 +35,22 @@
 
 (push '("h" "Habit" entry
         (file org-default-notes-file)
-        "*  %?  \nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n%U\n%a\n  %i")
+        "*  %? :habit:  \nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n%U\n%a\n  %i")
       org-capture-templates)
+
+(push '("m" "Meeting" entry
+        (file+olp+datetree org-meetings-file "Day to Day Meetings")
+        "* MEETING %^{To Discuss} \n%U\n- Attendees: %^{Attendees}, Vedang\n - %?"
+        :prepend t
+        :clock-in t
+        :clock-resume t)
+      org-capture-templates)
+
+(push '("w" "Work Todo"
+        entry (file org-default-notes-file)
+        "* TODO %^{Description} [[%^{Type|auto|hsbug|jira}:%^{Ticket number}]] \n%U\n%a\n %i%?")
+      org-capture-templates)
+
 
 ;;; My personal tag hotkeys
 (push '("engmgmt" . ?e) org-tag-alist)
