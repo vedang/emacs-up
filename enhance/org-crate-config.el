@@ -53,8 +53,7 @@
 
 
 ;;; My personal tag hotkeys
-(push '("engmgmt" . ?e) org-tag-alist)
-(push '("engmgmt" . ?e) org-tag-alist)
+(push '("engineering_management" . ?e) org-tag-alist)
 (push '("refile" . ?r) org-tag-alist)
 (push '("bug" . ?b) org-tag-alist)
 (push '("study" . ?s) org-tag-alist)
