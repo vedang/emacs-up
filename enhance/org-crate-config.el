@@ -83,7 +83,7 @@
                   :tag "important"
                   :order 0)
            (:name "Your Meetings today"
-                  :and (:date today :not (:habit t :deadline t))
+                  :and (:date today :not (:habit t :deadline t :scheduled t))
                   :order 1)
            (:name "These are your URGENT Tasks"
                   :not (:habit t :deadline future :scheduled future)
