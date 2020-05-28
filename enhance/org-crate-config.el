@@ -40,7 +40,7 @@
 
 (push '("m" "Meeting" entry
         (file+olp+datetree org-meetings-file "Day to Day Meetings")
-        "* MEETING %^{To Discuss} \n%U\n- Attendees: %^{Attendees}, Vedang\n - %?"
+        "* MEETING %^{To Discuss} %^G \n%U\n- Attendees: %^{Attendees}, Vedang\n- %?"
         :prepend t
         :clock-in t
         :clock-resume t)
