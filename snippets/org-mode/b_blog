@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: b_blog
+# key: b_blog
+# --
+** Blog Image                                                   :blogpost:
+   :PROPERTIES:
+   :InPost: t
+   :END:
+file:png_images/org_agenda-$1.png
+$0
