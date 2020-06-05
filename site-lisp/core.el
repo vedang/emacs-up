@@ -85,7 +85,7 @@
               tab-width 4)
 
 
-(mouse-avoidance-mode 'banish)
+(mouse-avoidance-mode 'exile)
 (delete-selection-mode t)
 (display-time)
 
