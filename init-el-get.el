@@ -178,6 +178,13 @@ If run interactively, get ENTRY from context."
          (:name pdf-tools
                 :after (progn (pdf-tools-install)))
 
+         (:name plantuml-mode
+                :after (progn (setq plantuml-default-exec-mode 'jar)
+                              ;; Note: You need to define
+                              ;; `plantuml-jar-path' to whereever the
+                              ;; jar is downloaded on your system.
+                              ))
+
          (:name sicp
                 :after (progn
                          (eval-after-load 'info
