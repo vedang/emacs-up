@@ -62,6 +62,7 @@
 (push '("productive" . ?p) org-tag-alist)
 (push '("feedback" . ?f) org-tag-alist)
 (push '("future" . ?F) org-tag-alist)
+(push '("writing" . ?W) org-tag-alist)
 
 (setq org-html-head-extra
       "<style type=\"text/css\">  body { font-family:sans-serif; font-size: small; } code {font-size: medium;} </style>"
