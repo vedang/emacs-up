@@ -13,10 +13,13 @@
 ;; See the file LICENSE.txt
 
 ;;; Commentary:
+;; Put this file somewhere on your load-path, after notmuch is loaded.
+;; Eg:
+;; (require 'notmuch)
+;; (require 'init-notmuch)
 ;; The variable `notmuch-mail-dir' needs to be defined (for example,
 ;; in your personal.el file)
 ;;; Code:
-
 
 (setq user-mail-address (notmuch-user-primary-email)
       user-full-name (notmuch-user-name)
@@ -30,6 +33,79 @@
       notmuch-search-oldest-first nil
       notmuch-show-indent-content nil
       notmuch-hooks-dir (expand-file-name ".notmuch/hooks" notmuch-mail-dir))
+
+;;; My Notmuch start screen:
+(progn
+  (setq notmuch-saved-searches nil)
+  (push '(:name "Inbox"
+                :query "tag:inbox AND tag:screened AND tag:unread"
+                :key "i"
+                :search-type 'tree)
+        notmuch-saved-searches)
+  (push '(:name "Previously Seen"
+                :query "tag:screened AND NOT tag:unread"
+                :key "I")
+        notmuch-saved-searches)
+  (push '(:name "Unscreened"
+                :query "tag:inbox AND NOT tag:screened"
+                :key "s")
+        notmuch-saved-searches)
+  (push '(:name "The Feed"
+                :query "tag:thefeed"
+                :key "f"
+                :search-type 'tree)
+        notmuch-saved-searches)
+  (push '(:name "The Papertrail"
+                :query "tag:/ledger/"
+                :key "p")
+        notmuch-saved-searches))
+
+;; Integrate with org-mode
+(require 'ol-notmuch)
+
+(eval-after-load 'notmuch-show
+  '(progn
+     ;; Bindings in `notmuch-show-mode'
+     (define-key notmuch-show-mode-map (kbd "r")
+       'notmuch-show-reply)
+     (define-key notmuch-show-mode-map (kbd "R")
+       'notmuch-show-reply-sender)
+     (define-key notmuch-show-mode-map (kbd "C")
+       'vedang/notmuch-reply-later)
+
+     ;; Bindings in `notmuch-search-mode'
+     (define-key notmuch-search-mode-map (kbd "r")
+       'notmuch-search-reply-to-thread)
+     (define-key notmuch-search-mode-map (kbd "R")
+       'notmuch-search-reply-to-thread-sender)
+     (define-key notmuch-search-mode-map (kbd "/")
+       'notmuch-search-filter)
+     (define-key notmuch-search-mode-map (kbd "A")
+       'vedang/notmuch-archive-all)
+     (define-key notmuch-search-mode-map (kbd "D")
+       'vedang/notmuch-delete-all)
+     (define-key notmuch-search-mode-map (kbd "L")
+       'vedang/notmuch-filter-by-from)
+     (define-key notmuch-search-mode-map (kbd ";")
+       'vedang/notmuch-search-by-from)
+     (define-key notmuch-search-mode-map (kbd "d")
+       'vedang/notmuch-search-delete-and-archive-thread)
+
+     ;; The HEY Workflow Bindings
+     (define-key notmuch-search-mode-map (kbd "S")
+       'vedang/notmuch-move-sender-to-spam)
+     (define-key notmuch-search-mode-map (kbd "I")
+       'vedang/notmuch-move-sender-to-screened)
+     (define-key notmuch-search-mode-map (kbd "P")
+       'vedang/notmuch-move-sender-to-papertrail)
+     (define-key notmuch-search-mode-map (kbd "f")
+       'vedang/notmuch-move-sender-to-thefeed)
+     (define-key notmuch-search-mode-map (kbd "C")
+       'vedang/notmuch-reply-later)
+
+     ;; Bindings in `notmuch-tree-mode'
+     (define-key notmuch-tree-mode-map (kbd "C")
+       'vedang/notmuch-reply-later)))
 
 (defun vedang/notmuch-archive-all ()
   "Archive all the emails in the current view."
@@ -156,7 +232,20 @@ This means:
 (defun vedang/notmuch-reply-later ()
   "Capture this email for replying later."
   (interactive)
+  ;; You need `org-capture' to be set up for this to work. Add this
+  ;; code somewhere in your init file after `org-cature' is loaded:
+
+  ;; (push '("r" "Respond to email"
+  ;;         entry (file org-default-notes-file)
+  ;;         "* TODO Respond to %:from on %:subject  :email: \nSCHEDULED: %t\n%U\n%a\n"
+  ;;         :clock-in t
+  ;;         :clock-resume t
+  ;;         :immediate-finish t)
+  ;;       org-capture-templates)
+
   (org-capture nil "r")
+
+  ;; The rest of this function is just a nice message in the modeline.
   (let* ((email-subject (format "%s..."
                                 (substring (notmuch-show-get-subject) 0 15)))
          (email-from (format "%s..."
@@ -164,99 +253,8 @@ This means:
          (email-string (format "%s (From: %s)" email-subject email-from)))
     (message "Noted! Reply Later: %s" email-string)))
 
-(eval-after-load 'notmuch-show
-  '(progn ;; Bindings in `notmuch-show-mode'
-     (define-key notmuch-show-mode-map (kbd "r")
-       'notmuch-show-reply)
-     (define-key notmuch-show-mode-map (kbd "R")
-       'notmuch-show-reply-sender)
-     (define-key 'notmuch-show-mode-map (kbd "D")
-       'my-notmuch-show-view-as-patch)
-     (define-key notmuch-show-mode-map (kbd "C")
-       'vedang/notmuch-reply-later)
-     ;; Bindings in `notmuch-search-mode'
-     (define-key notmuch-search-mode-map (kbd "r")
-       'notmuch-search-reply-to-thread)
-     (define-key notmuch-search-mode-map (kbd "R")
-       'notmuch-search-reply-to-thread-sender)
-     (define-key notmuch-search-mode-map (kbd "/")
-       'notmuch-search-filter)
-     (define-key notmuch-search-mode-map (kbd "A")
-       'vedang/notmuch-archive-all)
-     (define-key notmuch-search-mode-map (kbd "D")
-       'vedang/notmuch-delete-all)
-     (define-key notmuch-search-mode-map (kbd "L")
-       'vedang/notmuch-filter-by-from)
-     (define-key notmuch-search-mode-map (kbd ";")
-       'vedang/notmuch-search-by-from)
-     (define-key notmuch-search-mode-map (kbd "S")
-       'vedang/notmuch-move-sender-to-spam)
-     (define-key notmuch-search-mode-map (kbd "I")
-       'vedang/notmuch-move-sender-to-screened)
-     (define-key notmuch-search-mode-map (kbd "P")
-       'vedang/notmuch-move-sender-to-papertrail)
-     (define-key notmuch-search-mode-map (kbd "f")
-       'vedang/notmuch-move-sender-to-thefeed)
-     (define-key notmuch-search-mode-map (kbd "d")
-       'vedang/notmuch-search-delete-and-archive-thread)
-     (define-key notmuch-search-mode-map (kbd "C")
-       'vedang/notmuch-reply-later)
-     ;; Bindings in `notmuch-tree-mode'
-     (define-key notmuch-tree-mode-map (kbd "C")
-       'vedang/notmuch-reply-later)))
-
-;; Integrate with org-mode
-(require 'ol-notmuch)
-
-;;; My Notmuch start screen:
-(progn
-  (setq notmuch-saved-searches nil)
-  (push '(:name "Inbox"
-                :query "tag:inbox AND tag:screened AND tag:unread"
-                :key "i"
-                :search-type 'tree)
-        notmuch-saved-searches)
-  (push '(:name "Previously Seen"
-                :query "tag:screened AND NOT tag:unread"
-                :key "I")
-        notmuch-saved-searches)
-  (push '(:name "Unscreened"
-                :query "tag:inbox AND NOT tag:screened"
-                :key "s")
-        notmuch-saved-searches)
-  (push '(:name "The Feed"
-                :query "tag:thefeed"
-                :key "f"
-                :search-type 'tree)
-        notmuch-saved-searches)
-  (push '(:name "The Papertrail"
-                :query "tag:/ledger/"
-                :key "p")
-        notmuch-saved-searches))
-
 ;; Sign messages by default.
 (add-hook 'message-setup-hook 'mml-secure-sign-pgpmime)
-
-;;; EmacsWiki
-(defun my-notmuch-show-view-as-patch ()
-  "View the the current message as a patch."
-  (interactive)
-  (let* ((id (notmuch-show-get-message-id))
-         (subject (concat "Subject: " (notmuch-show-get-subject) "\n"))
-         (diff-default-read-only t)
-         (buf (get-buffer-create (concat "*notmuch-patch-" id "*")))
-         (map (make-sparse-keymap)))
-    (define-key map "q" 'notmuch-kill-this-buffer)
-    (switch-to-buffer buf)
-    (let ((inhibit-read-only t))
-      (erase-buffer)
-      (insert subject)
-      (insert (notmuch-get-bodypart-internal id 1 nil)))
-    (set-buffer-modified-p nil)
-    (diff-mode)
-    (lexical-let ((new-ro-bind (cons 'buffer-read-only map)))
-      (add-to-list 'minor-mode-overriding-map-alist new-ro-bind))
-    (goto-char (point-min))))
 
 (setq notmuch-address-selection-function
       (lambda (prompt collection initial-input)
