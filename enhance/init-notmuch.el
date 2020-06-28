@@ -183,16 +183,19 @@ search."
   "Add the email address NMADDR to the db-file NMDBFILE."
   (append-to-file (format "%s\n" nmaddr) nil nmdbfile))
 
-(defun vedang/notmuch-move-sender-to-thefeed ()
+(defun vedang/notmuch-move-sender-to-thefeed (tag-name)
   "For the email at point, move the sender of that email to the feed.
 This means:
 1. All new email should go to the feed and skip the inbox altogether.
-2. All existing email should be updated with the tag =thefeed=.
+2. All existing email should be updated with the tags =news/TAG-NAME= and =thefeed=.
 3. All existing email should be removed from the inbox."
-  (interactive)
-  (vedang/notmuch-add-addr-to-db (vedang/notmuch-search-find-from)
+  (interactive "sTag Name: ")
+  (vedang/notmuch-add-addr-to-db (format "%s %s"
+                                         tag-name
+                                         (vedang/notmuch-search-find-from))
                                  (format "%s/thefeed.db" notmuch-hooks-dir))
-  (vedang/notmuch-tag-by-from '("+thefeed" "+archived" "-inbox")))
+  (let ((tag-string (format "+news/%s" tag-name)))
+    (vedang/notmuch-tag-by-from (list tag-string "+thefeed" "+archived" "-inbox" "-unread"))))
 
 (defun vedang/notmuch-move-sender-to-papertrail (tag-name)
   "For the email at point, move the sender of that email to the papertrail.
