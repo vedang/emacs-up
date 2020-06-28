@@ -148,27 +148,7 @@
          (:name org-board
                 :after (progn (global-set-key (kbd "C-c o")
                                               org-board-keymap)))
-         (:name org-brain
-                :after (progn (setq org-brain-visualize-default-choices 'all
-                                    org-brain-title-max-length 60
-                                    org-brain-include-file-entries nil
-                                    org-brain-file-entries-use-title nil
-                                    org-brain-show-resources t
-                                    org-brain-show-text t
-                                    org-brain-visualize-use-capture-templates t
-                                    org-brain-scan-directories-recursively nil)
-                              (global-set-key (kbd "C-c v")
-                                              'org-brain-visualize)
-                              (eval-after-load 'org-noter
-                                '(progn (defun org-brain-open-org-noter (entry)
-                                          "Open `org-noter' on the ENTRY.
-If run interactively, get ENTRY from context."
-                                          (interactive (list (org-brain-entry-at-pt)))
-                                          (org-with-point-at (org-brain-entry-marker entry)
-                                            (org-noter)))
-                                        (define-key org-brain-visualize-mode-map
-                                          (kbd "\C-c n")
-                                          'org-brain-open-org-noter)))))
+         (:name org-brain)
 
          (:name org-chef)
 
