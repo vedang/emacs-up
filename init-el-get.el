@@ -62,6 +62,16 @@
 
            (:name clj-refactor)
 
+           (:name cljstyle
+                  :after (progn
+                           (defun turn-on-cljstyle ()
+                             "Utility function to turn on `cljstyle-mode' and auto-formatting."
+                             (if (executable-find "cljstyle")
+                                 (cljstyle-mode +1)
+                               (message "Could not find `cljstyle' on $PATH. Please ensure you have installed it correctly.")))
+
+                           (add-hook 'clojure-mode-hook 'turn-on-cljstyle)))
+
            (:name flycheck-clojure
                   :after (progn ;; (eval-after-load 'flycheck
                                 ;;   '(flycheck-clojure-setup))
