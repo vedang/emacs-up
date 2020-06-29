@@ -21,7 +21,8 @@
 ;; Expects `org-journal-file' to be defined (for example, in `personal.el' file)
 ;;; Code:
 
-(setq org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
+(setq org-id-track-globally t
+      org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
       org-clock-persist-file (concat tempfiles-dirname "org-clock-save")
       org-meetings-file (concat org-work-directory "/meetings.org"))
 
