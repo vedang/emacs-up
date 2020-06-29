@@ -160,6 +160,8 @@
 
          (:name org-chef)
 
+         (:name org-cliplink)
+
          (:name org-noter
                 :after (progn (add-hook 'org-noter-insert-heading-hook
                                         #'org-id-get-create)))
