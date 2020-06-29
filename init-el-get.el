@@ -92,7 +92,16 @@
                (:name flycheck-rust))
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
 
-       '((:name dash-at-point
+       '((:name ace-link
+                :after
+                (progn (ace-link-setup-default)
+                       (define-key org-mode-map (kbd "M-o") 'ace-link-org)
+                       (define-key org-agenda-mode-map (kbd "M-o") 'ace-link-org-agenda)
+                       (eval-after-load 'ert
+                         '(define-key ert-results-mode-map (kbd "o")
+                            'ace-link-help))))
+
+         (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
          ;; Change-Inner, Expand-Region and Multiple-Cursors are
