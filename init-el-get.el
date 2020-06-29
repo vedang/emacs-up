@@ -113,8 +113,7 @@
                 :after (progn (edit-server-start)))
 
          (:name expand-region
-                :after (progn (global-set-key (kbd "C-c = =")
-                                              'er/expand-region)))
+                :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
 
          (:name multiple-cursors
                 :after (progn (global-set-key (kbd "C-c = 0")
