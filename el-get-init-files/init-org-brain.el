@@ -26,7 +26,8 @@
       org-brain-scan-directories-recursively nil)
 
 ;;; Key Bindings
-(global-set-key (kbd "C-c v") 'org-brain-visualize)
+(autoload 'helm-brain "org-brain")
+(global-set-key (kbd "C-c v") 'helm-brain)
 (define-key org-mode-map (kbd "C-c b") 'org-brain-prefix-map)
 
 ;;; Ensure that all org-mode entries have an ID.
