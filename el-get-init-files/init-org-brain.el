@@ -110,5 +110,20 @@
   (add-hook 'org-brain-after-resource-button-functions
             'org-brain-insert-resource-icon))
 
+;;; Add a resource to and org-brain-entry via cliplink
+(defun org-brain-cliplink-resource ()
+  "Add a URL from the clipboard as an org-brain resource.
+Suggest the URL title as a description for resource."
+  (interactive)
+  (let ((url (org-cliplink-clipboard-content)))
+    (org-brain-add-resource
+     url
+     (org-cliplink-retrieve-title-synchronously url)
+     t)))
+
+(with-eval-after-load 'org-brain
+  (define-key org-brain-visualize-mode-map (kbd "L")
+    'org-brain-cliplink-resource))
+
 (provide 'init-org-brain)
 ;;; init-org-brain.el ends here
