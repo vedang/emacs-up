@@ -100,6 +100,14 @@
                        (eval-after-load 'ert
                          '(define-key ert-results-mode-map (kbd "o")
                             'ace-link-help))))
+         ;; NOTE: `ascii-art-to-unicode' is provided by ELPA, the
+         ;; default GNU package list. To get ELPA recipes in `el-get',
+         ;; you need to run the following command:
+         ;; `M-x el-get-elpa-build-local-recipes'
+
+         ;; @TODO: For the moment, I am committing this. I will check
+         ;; later how this impacts a fresh-install.
+         (:name ascii-art-to-unicode)
 
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
