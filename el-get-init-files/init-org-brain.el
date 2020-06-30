@@ -88,8 +88,26 @@
                  '(aa2u-face . org-brain-wires))
     (ignore-errors (aa2u (point-min) (point-max)))))
 
-(with-eval-after-load 'org-brain
-  (add-hook 'org-brain-after-visualize-hook #'aa2u-org-brain-buffer))
+(with-eval-after-load 'ascii-art-to-unicode
+  (add-hook 'org-brain-after-visualize-hook 'aa2u-org-brain-buffer))
+
+(defun org-brain-insert-resource-icon (link)
+  "Insert an icon, based on content of org-mode LINK."
+  (insert (format "%s "
+                  (cond ((string-prefix-p "brain:" link)
+                         (all-the-icons-fileicon "brain"))
+                        ((string-prefix-p "info:" link)
+                         (all-the-icons-octicon "info"))
+                        ((string-prefix-p "help:" link)
+                         (all-the-icons-material "help"))
+                        ((string-prefix-p "http" link)
+                         (all-the-icons-icon-for-url link))
+                        (t
+                         (all-the-icons-icon-for-file link))))))
+
+(with-eval-after-load 'all-the-icons
+  (add-hook 'org-brain-after-resource-button-functions
+            'org-brain-insert-resource-icon))
 
 (provide 'init-org-brain)
 ;;; init-org-brain.el ends here

@@ -109,6 +109,7 @@
          ;; later how this impacts a fresh-install.
          (:name ascii-art-to-unicode)
 
+         (:name all-the-icons)
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
