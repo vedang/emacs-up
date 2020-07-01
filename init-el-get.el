@@ -95,11 +95,15 @@
        '((:name ace-link
                 :after
                 (progn (ace-link-setup-default)
-                       (define-key org-mode-map (kbd "M-o") 'ace-link-org)
-                       (define-key org-agenda-mode-map (kbd "M-o") 'ace-link-org-agenda)
+                       (ace-link-setup-default (kbd "M-g o"))
+                       (define-key org-mode-map (kbd "M-g o") 'ace-link-org)
+                       (define-key org-agenda-mode-map (kbd "M-g o") 'ace-link-org-agenda)
                        (eval-after-load 'ert
                          '(define-key ert-results-mode-map (kbd "o")
                             'ace-link-help))))
+
+         (:name all-the-icons)
+
          ;; NOTE: `ascii-art-to-unicode' is provided by ELPA, the
          ;; default GNU package list. To get ELPA recipes in `el-get',
          ;; you need to run the following command:
@@ -109,7 +113,13 @@
          ;; later how this impacts a fresh-install.
          (:name ascii-art-to-unicode)
 
-         (:name all-the-icons)
+         (:name avy
+                :after (progn (avy-setup-default)
+                              (global-set-key (kbd "M-g C-j") 'avy-resume)
+                              (global-set-key (kbd "M-g g") 'avy-goto-line)
+                              (global-set-key (kbd "M-g w") 'avy-goto-word-1)
+                              (global-set-key (kbd "M-g SPC") 'avy-goto-word-1)))
+
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
@@ -254,7 +264,6 @@
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
 
    '(ag
-     avy
      ace-window
      auctex
      org-mode
