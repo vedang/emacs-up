@@ -101,6 +101,12 @@
                        (eval-after-load 'ert
                          '(define-key ert-results-mode-map (kbd "o")
                             'ace-link-help))))
+         ;; Breaking alphabetical recipe pattern for link-hint, to
+         ;; ensure it is next to ace-link. Both provide the same
+         ;; functionality, but link-hint also allows for copying
+         ;; links, which is very valuable to me.
+         (:name link-hint
+                :after (progn (global-set-key (kbd "M-g c") 'link-hint-copy-link)))
 
          (:name all-the-icons)
 
