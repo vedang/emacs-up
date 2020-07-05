@@ -29,7 +29,7 @@
       message-sendmail-envelope-from 'header
       mail-specify-envelope-from t
       notmuch-archive-tags '("-inbox" "-unread" "+archived")
-      notmuch-show-mark-read-tags '("-inbox" "-unread" "+archived")
+      notmuch-show-mark-read-tags '("-unread")
       notmuch-search-oldest-first nil
       notmuch-show-indent-content nil
       notmuch-hooks-dir (expand-file-name ".notmuch/hooks" notmuch-mail-dir))
@@ -38,7 +38,7 @@
 (progn
   (setq notmuch-saved-searches nil)
   (push '(:name "Inbox"
-                :query "tag:inbox AND tag:screened AND tag:unread"
+                :query "tag:inbox AND tag:screened"
                 :key "i"
                 :search-type 'tree)
         notmuch-saved-searches)
