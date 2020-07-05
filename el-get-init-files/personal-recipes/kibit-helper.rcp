@@ -1,5 +1,5 @@
 (:name kibit-helper
        :description "Conveniently use the Kibit Leiningen plugin from Emacs"
        :type github
-       :depends (clojure-mode s)
+       :depends (s)
        :pkgname "brunchboy/kibit-helper")
