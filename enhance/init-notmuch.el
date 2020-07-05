@@ -133,7 +133,7 @@ When called directly, BEG and END provide the region."
   (notmuch-search-tag tag-changes beg end)
   (notmuch-search-archive-thread nil beg end))
 
-(defun vedang/notmuch-search-find-from ()
+(defun vedang/notmuch-search-get-from ()
   "A helper function to find the email address for the given email."
   (let ((notmuch-addr-sexp (first
                             (notmuch-call-notmuch-sexp "address"
@@ -141,18 +141,34 @@ When called directly, BEG and END provide the region."
                                                        "--format-version=1"
                                                        "--output=sender"
                                                        (notmuch-search-find-thread-id)))))
-    (plist-get notmuch-addr-sexp :address)))
+    (plist-get notmuch-addr-sexp :name-addr)))
+
+(defun vedang/notmuch-tree-get-from ()
+  "A helper function to find the email address for the given email.
+Assumes `notmuch-tree-mode'."
+  (plist-get (notmuch-tree-get-prop :headers) :From))
+
+(defun vedang/notmuch-get-from ()
+  "Find the From email address for the email at point."
+  (car (notmuch-clean-address (cond
+                               ((eq major-mode 'notmuch-show-mode)
+                                (notmuch-show-get-from))
+                               ((eq major-mode 'notmuch-tree-mode)
+                                (vedang/notmuch-tree-get-from))
+                               ((eq major-mode 'notmuch-search-mode)
+                                (vedang/notmuch-search-get-from))
+                               ((t nil))))))
 
 (defun vedang/notmuch-filter-by-from ()
   "Filter the current search view to show all emails sent from the sender of the current thread."
   (interactive)
-  (notmuch-search-filter (concat "from:" (vedang/notmuch-search-find-from))))
+  (notmuch-search-filter (concat "from:" (vedang/notmuch-get-from))))
 
 (defun vedang/notmuch-search-by-from (&optional no-display)
   "Show all emails sent from the sender of the current thread.
 NO-DISPLAY is sent forward to `notmuch-search'."
   (interactive)
-  (notmuch-search (concat "from:" (vedang/notmuch-search-find-from))
+  (notmuch-search (concat "from:" (vedang/notmuch-get-from))
                   notmuch-search-oldest-first
                   nil
                   nil
@@ -192,7 +208,7 @@ This means:
   (interactive "sTag Name: ")
   (vedang/notmuch-add-addr-to-db (format "%s %s"
                                          tag-name
-                                         (vedang/notmuch-search-find-from))
+                                         (vedang/notmuch-get-from))
                                  (format "%s/thefeed.db" notmuch-hooks-dir))
   (let ((tag-string (format "+news/%s" tag-name)))
     (vedang/notmuch-tag-by-from (list tag-string "+thefeed" "+archived" "-inbox" "-unread"))))
@@ -206,7 +222,7 @@ This means:
   (interactive "sTag Name: ")
   (vedang/notmuch-add-addr-to-db (format "%s %s"
                                          tag-name
-                                         (vedang/notmuch-search-find-from))
+                                         (vedang/notmuch-get-from))
                                  (format "%s/ledger.db" notmuch-hooks-dir))
   (let ((tag-string (format "+ledger/%s" tag-name)))
     (vedang/notmuch-tag-by-from (list tag-string "+archived" "-inbox" "-unread"))))
@@ -217,7 +233,7 @@ This means:
 1. All new email should be tagged =screened= and show up in the inbox.
 2. All existing email should be updated to add the tag =screened=."
   (interactive)
-  (vedang/notmuch-add-addr-to-db (vedang/notmuch-search-find-from)
+  (vedang/notmuch-add-addr-to-db (vedang/notmuch-get-from)
                                  (format "%s/screened.db" notmuch-hooks-dir))
   (vedang/notmuch-tag-by-from '("+screened")))
 
@@ -228,7 +244,7 @@ This means:
 2. All existing email should be updated with the tag =spam=.
 3. All existing email should be removed from the inbox."
   (interactive)
-  (vedang/notmuch-add-addr-to-db (vedang/notmuch-search-find-from)
+  (vedang/notmuch-add-addr-to-db (vedang/notmuch-get-from)
                                  (format "%s/spam.db" notmuch-hooks-dir))
   (vedang/notmuch-tag-by-from '("+spam" "+deleted" "+archived" "-inbox" "-unread" "-screened")))
 
