@@ -4,6 +4,9 @@
 # This is the manager version of tracking a hsproject
 # --
 * TODO $1
+  :PROPERTIES:
+  :ORDERED: t
+  :END:
 ** TODO [Milestone] Create a project page for $1.
 ** TODO [0/2] [Milestone] Freeze the PRD / User Stories for $1
 - Note: PM needs to ACK the PRD / User Stories to indicate that it is frozen.
