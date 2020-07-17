@@ -42,6 +42,12 @@
       (goto-char (point-max))
       (eval-print-last-sexp))))
 
+(require 'el-get-elpa)
+;; Build the El-Get copy of the package.el packages if we have not
+;; built it before.  Will have to look into updating later ...
+(unless (file-directory-p el-get-recipe-path-elpa)
+  (el-get-elpa-build-local-recipes))
+
 ;; Add our personal recipes to el-get's recipe path
 (add-to-list 'el-get-recipe-path el-get-my-recipes)
 
