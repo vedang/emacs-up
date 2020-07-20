@@ -143,6 +143,10 @@
          (:name edit-server
                 :after (progn (edit-server-start)))
 
+         (:name es-mode
+                :load-path "."
+                :features ob-elasticsearch)
+
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
 
@@ -298,7 +302,6 @@
      edebug-x
      el-spice
      emacs-async
-     es-mode
      flycheck-clj-kondo
      flycheck-joker
      flymake-cursor
