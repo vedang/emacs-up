@@ -111,26 +111,51 @@ Ideally, this will be ~/.emacs.d.")
   (eval-after-load 'notmuch
     '(progn (require 'init-notmuch))))
 
-(add-hook 'after-init-hook (lambda ()
-                             ;; (load-theme 'idea-darkula t)
-                             ;; (color-theme-idea-darkula)
-                             ;; (color-theme-billw)
-                             ;; config for leuven
-                             (progn (require 'leuven-theme)
-                                    (require 'leuven-dark-theme)
-                                    (load-theme 'leuven-dark t)
-                                    )
-                             ;; config for poet
-                             ;; (progn (set-face-attribute 'default nil
-                             ;;                            :family "Iosevka"
-                             ;;                            :height 130)
-                             ;;        (set-face-attribute 'fixed-pitch nil
-                             ;;                            :family "Iosevka")
-                             ;;        (set-face-attribute 'variable-pitch nil
-                             ;;                            :family "Baskerville")
-                             ;;        (require 'poet-dark-theme)
-                             ;;        (load-theme 'poet-dark t))
-                             ))
+(add-hook 'after-init-hook
+          (lambda ()
+            ;; (load-theme 'idea-darkula t)
+            ;; (color-theme-idea-darkula)
+            ;; (color-theme-billw)
+
+;;; config for leuven
+            ;; (progn (require 'leuven-theme)
+            ;;        (require 'leuven-dark-theme)
+            ;;        (load-theme 'leuven-dark t)
+            ;;        )
+
+;;; config for poet
+            ;; (progn (set-face-attribute 'default nil
+            ;;                            :family "Iosevka"
+            ;;                            :height 130)
+            ;;        (set-face-attribute 'fixed-pitch nil
+            ;;                            :family "Iosevka")
+            ;;        (set-face-attribute 'variable-pitch nil
+            ;;                            :family "Baskerville")
+            ;;        (require 'poet-dark-theme)
+            ;;        (load-theme 'poet-dark t))
+
+;;; config for moe
+            (progn (require 'moe-theme)
+                   (require 'moe-theme-switcher)
+                   ;; To load moe without customization:
+                   ;; (load-theme 'moe-dark t)
+                   ;; (moe-dark)
+                   ;; Note: The following lines have
+                   ;; to be after the theme is loaded
+                   ;; (via `moe-dark' or `moe-light')
+                   (powerline-moe-theme)
+                   ;; (moe-theme-set-color 'orange)
+                   ;; (Available colors: blue, orange, green ,magenta, yellow, purple, red, cyan, w/b.)
+                   ;; Resize titles (optional).
+                   ;; Markdown and rst should have 6 elements, org should have 9 elements
+                   (setq moe-theme-resize-markdown-title
+                         '(2.0 1.7 1.5 1.3 1.0 1.0))
+                   (setq moe-theme-resize-org-title
+                         '(2.2 1.8 1.6 1.4 1.2 1.0 1.0 1.0 1.0))
+                   (setq moe-theme-resize-rst-title
+                         '(2.0 1.7 1.5 1.3 1.1 1.0))
+                   (setq moe-theme-highlight-buffer-id t))
+            ))
 
 (server-start)
 (message "My .emacs loaded in %ds"

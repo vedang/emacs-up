@@ -244,7 +244,11 @@
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
-                                           'yas-hippie-try-expand))))))
+                                           'yas-hippie-try-expand)))
+
+         ;; Note: `powerline' needs to be installed before `moe-theme'
+         (:name powerline)
+         (:name moe-theme))))
 
 
 (defvar el-get-my-packages
