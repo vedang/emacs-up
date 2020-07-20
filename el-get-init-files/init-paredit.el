@@ -26,6 +26,8 @@
   (enable-paredit-mode)
   (show-paren-mode))
 
+(setq show-paren-style 'expression)
+
 (dolist (m paredit-major-modes)
   (add-hook `,(intern (concat (symbol-name m) "-hook")) 'turn-on-paredit))
 
