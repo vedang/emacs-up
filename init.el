@@ -111,51 +111,74 @@ Ideally, this will be ~/.emacs.d.")
   (eval-after-load 'notmuch
     '(progn (require 'init-notmuch))))
 
-(add-hook 'after-init-hook
-          (lambda ()
-            ;; (load-theme 'idea-darkula t)
-            ;; (color-theme-idea-darkula)
-            ;; (color-theme-billw)
+;;; NOTE: Personal Experience: Theme stuff needs to load after
+;;; everything else has loaded for the least number of surprises.
+;;; Hence creating a function to capture this configuration and adding
+;;; it as a hook to run post init.
+(defun vedang/theme-config (curr-theme)
+  "All the configuration for the Emacs Themes I like.
 
-;;; config for leuven
-            ;; (progn (require 'leuven-theme)
-            ;;        (require 'leuven-dark-theme)
-            ;;        (load-theme 'leuven-dark t)
-            ;;        )
+CURR-THEME is the theme that gets loaded. Available values:
+'idea-darkula
+'billw
+'leuven
+'poet
+'moe"
+  (cond
+   ;;; Config for Darkula
+   ((equal curr-theme 'idea-darkula)
+    (progn
+      (load-theme 'idea-darkula t)
+      (color-theme-idea-darkula)))
+   ;;; Config for Billw
+   ((equal curr-theme 'billw)
+    (progn
+      (color-theme-billw)))
+   ;;; config for leuven
+   ((equal curr-theme 'leuven)
+    (progn
+      (require 'leuven-theme)
+      (require 'leuven-dark-theme)
+      (load-theme 'leuven-dark t)))
+   ;;; Config for Poet
+   ((equal curr-theme 'poet)
+    (progn
+      (set-face-attribute 'default nil
+                          :family "Iosevka"
+                          :height 130)
+      (set-face-attribute 'fixed-pitch nil
+                          :family "Iosevka")
+      (set-face-attribute 'variable-pitch nil
+                          :family "Baskerville")
+      (require 'poet-dark-theme)
+      (load-theme 'poet-dark t)))
+   ;;; Config for Moe
+   ((equal curr-theme 'moe)
+    (progn
+      ;; Resize titles (optional).
+      ;; Markdown and rst should have 6 elements, org should have 9 elements
+      (setq moe-theme-resize-markdown-title
+            '(2.0 1.7 1.5 1.3 1.0 1.0))
+      (setq moe-theme-resize-org-title
+            '(2.2 1.8 1.6 1.4 1.2 1.0 1.0 1.0 1.0))
+      (setq moe-theme-resize-rst-title
+            '(2.0 1.7 1.5 1.3 1.1 1.0))
+      (setq moe-theme-highlight-buffer-id t)
+      (require 'moe-theme)
+      (require 'moe-theme-switcher)
+      ;; To load moe without customization:
+      ;; (load-theme 'moe-dark t)
+      ;; (moe-dark)
+      ;; Note: The following lines have
+      ;; to be after the theme is loaded
+      ;; (via `moe-dark' or `moe-light')
+      (powerline-moe-theme)
+      ;; (moe-theme-set-color 'orange)
+      ;; Available colors: blue, orange, green ,magenta, yellow,
+      ;; purple, red, cyan, w/b.
+      ))))
 
-;;; config for poet
-            ;; (progn (set-face-attribute 'default nil
-            ;;                            :family "Iosevka"
-            ;;                            :height 130)
-            ;;        (set-face-attribute 'fixed-pitch nil
-            ;;                            :family "Iosevka")
-            ;;        (set-face-attribute 'variable-pitch nil
-            ;;                            :family "Baskerville")
-            ;;        (require 'poet-dark-theme)
-            ;;        (load-theme 'poet-dark t))
-
-;;; config for moe
-            (progn (require 'moe-theme)
-                   (require 'moe-theme-switcher)
-                   ;; To load moe without customization:
-                   ;; (load-theme 'moe-dark t)
-                   ;; (moe-dark)
-                   ;; Note: The following lines have
-                   ;; to be after the theme is loaded
-                   ;; (via `moe-dark' or `moe-light')
-                   (powerline-moe-theme)
-                   ;; (moe-theme-set-color 'orange)
-                   ;; (Available colors: blue, orange, green ,magenta, yellow, purple, red, cyan, w/b.)
-                   ;; Resize titles (optional).
-                   ;; Markdown and rst should have 6 elements, org should have 9 elements
-                   (setq moe-theme-resize-markdown-title
-                         '(2.0 1.7 1.5 1.3 1.0 1.0))
-                   (setq moe-theme-resize-org-title
-                         '(2.2 1.8 1.6 1.4 1.2 1.0 1.0 1.0 1.0))
-                   (setq moe-theme-resize-rst-title
-                         '(2.0 1.7 1.5 1.3 1.1 1.0))
-                   (setq moe-theme-highlight-buffer-id t))
-            ))
+(add-hook 'after-init-hook (lambda () (vedang/theme-config 'moe)))
 
 (server-start)
 (message "My .emacs loaded in %ds"
