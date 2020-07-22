@@ -33,6 +33,7 @@
           (when on-my-machine
             (require 'org-crate-config))))
 
-
+(require 'org-id)
+(setq org-id-link-to-org-use-id t)
 (provide 'init-org-mode-crate)
 ;;; init-org-mode-crate.el ends here
