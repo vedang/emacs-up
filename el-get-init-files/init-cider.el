@@ -26,7 +26,18 @@ NS is the namespace information passed into the function by cider."
   (concat ns ">\n"))
 
 
-
+(defun vineet/cider-load-open-buffers ()
+  "Load all open clojure buffers in the project.
+Requires projectile to limit the clojure buffers in the current
+project."
+  (interactive)
+  (dolist (buf (projectile-project-buffers))
+    (let ((buf-file-path (buffer-file-name buf)))
+      (when (and buf-file-path
+                 (string= (file-name-extension buf-file-path) "clj")
+                 (not (string= (file-name-nondirectory buf-file-path)
+                               "project.clj")))
+        (cider-load-buffer buf)))))
 
 
 (eval-after-load 'cider-mode
