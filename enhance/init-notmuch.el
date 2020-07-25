@@ -73,6 +73,10 @@
      (define-key notmuch-show-mode-map (kbd "C")
        'vedang/notmuch-reply-later)
 
+     ;; The HEY workflow bindings
+     (define-key notmuch-show-mode-map (kbd "I")
+       'vedang/notmuch-move-sender-to-screened)
+
      ;; Bindings in `notmuch-search-mode'
      (define-key notmuch-search-mode-map (kbd "r")
        'notmuch-search-reply-to-thread)
@@ -105,7 +109,17 @@
 
      ;; Bindings in `notmuch-tree-mode'
      (define-key notmuch-tree-mode-map (kbd "C")
-       'vedang/notmuch-reply-later)))
+       'vedang/notmuch-reply-later)
+
+     ;; The HEY workflow bindings
+     (define-key notmuch-tree-mode-map (kbd "I")
+       'vedang/notmuch-move-sender-to-screened)
+     ;; Move the existing functionality to a prefix.
+     (define-key notmuch-tree-mode-map (kbd "P") nil)
+     (define-key notmuch-tree-mode-map (kbd "P p")
+       'notmuch-tree-prev-message)
+     (define-key notmuch-tree-mode-map (kbd "P l")
+       'vedang/notmuch-move-sender-to-papertrail)))
 
 (defun vedang/notmuch-archive-all ()
   "Archive all the emails in the current view."
