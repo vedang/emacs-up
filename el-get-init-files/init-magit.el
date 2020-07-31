@@ -16,7 +16,9 @@
 
 
 (global-set-key (kbd "C-x g") 'magit-status)
-(setq magit-completing-read-function 'magit-ido-completing-read)
+(setq magit-completing-read-function 'magit-ido-completing-read
+      magit-diff-refine-hunk 't
+      magit-diff-refine-ignore-whitespace nil)
 
 (eval-after-load 'info
   '(progn (info-initialize)
