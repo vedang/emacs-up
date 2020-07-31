@@ -1,61 +1,49 @@
 # -*- mode: snippet -*-
 # name: hsproject
 # key: hsproject
-# This is the manager version of tracking a hsproject
+# This is the developer version of tracking a hsproject
 # --
 * TODO $1
   :PROPERTIES:
   :ORDERED: t
   :END:
 ** TODO [Milestone] Create a project page for $1.
-** TODO [0/2] [Milestone] Freeze the PRD / User Stories for $1
-- Note: PM needs to ACK the PRD / User Stories to indicate that it is frozen.
-- Work should start in parallel while PRD is under discussion, but scope cannot be frozen until relevant PRD / User Stories are frozen
+** TODO [0/3] [Milestone] Freeze the User Stories for $1
+- Note: PM needs to ACK the User Stories to indicate that it is frozen.
+- Work should start in parallel while specs are under discussion, but scope cannot be frozen until relevant User Stories are frozen
+*** TODO [Milestone] Freeze the Product Spec for Support all services on AWS China
+- Note: PM and designer needs to ACK the Design spec to indicate that it is frozen.
+- Work should start in parallel while Design spec is under discussion, but scope cannot be frozen until relevant User Stories are frozen
 *** TODO [Milestone] Freeze the Design Spec for $1
 - Note: PM and designer needs to ACK the Design spec to indicate that it is frozen.
 - Work should start in parallel while Design spec is under discussion, but scope cannot be frozen until relevant PRD / User Stories are frozen
 *** TODO Work with devs + focus group to estimate story points for tasks in $1 devspec
 ** TODO [Milestone] Communicate ballpark estimate dates for $1
-** TODO [0/4] Identify involvement of other teams for $1
+** TODO Identify involvement of other teams for $1
 - Integration, Dev / Testing work.
 - Think about change in contracts and regression testing.
   + Do we need manual testing or will automated test suites cover everything?
-- Think about dependencies on other teams: What order of modules makes collaboration easy and unblock other teams fastest?
-- [ ] Frontend?
-- [ ] Clients?
-- [ ] Dataplat?
-- [ ] MLE?
-** TODO [0/4] [Milestone] Communicate contract freeze dates for $1
-- [ ] Frontend contract freeze date
-- [ ] Clients contract freeze date
-- [ ] Dataplat contract freeze date
-- [ ] MLE contract freeze date
-** TODO [0/4] [Milestone] Communicate that $1 contract is frozen and ask for ACK.
-- [ ] Frontend Ack
-- [ ] Clients Ack
-- [ ] Dataplat Ack
-- [ ] MLE Ack
-** TODO [0/4] [Milestone] Contract mocks are ready for $1
-- [ ] Frontend mock
-- [ ] Clients mock
-- [ ] Dataplat mock
-- [ ] MLE mock
+- Think about dependencies on other teams: What order of modules makes collaboration easy and unblock other teams fastest? List all teams in a checklist here and check them off to ensure you have not missed anything:
+  + [ ] Team 1
+** TODO [Milestone] Communicate contract freeze dates for $1
+- Think about contracts with teams identified above. List all teams in a checklist here and check them off to ensure you have not missed anything:
+  + [ ] Contract freeze date with Team 1
+** TODO [Milestone] Communicate that $1 contract is frozen and ask for ACK.
+** TODO [Milestone] Contract mocks are ready for $1
 ** TODO [Milestone] Fill out pre-dev Plat Review for $1
 ** TODO [Milestone] Share the link for the $1 devspec
-- with the team and with all engineers across teams working on this project.
+- With the team and with all engineers across teams working on this project.
 ** TODO [Milestone] Share the link for the $1 qaspec
-- with the team and with all engineers across teams working on this project.
-** TODO [0/4] [Milestone] Communicate start of integration testing dates $1
-- [ ] Frontend Integration testing
-- [ ] Clients Integration testing
-- [ ] Dataplat Integration testing
-- [ ] MLE Integration testing
+- With the team and with all engineers across teams working on this project.
+** TODO [Milestone] Communicate start of integration testing dates $1
+Think about contracts with all impacted teams. List all teams in a checklist here and check them off to ensure you have not missed anything:
+- [ ] Team 1 Integration testing
 ** TODO [0/5] [Milestone] Communicate final dates for $1 with team and EM/PM
-- [ ] Dev Complete
-- [ ] Cross-team Integration Testing
-- [ ] Dev Sandbox
-- [ ] Test Complete
-- [ ] Product Sandbox
+- [ ] Dev Complete date
+- [ ] Cross-team Integration Testing date
+- [ ] Dev Sandbox date
+- [ ] Test Complete date
+- [ ] Product Sandbox date
 ** TODO [Milestone] Dev is complete for $1, ask for Ack
 ** TODO [Milestone] Fill out post-dev Plat Review for $1
 ** TODO [Milestone] Cross team Integration testing is complete for $1, ask for ACK
