@@ -70,18 +70,29 @@
 
            (:name cljstyle
                   :after (progn
+                           ;; Note: I don't turn cljstyle on by
+                           ;; default. The reason for this is that
+                           ;; rewriting the buffer on save causes me
+                           ;; to lose marks in the buffer, which is
+                           ;; extremely irritating. For the moment, I
+                           ;; either use cljstyle on demand (M-x
+                           ;; cljstyle-mode) or from the terminal
+
+                           ;; TODO: Write a function / hook to run
+                           ;; cljstyle when I enter magit, on modified
+                           ;; files.
+
+                           ;; If you wish, you can turn on cljstyle on
+                           ;; each save with:
+                           ;; (add-hook 'clojure-mode-hook 'turn-on-cljstyle)
                            (defun turn-on-cljstyle ()
                              "Utility function to turn on `cljstyle-mode' and auto-formatting."
                              (if (executable-find "cljstyle")
                                  (cljstyle-mode +1)
-                               (message "Could not find `cljstyle' on $PATH. Please ensure you have installed it correctly.")))
+                               (message "Could not find `cljstyle' on $PATH. Please ensure you have installed it correctly.")))))
 
-                           (add-hook 'clojure-mode-hook 'turn-on-cljstyle)))
-
-           (:name flycheck-clojure
-                  :after (progn ;; (eval-after-load 'flycheck
-                                ;;   '(flycheck-clojure-setup))
-                           ))))
+           (:name flycheck-joker)
+           (:name flycheck-clj-kondo)))
 
        (when (and (boundp configure-python-p)
                   configure-python-p)
@@ -302,8 +313,6 @@
      edebug-x
      el-spice
      emacs-async
-     flycheck-clj-kondo
-     flycheck-joker
      flymake-cursor
      grep+
      helm
