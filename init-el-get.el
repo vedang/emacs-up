@@ -230,7 +230,7 @@
                               ;; `plantuml-jar-path' to whereever the
                               ;; jar is downloaded on your system.
                               ))
-
+         (:name rjsx-mode)
          (:name sicp
                 :after (progn
                          (eval-after-load 'info
