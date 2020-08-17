@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: AWS China Move
+# key: awscm
+# --
+{:name ${1:"Service Deploy Name"}
+ :release ${2:$$(yas-choose-value '(:release-1-supercell-blocker :release-2-post-base :release-3-future-release))}
+ :comment ${3:"TODO"}}
+$0
