@@ -105,7 +105,7 @@ Ideally, this will be ~/.emacs.d.")
   ;; OSX, this can be done with:
 
   ;; $ brew install notmuch
-  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/notmuch")
+  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
   (setq notmuch-init-file (concat enhance-dirname "init-notmuch.el"))
   (autoload 'notmuch "notmuch" "notmuch mail" t)
   (eval-after-load 'notmuch
