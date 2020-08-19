@@ -127,13 +127,6 @@
 
          (:name all-the-icons)
 
-         ;; NOTE: `ascii-art-to-unicode' is provided by ELPA, the
-         ;; default GNU package list. To get ELPA recipes in `el-get',
-         ;; you need to run the following command:
-         ;; `M-x el-get-elpa-build-local-recipes'
-
-         ;; @TODO: For the moment, I am committing this. I will check
-         ;; later how this impacts a fresh-install.
          (:name ascii-art-to-unicode)
 
          (:name avy
