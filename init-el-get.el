@@ -177,6 +177,10 @@
                                         (setq flycheck-display-errors-function
                                               #'flycheck-pos-tip-error-messages)))))
 
+         (:name helm-descbinds
+                :after (progn (require 'helm-descbinds)
+                              (helm-descbinds-mode)))
+
          (:name helm-org
                 :before (progn (require 'helm-config))
                 :after (progn (require 'helm-org)
