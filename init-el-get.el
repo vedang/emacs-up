@@ -146,6 +146,9 @@
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
+         (:name deadgrep
+                :after (progn (global-set-key (kbd "C-c s") 'deadgrep)))
+
          ;; Change-Inner, Expand-Region and Multiple-Cursors are
          ;; interesting selection and editing tools that go together.
          (:name change-inner
