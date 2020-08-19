@@ -37,6 +37,11 @@
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
   (when (fboundp mode) (funcall mode -1)))
 
+;;; Native compilation
+(if (and (fboundp 'native-comp-available-p)
+         (native-comp-available-p))
+    (setq comp-deferred-compilation t)
+  (message "Native complation is *not* available"))
 
 ;;; Some global defs
 
