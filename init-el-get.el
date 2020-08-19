@@ -150,10 +150,6 @@
          (:name edit-server
                 :after (progn (edit-server-start)))
 
-         (:name es-mode
-                :load-path "."
-                :features ob-elasticsearch)
-
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
 
@@ -164,6 +160,12 @@
                                               'mc/mark-all-dwim)
                               (global-set-key (kbd "C-c = _")
                                               'mc/mark-all-symbols-like-this-in-defun)))
+         ;; Breaking alphabetical order to put Change-Inner,
+         ;; Expand-Region and Multiple-Cursors next to each other.
+
+         ;; (:name es-mode
+         ;;        :load-path "."
+         ;;        :features ob-elasticsearch)
 
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode))
