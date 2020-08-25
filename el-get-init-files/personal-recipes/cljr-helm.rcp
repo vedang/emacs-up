@@ -1,0 +1,5 @@
+(:name cljr-helm
+       :description "A Helm wrapper for the cljr features."
+       :type github
+       :pkgname "philjackson/cljr-helm"
+       :depends (clj-refactor helm cl-lib))
