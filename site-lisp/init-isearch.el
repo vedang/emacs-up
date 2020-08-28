@@ -35,7 +35,7 @@ vice-versa. depending on the `use-default?' arg."
                                isearch-mode-map)))
 
 
-(defun is/isearch-yank-word-or-char-from-beginning ()
+(defun is/isearch-yank-word-or-char-from-beginning (&optional arg)
   "Move to beginning of word before yanking word in isearch-mode."
   (interactive)
   ;; Making this work after a search string is entered by user
@@ -47,7 +47,7 @@ vice-versa. depending on the `use-default?' arg."
   (is/subst-isearch-yank-word-or-char t))
 
 
-(add-hook 'isearch-mode-hook 'is/subst-isearch-yank-word-or-char)
+;; (add-hook 'isearch-mode-hook 'is/subst-isearch-yank-word-or-char)
 
 
 (defun is/activate-occur ()
