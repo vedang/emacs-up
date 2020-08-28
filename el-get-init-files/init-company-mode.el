@@ -17,8 +17,11 @@
 
 
 (add-hook 'after-init-hook 'global-company-mode)
+
 (setq company-idle-delay 0.5
-      company-require-match nil)
+      company-require-match nil
+      company-tooltip-align-annotations t)
+
 (eval-after-load 'company
   '(progn (setq-default company-lighter " cmp")
           (define-key company-active-map [tab] 'company-complete)
