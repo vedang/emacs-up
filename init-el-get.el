@@ -204,11 +204,10 @@
                 :after (progn (setq flycheck-global-modes '(not org-mode))
                               (global-flycheck-mode)))
 
-         (:name flycheck-pos-tip
+         (:name flycheck-inline
                 :after (progn (eval-after-load 'flycheck
-                                '(progn (require 'flycheck-pos-tip)
-                                        (setq flycheck-display-errors-function
-                                              #'flycheck-pos-tip-error-messages)))))
+                                '(add-hook 'flycheck-mode-hook
+                                           #'flycheck-inline-mode))))
 
          (:name helm-descbinds
                 :after (progn (require 'helm-descbinds)
