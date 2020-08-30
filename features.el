@@ -19,8 +19,23 @@
 ;; Eg: if you program in clojure, you should set `configure-clojure-p' to `t'
 
 
-(setq configure-clojure-p t
-      configure-go-p t
-      configure-python-p t
-      configure-rust-p t
-      configure-scheme-p t)
+(defvar configure-clojure-p t
+  "Configure Emacs-up for Clojure Development.")
+
+(defvar configure-go-p nil
+  "Configure Emacs-up for Golang Development.")
+
+(defvar configure-python-p nil
+  "Configure Emacs-up for Python Development.")
+
+(defvar configure-rust-p t
+  "Configure Emacs-up for Rust Development.")
+
+(defvar configure-scheme-p nil
+  "Configure Emacs-up for Scheme Development.")
+
+(defvar configure-java-p nil
+  "Configure Emacs-up for Java Development.")
+
+(provide 'features)
+;;; features.el ends here

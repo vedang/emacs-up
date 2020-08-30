@@ -14,10 +14,7 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
    - Clojure Programming (CIDER + other minor modes)
    - Emacs Lisp Programming (ElSpice + other minor modes)
    - Note-taking and Task-tracking through Org Mode
-   - Python Programming (ElPy + other minor modes)
-   - Go Programming (Official Modes provided by the Golang Team)
    - Rust Programming
-   - Scheme Programming (Geiser + other minor modes)
    - Email through Emacs (Notmuch + mbsync + msmtp)
 
 2. Other minor but important additions:
@@ -32,11 +29,16 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
 
 3. Better defaults than "pure" Emacs.
 
-## Things that are in the pipeline
+## Things that are experimental
+
+These features are turned off by default.
 
 1. Working and well-tuned configurations for:
    - Java Mode
    - Erlang Mode
+   - Python Programming (ElPy + other minor modes)
+   - Go Programming (Official Modes provided by the Golang Team)
+   - Scheme Programming (Geiser + other minor modes)
 
 ## Pre-requisites
 
@@ -63,6 +65,9 @@ be available at `/usr/local/bin/git`.
    $ apt install git mercurial aspell automake texinfo subversion silversearcher_ag shellcheck
    </code>
 
+The following tools are optional, but recommended / needed for particular modes to work correctly.
+- [notmuch](https://notmuchmail.org/): My preferred email client.
+- [prettier](https://github.com/prettier/prettier-emacs): Provides formatting of JS code on save.
 
 ## Installation Instructions
 
@@ -121,13 +126,31 @@ be available at `/usr/local/bin/git`.
    installation instructions in the respective repos to install
    `cider-nrepl` and `refactor-nrepl`.
 
-3. Python interactive development through Elpy
+3. Rust development
+
+   Rust integration is simplistic - depends on `rust-mode` for all
+   functionality - and only requires the presence of the rustlang
+   compiler. Refer [this
+   document](https://www.rust-lang.org/learn/get-started) for
+   instructions. If you do not wish to install Rust specific recipes,
+   go to `features.el` in the main directory and set the value of
+   `configure-rust-p` to `nil`.
+
+4. Python interactive development through Elpy
+
+   These set of recipes are turned off by default. If you wish to
+   install Python specific recipes, go to `features.el` in the main
+   directory and set the value of `configure-python-p` to `t`.
 
    [Elpy](https://github.com/jorgenschaefer/elpy/) needs a one-time
    setup of Python packages. Please follow the installation
    instructions on the Elpy Page.
 
-4. Golang development
+5. Golang development
+
+   These set of recipes are turned off by default. If you wish to
+   install Golang specific recipes, go to `features.el` in the main
+   directory and set the value of `configure-go-p` to `t`.
 
    Golang integration with Emacs is a breeze, as long as you have set
    the GOPATH correctly, as described
@@ -139,21 +162,11 @@ be available at `/usr/local/bin/git`.
    $ gocode set propose-builtins true
    </code>
 
-   If you do not wish to install Golang specific recipes, go to
-   `features.el` in the main directory and set the value of
-   `configure-go-p` to `nil`.
-
-5. Rust development
-
-   Rust integration is simplistic - depends on `rust-mode` for all
-   functionality - and only requires the presence of the rustlang
-   compiler. Refer [this
-   document](https://www.rust-lang.org/learn/get-started) for
-   instructions. If you do not wish to install Rust specific recipes,
-   go to `features.el` in the main directory and set the value of
-   `configure-rust-p` to `nil`.
-
 6. Scheme development
+
+   These set of recipes are turned off by default. If you wish to
+   install Scheme specific recipes, go to `features.el` in the main
+   directory and set the value of `configure-scheme-p` to `t`.
 
    Scheme integration is provided or Chicken Scheme, and interactive
    development is implemented through Geiser. Refer
@@ -164,10 +177,6 @@ be available at `/usr/local/bin/git`.
    <code>
    $ brew install chicken
    </code>
-
-   If you do not wish to install Scheme specific recipes, go to
-   `features.el` in the main directory and set the value of
-   `configure-scheme-p` to `nil`.
 
 ## Upgrade Instructions
 
