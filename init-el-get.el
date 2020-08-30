@@ -104,12 +104,27 @@
 
        (when (and (boundp configure-rust-p)
                   configure-rust-p)
-         (if (executable-find "rustc")
+         (if (and (executable-find "rustc")
+                  (executable-find "cargo"))
              '((:name rust-mode
                       :after (progn (add-to-list 'auto-mode-alist
-                                                 '("\\.rs\\'" . rust-mode))))
+                                                 '("\\.rs\\'" . rust-mode))
+                                    (add-hook 'rust-mode-hook
+                                              (lambda ()
+                                                (setq indent-tabs-mode nil)))
+                                    (setq rust-format-on-save t)))
+               (:name cargo)
 
-               (:name flycheck-rust))
+               (:name flycheck-rust)
+
+               ;; Expects RUST_SRC_PATH env variable to be set.
+               (:name emacs-racer
+                      :after (progn
+                               (when (not (exec-path-from-shell-getenv "RUST_SRC_PATH"))
+                                 (message "Rust Source Path is not defined. Jumping to source might not work!"))
+                               (add-hook 'racer-mode-hook #'eldoc-mode)
+                               (add-hook 'racer-mode-hook #'company-mode))))
+
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
 
        '((:name ace-link
