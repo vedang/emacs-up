@@ -62,10 +62,11 @@
 (setq el-get-sources
       (append
 
-       (when (and (boundp configure-clojure-p)
-                  configure-clojure-p)
+       (when (bound-and-true-p configure-clojure-p)
          '((:name cider)
-
+           (:name clojure-mode)
+           (:name helm-cider)
+           (:name clojure-snippets)
            (:name clj-refactor)
            (:name cljr-helm
                   :after (eval-after-load 'clojure-mode
@@ -97,13 +98,10 @@
            (:name flycheck-joker)
            (:name flycheck-clj-kondo)))
 
-       (when (and (boundp configure-python-p)
-                  configure-python-p)
-         '((:name elpy
-                  :after (progn (elpy-enable)))))
+       (when (bound-and-true-p configure-python-p)
+         '((:name elpy :after (progn (elpy-enable)))))
 
-       (when (and (boundp configure-rust-p)
-                  configure-rust-p)
+       (when (bound-and-true-p configure-rust-p)
          (if (and (executable-find "rustc")
                   (executable-find "cargo"))
              '((:name rust-mode
@@ -294,20 +292,12 @@
 (defvar el-get-my-packages
   (append
 
-   (when (and (boundp configure-clojure-p)
-              configure-clojure-p)
-     '(clojure-mode
-       helm-cider
-       clojure-snippets))
-
-   (when (and (boundp configure-scheme-p)
-              configure-scheme-p)
+   (when (bound-and-true-p configure-scheme-p)
      (if (executable-find "csi")
          '(geiser)
        (error "Scheme programming (via Chicken) is configured, but I can't find the `csi' binary! Have you read the README file?")))
 
-   (when (and (boundp configure-go-p)
-              configure-go-p)
+   (when (bound-and-true-p configure-go-p)
      (if (executable-find "go")
          '(go-mode
            go-company
