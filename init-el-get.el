@@ -244,10 +244,12 @@
                                                 (concat el-get-dir "sicp/"))))))
 
          (:name smart-tab
-                :after (progn (setq smart-tab-using-hippie-expand t
-                                    smart-tab-expand-eolp nil
-                                    smart-tab-user-provided-completion-function 'company-complete
-                                    smart-tab-completion-functions-alist '((ledger-mode . dabbrev-completion)))
+                :after (progn
+                         (setq smart-tab-using-hippie-expand t
+                               smart-tab-expand-eolp nil
+                               smart-tab-user-provided-completion-function 'company-complete
+                               smart-tab-completion-functions-alist
+                               '((ledger-mode . dabbrev-completion)))
                               (global-smart-tab-mode 1)))
 
          (:name unicode-fonts
@@ -258,8 +260,11 @@
 
          (:name xterm-color
                 :after (progn (require 'xterm-color)
-                              (add-hook 'comint-preoutput-filter-functions 'xterm-color-filter)
-                              (setq comint-output-filter-functions (remove 'ansi-color-process-output comint-output-filter-functions))))
+                              (add-hook 'comint-preoutput-filter-functions
+                                        #'xterm-color-filter)
+                              (setq comint-output-filter-functions
+                                    (remove 'ansi-color-process-output
+                                            comint-output-filter-functions))))
 
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
@@ -351,3 +356,6 @@
      '(eclim))))
 
 (el-get 'sync el-get-my-packages)
+
+(provide 'init-el-get)
+;;; init-el-get.el ends here
