@@ -125,6 +125,23 @@
 
            (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
 
+       (when (bound-and-true-p configure-js-p)
+         '((:name rjsx-mode
+                  :after (progn (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
+                                (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+                                (add-to-list 'auto-mode-alist '("\\.json\\'" . rjsx-mode))
+                                (setq js2-basic-offset 2
+                                      js-switch-indent-offset 2)))))
+
+       ;;; Conditional Installs --- Things that depend on external services.
+
+       ;; Format JS, JSX files on save event.
+       ;; Prerequisite: npm install -g prettier
+       (when (executable-find "prettier")
+         '((:name prettier-js
+                  :after (add-hook 'rjsx-mode-hook #'prettier-js-mode))))
+
+       ;;; All the other recipes
        '((:name ace-link
                 :after
                 (progn (ace-link-setup-default)
@@ -248,7 +265,7 @@
                               ;; `plantuml-jar-path' to whereever the
                               ;; jar is downloaded on your system.
                               ))
-         (:name rjsx-mode)
+
          (:name sicp
                 :after (progn
                          (eval-after-load 'info

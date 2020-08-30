@@ -37,5 +37,8 @@
 (defvar configure-java-p nil
   "Configure Emacs-up for Java Development.")
 
+(defvar configure-js-p t
+  "Configure Emacs-up for JS Development.")
+
 (provide 'features)
 ;;; features.el ends here

@@ -15,6 +15,7 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
    - Emacs Lisp Programming (ElSpice + other minor modes)
    - Note-taking and Task-tracking through Org Mode
    - Rust Programming
+   - JS Programming
    - Email through Emacs (Notmuch + mbsync + msmtp)
 
 2. Other minor but important additions:
