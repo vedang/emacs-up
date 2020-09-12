@@ -69,9 +69,9 @@
            (:name clojure-snippets)
            (:name clj-refactor)
            (:name cljr-helm
-                  :after (eval-after-load 'clojure-mode
-                           '(progn
-                              (define-key clojure-mode-map (kbd "C-c m h r") 'cljr-helm))))
+                  :after (with-eval-after-load 'clojure-mode
+                           (progn
+                             (define-key clojure-mode-map (kbd "C-c m h r") 'cljr-helm))))
            (:name cljstyle
                   :after (progn
                            ;; Note: I don't turn cljstyle on by
@@ -148,9 +148,9 @@
                        (ace-link-setup-default (kbd "M-g o"))
                        (define-key org-mode-map (kbd "M-g o") 'ace-link-org)
                        (define-key org-agenda-mode-map (kbd "M-g o") 'ace-link-org-agenda)
-                       (eval-after-load 'ert
-                         '(define-key ert-results-mode-map (kbd "o")
-                            'ace-link-help))))
+                       (with-eval-after-load 'ert
+                         (define-key ert-results-mode-map (kbd "o")
+                           'ace-link-help))))
          ;; Breaking alphabetical recipe pattern for link-hint, to
          ;; ensure it is next to ace-link. Both provide the same
          ;; functionality, but link-hint also allows for copying
@@ -213,9 +213,9 @@
                               (global-flycheck-mode)))
 
          (:name flycheck-inline
-                :after (progn (eval-after-load 'flycheck
-                                '(add-hook 'flycheck-mode-hook
-                                           #'flycheck-inline-mode))))
+                :after (progn (with-eval-after-load 'flycheck
+                                (add-hook 'flycheck-mode-hook
+                                          #'flycheck-inline-mode))))
 
          (:name helm-descbinds
                 :after (progn (require 'helm-descbinds)
@@ -275,10 +275,10 @@
 
          (:name sicp
                 :after (progn
-                         (eval-after-load 'info
-                           '(progn (info-initialize)
-                                   (add-to-list 'Info-directory-list
-                                                (concat el-get-dir "sicp/"))))))
+                         (with-eval-after-load 'info
+                           (progn (info-initialize)
+                                  (add-to-list 'Info-directory-list
+                                               (concat el-get-dir "sicp/"))))))
 
          (:name smart-tab
                 :after (progn
