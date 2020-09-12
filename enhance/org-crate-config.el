@@ -47,12 +47,6 @@
         :clock-resume t)
       org-capture-templates)
 
-(push '("w" "Work Todo"
-        entry (file org-default-notes-file)
-        "* TODO %^{Description} [[%^{Type|auto|hsbug|jira}:%^{Ticket number}]] \n%U\n%a\n %i%?")
-      org-capture-templates)
-
-
 ;;; My personal tag hotkeys
 (push '("engineering_management" . ?e) org-tag-alist)
 (push '("refile" . ?r) org-tag-alist)
