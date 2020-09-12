@@ -322,4 +322,34 @@ is a duplicate section, merge the two if you find one."
     (org-time-string-to-absolute (org-read-date)))
    'subtree-at-point))
 
+;;; The following code depends on `ts' library being installed.
+(defun this-week-range ()
+  "Return timestamps (BEG . END) spanning the current calendar work week.
+
+(Mon to Fri)."
+  (let* (;; Bind `now' to the current timestamp to ensure all calculations
+         ;; begin from the same timestamp.  (In the unlikely event that
+         ;; the execution of this code spanned from one day into the next,
+         ;; that would cause a wrong result.)
+         (now (ts-now))
+         ;; We start by calculating the offsets for the beginning and
+         ;; ending timestamps using the current day of the week.  Note
+         ;; that the `ts-dow' slot uses the "%w" format specifier, which
+         ;; counts from Sunday to Saturday as a number from 0 to 6.
+         (adjust-beg-day (- (- (ts-dow now) 1)))
+         (adjust-end-day (- 5 (ts-dow now)))
+         ;; Make beginning/end timestamps based on `now', with adjusted
+         ;; day and hour/minute/second values.  These functions return
+         ;; new timestamps, so `now' is unchanged.
+         (beg (thread-last now
+                ;; `ts-adjust' makes relative adjustments to timestamps.
+                (ts-adjust 'day adjust-beg-day)
+                ;; `ts-apply' applies absolute values to timestamps.
+                (ts-apply :hour 0 :minute 0 :second 0)))
+         (end (thread-last now
+                (ts-adjust 'day adjust-end-day)
+                (ts-apply :hour 23 :minute 59 :second 59))))
+    (cons beg end)))
+
+
 (provide 'utility-functions)
