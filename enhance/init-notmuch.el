@@ -32,6 +32,7 @@
       notmuch-show-mark-read-tags '("-unread")
       notmuch-search-oldest-first nil
       notmuch-show-indent-content nil
+      mml-secure-smime-sign-with-sender t
       notmuch-hooks-dir (expand-file-name ".notmuch/hooks" notmuch-mail-dir))
 
 ;;; My Notmuch start screen:
