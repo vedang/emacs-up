@@ -4,9 +4,18 @@
 # --
 *** `(ts-format "Week %W: %F %a" (car (this-week-range)))` -- `(ts-format "%F %a" (cdr (this-week-range)))`
 **** Work done in this week:
-#+BEGIN: clocktable :scope agenda :maxlevel 2 :block 2020-W`(+ 1 (string-to-number (ts-format "%W" (car (this-week-range)))))` :emphasize nil :fileskip0 t :match "-timepass" :hidefiles nil :tags t :link t$0
+#+BEGIN: clocktable :scope agenda :maxlevel 2 :block 2020-W`(+ 1 (string-to-number (ts-format "%W" (car (this-week-range)))))` :emphasize nil :fileskip0 t :match "-noclockreport" :hidefiles nil :tags t :link t :tcolumns 2$0
 #+END:
 **** Weekly Update:
-- Review the work done to see what was accomplished.
-- Review the Agenda to see what was planned, but not met.
-- Write updates about both these things, update Agenda accordingly.
+- [ ] Review the work done to see what was accomplished.
+- [ ] Review the Agenda to see what was planned, but not met.
+- [ ] Review notes to identify planned work for next week.
+- [ ] Capture updated plans and tasks in Agenda.
+
+***** What was accomplished in the week
+
+***** What was planned but not met
+
+***** What is planned for this week
+
+***** Questions / Blockers / Action Items
