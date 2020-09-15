@@ -23,7 +23,9 @@
       org-brain-show-resources t
       org-brain-show-text t
       org-brain-visualize-use-capture-templates t
-      org-brain-scan-directories-recursively nil)
+      org-brain-scan-directories-recursively nil
+      org-brain-default-file-parent "index"
+      org-brain-backlink t)
 
 ;;; Key Bindings
 (autoload 'helm-brain "org-brain")
