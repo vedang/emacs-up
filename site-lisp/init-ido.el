@@ -44,3 +44,4 @@
 
 
 (provide 'init-ido)
+;;; init-ido.el ends here
