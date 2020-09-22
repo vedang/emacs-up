@@ -91,6 +91,7 @@ right mode to start in the buffer."
 (require 'init-isearch)
 (require 'init-recentf)
 (require 'init-flyspell)
+(require 'init-sql)
 (save-place-mode)
 
 (eval-after-load 'rcirc
