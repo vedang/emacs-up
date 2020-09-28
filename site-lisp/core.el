@@ -57,9 +57,10 @@
       auto-save-file-name-transforms
       `((".*" ,(concat tempfiles-dirname "auto-save-list/") t)))
 
-;; Completion ignores filenames ending in any string in this list.
-(setq vm/completion-ignored-extensions
-      '(".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".beam" ".out" ".hbc"))
+(defvar vm/completion-ignored-extensions
+  '(".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".beam" ".out" ".hbc")
+  "Completion ignores filenames ending in any string in this list.")
+
 (dolist (ext vm/completion-ignored-extensions)
   (add-to-list 'completion-ignored-extensions ext))
 
@@ -112,3 +113,4 @@
 
 
 (provide 'core)
+;;; core.el ends here
