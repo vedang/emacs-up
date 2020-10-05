@@ -314,13 +314,18 @@ is a duplicate section, merge the two if you find one."
   (delete-trailing-whitespace)
   (save-buffer))
 
-(defun uf/create-datetree-heading ()
-  "Take a date input and create a datetree heading within subtree at point."
-  (interactive)
+(defun uf/create-datetree-heading (&optional toplevel)
+  "Take a date input and create a datetree heading within subtree at point.
+
+When called interactively with a `\\[universal-argument]' prefix
+argument TOPLEVEL, create a top level datetree in the file."
+  (interactive "P")
   (org-datetree-find-date-create
    (calendar-gregorian-from-absolute
     (org-time-string-to-absolute (org-read-date)))
-   'subtree-at-point))
+   (if (equal toplevel '(4))
+       nil
+     'subtree-at-point)))
 
 ;;; The following code depends on `ts' library being installed.
 (defun this-week-range ()
