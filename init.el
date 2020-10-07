@@ -174,11 +174,11 @@ CURR-THEME is the theme that gets loaded. Available values:
     (progn
       ;; Resize titles (optional).
       ;; Markdown and rst should have 6 elements, org should have 9 elements
-      (setq moe-theme-resize-markdown-title
+      (setq moe-theme-resize-title-markdown
             '(2.0 1.7 1.5 1.3 1.0 1.0))
-      (setq moe-theme-resize-org-title
+      (setq moe-theme-resize-title-org
             '(2.2 1.8 1.6 1.4 1.2 1.0 1.0 1.0 1.0))
-      (setq moe-theme-resize-rst-title
+      (setq moe-theme-resize-title-rst
             '(2.0 1.7 1.5 1.3 1.1 1.0))
       (setq moe-theme-highlight-buffer-id t)
       (require 'moe-theme)
