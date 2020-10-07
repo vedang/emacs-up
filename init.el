@@ -182,6 +182,9 @@ CURR-THEME is the theme that gets loaded. Available values:
             '(2.0 1.7 1.5 1.3 1.1 1.0))
       (setq moe-theme-highlight-buffer-id t)
       (require 'moe-theme)
+      ;; Pune Lat Long: 18.5N, 73.8E
+      (setq calendar-latitude +18)
+	  (setq calendar-longitude +73)
       (require 'moe-theme-switcher)
       ;; To load moe without customization:
       ;; (load-theme 'moe-dark t)
