@@ -148,6 +148,9 @@
                        (ace-link-setup-default (kbd "M-g o"))
                        (define-key org-mode-map (kbd "M-g o") 'ace-link-org)
                        (define-key org-agenda-mode-map (kbd "M-g o") 'ace-link-org-agenda)
+                       (with-eval-after-load 'org-brain
+                         (define-key org-brain-visualize-mode-map (kbd "M-g o")
+                           'ace-link-org))
                        (with-eval-after-load 'ert
                          (define-key ert-results-mode-map (kbd "o")
                            'ace-link-help))))
