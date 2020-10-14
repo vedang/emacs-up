@@ -179,6 +179,7 @@
                 :after (progn (dumb-jump-mode)
                               (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
                               (define-key dumb-jump-mode-map (kbd "C-M-q") nil)
+                              (define-key dumb-jump-mode-map (kbd "C-M-p") nil)
                               (define-key dumb-jump-mode-map (kbd "C-c d g") 'dumb-jump-go)
                               (define-key dumb-jump-mode-map (kbd "C-c d b") 'dumb-jump-back)
 ))
