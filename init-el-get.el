@@ -216,6 +216,9 @@
                 :after (progn (with-eval-after-load 'flycheck
                                 (add-hook 'flycheck-mode-hook
                                           #'flycheck-inline-mode))))
+         (:name helm)
+
+         (:name helm-ag)
 
          (:name helm-descbinds
                 :after (progn (require 'helm-descbinds)
@@ -353,8 +356,6 @@
      emacs-async
      flymake-cursor
      grep+
-     helm
-     helm-ag
      ;; ibuffer-vc - commenting this out for a while, I believe that it
      ;; is broken at the moment.
      ido-completing-read-plus
