@@ -2,7 +2,7 @@
 # name: hsperfreview
 # key: hsperfreview
 # --
-#+title: ${1:First Name} ${2:Last Name}'s Performance review for the period ${3:Q4, 2019 -- Q1, 2020}
+#+title: ${1:First Name} ${2:Last Name}'s Performance review for the period ${3:Q2, 2020 -- Q3, 2020}
 #+date: `(current-time-string)`
 * Manager's Review
 - Manager: ${4:Full Name}
@@ -28,30 +28,28 @@ Short para setting up a story arc of how far the person has come, sentence or tw
 ** What can $1 improve on?
 What is *most* holding $1 back from the next level? Use the levels document for guidance. What is the opinion of other managers?
 
-*** Area 1:
-Should contain
+*** Area 1
+Should contain:
 + Concrete examples and peer feedback
 + Concrete suggestions
-**** What fully achieving this looks like:
 
-*** Area 2:
-Should contain
+**** What fully achieving this looks like:
+Add concrete examples of how $1 can perform at "fully exceding expectations" in this area. This is aspirational stuff and should focus on leveraging $1's strenghts to deliver a superb performance / making this area a strong strenght.
+
+*** Area 2
+Should contain:
 + Concrete examples and peer feedback
 + Concrete suggestions
-**** What fully achieving this looks like:
 
-*** Area 3:
-Should contain
-+ Concrete examples and peer feedback
-+ Concrete suggestions
 **** What fully achieving this looks like:
+Add concrete examples of how $1 can perform at "fully exceding expectations" in this area. This is aspirational stuff and should focus on leveraging $1's strenghts to deliver a superb performance / making this area a strong strenght.
 
-* Self Review
+* $1 $2's Self Review
 - Author: $1 $2
 - Performance Rating:
 ** What did I do well?
 ** What can I improve on?
 
-* Follow up between Manager and Candidate
+* Follow up between $4 and $1 $2
 - Action Items on $1 $2:
-- Action Items on $3:
+- Action Items on $4:
