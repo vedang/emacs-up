@@ -3,15 +3,27 @@
 # key: selfreview
 # --
 
-* TODO Self Performance Review for the period ${1:Q2, 2020 -- Q3, 2020}  :childless:
+* TODO Self Performance Review, ${1:Your Name}, for the period ${2:Q2, 2020 -- Q3, 2020}  :childless:
 - Date: `(current-time-string)`
-- Current Role: $2
-- Performance Rating: ${3:Give yourself an appropriate self-rating. Go slightly higher than how you think you did, but not ridiculously higher.}
-- Potential Next Role: ${4:What is the next step on the ladder / pendulum?}
-- Timeline to the next promotion: ${5:When do you see this happening?}
+- Current Role: $3
+- Performance Rating: ${4:Give yourself an appropriate self-rating. Go slightly higher than how you think you did, but not ridiculously higher.}
+- Potential Next Role: ${5:What is the next step on the ladder / pendulum?}
+- Timeline to the next promotion: ${6:When do you see this happening?}
 
-** Vedang's Performance Review, $1
+$0** TODO [#A] Write a performance review for myself, $2  :important:
+   SCHEDULED: `(ts-format "<%Y-%m-%d %a>" (ts-now))` DEADLINE: `(ts-format "<%Y-%m-%d %a>" (ts-adjust 'day +7 (ts-now)))`
 
+This task tracks when my performance review should be completed by, and shows up at the top of my agenda to remind me to work on it.
+*** TODO Review and capture details from 1:1 meeting notes
+*** TODO Review and capture details from status updates
+*** TODO Review and capture details from personal notes
+*** TODO Review the engineering levels document
+
+** Rough Notes: Things that I have accomplished, $2
+
+This is an unsorted list of things that I have done in the last six months. It is built by looking at all my status updates and all the feedback I have captured in 1:1 meetings and peer interactions. This is the rough material I will use to write my performance review. Once I have this list, I will sort the items into themes and impact and fill out my performance review above. Once that is complete, I will rewrite / copy the content into whatever format the current review system needs.
+
+** $1's Performance Review, $2
 This is where I write the actual performance review, which is then exported / reformatted for the appropriate HR tool.
 
 *** What were my goals for the 6 months?
@@ -24,7 +36,7 @@ Organize so that high impact work comes first. Make sure to highlight who the st
 **** What was the result of the project?
 (Only if enough time has passed and results are observable)
 
-**** What are the learnings from this project?
+**** What are the lessons learnt from this project?
 What could have gone better?
 
 *** How did I improve the performance of / mentor my team?
@@ -34,17 +46,9 @@ Capture initiatives run for improving the performance of the team, any challengi
 Why? Do I have a plan to change that?
 
 *** How have I grown personally?
+
 **** What new things did I learn?
-Is the knowledge useful / applicable to others and did I take efforts to propogate that knowledge? How?
+Is the knowledge useful / applicable to others and did I take efforts to propagate that knowledge? How?
 
 **** What areas have I not made progress on, but should have?
 These are things I know I should do, or I want to do, but I don't make time for. Why?
-
-** TODO [#A] Write a performance review for myself, $1  :important:
-   SCHEDULED: `(ts-format "<%Y-%m-%d %a>" (ts-now))` DEADLINE: `(ts-format "<%Y-%m-%d %a>" (ts-adjust 'day +7 (ts-now)))`
-
-This task tracks when my performance review should be completed by, and shows up at the top of my agenda to remind me to work on it.
-
-** Things that I have accomplished, $1
-
-This is an unsorted list of things that I have done in the last six months. It is built by looking at all my status updates and all the feedback I have captured in 1:1 meetings and peer interactions. This is the rough material I will use to write my performance review. Once I have this list, I will sort the items into themes and impact and fill out my performance review above. Once that is complete, I will rewrite / copy the content into whatever format the current review system needs.
