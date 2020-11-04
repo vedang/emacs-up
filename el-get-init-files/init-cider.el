@@ -40,6 +40,24 @@ project."
         (cider-load-buffer buf)))))
 
 
+;;; Integration with REBL
+;; Similar to C-x C-e, but sends to REBL
+(defun rebl-eval-last-sexp ()
+  (interactive)
+  (let* ((bounds (cider-last-sexp 'bounds))
+         (s (cider-last-sexp))
+         (reblized (concat "(cognitect.rebl/inspect " s ")")))
+    (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
+
+;; Similar to C-M-x, but sends to REBL
+(defun rebl-eval-defun-at-point ()
+  (interactive)
+  (let* ((bounds (cider-defun-at-point 'bounds))
+         (s (cider-defun-at-point))
+         (reblized (concat "(cognitect.rebl/inspect " s ")")))
+    (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
+
+
 (eval-after-load 'cider-mode
   '(progn
      (add-hook 'cider-mode-hook 'eldoc-mode)
@@ -64,35 +82,22 @@ project."
              ("display-doc" . cider-doc-lookup)
              ("lookup-on-grimoire" . cider-grimoire-lookup)))))
 
+
+;; C-S-x send defun to rebl
+;; C-x C-r send last sexp to rebl
+(eval-after-load 'cider-mode
+          '(progn
+             (define-key cider-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
+             (define-key cider-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp)))
+
 (eval-after-load 'cider-repl
   '(progn
      (add-hook 'cider-repl-mode-hook 'subword-mode)
      (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)
-     (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer)))
+     (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer)
+     (define-key cider-repl-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
+     (define-key cider-repl-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp)))
 
-;;; Integration with REBL
-;; Similar to C-x C-e, but sends to REBL
-(defun rebl-eval-last-sexp ()
-  (interactive)
-  (let* ((bounds (cider-last-sexp 'bounds))
-         (s (cider-last-sexp))
-         (reblized (concat "(cognitect.rebl/inspect " s ")")))
-    (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
-
-;; Similar to C-M-x, but sends to REBL
-(defun rebl-eval-defun-at-point ()
-  (interactive)
-  (let* ((bounds (cider-defun-at-point 'bounds))
-         (s (cider-defun-at-point))
-         (reblized (concat "(cognitect.rebl/inspect " s ")")))
-    (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
-
-;; C-S-x send defun to rebl
-;; C-x C-r send last sexp to rebl (Normally bound to "find-file-read-only"... Who actually uses that though?)
-(add-hook 'cider-mode-hook
-          (lambda ()
-            (local-set-key (kbd "C-S-x") #'rebl-eval-defun-at-point)
-            (local-set-key (kbd "C-x C-r") #'rebl-eval-last-sexp)))
 
 (provide 'init-cider)
 ;;; init-cider ends here
