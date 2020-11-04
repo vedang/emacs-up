@@ -3,7 +3,7 @@
 # key: hsproject
 # This is the developer version of tracking a hsproject
 # --
-* TODO $1
+* TODO $1 [[${2:$$(yas-choose-value '(fdn: jira:))}${3:Ticket Number}]]
   :PROPERTIES:
   :ORDERED: t
   :END:
