@@ -8,16 +8,12 @@
   :ORDERED: t
   :END:
 ** TODO [Milestone] Create a project page for $1.
-** TODO [0/3] [Milestone] Freeze the User Stories for $1
-- Note: PM needs to ACK the User Stories to indicate that it is frozen.
-- Work should start in parallel while specs are under discussion, but scope cannot be frozen until relevant User Stories are frozen
-*** TODO [Milestone] Freeze the Product Spec for Support all services on AWS China
-- Note: PM and designer needs to ACK the Design spec to indicate that it is frozen.
-- Work should start in parallel while Design spec is under discussion, but scope cannot be frozen until relevant User Stories are frozen
-*** TODO [Milestone] Freeze the Design Spec for $1
-- Note: PM and designer needs to ACK the Design spec to indicate that it is frozen.
-- Work should start in parallel while Design spec is under discussion, but scope cannot be frozen until relevant PRD / User Stories are frozen
-*** TODO Work with devs + focus group to estimate story points for tasks in $1 devspec
+** TODO [Milestone] Identify all the User Stories for $1
+- Note: User stories need to be built with all stakeholders and should have an ACK from all stakeholders.
+- Work should start in parallel while specs are under discussion, but scope cannot be frozen until the User Stories for the release are frozen
+** TODO [Milestone] Create a User Story Map for $1
+- [ ] Identify the MVP release.
+- [ ] Work with devs + focus group to estimate story points for tasks in $1 devspec
 ** TODO [Milestone] Communicate ballpark estimate dates for $1
 ** TODO Identify involvement of other teams for $1
 - Integration, Dev / Testing work.
