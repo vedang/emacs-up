@@ -275,6 +275,8 @@
 
          (:name plantuml-mode
                 :after (progn (setq plantuml-default-exec-mode 'jar)
+                              (add-to-list 'auto-mode-alist
+                                           '("\\.puml$" . plantuml-mode))
                               ;; Note: You need to define
                               ;; `plantuml-jar-path' to whereever the
                               ;; jar is downloaded on your system.
