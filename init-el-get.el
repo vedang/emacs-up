@@ -185,7 +185,7 @@
                               (define-key dumb-jump-mode-map (kbd "C-M-p") nil)
                               (define-key dumb-jump-mode-map (kbd "C-c d g") 'dumb-jump-go)
                               (define-key dumb-jump-mode-map (kbd "C-c d b") 'dumb-jump-back)
-))
+                              (setq dumb-jump-selector 'popup)))
 
          ;; Change-Inner, Expand-Region and Multiple-Cursors are
          ;; interesting selection and editing tools that go together.
