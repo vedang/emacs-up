@@ -2,7 +2,7 @@
 # name: weekly_report
 # key: weekrpt
 # --
-*** `(ts-format "Week %W: %F %a" (car (this-week-range)))` -- `(ts-format "%F %a" (cdr (this-week-range)))`
+*** `(ts-format "Week %W: %F %a" (car (this-week-range)))` -- `(ts-format "%F %a" (cdr (this-week-range)))`  :childless:
 **** Work done in this week:
 #+BEGIN: clocktable :scope agenda :maxlevel 6 :block 2020-W`(+ 1 (string-to-number (ts-format "%W" (car (this-week-range)))))` :emphasize nil :fileskip0 t :match "-noclockreport" :hidefiles nil :tags t :link t :tcolumns 2$0
 #+END:
