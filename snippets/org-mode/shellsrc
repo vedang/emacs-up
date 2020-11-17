@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: shellsrc
+# key: shellsrc
+# --
+
+#+begin_src shell-script :eval no
+$0
+#+end_src
