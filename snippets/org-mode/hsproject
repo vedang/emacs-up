@@ -7,46 +7,48 @@
   :PROPERTIES:
   :ORDERED: t
   :END:
-** TODO [Milestone] Create a project page for $1.
-** TODO [Milestone] Identify all the User Stories for $1
+** TODO Create a project page for $1.
+** TODO Identify all the User Stories for $1
 - Note: User stories need to be built with all stakeholders and should have an ACK from all stakeholders.
 - Work should start in parallel while specs are under discussion, but scope cannot be frozen until the User Stories for the release are frozen
-** TODO [Milestone] Create a User Story Map for $1
+** TODO Create a Business Outcomes page for $1
+** TODO Create a User Story Map for $1
 - [ ] Identify the MVP release.
 - [ ] Work with devs + focus group to estimate story points for tasks in $1 devspec
-** TODO [Milestone] Communicate ballpark estimate dates for $1
+** TODO Create a Rough Plan for $1
+- [ ] The rough plan should be an end-to-end plan of ballpark estimates for all work (as we see it now). The aim is to clarify the amount of work and the points at which we will see business outcomes.
 ** TODO Identify involvement of other teams for $1
 - Integration, Dev / Testing work.
 - Think about change in contracts and regression testing.
   + Do we need manual testing or will automated test suites cover everything?
 - Think about dependencies on other teams: What order of modules makes collaboration easy and unblock other teams fastest? List all teams in a checklist here and check them off to ensure you have not missed anything:
   + [ ] Team 1
-** TODO [Milestone] Communicate contract freeze dates for $1
+** TODO Communicate contract freeze dates for $1
 - Think about contracts with teams identified above. List all teams in a checklist here and check them off to ensure you have not missed anything:
   + [ ] Contract freeze date with Team 1
-** TODO [Milestone] Communicate that $1 contract is frozen and ask for ACK.
-** TODO [Milestone] Contract mocks are ready for $1
-** TODO [Milestone] Fill out pre-dev Plat Review for $1
-** TODO [Milestone] Share the link for the $1 devspec
+** TODO Communicate that $1 contract is frozen and ask for ACK.
+** TODO Contract mocks are ready for $1
+** TODO Fill out pre-dev Plat Review for $1
+** TODO Share the link for the $1 devspec
 - With the team and with all engineers across teams working on this project.
-** TODO [Milestone] Share the link for the $1 qaspec
+** TODO Share the link for the $1 qaspec
 - With the team and with all engineers across teams working on this project.
-** TODO [Milestone] Communicate start of integration testing dates $1
+** TODO Communicate start of integration testing dates $1
 Think about contracts with all impacted teams. List all teams in a checklist here and check them off to ensure you have not missed anything:
 - [ ] Team 1 Integration testing
-** TODO [0/5] [Milestone] Communicate final dates for $1 with team and EM/PM
+** TODO [0/5] Communicate final dates for $1 with team and EM/PM
 - [ ] Dev Complete date
 - [ ] Cross-team Integration Testing date
 - [ ] Dev Sandbox date
 - [ ] Test Complete date
 - [ ] Product Sandbox date
-** TODO [Milestone] Dev is complete for $1, ask for Ack
-** TODO [Milestone] Fill out post-dev Plat Review for $1
-** TODO [Milestone] Cross team Integration testing is complete for $1, ask for ACK
-** TODO [Milestone] Benchmarking / Perf testing is complete for $1, ask for ACK
-** TODO [Milestone] Dev Sandbox is ready for $1, share details
-** TODO [Milestone] Dev Testing on Sandbox is done for $1
-** TODO [Milestone] Polished Sandbox is ready for $1, ask for ACK
-** TODO [Milestone] Share the release checklist for $1, ask for ACK
-** TODO [Milestone] Share the DEP and CM tickets for $1, ask for ACK
+** TODO Dev is complete for $1, ask for Ack
+** TODO Fill out post-dev Plat Review for $1
+** TODO Cross team Integration testing is complete for $1, ask for ACK
+** TODO Benchmarking / Perf testing is complete for $1, ask for ACK
+** TODO Dev Sandbox is ready for $1, share details
+** TODO Dev Testing on Sandbox is done for $1
+** TODO Polished Sandbox is ready for $1, ask for ACK
+** TODO Share the release checklist for $1, ask for ACK
+** TODO Share the DEP and CM tickets for $1, ask for ACK
 $0
