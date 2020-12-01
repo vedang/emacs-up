@@ -31,6 +31,7 @@
 ;; Add el-get to the load-path. From this point onward, we're plugged
 ;; into the el-get package management system.
 (add-to-list 'load-path (concat el-get-dir "el-get"))
+(setq el-get-notify-type 'message)
 
 ;; Install el-get if it isn't already present
 (unless (require 'el-get nil 'noerror)
