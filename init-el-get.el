@@ -273,6 +273,8 @@
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
 
+         (:name pcre2el)
+
          (:name pdf-tools
                 :after (progn (pdf-tools-install)))
 
