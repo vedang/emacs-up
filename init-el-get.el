@@ -164,6 +164,14 @@
 
          (:name all-the-icons)
 
+         (:name all-the-icons-dired
+                :after (progn
+                         (add-hook 'dired-mode-hook
+                                   #'all-the-icons-dired-mode)))
+
+         (:name all-the-icons-ibuffer
+                :after (progn (all-the-icons-ibuffer-mode 1)))
+
          (:name ascii-art-to-unicode)
 
          (:name avy
@@ -246,6 +254,10 @@
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
+         ;; Note: `powerline' needs to be installed before `moe-theme'
+         (:name powerline)
+         (:name moe-theme)
+
          (:name ob-mermaid
                 :after (progn
                          (setq ob-mermaid-cli-path
@@ -294,6 +306,8 @@
                                   (add-to-list 'Info-directory-list
                                                (concat el-get-dir "sicp/"))))))
 
+         (:name spaceline-all-the-icons)
+
          (:name smart-tab
                 :after (progn
                          (setq smart-tab-using-hippie-expand t
@@ -320,11 +334,7 @@
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
-                                           'yas-hippie-try-expand)))
-
-         ;; Note: `powerline' needs to be installed before `moe-theme'
-         (:name powerline)
-         (:name moe-theme))))
+                                           'yas-hippie-try-expand))))))
 
 
 (defvar el-get-my-packages
