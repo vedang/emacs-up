@@ -187,9 +187,23 @@ CURR-THEME is the theme that gets loaded. Available values:
       ;; (moe-theme-set-color 'orange)
       ;; Available colors: blue, orange, green ,magenta, yellow,
       ;; purple, red, cyan, w/b.
-      ))))
+      ))
 
-(add-hook 'after-init-hook (lambda () (vedang/theme-config 'moe)))
+   ((equal curr-theme 'default-dark)
+    (progn
+      ;;; dark on light default
+      (set-background-color "grey15")
+      (set-foreground-color "white")
+      (spaceline-all-the-icons-theme)))
+
+   ((equal curr-theme 'default-light)
+    (progn
+      ;;; light on dark default
+      (set-background-color "white")
+      (set-foreground-color "black")
+      (spaceline-all-the-icons-theme)))))
+
+(add-hook 'after-init-hook (lambda () (vedang/theme-config 'default-dark)))
 
 (server-start)
 (message "My .emacs loaded in %ds"
