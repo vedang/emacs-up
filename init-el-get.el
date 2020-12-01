@@ -179,6 +179,8 @@
          (:name deadgrep
                 :after (progn (global-set-key (kbd "C-c s") 'deadgrep)))
 
+         (:name dired+)
+
          (:name dumb-jump
                 :after (progn (dumb-jump-mode)
                               (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
