@@ -3,7 +3,7 @@
 # key: hsproject
 # This is the developer version of tracking a hsproject
 # --
-* TODO $1 [[${2:$$(yas-choose-value '(fdn: jira:))}${3:Ticket Number}]]
+* TODO $1 [[${2:$$(yas-choose-value '(fdn: jira:))}${3:Ticket Number}]] :childless:
   :PROPERTIES:
   :ORDERED: t
   :END:
@@ -53,4 +53,5 @@ Think about contracts with all impacted teams. List all teams in a checklist her
 ** TODO Polished Sandbox is ready for $1, ask for ACK
 ** TODO Share the release checklist for $1, ask for ACK
 ** TODO Share the DEP and CM tickets for $1, ask for ACK
+** $1 Misc Tasks and Notes
 $0
