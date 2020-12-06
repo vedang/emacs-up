@@ -212,6 +212,11 @@
          (:name edit-server
                 :after (progn (edit-server-start)))
 
+         (:name eglot
+                :after (progn
+                         (add-to-list 'eglot-server-programs
+                                      '(yaml-mode . ("yaml-language-server" "--stdio")))))
+
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
 
