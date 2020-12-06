@@ -1,0 +1,5 @@
+(:name jsonrpc
+       :builtin "25.2"
+       :type elpa
+       :description "JSON-RPC library"
+       :minimum-emacs-version (25 2))
