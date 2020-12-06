@@ -162,6 +162,10 @@
          (:name link-hint
                 :after (progn (global-set-key (kbd "M-g c") 'link-hint-copy-link)))
 
+         (:name ace-window
+                :after (progn (global-set-key (kbd "C-x o") 'ace-window)
+                              (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))))
+
          (:name all-the-icons)
 
          (:name all-the-icons-dired
@@ -358,7 +362,6 @@
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
 
    '(ag
-     ace-window
      auctex
      org-mode
      org-mode-crate
