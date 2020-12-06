@@ -178,6 +178,8 @@
 
          (:name ascii-art-to-unicode)
 
+         (:name auctex)
+
          (:name avy
                 :after (progn (avy-setup-default)
                               (global-set-key (kbd "M-g C-j") 'avy-resume)
@@ -362,7 +364,6 @@
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
 
    '(ag
-     auctex
      org-mode
      org-mode-crate
      org-gcal
