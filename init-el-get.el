@@ -176,6 +176,10 @@
          (:name all-the-icons-ibuffer
                 :after (progn (all-the-icons-ibuffer-mode 1)))
 
+         (:name ansible-doc
+                :after (with-eval-after-load 'yaml-mode
+                         (progn (add-hook 'yaml-mode-hook #'ansible-doc-mode))))
+
          (:name ascii-art-to-unicode)
 
          (:name auctex)
