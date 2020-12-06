@@ -337,6 +337,12 @@
                                     (remove 'ansi-color-process-output
                                             comint-output-filter-functions))))
 
+         (:name yaml-mode
+                :after (progn (add-hook 'yaml-mode-hook #'superword-mode)))
+
+         (:name yaml-imenu
+                :after (progn (yaml-imenu-enable)))
+
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
@@ -399,7 +405,6 @@
      toml-mode
      unbound
      wgrep
-     yaml-mode
      yasnippet-snippets)
 
    (mapcar 'el-get-source-name el-get-sources)
