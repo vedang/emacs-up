@@ -217,7 +217,7 @@
                 :after (progn (edit-server-start)))
 
          (:name eglot
-                :after (progn
+                :after (with-eval-after-load 'eglot
                          (add-to-list 'eglot-server-programs
                                       '(yaml-mode . ("yaml-language-server" "--stdio")))))
 
