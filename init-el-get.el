@@ -334,6 +334,8 @@
                                '((ledger-mode . dabbrev-completion)))
                               (global-smart-tab-mode 1)))
 
+	 (:name emacs-tree-sitter)
+
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
 
