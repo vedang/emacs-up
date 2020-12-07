@@ -134,7 +134,7 @@
                                 (setq js2-basic-offset 2
                                       js-switch-indent-offset 2)))))
 
-       ;;; Conditional Installs --- Things that depend on external services.
+;;; Conditional Installs --- Things that depend on external services.
 
        ;; Format JS, JSX files on save event.
        ;; Prerequisite: npm install -g prettier
@@ -142,7 +142,7 @@
          '((:name prettier-js
                   :after (add-hook 'rjsx-mode-hook #'prettier-js-mode))))
 
-       ;;; All the other recipes
+;;; All the other recipes
        '((:name ace-link
                 :after
                 (progn (ace-link-setup-default)
@@ -332,9 +332,9 @@
                                smart-tab-user-provided-completion-function 'company-complete
                                smart-tab-completion-functions-alist
                                '((ledger-mode . dabbrev-completion)))
-                              (global-smart-tab-mode 1)))
+                         (global-smart-tab-mode 1)))
 
-	 (:name emacs-tree-sitter)
+	     (:name emacs-tree-sitter)
 
          (:name ts)
 
