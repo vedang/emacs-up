@@ -336,6 +336,8 @@
 
 	 (:name emacs-tree-sitter)
 
+         (:name ts)
+
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
 
