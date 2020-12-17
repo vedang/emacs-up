@@ -315,6 +315,7 @@
                               ;; `plantuml-jar-path' to whereever the
                               ;; jar is downloaded on your system.
                               ))
+         (:name restclient)
 
          (:name sicp
                 :after (progn
