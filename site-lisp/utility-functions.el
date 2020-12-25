@@ -357,4 +357,27 @@ argument TOPLEVEL, create a top level datetree in the file."
     (cons beg end)))
 
 
+;; (defun jira:tickets-in-parent-assigned-to-me (epic-number)
+;;   "Given an EPIC-NUMBER, get all the tickets assigned to me in this epic.
+;; Insert these tickets in `org-mode' format."
+;;   (message epic-number)
+;;   (with-output-to-temp-buffer "*GoJira Output*"
+;;     (shell-command
+;;      (mapconcat
+;;       'shell-quote-argument
+;;       (list "jira" "epic" "list" epic-number
+;;             "-t" "list"
+;;             "-q" "assignee=557058:5aa0ed72-96e7-4f4b-a91d-8fcf8889e280")
+;;       " ")
+;;      standard-output))
+;;   (with-current-buffer "*GoJira Output*"
+;;     (goto-char (point-max))
+;;     (forward-line -1)
+;;     (while (> (point) (point-min))
+;;       (insert "* [[jira:")
+;;       (while (not (equal (char-after))))
+;;       (forward-line -1))
+;;     (insert "* [[jira:")))
+
+
 (provide 'utility-functions)
