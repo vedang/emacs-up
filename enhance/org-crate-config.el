@@ -89,8 +89,6 @@
            ;; match any of these groups, with the default order position of 99
            )))
 
-(setq org-agenda-dim-blocked-tasks nil)
-
 ;;; Use `terminal-notifier' to push notifications on osx, if this
 ;;; program is not installed, ignore notifications.
 (defun vm/org-notify-message (msg)
