@@ -57,6 +57,11 @@
       auto-save-file-name-transforms
       `((".*" ,(concat tempfiles-dirname "auto-save-list/") t)))
 
+;;; Increase display length of profiler output
+(with-eval-after-load 'profiler
+    (setf (caar profiler-report-cpu-line-format) 80
+          (caar profiler-report-memory-line-format) 80))
+
 (defvar vm/completion-ignored-extensions
   '(".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".beam" ".out" ".hbc")
   "Completion ignores filenames ending in any string in this list.")
