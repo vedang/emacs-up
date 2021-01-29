@@ -127,5 +127,8 @@ Suggest the URL title as a description for resource."
   (define-key org-brain-visualize-mode-map (kbd "L")
     'org-brain-cliplink-resource))
 
+(with-eval-after-load 'org-brain
+  (setq savehist-additional-variables '(org-brain-headline-cache)))
+
 (provide 'init-org-brain)
 ;;; init-org-brain.el ends here

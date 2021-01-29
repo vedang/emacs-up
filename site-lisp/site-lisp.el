@@ -92,7 +92,8 @@ right mode to start in the buffer."
 (require 'init-recentf)
 (require 'init-flyspell)
 (require 'init-sql)
-(save-place-mode)
+(save-place-mode 1)
+(savehist-mode 1)
 
 (eval-after-load 'rcirc
   '(require 'init-rcirc))
