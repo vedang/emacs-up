@@ -38,6 +38,15 @@
         "*  %? :habit:  \nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n%U\n%a\n  %i")
       org-capture-templates)
 
+(with-eval-after-load 'init-org-brain
+  (let ((linklog-path (concat org-brain-path "/linklog_unread.org")))
+    (push `("l" "Linklog"
+            entry (file ,linklog-path)
+            "* %^{Title of post} \n:PROPERTIES:\n:URL: %c\n:END:\n%U\n- [[%c][Link to post]]"
+            :clock-in t
+            :clock-resume t)
+          org-capture-templates)))
+
 ;;; My personal tag hotkeys
 (push '("engineering_management" . ?e) org-tag-alist)
 (push '("refile" . ?r) org-tag-alist)
