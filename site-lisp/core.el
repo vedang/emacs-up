@@ -62,6 +62,9 @@
     (setf (caar profiler-report-cpu-line-format) 80
           (caar profiler-report-memory-line-format) 80))
 
+;;; Display garbage-collection messages, so that I can see impact on performance
+(when on-my-machine (setq garbage-collection-messages t))
+
 (defvar vm/completion-ignored-extensions
   '(".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".beam" ".out" ".hbc")
   "Completion ignores filenames ending in any string in this list.")
