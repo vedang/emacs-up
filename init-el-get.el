@@ -182,7 +182,10 @@
 
          (:name ascii-art-to-unicode)
 
-         (:name auctex)
+         (:name auctex
+                :after (progn
+                         (add-hook 'TeX-after-compilation-finished-functions
+                                   #'TeX-revert-document-buffer)))
 
          (:name avy
                 :after (progn (avy-setup-default)
