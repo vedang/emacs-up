@@ -316,6 +316,11 @@
                             '(progn (info-initialize)
                                     (add-to-list 'Info-directory-list
                                                  (concat el-get-dir "magit/")))))))
+
+         (:name move-text
+                :after (progn (global-set-key (kbd "C-c <up>") 'move-text-up)
+                              (global-set-key (kbd "C-c <down>") 'move-text-down)))
+
          (:name ob-mermaid
                 :after (progn
                          (setq ob-mermaid-cli-path
