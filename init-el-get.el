@@ -262,6 +262,9 @@
                 :after (progn (global-set-key [remap kill-ring-save] 'easy-kill)
                               (global-set-key [remap mark-sexp] 'easy-mark)))
 
+         (:name forge
+                :after (progn (setq auth-sources '("~/.authinfo.gpg"))))
+
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode))
                               (global-flycheck-mode)))
@@ -301,6 +304,18 @@
          (:name powerline)
          (:name moe-theme)
 
+         (:name magit
+                (:after (progn
+                          (global-set-key (kbd "C-x g") 'magit-status)
+                          (setq magit-completing-read-function 'magit-ido-completing-read
+                                magit-diff-refine-hunk 't
+                                magit-diff-refine-ignore-whitespace nil)
+                          (require 'forge)
+
+                          (eval-after-load 'info
+                            '(progn (info-initialize)
+                                    (add-to-list 'Info-directory-list
+                                                 (concat el-get-dir "magit/")))))))
          (:name ob-mermaid
                 :after (progn
                          (setq ob-mermaid-cli-path
@@ -440,7 +455,6 @@
      ledger-mode
      lua-mode
      macrostep
-     magit
      markdown-mode
      paredit
      paredit-cheatsheet

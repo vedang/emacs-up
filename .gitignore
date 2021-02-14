@@ -26,3 +26,4 @@ org-gcal/
 request/
 .recentf
 session*
+forge-database.sqlite
