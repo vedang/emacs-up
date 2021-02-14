@@ -341,6 +341,9 @@
                               ;; `plantuml-jar-path' to whereever the
                               ;; jar is downloaded on your system.
                               ))
+
+         (:name rainbow-mode)
+
          (:name restclient)
 
          (:name sicp
