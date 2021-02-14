@@ -79,7 +79,6 @@ right mode to start in the buffer."
 
 
 ;; Aliases for common functions
-(defalias 'qrr 'query-replace-regexp)
 (defalias 'rvt 'revert-buffer)
 (defalias 'dtw 'delete-trailing-whitespace)
 (defalias 'yes-or-no-p 'y-or-n-p)

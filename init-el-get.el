@@ -180,6 +180,21 @@
                 :after (with-eval-after-load 'yaml-mode
                          (progn (add-hook 'yaml-mode-hook #'ansible-doc-mode))))
 
+         (:name anzu
+                :after (progn (global-anzu-mode +1)
+                              (setq anzu-mode-lighter ""
+                                    anzu-deactivate-region t
+                                    anzu-search-threshold 1000
+                                    anzu-replace-threshold 50
+                                    anzu-replace-to-string-separator " => ")
+                              (define-key isearch-mode-map
+                                [remap isearch-query-replace]
+                                #'anzu-isearch-query-replace)
+                              (define-key isearch-mode-map
+                                [remap isearch-query-replace-regexp]
+                                #'anzu-isearch-query-replace-regexp)
+                              (defalias 'qrr 'anzu-query-replace-regexp)))
+
          (:name ascii-art-to-unicode)
 
          (:name auctex
