@@ -278,6 +278,8 @@
                 :after (progn (require 'helm-descbinds)
                               (helm-descbinds-mode)))
 
+         (:name helm-notmuch)
+
          (:name helm-org
                 :before (progn (require 'helm-config))
                 :after (progn (require 'helm-org)
