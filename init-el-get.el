@@ -254,6 +254,14 @@
                 :after (with-eval-after-load 'eglot
                          (add-to-list 'eglot-server-programs
                                       '(yaml-mode . ("yaml-language-server" "--stdio")))))
+
+         ;; Easy kill might remove the complete need of `change-inner'
+         ;; and `expand-region'. I'll observe for a bit and then take
+         ;; the call of whether to keep the changes in or not.
+         (:name easy-kill
+                :after (progn (global-set-key [remap kill-ring-save] 'easy-kill)
+                              (global-set-key [remap mark-sexp] 'easy-mark)))
+
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode))
                               (global-flycheck-mode)))
