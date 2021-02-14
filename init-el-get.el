@@ -231,17 +231,8 @@
          (:name change-inner
                 :after (progn (global-set-key (kbd "M-i") 'change-inner)
                               (global-set-key (kbd "M-o") 'change-outer)))
-         (:name edit-server
-                :after (progn (edit-server-start)))
-
-         (:name eglot
-                :after (with-eval-after-load 'eglot
-                         (add-to-list 'eglot-server-programs
-                                      '(yaml-mode . ("yaml-language-server" "--stdio")))))
-
          (:name expand-region
                 :after (progn (global-set-key (kbd "C-=") 'er/expand-region)))
-
          (:name multiple-cursors
                 :after (progn (global-set-key (kbd "C-c = 0")
                                               'mc/mark-next-like-this)
@@ -256,6 +247,13 @@
          ;;        :load-path "."
          ;;        :features ob-elasticsearch)
 
+         (:name edit-server
+                :after (progn (edit-server-start)))
+
+         (:name eglot
+                :after (with-eval-after-load 'eglot
+                         (add-to-list 'eglot-server-programs
+                                      '(yaml-mode . ("yaml-language-server" "--stdio")))))
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode))
                               (global-flycheck-mode)))
