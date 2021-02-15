@@ -202,6 +202,9 @@
                          (add-hook 'TeX-after-compilation-finished-functions
                                    #'TeX-revert-document-buffer)))
 
+         (:name auto-dim-other-buffers
+                :after (progn (auto-dim-other-buffers-mode t)))
+
          (:name avy
                 :after (progn (avy-setup-default)
                               (global-set-key (kbd "M-g C-j") 'avy-resume)

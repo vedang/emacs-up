@@ -1,0 +1,4 @@
+(:name auto-dim-other-buffers
+       :description "Visually makes non-selected windows less prominent."
+       :type github
+       :pkgname "mina86/auto-dim-other-buffers.el")
