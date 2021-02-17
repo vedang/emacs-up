@@ -266,7 +266,9 @@
                               (global-set-key [remap mark-sexp] 'easy-mark)))
 
          (:name forge
-                :after (progn (setq auth-sources '("~/.authinfo.gpg"))))
+                :after (progn (setq auth-sources '("~/.authinfo.gpg"))
+                              (with-eval-after-load 'magit
+                                (require 'forge))))
 
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode))
@@ -308,17 +310,16 @@
          (:name moe-theme)
 
          (:name magit
-                (:after (progn
-                          (global-set-key (kbd "C-x g") 'magit-status)
-                          (setq magit-completing-read-function 'magit-ido-completing-read
-                                magit-diff-refine-hunk 't
-                                magit-diff-refine-ignore-whitespace nil)
-                          (require 'forge)
+                :after (progn
+                         (global-set-key (kbd "C-x g") 'magit-status)
+                         (setq magit-completing-read-function 'magit-ido-completing-read
+                               magit-diff-refine-hunk 't
+                               magit-diff-refine-ignore-whitespace nil)
 
-                          (eval-after-load 'info
-                            '(progn (info-initialize)
-                                    (add-to-list 'Info-directory-list
-                                                 (concat el-get-dir "magit/")))))))
+                         (eval-after-load 'info
+                           '(progn (info-initialize)
+                                   (add-to-list 'Info-directory-list
+                                                (concat el-get-dir "magit/"))))))
 
          (:name move-text
                 :after (progn (global-set-key (kbd "C-c <up>") 'move-text-up)
