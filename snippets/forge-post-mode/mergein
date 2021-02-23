@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mergein
+# key: mergein
+# --
+Hey @${1:Topic Author},
+
+I've merged this ${2:$$(yas-choose-value '(PR commit change))} into vedang/pdf-tools@${3:commit} . Thank you for submitting this $2!
