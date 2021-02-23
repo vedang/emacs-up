@@ -266,6 +266,8 @@
                 :after (progn (global-set-key [remap kill-ring-save] 'easy-kill)
                               (global-set-key [remap mark-sexp] 'easy-mark)))
 
+         (:name emacs-emojify)
+
          (:name forge
                 :after (progn (setq auth-sources '("~/.authinfo.gpg"))
                               (with-eval-after-load 'magit
