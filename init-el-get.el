@@ -326,6 +326,9 @@
                 :after (progn (global-set-key (kbd "C-c <up>") 'move-text-up)
                               (global-set-key (kbd "C-c <down>") 'move-text-down)))
 
+         (:name nov.el
+                :after (progn (add-to-list 'auto-mode-alist
+                                           '("\\.epub\\'" . nov-mode))))
          (:name ob-mermaid
                 :after (progn
                          (setq ob-mermaid-cli-path
