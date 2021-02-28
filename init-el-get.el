@@ -164,7 +164,8 @@
 
          (:name ace-window
                 :after (progn (global-set-key (kbd "C-x o") 'ace-window)
-                              (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))))
+                              (setq aw-scope 'frame
+                                    aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))))
 
          (:name all-the-icons)
 
