@@ -1,4 +1,5 @@
 ;;; init-clj-refactor.el --- Magic refactoring for Clojure.
+;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 27 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
@@ -14,8 +15,8 @@
 
 ;;; Code:
 
-
 (defun turn-on-clj-refactor ()
+  "Helper function to add to `clojure-mode-hook'."
   (clj-refactor-mode 1)
   (cljr-add-keybindings-with-prefix "C-c m"))
 
@@ -25,7 +26,7 @@
       cljr-warn-on-eval nil
       ;; don't stop on analyzer failures. examples: not finding a
       ;; data-reader.
-      cljr-ignore-analyzer-errors t
+      cljr-find-usages-ignore-analyzer-errors t
       ;; Don't magically add stuff to the namespace requires form
       ;; (because for big projects this operation is slow) it's easier
       ;; to do this by hand (=add-missing= operation) after you've
@@ -38,3 +39,4 @@
 
 
 (provide 'init-clj-refactor)
+;;; init-clj-refactor.el ends here
