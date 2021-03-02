@@ -486,7 +486,8 @@
    (when on-my-machine
      ;; Load packages with Third Party
      ;; dependencies only on my machine.
-     '(eclim))))
+     '(;; eclim
+       elpher))))
 
 (el-get 'sync el-get-my-packages)
 
