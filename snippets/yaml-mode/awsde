@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: awsde
+# key: awsde
+# --
+data_entity:
+  - name: $1
+    direction: $2
