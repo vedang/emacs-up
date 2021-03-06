@@ -78,7 +78,8 @@
     (org-tags-view nil (format "+%s>\"\"" org-expiry-created-property-name))))
 
 (defface aa2u-face '((t . nil))
-  "Face for aa2u box drawing characters")
+  "Face for aa2u box drawing characters"
+  :group 'org-brain)
 
 (advice-add #'aa2u-1c :filter-return
             (lambda (str) (propertize str 'face 'aa2u-face)))
@@ -111,7 +112,7 @@
   (add-hook 'org-brain-after-resource-button-functions
             'org-brain-insert-resource-icon))
 
-;;; Add a resource to and org-brain-entry via cliplink
+;;; Add a resource to and `org-brain-entry' via `org-cliplink'
 (defun org-brain-cliplink-resource ()
   "Add a URL from the clipboard as an org-brain resource.
 Suggest the URL title as a description for resource."
