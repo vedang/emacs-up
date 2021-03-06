@@ -42,10 +42,9 @@
   (org-with-point-at (org-brain-entry-marker entry)
     (org-noter)))
 
-(eval-after-load 'org-noter
-  '(progn
-     (define-key org-brain-visualize-mode-map (kbd "C-c n")
-       'org-brain-open-org-noter)))
+(with-eval-after-load 'org-noter
+  (define-key org-brain-visualize-mode-map
+    (kbd "C-c n") 'org-brain-open-org-noter))
 
 ;; Setup org-expiry and define a org-agenda function to compare
 ;; timestamps.
@@ -123,13 +122,6 @@ Suggest the URL title as a description for resource."
      (org-cliplink-retrieve-title-synchronously url)
      t)))
 
-(with-eval-after-load 'org-brain
-  (define-key org-brain-visualize-mode-map (kbd "L")
-    'org-brain-cliplink-resource))
-
-(with-eval-after-load 'org-brain
-  (setq savehist-additional-variables '(org-brain-headline-cache)))
-
 (defun org-brain-random-reading ()
   "Find something I've already read, to re-read."
   (interactive)
@@ -138,8 +130,11 @@ Suggest the URL title as a description for resource."
     (expand-file-name "linklog.org" org-brain-path))))
 
 (with-eval-after-load 'org-brain
+  (define-key org-brain-visualize-mode-map (kbd "L")
+    'org-brain-cliplink-resource)
   (define-key org-brain-visualize-mode-map (kbd "q")
-    'org-brain-random-reading))
+    'org-brain-random-reading)
+  (setq savehist-additional-variables '(org-brain-headline-cache)))
 
 (provide 'init-org-brain)
 ;;; init-org-brain.el ends here
