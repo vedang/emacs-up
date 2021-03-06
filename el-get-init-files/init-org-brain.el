@@ -130,5 +130,16 @@ Suggest the URL title as a description for resource."
 (with-eval-after-load 'org-brain
   (setq savehist-additional-variables '(org-brain-headline-cache)))
 
+(defun org-brain-random-reading ()
+  "Find something I've already read, to re-read."
+  (interactive)
+  (org-brain-visualize-random
+   (org-brain-headline-entries-in-file
+    (expand-file-name "linklog.org" org-brain-path))))
+
+(with-eval-after-load 'org-brain
+  (define-key org-brain-visualize-mode-map (kbd "q")
+    'org-brain-random-reading))
+
 (provide 'init-org-brain)
 ;;; init-org-brain.el ends here
