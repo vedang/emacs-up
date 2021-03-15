@@ -1,0 +1,37 @@
+# -*- mode: snippet -*-
+# name: onepager
+# key: onepager
+# --
+
+#+title: $1
+#+date: `(format-time-string (car org-time-stamp-formats))`
+#+author: Vedang Manerikar <vedang@helpshift.com>
+
+* Introduction (Vision)
+- Purpose of this document, brief introduction to the problem and possibly solution.
+- Business Goal covered by this document.
+$0
+
+* Background (Why are we here)
+- Framework for understanding the system and the problem.
+
+* Details of the problem (Why do we have this problem)
+
+* Details of the possible solutions (Methods)
+
+* A clear recommended solution / first step (Methods)
+
+* Plan of action (Methods)
+** One Year Roadmap
+   | *Effort Estimate* | *Action* | *Impact* |
+   |-------------------+----------+----------|
+   |                   |          |          |
+
+** Three year Roadmap
+   | *Effort Estimate* | *Action* | *Impact* |
+   |-------------------+----------+----------|
+   |                   |          |          |
+
+* Risks (Obstacles)
+
+* Opportunities unblocked (Measures)
