@@ -34,6 +34,10 @@
 (setq wdired-allow-to-change-permissions t
       wdired-use-interactive-rename nil
       wdired-confirm-overwrite t)
+(define-key dired-mode-map (kbd "e")
+  (lambda ()
+    (interactive)
+    (eww-open-file (dired-get-file-for-visit))))
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)
