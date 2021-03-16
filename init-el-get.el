@@ -376,6 +376,8 @@
 
          (:name restclient)
 
+         (:name saveplace-pdf-view)
+
          (:name sicp
                 :after (progn
                          (with-eval-after-load 'info
