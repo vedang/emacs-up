@@ -268,6 +268,10 @@
 
          (:name emacs-emojify)
 
+         (:name fancy-battery
+                :after (progn (setq fancy-battery-show-percentage t)
+                              (add-hook 'after-init-hook #'fancy-battery-mode)))
+
          (:name forge
                 :after (progn (setq auth-sources '("~/.authinfo.gpg"))
                               (with-eval-after-load 'magit
