@@ -361,6 +361,9 @@
          (:name org-superstar
                 :after (progn (add-hook 'org-mode-hook
                                         (lambda () (org-superstar-mode 1)))))
+
+         (:name org-web-tools)
+
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
