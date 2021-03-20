@@ -358,6 +358,9 @@
                                     org-pomodoro-clock-break t)
                               (global-set-key (kbd "C-x c P") 'org-pomodoro)))
 
+         (:name org-superstar
+                :after (progn (add-hook 'org-mode-hook
+                                        (lambda () (org-superstar-mode 1)))))
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
