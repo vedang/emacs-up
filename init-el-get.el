@@ -388,6 +388,26 @@
 
          (:name saveplace-pdf-view)
 
+         (:name shrface
+                :after (progn
+                         (add-hook 'eww-after-render-hook #'shrface-mode)
+                         (with-eval-after-load 'nov
+                           (add-hook 'nov-mode-hook #'shrface-mode)
+                           (setq nov-shr-rendering-functions
+                                 (append nov-shr-rendering-functions
+                                         shr-external-rendering-functions)))
+                         (with-eval-after-load 'shrface
+                           (shrface-basic)
+                           (shrface-trial)
+                           (shrface-default-keybindings)
+                           (define-key shrface-mode-map
+                             (kbd "M-l") 'shrface-links-helm)
+                           (define-key shrface-mode-map
+                             (kbd "M-h") 'shrface-headline-helm)
+                           (setq shrface-href-versatile t)
+                           (set-face-attribute 'variable-pitch nil
+                                               :font "-PfEd-FantasqueSansMono Nerd Font-normal-normal-normal-*-26-*-*-*-m-0-iso10646-1"))))
+
          (:name sicp
                 :after (progn
                          (with-eval-after-load 'info
