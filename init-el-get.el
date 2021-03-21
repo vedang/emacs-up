@@ -309,6 +309,8 @@
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
+         (:name helm-system-packages)
+
          (:name linkd)
 
          ;; Note: `powerline' needs to be installed before `moe-theme'
