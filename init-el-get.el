@@ -69,10 +69,7 @@
            (:name helm-cider)
            (:name clojure-snippets)
            (:name clj-refactor)
-           (:name cljr-helm
-                  :after (with-eval-after-load 'clojure-mode
-                           (progn
-                             (define-key clojure-mode-map (kbd "C-c m h r") 'cljr-helm))))
+
            (:name cljstyle
                   :after (progn
                            ;; Note: I don't turn cljstyle on by
