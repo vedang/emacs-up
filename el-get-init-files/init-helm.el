@@ -71,4 +71,22 @@
 ;; This is your old M-x.
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
+(defun helm-do-grep-project-root (&optional with-types)
+  "Search in current project with. With WITH-TYPES, ask for file
+types to search in."
+  (interactive "P")
+  (let ((default-directory (projectile-project-root)))
+    (call-interactively 'helm-do-grep-ag)))
+
+(defun helm-do-grep-ag-with-directory (dir)
+  "Do `helm-do-grep-ag' with `default-directory' set to DIR."
+  (interactive "DDirectory to search in: ")
+  (let ((default-directory dir))
+    (call-interactively 'helm-do-grep-ag)))
+
+(global-set-key (kbd "C-x c g a") 'helm-do-grep-project-root)
+(global-set-key (kbd "C-x c g s") 'helm-do-ag)
+;; Move old behaviour to a new key
+(global-set-key (kbd "C-x c g g") 'helm-do-grep-ag-with-directory)
+
 (provide 'init-helm)

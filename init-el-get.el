@@ -284,9 +284,8 @@
                 :after (progn (with-eval-after-load 'flycheck
                                 (add-hook 'flycheck-mode-hook
                                           #'flycheck-inline-mode))))
-         (:name helm)
-
-         (:name helm-ag)
+         (:name helm
+                :after (progn (require 'init-helm)))
 
          (:name helm-descbinds
                 :after (progn (require 'helm-descbinds)
