@@ -213,6 +213,11 @@
                               (global-set-key (kbd "M-g w") 'avy-goto-word-1)
                               (global-set-key (kbd "M-g SPC") 'avy-goto-word-1)))
 
+         (:name color-theme-leuven
+                :after (progn (setq leuven-scale-outline-headlines nil
+                                    leuven-scale-org-agenda-structure nil
+                                    leuven-scale-volatile-highlight nil)))
+
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
@@ -382,6 +387,17 @@
                               ;; jar is downloaded on your system.
                               ))
 
+         (:name poet
+                :after (progn
+                         ;; (set-face-attribute 'default nil
+                         ;;                     :family "Iosevka"
+                         ;;                     :height 130)
+                         ;; (set-face-attribute 'fixed-pitch nil
+                         ;;                     :family "Iosevka")
+                         ;; (set-face-attribute 'variable-pitch nil
+                         ;;                     :family "Baskerville")
+                         ))
+
          (:name rainbow-mode)
 
          (:name restclient)
@@ -484,7 +500,6 @@
      org-tree-slide
      color-theme-zenburn
      color-theme-idea-darkula
-     color-theme-leuven
      company-mode
      company-auctex
      dash

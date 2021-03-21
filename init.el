@@ -135,8 +135,7 @@ CURR-THEME is the theme that gets loaded. Available values:
    ;;; Config for Darkula
    ((equal curr-theme 'idea-darkula)
     (progn
-      (load-theme 'idea-darkula t)
-      (color-theme-idea-darkula)))
+      (load-theme 'idea-darkula t)))
    ;;; Config for Billw
    ((equal curr-theme 'billw)
     (progn
@@ -144,20 +143,10 @@ CURR-THEME is the theme that gets loaded. Available values:
    ;;; config for leuven
    ((equal curr-theme 'leuven)
     (progn
-      (require 'leuven-theme)
-      (require 'leuven-dark-theme)
       (load-theme 'leuven-dark t)))
    ;;; Config for Poet
    ((equal curr-theme 'poet)
     (progn
-      (set-face-attribute 'default nil
-                          :family "Iosevka"
-                          :height 130)
-      (set-face-attribute 'fixed-pitch nil
-                          :family "Iosevka")
-      (set-face-attribute 'variable-pitch nil
-                          :family "Baskerville")
-      (require 'poet-dark-theme)
       (load-theme 'poet-dark t)))
    ;;; Config for Moe
    ((equal curr-theme 'moe)
@@ -176,17 +165,22 @@ CURR-THEME is the theme that gets loaded. Available values:
       ;; Pune Lat Long: 18.5N, 73.8E
       (setq calendar-latitude +18)
 	  (setq calendar-longitude +73)
-      (require 'moe-theme-switcher)
-      ;; To load moe without customization:
-      ;; (load-theme 'moe-dark t)
-      ;; (moe-dark)
+      ;; To enable automatic switching between day and night (based on
+      ;; `calendar-latitude' and `calendar-longitude'), uncomment:
+      ;; (require 'moe-theme-switcher)
+      ;; To disable automatic switching once you have enabled it:
+      ;; (moe-theme-switcher-disable)
+      (moe-dark)
       ;; Note: The following lines have
       ;; to be after the theme is loaded
       ;; (via `moe-dark' or `moe-light')
       (powerline-moe-theme)
-      ;; (moe-theme-set-color 'orange)
+      (moe-theme-set-color 'purple)
       ;; Available colors: blue, orange, green ,magenta, yellow,
       ;; purple, red, cyan, w/b.
+
+      ;; To choose a color randomly:
+      ;; (moe-theme-random-color)
       ))
 
    ((equal curr-theme 'default-dark)
@@ -203,7 +197,7 @@ CURR-THEME is the theme that gets loaded. Available values:
       (set-foreground-color "black")
       (spaceline-all-the-icons-theme)))))
 
-(add-hook 'after-init-hook (lambda () (vedang/theme-config 'default-dark)))
+(add-hook 'after-init-hook (lambda () (vedang/theme-config 'moe)))
 
 (server-start)
 (message "My .emacs loaded in %ds"
