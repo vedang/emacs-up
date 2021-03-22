@@ -34,6 +34,8 @@
             (require 'org-crate-config))))
 
 (require 'org-id)
-(setq org-id-link-to-org-use-id t)
+(setq org-id-link-to-org-use-id t
+      org-use-speed-commands t
+      org-loop-over-headlines-in-active-region 'start-level)
 (provide 'init-org-mode-crate)
 ;;; init-org-mode-crate.el ends here
