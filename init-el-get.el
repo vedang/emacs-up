@@ -53,6 +53,12 @@
 ;; Add our personal recipes to el-get's recipe path
 (add-to-list 'el-get-recipe-path el-get-my-recipes)
 
+(with-eval-after-load 'info
+  (progn
+    (info-initialize)
+    (add-to-list 'Info-directory-list
+                 (concat el-get-dir "el-get/"))))
+
 ;;; This is the order in which the packages are loaded. Changing this
 ;;; order can sometimes lead to nasty surprises, especially when you
 ;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
