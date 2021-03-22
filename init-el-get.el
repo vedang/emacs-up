@@ -291,22 +291,6 @@
                 :after (progn (require 'helm-descbinds)
                               (helm-descbinds-mode)))
 
-         (:name helm-ls-git
-                :after (with-eval-after-load 'magit
-                         (setq helm-ls-git-status-command
-                               'magit-status-setup-buffer)
-                         (cl-defmethod helm-setup-user-source
-                           ((source helm-ls-git-source))
-                           (helm-source-add-action-to-source-if
-                            "Magit find file"
-                            (lambda (candidate)
-                              (magit-find-file (magit-branch-or-commit-at-point) candidate))
-                            source
-                            (lambda (_candidate)
-                              (require 'magit)
-                              (with-helm-current-buffer (magit-branch-or-commit-at-point)))
-                            1))))
-
          (:name helm-notmuch)
 
          (:name helm-org
