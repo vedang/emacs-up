@@ -443,7 +443,12 @@
                                '((ledger-mode . dabbrev-completion)))
                          (global-smart-tab-mode 1)))
 
-	     (:name emacs-tree-sitter)
+	     (:name emacs-tree-sitter
+                :after (progn (require 'tree-sitter)
+                              (require 'tree-sitter-hl)
+                              (require 'tree-sitter-langs)
+                              (require 'tree-sitter-debug)
+                              (require 'tree-sitter-query)))
 
          (:name ts)
 
