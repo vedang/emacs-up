@@ -30,3 +30,5 @@
   '(diminish 'visual-line-mode))
 (eval-after-load 'subword
   '(diminish 'subword-mode))
+(eval-after-load 'helm-mode
+  '(diminish 'helm-mode))
