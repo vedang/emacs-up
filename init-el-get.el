@@ -444,8 +444,7 @@
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
 
-         (:name writegood
-                :after (progn (global-set-key (kbd "C-c g") 'writegood-mode)))
+         (:name writegood)
 
          (:name xterm-color
                 :after (progn (require 'xterm-color)

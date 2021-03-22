@@ -1,7 +1,9 @@
-;;; extra-bindings.el - convenience bindings for various things.
+;;; extra-bindings.el --- convenience bindings for various things.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013
-;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
+;;; Copyright (c) 2013 -- 2021 Vedang Manerikar <vedang.manerikar@gmail.com>
+;;; Commentary:
+;; No commentary at the moment
 
 ;; This file is not part of GNU Emacs.
 
@@ -17,7 +19,6 @@
 (require 'utility-functions)
 (global-set-key (kbd "C-w") 'uf/backward-kill-word-or-kill-region)
 (global-set-key (kbd "C-x M-s") 'uf/transpose-windows)
-(global-set-key (kbd "C-c n") 'uf/cleanup-buffer)
 (global-set-key (kbd "A-q") 'uf/unfill-paragraph)
 
 (require 'presenting)
