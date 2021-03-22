@@ -38,7 +38,8 @@
   (with-current-buffer
       (url-retrieve-synchronously
        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (let (el-get-master-branch
+    (let ((el-get-git-install-url "https://github.com/vedang/el-get.git")
+          (el-get-install-branch "fix-obsolete-definition")
           el-get-install-skip-emacswiki-recipes)
       (goto-char (point-max))
       (eval-print-last-sexp))))
