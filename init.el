@@ -175,7 +175,7 @@ CURR-THEME is the theme that gets loaded. Available values:
       ;; to be after the theme is loaded
       ;; (via `moe-dark' or `moe-light')
       (powerline-moe-theme)
-      (moe-theme-set-color 'purple)
+      (moe-theme-apply-color 'purple)
       ;; Available colors: blue, orange, green ,magenta, yellow,
       ;; purple, red, cyan, w/b.
 
