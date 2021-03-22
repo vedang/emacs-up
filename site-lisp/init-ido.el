@@ -13,13 +13,16 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
-;;; Code:;;;
+;;; Code:
 
 
-(ido-mode 'both)
-(ido-everywhere)
 (require 'ido-completing-read+)
-(ido-ubiquitous-mode 1)
+
+(defun ido-config ()
+  "Function encapsulating all ido configuration that I'm not running (in favor of helm)."
+  (ido-mode 'both)
+  (ido-everywhere)
+  (ido-ubiquitous-mode 1))
 
 (setq ido-enable-flex-matching t
       ido-create-new-buffer 'always

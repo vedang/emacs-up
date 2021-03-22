@@ -18,33 +18,86 @@
 
 (require 'helm-config)
 
-;; I don't want helm everywhere, only when I explicitly invoke it with
-;; keys I've bound it to. Modifying the completing-read handlers to
-;; explicitly mention that I want to use ido everywhere.
-(setq helm-completing-read-handlers-alist
-      '((describe-function . ido-completing-read)
-        (describe-variable . ido-completing-read)
-        (describe-symbol . ido-completing-read)
-        (debug-on-entry . ido-completing-read)
-        (find-function . ido-completing-read)
-        (disassemble . ido-completing-read)
-        (trace-function . ido-completing-read)
-        (trace-function-foreground . ido-completing-read)
-        (trace-function-background . ido-completing-read)
-        (find-tag . ido-completing-read)
-        (ffap-alternate-file . nil)
-        (tmm-menubar . nil)
-        (find-file . nil)
-        (execute-extended-command . nil)))
+(setq helm-reuse-last-window-split-state t
+      helm-move-to-line-cycle-in-source t
+      helm-ff-file-name-history-use-recentf t
+      helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match t
+      helm-mini-default-sources '(helm-source-buffers-list
+                                  helm-source-recentf
+                                  helm-source-bookmarks
+                                  helm-source-buffer-not-found)
+      helm-grep-ag-command
+      "rg --color=always --colors 'match:style:underline' --colors 'match:bg:black' --colors 'match:fg:white' --smart-case --no-heading --line-number %s %s %s"
 
-;;; Explicitly turn off global `helm-mode'
-(helm-mode -1)
+      ;; Fancy UI follows, turned off by default
+      helm-always-two-windows nil
+      ;; `helm-show-action-window-other-window' only takes effect if
+      ;; `helm-always-two-windows' is non-nil
+      helm-show-action-window-other-window 'left
+      ;; Note: `helm-commands-using-frame' is for fancy UI where the
+      ;; search bar pops up and out for running searches. Enable this
+      ;; if you want to show off fancy UX to someone.
+
+      ;; helm-commands-using-frame '(completion-at-point
+      ;;                             helm-apropos
+      ;;                             helm-eshell-prompts
+      ;;                             helm-imenu
+      ;;                             helm-imenu-in-all-buffers)
+
+      ;; Similarly, set these to t
+      helm-use-frame-when-more-than-two-windows nil
+      helm-use-frame-when-dedicated-window nil)
+
+(helm-define-key-with-subkeys global-map (kbd "C-c n") ?n 'helm-cycle-resume)
+
+(add-hook 'helm-mode-hook (lambda () (setq completion-styles '(flex))))
+(helm-mode +1)
+
+;;; Add ido-completing-read functions for things that don't have
+;;; default values in `helm-completing-read-handlers-alist'.
+
+(push '(describe-function . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(describe-variable . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(describe-symbol . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(debug-on-entry . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(find-function . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(disassemble . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(trace-function . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(trace-function-foreground . ido-completing-read)
+      helm-completing-read-handlers-alist)
+(push '(trace-function-background . ido-completing-read)
+      helm-completing-read-handlers-alist)
+
+(require 'helm-adaptive)
+(setq helm-adaptive-history-file nil)
+(helm-adaptive-mode +1)
+
+(require 'helm-utils)
+(helm-popup-tip-mode +1)
+(setq helm-highlight-matches-around-point-max-lines   '(30 . 30)
+      helm-window-show-buffers-function #'helm-window-mosaic-fn)
+(add-hook 'find-file-hook 'helm-save-current-pos-to-mark-ring)
+
+(require 'helm-info)
+(global-set-key (kbd "C-h r") #'helm-info-emacs)
+
+;; I want to use `helm-mini' and `helm-find-files' as my primary entry
+;; point into helm.
+(global-set-key (kbd "C-x b") 'helm-mini)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (global-set-key (kbd "C-x c r") nil) ; unset this because I plan to
                                      ; use it as a prefix key.
 (global-set-key (kbd "C-x c r b") 'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x c r r") 'helm-regexp)
-(global-set-key (kbd "C-x c C-b") 'helm-mini)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x c SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
@@ -55,28 +108,20 @@
 ;; rebind tab to run persistent action. now <tab> and <C-j> will both
 ;; perform persistent actions
 (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-;; make TAB works in terminal
-(define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-;; list actions using C-z
-(define-key helm-map (kbd "C-z")  'helm-select-action)
 
 (when (executable-find "curl")
   (setq helm-net-prefer-curl t))
 
-(setq helm-move-to-line-cycle-in-source t
-      helm-ff-file-name-history-use-recentf t
-      helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match t)
+(with-eval-after-load 'projectile
+  (defun helm-do-grep-project-root (&optional with-types)
+    "Search in current project with. With WITH-TYPES, ask for file
+types to search in. Uses `projectile'."
+    (interactive "P")
+    (let ((default-directory (projectile-project-root)))
+      (call-interactively 'helm-do-grep-ag)))
 
-;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-
-(defun helm-do-grep-project-root (&optional with-types)
-  "Search in current project with. With WITH-TYPES, ask for file
-types to search in."
-  (interactive "P")
-  (let ((default-directory (projectile-project-root)))
-    (call-interactively 'helm-do-grep-ag)))
+  (global-set-key (kbd "C-x c g a") 'helm-do-grep-project-root)
+  (global-set-key (kbd "C-c s") 'helm-do-grep-project-root))
 
 (defun helm-do-grep-ag-with-directory (dir)
   "Do `helm-do-grep-ag' with `default-directory' set to DIR."
@@ -84,9 +129,7 @@ types to search in."
   (let ((default-directory dir))
     (call-interactively 'helm-do-grep-ag)))
 
-(global-set-key (kbd "C-x c g a") 'helm-do-grep-project-root)
-(global-set-key (kbd "C-x c g s") 'helm-do-ag)
-;; Move old behaviour to a new key
+(global-set-key (kbd "C-x c g s") 'helm-do-grep-ag)
 (global-set-key (kbd "C-x c g g") 'helm-do-grep-ag-with-directory)
 
 (provide 'init-helm)

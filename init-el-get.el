@@ -216,7 +216,7 @@
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
          (:name deadgrep
-                :after (progn (global-set-key (kbd "C-c s") 'deadgrep)))
+                :after (progn (global-set-key (kbd "M-g a") 'deadgrep)))
 
          (:name dired+)
 
@@ -319,8 +319,9 @@
          (:name magit
                 :after (progn
                          (global-set-key (kbd "C-x g") 'magit-status)
-                         (setq magit-completing-read-function 'magit-ido-completing-read
-                               magit-diff-refine-hunk 't
+                         (setq magit-completing-read-function
+                               #'helm--completing-read-default
+                               magit-diff-refine-hunk t
                                magit-diff-refine-ignore-whitespace nil)
 
                          (eval-after-load 'info
