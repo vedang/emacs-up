@@ -541,7 +541,7 @@
 
    (mapcar 'el-get-source-name el-get-sources)
 
-   (when on-my-machine
+   (when on-my-linux-machine
      ;; Load packages with Third Party
      ;; dependencies only on my machine.
      '(;; eclim

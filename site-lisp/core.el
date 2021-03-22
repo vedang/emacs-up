@@ -63,7 +63,7 @@
           (caar profiler-report-memory-line-format) 80))
 
 ;;; Display garbage-collection messages, so that I can see impact on performance
-(when on-my-machine (setq garbage-collection-messages t))
+(when on-my-linux-machine (setq garbage-collection-messages t))
 
 (defvar vm/completion-ignored-extensions
   '(".exe" ".ps" ".abs" ".mx" ".~jv" ".rbc" ".beam" ".out" ".hbc")

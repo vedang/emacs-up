@@ -22,8 +22,9 @@
 ;; ninja
 ;; master
 ;; humble
-(defvar on-my-machine (or (string-match "meditatingkombda" (system-name))
-                          (string-match "zenkombda" (system-name))))
+(defvar on-my-mac-machine (string-match "meditatingkombda" (system-name)))
+(defvar on-my-linux-machine (string-match "zenkombda" (system-name)))
+(defvar on-my-machine (or on-my-mac-machine on-my-linux-machine))
 
 (defvar emacs-up--version "v3.1.0"
   "The current version of the Emacs Up Starter Kit.")
