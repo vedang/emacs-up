@@ -316,6 +316,8 @@
 
          (:name helm-system-packages)
 
+         (:name highlight-indentation)
+
          (:name linkd)
 
          ;; Note: `powerline' needs to be installed before `moe-theme'
