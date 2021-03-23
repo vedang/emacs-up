@@ -446,7 +446,7 @@
                                '((ledger-mode . dabbrev-completion)))
                          (global-smart-tab-mode 1)))
 
-	     (:name emacs-tree-sitter
+         (:name emacs-tree-sitter
                 :after (progn (require 'tree-sitter)
                               (require 'tree-sitter-hl)
                               (require 'tree-sitter-langs)
@@ -469,7 +469,51 @@
                                             comint-output-filter-functions))))
 
          (:name yaml-mode
-                :after (progn (add-hook 'yaml-mode-hook #'superword-mode)))
+                :after (progn
+                         (add-hook 'yaml-mode-hook #'superword-mode)
+                         (define-key yaml-mode-map
+                           (kbd "RET") #'newline-and-indent)
+
+                         ;; From https://gist.github.com/antonj/874106
+                         (defun aj-toggle-fold ()
+                           "Toggle fold all lines larger than indentation on current line"
+                           (interactive)
+                           (let ((col 1))
+                             (save-excursion
+                               (back-to-indentation)
+                               (setq col (+ 1 (current-column)))
+                               (set-selective-display
+                                (if selective-display nil (or col 1))))))
+
+                         ;; From https://github.com/yoshiki/yaml-mode/issues/25
+                         (defun yaml-outline-minor-mode ()
+                           (outline-minor-mode)
+                           (setq outline-regexp
+                                 (rx
+                                  (seq
+                                   bol
+                                   (group (zero-or-more "  ")
+                                          (or (group
+                                               (seq (or (seq "\"" (*? (not (in "\"" "\n"))) "\"")
+                                                        (seq "'" (*? (not (in "'" "\n"))) "'")
+                                                        (*? (not (in ":" "\n"))))
+                                                    ":"
+                                                    (?? (seq
+                                                         (*? " ")
+                                                         (or (seq "&" (one-or-more nonl))
+                                                             (seq ">-")
+                                                             (seq "|"))
+                                                         eol))))
+                                              (group (seq
+                                                      "- "
+                                                      (+ (not (in ":" "\n")))
+                                                      ":"
+                                                      (+ nonl)
+                                                      eol))))))))
+                         (add-hook 'yaml-mode-hook #'yaml-outline-minor-mode)
+                         ;; This weird key-binding to co-exist with outline-minor mode
+                         (define-key yaml-mode-map
+                           (kbd "C-c @ C-j") #'aj-toggle-fold)))
 
          (:name yaml-imenu
                 :after (progn (yaml-imenu-enable)))
