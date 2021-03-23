@@ -282,7 +282,8 @@
                                 (require 'forge))))
 
          (:name flycheck
-                :after (progn (setq flycheck-global-modes '(not org-mode))
+                :after (progn (setq flycheck-global-modes '(not org-mode)
+                                    flycheck-emacs-lisp-load-path 'inherit)
                               (global-flycheck-mode)))
 
          (:name flycheck-inline
