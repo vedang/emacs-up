@@ -446,6 +446,15 @@
                                '((ledger-mode . dabbrev-completion)))
                          (global-smart-tab-mode 1)))
 
+         (:name tagedit
+                :after (with-eval-after-load 'sgml-mode
+                         (require 'tagedit)
+                         (defun turn-on-tagedit ()
+                           (tagedit-add-paredit-like-keybindings)
+                           (tagedit-add-experimental-features)
+                           (tagedit-mode +1))
+                         (add-hook 'html-mode-hook #'turn-on-tagedit)))
+
          (:name emacs-tree-sitter
                 :after (progn (require 'tree-sitter)
                               (require 'tree-sitter-hl)
