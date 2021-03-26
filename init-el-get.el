@@ -480,8 +480,6 @@
          (:name yaml-mode
                 :after (progn
                          (add-hook 'yaml-mode-hook #'superword-mode)
-                         (define-key yaml-mode-map
-                           (kbd "RET") #'newline-and-indent)
 
                          ;; From https://gist.github.com/antonj/874106
                          (defun aj-toggle-fold ()
@@ -520,9 +518,12 @@
                                                       (+ nonl)
                                                       eol))))))))
                          (add-hook 'yaml-mode-hook #'yaml-outline-minor-mode)
-                         ;; This weird key-binding to co-exist with outline-minor mode
-                         (define-key yaml-mode-map
-                           (kbd "C-c @ C-j") #'aj-toggle-fold)))
+                         (with-eval-after-load 'yaml-mode
+                           (define-key yaml-mode-map
+                             (kbd "RET") #'newline-and-indent)
+                           ;; This weird key-binding to co-exist with outline-minor mode
+                           (define-key yaml-mode-map
+                             (kbd "C-c @ C-j") #'aj-toggle-fold))))
 
          (:name yaml-imenu
                 :after (progn (yaml-imenu-enable)))
