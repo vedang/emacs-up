@@ -293,6 +293,10 @@
          (:name helm
                 :after (progn (require 'init-helm)))
 
+         (:name helm-c-yasnippet
+                :after (progn (setq helm-yas-space-match-any-greedy t)
+                              (global-set-key (kbd "C-x c y") 'helm-yas-complete)))
+
          (:name helm-descbinds
                 :after (progn (require 'helm-descbinds)
                               (helm-descbinds-mode)))
