@@ -203,6 +203,9 @@
          (:name ascii-art-to-unicode)
 
          (:name auctex
+                :before (progn
+                          (setq TeX-source-correlate-method 'synctex)
+                          (TeX-source-correlate-mode 1))
                 :after (progn
                          (add-hook 'TeX-after-compilation-finished-functions
                                    #'TeX-revert-document-buffer)))
