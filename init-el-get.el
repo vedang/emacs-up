@@ -203,7 +203,7 @@
          (:name ascii-art-to-unicode)
 
          (:name auctex
-                :before (progn
+                :before (with-eval-after-load 'tex
                           (setq TeX-source-correlate-method 'synctex)
                           (TeX-source-correlate-mode 1))
                 :after (progn
