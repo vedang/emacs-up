@@ -16,7 +16,22 @@
 
 ;;; Code:
 
+(defvar org-brain-visualize-default-choices)
+(defvar org-brain-child-linebreak-sexp)
+(defvar org-brain-title-max-length)
+(defvar org-brain-include-file-entries)
+(defvar org-brain-file-entries-use-title)
+(defvar org-brain-show-resources)
+(defvar org-brain-show-text)
+(defvar org-brain-visualize-use-capture-templates)
+(defvar org-brain-scan-directories-recursively)
+(defvar org-brain-default-file-parent)
+(defvar org-brain-backlink)
+(defvar org-brain-narrow-to-entry)
+(defvar org-brain-quit-after-goto)
+
 (setq org-brain-visualize-default-choices 'all
+      org-brain-child-linebreak-sexp '0
       org-brain-title-max-length 60
       org-brain-include-file-entries nil
       org-brain-file-entries-use-title nil
@@ -25,7 +40,8 @@
       org-brain-visualize-use-capture-templates t
       org-brain-scan-directories-recursively nil
       org-brain-default-file-parent "index"
-      org-brain-backlink t)
+      org-brain-backlink t
+      org-brain-quit-after-goto t)
 
 ;;; Key Bindings
 (autoload 'helm-brain "org-brain")
