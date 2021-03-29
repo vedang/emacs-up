@@ -41,6 +41,7 @@
       org-brain-scan-directories-recursively nil
       org-brain-default-file-parent "index"
       org-brain-backlink t
+      org-brain-narrow-to-entry t
       org-brain-quit-after-goto t)
 
 ;;; Key Bindings
