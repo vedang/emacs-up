@@ -360,7 +360,11 @@
          (:name org-board
                 :after (progn (global-set-key (kbd "C-c o")
                                               org-board-keymap)))
-         (:name org-brain)
+         (:name org-brain
+                :after (progn
+                         ;; Explicit require, because the implicit one
+                         ;; is not working for whatever reason.
+                         (require 'init-org-brain)))
 
          (:name org-chef)
 
