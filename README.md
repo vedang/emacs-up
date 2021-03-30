@@ -129,11 +129,17 @@ The following tools are optional, but recommended / needed for particular modes 
 
 3. Rust development
 
-   Rust integration is simplistic - depends on `rust-mode` for all
-   functionality - and only requires the presence of the rustlang
-   compiler. Refer [this
-   document](https://www.rust-lang.org/learn/get-started) for
-   instructions. If you do not wish to install Rust specific recipes,
+   Rust integration depends on `rust-mode` and `rust-racer` for it's
+   functionality. Refer to the following documents for instructions:
+   - [Install Rustup](https://www.rust-lang.org/tools/install). This
+     will also install `cargo`, the build tool and package manager for
+     Rust.
+   - [Install Rust
+     Racer](https://github.com/racer-rust/emacs-racer#installation).
+     You only need to follow the first two steps of the installation
+     to set up the prerequisites.
+
+   If you do not wish to install Rust specific recipes,
    go to `features.el` in the main directory and set the value of
    `configure-rust-p` to `nil`.
 

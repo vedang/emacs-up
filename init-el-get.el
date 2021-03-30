@@ -108,7 +108,8 @@
 
        (when (bound-and-true-p configure-rust-p)
          (if (and (executable-find "rustc")
-                  (executable-find "cargo"))
+                  (executable-find "cargo")
+                  (executable-find "racer"))
              '((:name rust-mode
                       :after (progn (add-to-list 'auto-mode-alist
                                                  '("\\.rs\\'" . rust-mode))
@@ -128,7 +129,7 @@
                                (add-hook 'racer-mode-hook #'eldoc-mode)
                                (add-hook 'racer-mode-hook #'company-mode))))
 
-           (error "Rust Lang programming is configured, but I can't find the `rustc' binary! Have you read the README file?")))
+           (error "Rust Lang programming is configured, but you need to install the `rustc', `cargo' and `racer' binaries! Please check the README file for installation instructions.")))
 
        (when (bound-and-true-p configure-js-p)
          '((:name rjsx-mode
