@@ -265,7 +265,17 @@
          (:name eglot
                 :after (with-eval-after-load 'eglot
                          (add-to-list 'eglot-server-programs
-                                      '(yaml-mode . ("yaml-language-server" "--stdio")))))
+                                      '(yaml-mode . ("yaml-language-server" "--stdio")))
+                         (require 'project)
+
+                         (defun project-find-go-module (dir)
+                           (when-let ((root (locate-dominating-file dir "go.mod")))
+                             (cons 'go-module root)))
+
+                         (cl-defmethod project-root ((project (head go-module)))
+                           (cdr project))
+
+                         (add-hook 'project-find-functions #'project-find-go-module)))
 
          ;; Easy kill might remove the complete need of `change-inner'
          ;; and `expand-region'. I'll observe for a bit and then take
@@ -557,13 +567,8 @@
    (when (bound-and-true-p configure-go-p)
      (if (executable-find "go")
          '(go-mode
-           go-company
            go-def
-           go-eldoc
-           go-errcheck-el
-           go-flymake
-           go-imports
-           go-lint)
+           go-errcheck-el)
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
 
    '(ag
@@ -581,7 +586,6 @@
      edebug-x
      el-spice
      emacs-async
-     flymake-cursor
      grep+
      ;; ibuffer-vc - commenting this out for a while, I believe that it
      ;; is broken at the moment.

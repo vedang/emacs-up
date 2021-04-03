@@ -22,7 +22,7 @@
 (defvar configure-clojure-p t
   "Configure Emacs-up for Clojure Development.")
 
-(defvar configure-go-p nil
+(defvar configure-go-p t
   "Configure Emacs-up for Golang Development.")
 
 (defvar configure-python-p nil
