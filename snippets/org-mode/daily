@@ -2,7 +2,7 @@
 # name: daily_planner
 # key: daily
 # --
-**** Morning Mindset
+**** [/] Morning Mindset
 - [ ] One thing I can get excited about today is: $0
 - [ ] If one word can describe the kind of person I want to be today, that word is: (and why)
 - [ ] Someone who needs me on my A game today is:
@@ -17,11 +17,11 @@
 - [ ] I would know today was a great success if at the end of the day I did, said or felt this:
 
 **** My top priority today
+- The way to do this is to review my Custom Org Agenda + my normal Org Agenda and create a new Agenda specially for today.
 - Ideally, I'll pick only one. If I'm feeling ambitious, I'll pick two or three. Pick based on the following:
   - What is truly important? (important for my goals, urgently needs attention)
   - What will give me satisfaction for a job well done? (goal driven)
   - What will give me joy?
-- The way to do this is to review my Custom Org Agenda + my normal Org Agenda and create a new Agenda specially for today.
 
 **** Today's message to myself
 
@@ -32,7 +32,7 @@
 
 **** Persons I need to lead or connect with today, and how to do it well
 
-**** Evening Journal
+**** [/] Evening Journal
 - [ ] A moment that I really appreciated today was:
 - [ ] A situation or task that I handled well today was:
 - [ ] Something I realized or learned today was:
