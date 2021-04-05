@@ -387,7 +387,7 @@
          (:name org-pomodoro
                 :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
                                     org-pomodoro-clock-break t)
-                              (global-set-key (kbd "C-x c P") 'org-pomodoro)))
+                              (global-set-key (kbd "C-x c o p") 'org-pomodoro)))
 
          (:name org-superstar
                 :after (progn (add-hook 'org-mode-hook
