@@ -150,7 +150,7 @@ Suggest the URL title as a description for resource."
 (with-eval-after-load 'org-brain
   (define-key org-brain-visualize-mode-map (kbd "L")
     'org-brain-cliplink-resource)
-  (define-key org-brain-visualize-mode-map (kbd "q")
+  (define-key org-brain-visualize-mode-map (kbd "R")
     'org-brain-random-reading)
   (setq savehist-additional-variables '(org-brain-headline-cache)))
 
