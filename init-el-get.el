@@ -229,6 +229,10 @@
          (:name deadgrep
                 :after (progn (global-set-key (kbd "M-g a") 'deadgrep)))
 
+         (:name docker)
+
+         (:name dockerfile-mode)
+
          (:name dumb-jump
                 :after (progn (dumb-jump-mode)
                               (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
