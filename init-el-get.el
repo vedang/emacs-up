@@ -617,6 +617,7 @@
      ;; Load packages with Third Party
      ;; dependencies only on my machine.
      '(;; eclim
+       elfeed
        elpher))))
 
 (el-get 'sync el-get-my-packages)
