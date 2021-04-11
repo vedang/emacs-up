@@ -201,7 +201,8 @@
                                 #'anzu-isearch-query-replace-regexp)
                               (defalias 'qrr 'anzu-query-replace-regexp)))
 
-         (:name ascii-art-to-unicode)
+         (:name ascii-art-to-unicode
+                :after (require 'ascii-art-to-unicode))
 
          (:name auctex
                 :before (with-eval-after-load 'tex
