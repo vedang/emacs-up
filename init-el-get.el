@@ -151,7 +151,9 @@
 ;;; up properly enough for public consumption, or require too many
 ;;; third party dependencies.
        (when on-my-linux-machine
-         '(
+         '((:name code-compass
+                  :after (progn
+                           (setq c/preferred-browser "firefox")))
 
            ;; (:name eclim)
 
