@@ -147,6 +147,20 @@
          '((:name prettier-js
                   :after (add-hook 'rjsx-mode-hook #'prettier-js-mode))))
 
+;;; Things to install only on my machine. These are currently not set
+;;; up properly enough for public consumption, or require too many
+;;; third party dependencies.
+       (when on-my-linux-machine
+         '(
+
+           ;; (:name eclim)
+
+           (:name elfeed)
+
+           (:name elpher)
+
+           (:name helm-dash)))
+
 ;;; All the other recipes
        '((:name ace-link
                 :after
@@ -611,14 +625,7 @@
      wgrep
      yasnippet-snippets)
 
-   (mapcar 'el-get-source-name el-get-sources)
-
-   (when on-my-linux-machine
-     ;; Load packages with Third Party
-     ;; dependencies only on my machine.
-     '(;; eclim
-       elfeed
-       elpher))))
+   (mapcar 'el-get-source-name el-get-sources)))
 
 (el-get 'sync el-get-my-packages)
 
