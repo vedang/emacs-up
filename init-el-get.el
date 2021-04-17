@@ -574,7 +574,10 @@
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
-                                           'yas-hippie-try-expand))))))
+                                           'yas-hippie-try-expand)))
+
+         (:name yatemplate
+                :after (progn (auto-insert-mode +1))))))
 
 
 (defvar el-get-my-packages
