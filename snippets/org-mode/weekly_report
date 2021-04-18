@@ -2,10 +2,14 @@
 # name: weekly_report
 # key: weekrpt
 # --
-*** `(ts-format "Week %W: %F %a" (car (this-week-range)))` -- `(ts-format "%F %a" (cdr (this-week-range)))`  :childless:
+*** ${1:$(ts-format "Week %W: %F %a" (car (this-week-range (string-to-number yas-text))))} -- ${1:$(ts-format "%F %a" (cdr (this-week-range (string-to-number yas-text))))}  :childless:
+Week Number: ${1:`(string-to-number (ts-format "%W" (car (this-week-range))))`}
+${1:$(ts-format "<%F %a>" (car (this-week-range (string-to-number yas-text))))}--${1:$(ts-format "<%F %a>" (cdr (this-week-range (string-to-number yas-text))))}
+
 **** Work done in this week:
-#+BEGIN: clocktable :scope agenda :maxlevel 6 :block 2020-W`(+ 1 (string-to-number (ts-format "%W" (car (this-week-range)))))` :emphasize nil :fileskip0 t :match "-noclockreport" :hidefiles nil :tags t :link t :tcolumns 2$0
+#+BEGIN: clocktable :scope agenda :maxlevel 6 :block ${1:$(ts-format "%Y" (car (this-week-range (string-to-number yas-text))))}-W${1:$(ts-format "%W" (car (this-week-range (string-to-number yas-text))))} :emphasize nil :fileskip0 t :match "-noclockreport" :hidefiles nil :tags t :link t :tcolumns 2$0
 #+END:
+
 **** Weekly Update:
 - [ ] Review the work done to see what was accomplished.
 - [ ] Review the Agenda to see what was planned, but not met.
