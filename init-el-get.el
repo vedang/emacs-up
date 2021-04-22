@@ -161,7 +161,8 @@
 
            (:name elpher)
 
-           (:name helm-dash)))
+           (:name helm-dash
+                  :after (setq dash-docs-browser-func 'eww))))
 
 ;;; All the other recipes
        '((:name ace-link
