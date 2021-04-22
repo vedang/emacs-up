@@ -199,9 +199,15 @@
          (:name all-the-icons-ibuffer
                 :after (progn (all-the-icons-ibuffer-mode 1)))
 
+         (:name ansible
+                :after (with-eval-after-load 'yaml-mode
+                         (defun turn-on-ansible-mode ()
+                           (ansible 1))
+                         (add-hook 'yaml-mode-hook #'turn-on-ansible-mode)))
+
          (:name ansible-doc
                 :after (with-eval-after-load 'yaml-mode
-                         (progn (add-hook 'yaml-mode-hook #'ansible-doc-mode))))
+                         (add-hook 'yaml-mode-hook #'ansible-doc-mode)))
 
          (:name anzu
                 :after (progn (global-anzu-mode +1)
