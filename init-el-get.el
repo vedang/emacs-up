@@ -257,6 +257,8 @@
 
          (:name company-auctex)
 
+         (:name company-ansible)
+
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 

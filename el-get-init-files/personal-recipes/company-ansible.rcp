@@ -1,0 +1,7 @@
+(:name company-ansible
+       :type github
+       :pkgname "krzysztof-magosa/company-ansible"
+       :description "Company mode backend providing autocompletion for ansible keywords"
+       :minimum-emacs-version "25"
+       :depends (company-mode)
+       :prepare (add-to-list 'company-backends #'company-ansible))
