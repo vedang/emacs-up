@@ -255,6 +255,8 @@
                               (define-key company-active-map
                                 (kbd "TAB") 'company-complete)))
 
+         (:name company-auctex)
+
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
@@ -618,7 +620,6 @@
      org-tree-slide
      color-theme-zenburn
      color-theme-idea-darkula
-     company-auctex
      dash
      diminish
      edebug-x
