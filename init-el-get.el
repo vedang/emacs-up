@@ -247,6 +247,14 @@
                                     leuven-scale-org-agenda-structure nil
                                     leuven-scale-volatile-highlight nil)))
 
+         (:name company-mode
+                :after (progn (add-hook 'after-init-hook #'global-company-mode)
+                              (setq company-require-match nil
+                                    company-tooltip-align-annotations t)
+                              (setq-default company-lighter " cmp")
+                              (define-key company-active-map
+                                (kbd "TAB") 'company-complete)))
+
          (:name dash-at-point
                 :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
@@ -610,7 +618,6 @@
      org-tree-slide
      color-theme-zenburn
      color-theme-idea-darkula
-     company-mode
      company-auctex
      dash
      diminish
