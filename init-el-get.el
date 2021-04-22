@@ -251,9 +251,10 @@
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
                                     company-tooltip-align-annotations t)
-                              (setq-default company-lighter " cmp")
-                              (define-key company-active-map
-                                (kbd "TAB") 'company-complete)))
+                              (with-eval-after-load 'company
+                                (setq-default company-lighter " cmp")
+                                (define-key company-active-map
+                                  (kbd "TAB") 'company-complete))))
 
          (:name company-auctex)
 
