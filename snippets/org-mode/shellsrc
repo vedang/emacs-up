@@ -3,6 +3,6 @@
 # key: shellsrc
 # --
 
-#+begin_src shell :eval no
+#+begin_src sh :eval no
 $0
 #+end_src
