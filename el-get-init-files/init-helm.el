@@ -51,7 +51,10 @@
 
 (helm-define-key-with-subkeys global-map (kbd "C-c n") ?n 'helm-cycle-resume)
 
-(add-hook 'helm-mode-hook (lambda () (setq completion-styles '(flex))))
+;; Allow flex completion (fuzzy matching)
+;; Disabling this as it pushes down the actual results in it's fuzziness.
+;; (add-hook 'helm-mode-hook (lambda () (setq completion-styles '(flex))))
+
 (helm-mode +1)
 
 ;;; Add ido-completing-read functions for things that don't have
