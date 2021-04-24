@@ -35,7 +35,6 @@ Emacs-Up is an extensible, easy to maintain emacs config for your coding needs.
 These features are turned off by default.
 
 1. Working and well-tuned configurations for:
-   - Java Mode
    - Erlang Mode
    - Python Programming (ElPy + other minor modes)
    - Go Programming (Official Modes provided by the Golang Team)

@@ -34,9 +34,6 @@
 (defvar configure-scheme-p nil
   "Configure Emacs-up for Scheme Development.")
 
-(defvar configure-java-p nil
-  "Configure Emacs-up for Java Development.")
-
 (defvar configure-js-p t
   "Configure Emacs-up for JS Development.")
 

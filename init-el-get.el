@@ -155,8 +155,6 @@
                   :after (progn
                            (setq c/preferred-browser "firefox")))
 
-           ;; (:name eclim)
-
            (:name elfeed)
 
            (:name elpher)
