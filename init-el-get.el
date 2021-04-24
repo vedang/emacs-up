@@ -526,7 +526,8 @@
                               (require 'tree-sitter-debug)
                               (require 'tree-sitter-query)))
 
-         (:name ts)
+         (:name ts
+                :after (progn (require 'ts)))
 
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
