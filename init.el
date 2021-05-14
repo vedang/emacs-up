@@ -19,6 +19,7 @@
   (error "Unsupported Emacs Version! Please upgrade to Emacs 25 or above.  Emacs installation instructions: https://www.gnu.org/software/emacs/download.html"))
 
 (defvar *emacs-load-start* (current-time))
+(server-start)
 ;; ninja
 ;; master
 ;; humble
@@ -200,7 +201,6 @@ CURR-THEME is the theme that gets loaded. Available values:
 
 (add-hook 'after-init-hook (lambda () (vedang/theme-config 'moe)))
 
-(server-start)
 (message "My .emacs loaded in %ds"
          (cl-destructuring-bind (hi lo ms psec) (current-time)
            (- (+ hi lo)

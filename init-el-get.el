@@ -426,6 +426,8 @@
                 :after (progn (add-hook 'org-noter-insert-heading-hook
                                         #'org-id-get-create)))
 
+         (:name org-protocol-capture-html)
+
          (:name org-pomodoro
                 :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
                                     org-pomodoro-clock-break t)
