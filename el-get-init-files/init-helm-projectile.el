@@ -22,10 +22,9 @@
 (setq projectile-completion-system 'helm
       projectile-switch-project-action 'helm-projectile
       projectile-enable-caching t
-      projectile-mode-line '(:eval (if (file-remote-p default-directory)
-                                       " "
-                                     (format " Ptl[%s]"
-                                             (projectile-project-name)))))
+      projectile-cache-file (concat tempfiles-dirname "projectile.cache")
+      projectile-known-projects-file (concat tempfiles-dirname "projectile-bookmarks.eld")
+      projectile-mode-line-prefix "")
 
 (helm-projectile-on)
 

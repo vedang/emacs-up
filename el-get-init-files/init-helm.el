@@ -87,7 +87,7 @@
 (helm-popup-tip-mode +1)
 (setq helm-highlight-matches-around-point-max-lines   '(30 . 30)
       helm-window-show-buffers-function #'helm-window-mosaic-fn)
-(add-hook 'find-file-hook 'helm-save-current-pos-to-mark-ring)
+(add-hook 'find-file-hook #'helm-save-current-pos-to-mark-ring)
 
 (require 'helm-info)
 (global-set-key (kbd "C-h r") #'helm-info-emacs)
@@ -105,8 +105,6 @@
 (global-set-key (kbd "C-x c SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
 (global-set-key (kbd "C-x c r i") 'helm-register)
-;; I want to use <C-x c p> for helm-projectile
-(global-set-key (kbd "C-x c P") 'helm-list-emacs-process)
 
 ;; rebind tab to run persistent action. now <tab> and <C-j> will both
 ;; perform persistent actions

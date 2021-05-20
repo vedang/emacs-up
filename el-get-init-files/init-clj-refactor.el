@@ -26,7 +26,7 @@
       cljr-warn-on-eval nil
       ;; don't stop on analyzer failures. examples: not finding a
       ;; data-reader.
-      cljr-find-usages-ignore-analyzer-errors t
+      cljr-ignore-analyzer-errors t
       ;; Don't magically add stuff to the namespace requires form
       ;; (because for big projects this operation is slow) it's easier
       ;; to do this by hand (=add-missing= operation) after you've
