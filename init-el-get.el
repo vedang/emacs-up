@@ -252,7 +252,6 @@
                               (setq company-require-match nil
                                     company-tooltip-align-annotations t)
                               (with-eval-after-load 'company
-                                (setq-default company-lighter " cmp")
                                 (define-key company-active-map
                                   (kbd "TAB") 'company-complete))))
 
@@ -265,6 +264,33 @@
 
          (:name deadgrep
                 :after (progn (global-set-key (kbd "M-g a") 'deadgrep)))
+
+         (:name diminish
+                :before (progn
+                          (defvar vm/diminish-modes
+                            '((flyspell . flyspell-mode)
+                              (paredit . paredit-mode)
+                              (yasnippet . yas-minor-mode)
+                              (whitespace . whitespace-mode)
+                              (smart-tab . smart-tab-mode)
+                              (clj-refactor . clj-refactor-mode)
+                              (simple . visual-line-mode)
+                              (subword . subword-mode)
+                              (subword . superword-mode)
+                              (helm-mode . helm-mode)
+                              (projectile . projectile-mode)
+                              (hideshow . hs-minor-mode)
+                              (noutline . outline-minor-mode)
+                              (ansible-doc . ansible-doc-mode)
+                              (autorevert . auto-revert-mode)
+                              (company . company-mode))
+                            "Tuples of (LIBRARY-NAME . MODE-NAME) that I don't want to see on the modeline.")
+                          (defmacro vm/diminish-that-line ()
+                            (cons 'progn
+                                  (mapcar (lambda (dim-mode)
+                                            `(with-eval-after-load (quote ,(car dim-mode)) (diminish (quote ,(cdr dim-mode)))))
+                                          vm/diminish-modes))))
+                :after (vm/diminish-that-line))
 
          (:name docker)
 
@@ -454,10 +480,10 @@
                            "Store a link taken from a pinboard buffer."
                            (when (eq major-mode 'pinboard-mode)
                              (pinboard-with-current-pin pin
-                               (org-store-link-props
-                                :type "pinboard"
-                                :link (alist-get 'href pin)
-                                :description (alist-get 'description pin)))))
+                                                        (org-store-link-props
+                                                         :type "pinboard"
+                                                         :link (alist-get 'href pin)
+                                                         :description (alist-get 'description pin)))))
 
                          (org-link-set-parameters "pinboard"
                                                   :follow #'browse-url
@@ -642,7 +668,6 @@
      color-theme-zenburn
      color-theme-idea-darkula
      dash
-     diminish
      edebug-x
      el-spice
      emacs-async
