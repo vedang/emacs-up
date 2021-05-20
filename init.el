@@ -196,10 +196,9 @@ CURR-THEME is the theme that gets loaded. Available values:
     (progn
       ;;; light on dark default
       (set-background-color "white")
-      (set-foreground-color "black")
-      (spaceline-all-the-icons-theme)))))
+      (set-foreground-color "black")))))
 
-(add-hook 'after-init-hook (lambda () (vedang/theme-config 'moe)))
+(add-hook 'after-init-hook (lambda () (vedang/theme-config 'default-light)))
 
 (message "My .emacs loaded in %ds"
          (cl-destructuring-bind (hi lo ms psec) (current-time)
