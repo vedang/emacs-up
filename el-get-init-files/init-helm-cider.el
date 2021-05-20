@@ -16,18 +16,18 @@
 ;;; Code:
 
 
-(eval-after-load 'cider-mode
-  '(progn (helm-cider-mode 1)
-          (setq helm-cider-apropos-actions
-                '(("Find definition" lambda
-                   (candidate)
-                   (cider-find-var nil candidate))
-                  ("CiderDoc" . cider-doc-lookup)
-                  ("Find on Grimoire" . cider-grimoire-lookup)))
-          ;; define keys for apropos that follow helm conventions
-          (define-key cider-mode-map (kbd "C-x c d n") 'cider-browse-ns)
-          (define-key cider-mode-map (kbd "C-x c d a") 'cider-apropos)
-          (define-key cider-mode-map (kbd "C-x c d e") 'cider-apropos-documentation)))
+(with-eval-after-load 'cider-mode
+  (helm-cider-mode 1)
+  (setq helm-cider-apropos-actions
+        '(("Find definition" lambda
+           (candidate)
+           (cider-find-var nil candidate))
+          ("CiderDoc" . cider-doc-lookup)
+          ("lookup-on-clojuredocs" . cider-clojuredocs-lookup)))
+  ;; define keys for apropos that follow helm conventions
+  (define-key cider-mode-map (kbd "C-x c d n") 'cider-browse-ns)
+  (define-key cider-mode-map (kbd "C-x c d a") 'cider-apropos)
+  (define-key cider-mode-map (kbd "C-x c d e") 'cider-apropos-documentation))
 
 (provide 'init-helm-cider)
 ;;; init-helm-cider ends here

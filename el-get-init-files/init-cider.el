@@ -58,45 +58,41 @@ project."
     (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
 
 
-(eval-after-load 'cider-mode
-  '(progn
-     (add-hook 'cider-mode-hook 'eldoc-mode)
-     (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
-     (setq cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
-           cider-repl-history-size most-positive-fixnum
-           cider-repl-wrap-history t
-           cider-repl-prompt-function 'cider-repl-prompt-on-newline
-           cider-repl-display-help-banner nil
-           cider-repl-use-pretty-printing nil
-           nrepl-buffer-name-separator "-"
-           nrepl-buffer-name-show-port t
-           nrepl-log-messages t
-           cider-mode-line nil
-           cider-annotate-completion-candidates t
-           cider-completion-annotations-include-ns 'always
-           cider-show-error-buffer 'always
-           cider-prompt-for-symbol nil
-           cider-auto-jump-to-error 'errors-only
-           cider-apropos-actions
-           '(("find-def" . cider--find-var)
-             ("display-doc" . cider-doc-lookup)
-             ("lookup-on-grimoire" . cider-grimoire-lookup)))))
+(with-eval-after-load 'cider-mode
+  (add-hook 'cider-mode-hook 'eldoc-mode)
+  (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
+  (setq cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
+        cider-repl-history-size most-positive-fixnum
+        cider-repl-wrap-history t
+        cider-repl-prompt-function 'cider-repl-prompt-on-newline
+        cider-repl-use-pretty-printing nil
+        nrepl-buffer-name-separator "-"
+        nrepl-buffer-name-show-port t
+        nrepl-log-messages t
+        cider-mode-line nil
+        cider-annotate-completion-candidates t
+        cider-completion-annotations-include-ns 'always
+        cider-show-error-buffer 'always
+        cider-prompt-for-symbol nil
+        cider-auto-jump-to-error 'errors-only
+        cider-apropos-actions
+        '(("find-def" . cider--find-var)
+          ("display-doc" . cider-doc-lookup)
+          ("lookup-on-clojuredocs" . cider-clojuredocs-lookup))))
 
 
 ;; C-S-x send defun to rebl
 ;; C-x C-r send last sexp to rebl
-(eval-after-load 'cider-mode
-          '(progn
-             (define-key cider-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
-             (define-key cider-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp)))
+(with-eval-after-load 'cider-mode
+  (define-key cider-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
+  (define-key cider-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp))
 
-(eval-after-load 'cider-repl
-  '(progn
-     (add-hook 'cider-repl-mode-hook 'subword-mode)
-     (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)
-     (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer)
-     (define-key cider-repl-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
-     (define-key cider-repl-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp)))
+(with-eval-after-load 'cider-repl
+  (add-hook 'cider-repl-mode-hook 'subword-mode)
+  (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)
+  (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer)
+  (define-key cider-repl-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
+  (define-key cider-repl-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp))
 
 
 (provide 'init-cider)

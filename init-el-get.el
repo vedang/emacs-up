@@ -369,9 +369,8 @@
                               (global-flycheck-mode)))
 
          (:name flycheck-inline
-                :after (progn (with-eval-after-load 'flycheck
-                                (add-hook 'flycheck-mode-hook
-                                          #'flycheck-inline-mode))))
+                :after (with-eval-after-load 'flycheck
+                         (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
          (:name helm
                 :after (progn (require 'init-helm)))
 
@@ -418,10 +417,10 @@
                                magit-diff-refine-hunk t
                                magit-diff-refine-ignore-whitespace nil)
 
-                         (eval-after-load 'info
-                           '(progn (info-initialize)
-                                   (add-to-list 'Info-directory-list
-                                                (concat el-get-dir "magit/"))))))
+                         (with-eval-after-load 'info
+                           (info-initialize)
+                           (add-to-list 'Info-directory-list
+                                        (concat el-get-dir "magit/")))))
 
          (:name move-text
                 :after (progn (global-set-key (kbd "C-c <up>") 'move-text-up)
