@@ -445,7 +445,8 @@
 
          (:name org-chef)
 
-         (:name org-cliplink)
+         (:name org-cliplink
+                :after (require 'org-cliplink))
 
          (:name org-noter
                 :after (progn (add-hook 'org-noter-insert-heading-hook

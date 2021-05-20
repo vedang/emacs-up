@@ -129,17 +129,6 @@
   (add-hook 'org-brain-after-resource-button-functions
             'org-brain-insert-resource-icon))
 
-;;; Add a resource to and `org-brain-entry' via `org-cliplink'
-(defun org-brain-cliplink-resource ()
-  "Add a URL from the clipboard as an org-brain resource.
-Suggest the URL title as a description for resource."
-  (interactive)
-  (let ((url (org-cliplink-clipboard-content)))
-    (org-brain-add-resource
-     url
-     (org-cliplink-retrieve-title-synchronously url)
-     t)))
-
 (defun org-brain-random-reading ()
   "Find something I've already read, to re-read."
   (interactive)
@@ -147,12 +136,25 @@ Suggest the URL title as a description for resource."
    (org-brain-headline-entries-in-file
     (expand-file-name "linklog.org" org-brain-path))))
 
-(with-eval-after-load 'org-brain
+(define-key org-brain-visualize-mode-map (kbd "R")
+  'org-brain-random-reading)
+
+;;; Add a resource to and `org-brain-entry' via `org-cliplink'
+(with-eval-after-load 'org-cliplink
+  (defun org-brain-cliplink-resource ()
+    "Add a URL from the clipboard as an org-brain resource.
+Suggest the URL title as a description for resource."
+    (interactive)
+    (let ((url (org-cliplink-clipboard-content)))
+      (org-brain-add-resource
+       url
+       (org-cliplink-retrieve-title-synchronously url)
+       t)))
+
   (define-key org-brain-visualize-mode-map (kbd "L")
-    'org-brain-cliplink-resource)
-  (define-key org-brain-visualize-mode-map (kbd "R")
-    'org-brain-random-reading)
-  (setq savehist-additional-variables '(org-brain-headline-cache)))
+    'org-brain-cliplink-resource))
+
+(setq savehist-additional-variables '(org-brain-headline-cache))
 
 (provide 'init-org-brain)
 ;;; init-org-brain.el ends here
