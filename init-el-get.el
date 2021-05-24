@@ -169,8 +169,11 @@
                 :after
                 (progn (ace-link-setup-default)
                        (ace-link-setup-default (kbd "M-g o"))
-                       (define-key org-mode-map (kbd "M-g o") 'ace-link-org)
-                       (define-key org-agenda-mode-map (kbd "M-g o") 'ace-link-org-agenda)
+                       (with-eval-after-load 'org
+                         (define-key org-mode-map (kbd "M-g o") 'ace-link-org))
+                       (with-eval-after-load 'org-agenda
+                         (define-key org-agenda-mode-map (kbd "M-g o")
+                           'ace-link-org-agenda))
                        (with-eval-after-load 'org-brain
                          (define-key org-brain-visualize-mode-map (kbd "M-g o")
                            'ace-link-org))
@@ -438,6 +441,8 @@
                 :after (progn (global-set-key (kbd "C-c o")
                                               org-board-keymap)))
          (:name org-brain
+                :before (progn (autoload 'helm-brain "org-brain")
+                               (global-set-key (kbd "C-c v") 'helm-brain))
                 :after (progn
                          ;; Explicit require, because the implicit one
                          ;; is not working for whatever reason.
@@ -456,8 +461,6 @@
                                org-brain-narrow-to-entry t
                                org-brain-quit-after-goto t)
                          ;;; Key Bindings
-                         (autoload 'helm-brain "org-brain")
-                         (global-set-key (kbd "C-c v") 'helm-brain)
                          (define-key org-mode-map (kbd "C-c b")
                            'org-brain-prefix-map)
                          ;;; Ensure that all org-mode entries have an ID.
@@ -580,6 +583,12 @@ Suggest the URL title as a description for resource."
 
          (:name org-cliplink
                 :after (require 'org-cliplink))
+
+         (:name org-mode)
+
+         (:name org-contrib)
+
+         (:name org-mode-crate)
 
          (:name org-noter
                 :after (progn (add-hook 'org-noter-insert-heading-hook
@@ -793,8 +802,6 @@ Suggest the URL title as a description for resource."
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
 
    '(ag
-     org-mode
-     org-mode-crate
      org-gcal
      org-jira
      org-tree-slide
