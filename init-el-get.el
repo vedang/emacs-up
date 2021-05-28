@@ -584,6 +584,11 @@ Suggest the URL title as a description for resource."
          (:name org-cliplink
                 :after (require 'org-cliplink))
 
+         (:name orgit
+                :after (setq orgit-log-save-arguments t))
+
+         (:name orgit-forge)
+
          (:name org-mode)
 
          (:name org-contrib)
