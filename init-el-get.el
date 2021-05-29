@@ -236,7 +236,8 @@
                           (TeX-source-correlate-mode 1))
                 :after (progn
                          (add-hook 'TeX-after-compilation-finished-functions
-                                   #'TeX-revert-document-buffer)))
+                                   #'TeX-revert-document-buffer)
+                         (setq TeX-engine 'luatex)))
 
          (:name avy
                 :after (progn (avy-setup-default)
