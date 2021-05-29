@@ -57,7 +57,9 @@
   (progn
     (info-initialize)
     (add-to-list 'Info-directory-list
-                 (concat el-get-dir "el-get/"))))
+                 (concat el-get-dir "el-get/"))
+    (require 'scroll-other-window)
+    (add-hook 'Info-mode-hook #'sow-mode)))
 
 ;;; This is the order in which the packages are loaded. Changing this
 ;;; order can sometimes lead to nasty surprises, especially when you
@@ -619,8 +621,16 @@ Suggest the URL title as a description for resource."
 
          (:name pcre2el)
 
+
          (:name pdf-tools
-                :after (progn (pdf-tools-install)))
+                :after (progn (pdf-tools-install)
+                              (setq pdf-view-use-scaling t
+                                    pdf-view-use-imagemagick nil)
+                              (require 'scroll-other-window)
+                              (add-hook 'pdf-view-mode-hook #'sow-mode)
+                              (with-eval-after-load 'org-noter
+                                (add-hook 'org-noter-notes-mode-hook #'sow-mode)
+                                (setq org-noter--inhibit-location-change-handler t))))
 
          (:name pinboard
                 :after (with-eval-after-load 'org
