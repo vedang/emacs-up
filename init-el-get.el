@@ -449,6 +449,12 @@
          (:name org-board
                 :after (progn (global-set-key (kbd "C-c o")
                                               org-board-keymap)))
+
+         (:name org-books
+                ;; My personal settings set up the capture template
+                ;; mentioned in `org-books' README
+                )
+
          (:name org-brain
                 :before (progn (autoload 'helm-brain "org-brain")
                                (global-set-key (kbd "C-c v") 'helm-brain))
@@ -469,15 +475,15 @@
                                org-brain-backlink t
                                org-brain-narrow-to-entry t
                                org-brain-quit-after-goto t)
-                         ;;; Key Bindings
+;;; Key Bindings
                          (define-key org-mode-map (kbd "C-c b")
                            'org-brain-prefix-map)
-                         ;;; Ensure that all org-mode entries have an ID.
+;;; Ensure that all org-mode entries have an ID.
                          (add-hook 'before-save-hook
                                    #'org-brain-ensure-ids-in-buffer)
 
-                         ;;; Configuration to integrate `org-noter'
-                         ;;; with `org-brain'
+;;; Configuration to integrate `org-noter'
+;;; with `org-brain'
                          (defun org-brain-open-org-noter (entry)
                            "Open `org-noter' on the ENTRY. If run interactively, get ENTRY from context."
                            (interactive (list (org-brain-entry-at-pt)))
@@ -559,8 +565,8 @@
                            (add-hook 'org-brain-after-resource-button-functions
                                      #'org-brain-insert-resource-icon))
 
-                         ;;; Add a resource to and `org-brain-entry'
-                         ;;; via `org-cliplink'
+;;; Add a resource to and `org-brain-entry'
+;;; via `org-cliplink'
                          (with-eval-after-load 'org-cliplink
                            (defun org-brain-cliplink-resource ()
                              "Add a URL from the clipboard as an org-brain resource.
