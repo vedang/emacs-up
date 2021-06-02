@@ -289,7 +289,8 @@
                               (noutline . outline-minor-mode)
                               (ansible-doc . ansible-doc-mode)
                               (autorevert . auto-revert-mode)
-                              (company . company-mode))
+                              (company . company-mode)
+                              (gcmh . gcmh-mode))
                             "Tuples of (LIBRARY-NAME . MODE-NAME) that I don't want to see on the modeline.")
                           (defmacro vm/diminish-that-line ()
                             (cons 'progn
@@ -377,6 +378,11 @@
          (:name flycheck-inline
                 :after (with-eval-after-load 'flycheck
                          (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
+
+         (:name gcmh
+                :after (progn (require 'gcmh)
+                              (gcmh-mode 1)))
+
          (:name helm
                 :after (progn (require 'init-helm)))
 
