@@ -35,10 +35,6 @@
   (interactive)
   (message "Emacs Up %s" emacs-up--version))
 
-;;; No GUI
-(dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
-  (when (fboundp mode) (funcall mode -1)))
-
 ;;; Native compilation
 (if (and (fboundp 'native-comp-available-p)
          (native-comp-available-p))
