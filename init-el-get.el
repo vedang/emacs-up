@@ -614,7 +614,9 @@ Suggest the URL title as a description for resource."
                 :after (progn (add-hook 'org-noter-insert-heading-hook
                                         #'org-id-get-create)))
 
-         (:name org-protocol-capture-html)
+         (:name org-protocol-capture-html
+                :after (progn (require 'org-protocol)
+                              (require 'org-protocol-capture-html)))
 
          (:name org-pomodoro
                 :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
