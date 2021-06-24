@@ -112,6 +112,9 @@
 
 (setq org-show-notification-handler 'vm/org-notify-message)
 
+;; (setq org-ellipsis " ")
+(setq org-ellipsis "⤵")
+
 ;;; Use Plantuml for diagrams
 ;; This value is set in my personal.el file
 ;; (setq org-plantuml-jar-path "")

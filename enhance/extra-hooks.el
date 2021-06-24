@@ -23,7 +23,7 @@
     (flyspell-prog-mode)         ;; Flyspell mode for comments and strings
     (when (not (equal major-mode 'objc-mode))
       (uf/turn-on-whitespace-mode)) ;; tell me if lines exceed 80 columns
-    (uf/pretty-lambdas)))
+    ))
 (add-hook 'find-file-hook 'eh/prog-mode-settings)
 
 

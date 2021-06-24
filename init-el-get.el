@@ -680,6 +680,68 @@ Suggest the URL title as a description for resource."
                          ;;                     :family "Baskerville")
                          ))
 
+         (:name prettify-utils
+                :after (progn
+                         (defun prog-mode-prettify-symbols ()
+                           "Pretty symbols in all programming modes."
+                           (setq prettify-symbols-alist
+                                 (prettify-utils-generate
+                                  ("lambda " "λ")
+                                  ("<="      "≤")
+                                  (">="      "≥")
+                                  ("->"      "→ ")
+                                  ("=>"      "⇒")
+                                  ("->>"     "⇒  ")
+                                  ("fn "     "ƒ ")
+                                  ("#("      "λ(")
+                                  ("#{"      "∈{")))
+                           (prettify-symbols-mode 1))
+
+                         (add-hook 'prog-mode-hook #'prog-mode-prettify-symbols)
+
+                         (defun org-mode-prettify-symbols ()
+                           ;; ("#+begin_src" . "")
+                           ;; ("#+title: " . "")
+                           (setq prettify-symbols-alist
+                                 (append (mapcan (lambda (x) (list x (cons (upcase (car x)) (cdr x))))
+                                                 '(("#+begin_src" . ?)
+                                                   ("#+end_src" . ?)
+                                                   ("#+begin_example" . ?)
+                                                   ("#+end_example" . ?)
+                                                   ("#+header:" . ?)
+                                                   ("#+name:" . ?﮸)
+                                                   ("#+results:" . ?)
+                                                   ("#+call:" . ?)
+                                                   ("#+startup:" . ?)
+                                                   ("#+filetags:" . ?)
+		                                           ("#+html_head:" . ?)
+		                                           ("#+subtitle:" . ?)
+		                                           ("#+author:" . ?)
+                                                   (":properties:" . ?)
+                                                   (":logbook:" . ?)
+                                                   (":clock:" . ?)
+                                                   (":end:" . ?―)
+                                                   (":resources:" . ?)))
+                                         '(("TODO" . ?)
+	                                       ("WAITING" . ?)
+   		                                   ("WORKING" . ?)
+                                           ("CANCELLED" . ?)
+		                                   ("DONE" . ?)
+		                                   ("[#A]" . ?)
+		                                   ("[#B]" . ?)
+ 		                                   ("[#C]" . ?)
+		                                   ("[ ]" . ?)
+		                                   ("[X]" . ?)
+		                                   ("[-]" . ?)
+                                           ("CLOCK:" . ?)
+                                           (":Effort:" . ?)
+		                                   ("SCHEDULED:" . ?)
+		                                   ("DEADLINE:" . ?))))
+                           (prettify-symbols-mode 1))
+
+                         (add-hook 'org-mode-hook
+                                   #'org-mode-prettify-symbols)))
+
          (:name rainbow-mode)
 
          (:name restclient)

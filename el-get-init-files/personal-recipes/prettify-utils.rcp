@@ -1,0 +1,4 @@
+(:name prettify-utils
+       :description "Helper functions for emacs' prettify-symbols-mode"
+       :type github
+       :pkgname "Ilazki/prettify-utils.el")

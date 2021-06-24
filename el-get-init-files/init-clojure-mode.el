@@ -14,31 +14,6 @@
 
 ;;; Code:
 
-
-(defun icl/pretty-fns ()
-  (font-lock-add-keywords
-   nil `(("(\\(fn\\)[\[[:space:]]"
-          (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                    "ƒ")
-                    nil))))))
-
-
-(defun icl/pretty-reader-macros ()
-  (font-lock-add-keywords
-   nil `(("\\(#\\)("
-          (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                    ,(make-char 'greek-iso8859-7 107))
-                    nil))))))
-
-
-(defun icl/pretty-sets ()
-  (font-lock-add-keywords
-   nil `(("\\(#\\){"
-          (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                    "∈")
-                    nil))))))
-
-
 ;;; Re-implementation of clojure-test-mode functions for Midje
 ;;; Hat-tip : Kapil Reddy
 ;;; https://github.com/kapilreddy/dotemacs/blob/5d6cfc2215b8f1eb2dd0ca14d871478fee053db3/configurations/clojure-config.el
@@ -117,9 +92,6 @@
      (put-clojure-indent 'describe 'defun)
      (put-clojure-indent 'given 'defun)
      (put-clojure-indent 'using 'defun)
-     (add-hook 'clojure-mode-hook 'icl/pretty-fns)
-     (add-hook 'clojure-mode-hook 'icl/pretty-sets)
-     (add-hook 'clojure-mode-hook 'icl/pretty-reader-macros)
      ;; *** DEPRECATED ***
      ;; Adding the `icl/midje-test-maybe-enable' hook is unnecessary,
      ;; since `clojure-test-mode' no longer exists. The call and

@@ -118,14 +118,6 @@ Subsequent calls expands the selection to larger semantic unit."
           1 font-lock-warning-face t))))
 
 
-(defun uf/pretty-lambdas ()
-  (font-lock-add-keywords
-   nil `(("(?\\(lambda\\>\\)"
-          (0 (progn (compose-region (match-beginning 1) (match-end 1)
-                                    ,(make-char 'greek-iso8859-7 107))
-                    nil))))))
-
-
 (defun uf/untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
