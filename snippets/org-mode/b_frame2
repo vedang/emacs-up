@@ -2,12 +2,12 @@
 # name: b_frame2
 # key: b_frame2
 # --
-** ${1:Frame Title}  :B_fullframe:
+* ${1:Frame Title}  :B_fullframe:
   :PROPERTIES:
   :BEAMER_env: fullframe
   :END:
 ${2: The main point}
-*** Speaker Note                                                     :B_noteNH:
+** Speaker Note                                                     :B_noteNH:
    :PROPERTIES:
    :BEAMER_env: noteNH
    :END:
