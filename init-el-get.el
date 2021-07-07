@@ -149,6 +149,15 @@
          '((:name prettier-js
                   :after (add-hook 'rjsx-mode-hook #'prettier-js-mode))))
 
+       ;; Beautiful diffs
+       ;; Prerequisite: cargo install delta
+       (when (executable-find "delta")
+         '((:name magit-delta
+                  :after (progn
+                           (defun turn-on-magit-delta ()
+                             (magit-delta-mode +1))
+                           (add-hook 'magit-mode-hook #'turn-on-magit-delta)))))
+
 ;;; Things to install only on my machine. These are currently not set
 ;;; up properly enough for public consumption, or require too many
 ;;; third party dependencies.
