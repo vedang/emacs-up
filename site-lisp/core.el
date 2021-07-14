@@ -47,7 +47,11 @@
       set-mark-command-repeat-pop t
       tramp-default-method "ssh")
 
-;; Don't clutter up directories with files~
+;; Turn off `transient-mark-mode`. I use C-SPC to drop marks liberally
+;; and don't want region highlights in this case.
+(transient-mark-mode -1)
+
+;; Don't clutter up directories with files
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
                  (concat tempfiles-dirname "backups"))))
