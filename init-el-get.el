@@ -158,6 +158,16 @@
                              (magit-delta-mode +1))
                            (add-hook 'magit-mode-hook #'turn-on-magit-delta)))))
 
+       ;; Keep updating the Zoxide DB for all the paths I open, keep
+       ;; making Zoxide more powerful.
+       (when (executable-find "zoxide")
+         '((:name zoxide.el
+                  :after (progn
+                           (add-hook 'find-file-hook #'zoxide-add)
+                           (add-hook 'projectile-after-switch-project-hook
+                                     #'zoxide-add)
+                           (add-hook 'dired-mode-hook #'zoxide-add)))))
+
 ;;; Things to install only on my machine. These are currently not set
 ;;; up properly enough for public consumption, or require too many
 ;;; third party dependencies.
