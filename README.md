@@ -68,6 +68,10 @@ be available at `/usr/local/bin/git`.
 The following tools are optional, but recommended / needed for particular modes to work correctly.
 - [notmuch](https://notmuchmail.org/): My preferred email client.
 - [prettier](https://github.com/prettier/prettier-emacs): Provides formatting of JS code on save.
+- [delta](https://github.com/dandavison/delta): Beautiful and fast diff tool.
+- [zoxide](https://github.com/ajeetdsouza/zoxide): A smarter cd command
+- [clj-kondo](https://github.com/clj-kondo/clj-kondo): A linter for Clojure code that sparks joy.
+- [cljstyle](https://github.com/greglook/cljstyle): A tool for formatting Clojure code.
 
 ## Installation Instructions
 
