@@ -759,6 +759,8 @@ Suggest the URL title as a description for resource."
                            (prettify-symbols-mode 1))
 
                          (add-hook 'org-mode-hook
+                                   #'org-mode-prettify-symbols)
+                         (add-hook 'org-agenda-mode-hook
                                    #'org-mode-prettify-symbols)))
 
          (:name rainbow-mode)
