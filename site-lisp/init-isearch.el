@@ -12,13 +12,13 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
-;;; Code:
-
-
+;;; Commentary:
 ;; From EmacsWiki
 ;; Move to beginning of word before yanking word in isearch-mode.
 ;; Make C-s C-w and C-r C-w act like Vim's g* and g#, keeping Emacs'
 ;; C-s C-w [C-w] [C-w]... behaviour.
+
+;;; Code:
 
 (require 'thingatpt)
 
