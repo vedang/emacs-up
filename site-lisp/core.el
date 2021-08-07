@@ -33,6 +33,7 @@
       column-number-mode t
       debug-on-error t
       eshell-history-file-name (concat tempfiles-dirname "eshell-history")
+      eww-bookmarks-directory tempfiles-dirname
       bookmark-save-flag 1
       ;; Same location for bookmark file as default, but this change
       ;; makes the bookmark file independent of the .emacs.d
