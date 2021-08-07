@@ -47,7 +47,9 @@
 
       ;; Similarly, set these to t
       helm-use-frame-when-more-than-two-windows nil
-      helm-use-frame-when-dedicated-window nil)
+      helm-use-frame-when-dedicated-window nil
+      helm-locate-recursive-dirs-command "fd --hidden --type d .*%s.*$ %s"
+      helm-ff-auto-update-initial-value t)
 
 (helm-define-key-with-subkeys global-map (kbd "C-c n") ?n 'helm-cycle-resume)
 
