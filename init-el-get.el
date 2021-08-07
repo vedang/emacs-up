@@ -498,8 +498,9 @@
                          (define-key org-mode-map (kbd "C-c b")
                            'org-brain-prefix-map)
 ;;; Ensure that all org-mode entries have an ID.
-                         (add-hook 'before-save-hook
-                                   #'org-brain-ensure-ids-in-buffer)
+                         ;;
+                         ;; (add-hook 'before-save-hook
+                         ;;           #'org-brain-ensure-ids-in-buffer)
 
 ;;; Configuration to integrate `org-noter'
 ;;; with `org-brain'
