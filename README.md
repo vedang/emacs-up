@@ -102,7 +102,7 @@ The following tools are optional, but recommended / needed for particular modes 
 5. Profit!
 
 
-## Caveats
+## Caveats / Post-Installation / One-time installation instructions
 
 1. Org Mode:
 
@@ -187,6 +187,12 @@ The following tools are optional, but recommended / needed for particular modes 
    <code>
    $ brew install chicken
    </code>
+
+7. All the Icons
+
+   This configuration installs `all-the-icons` for pretty icons. All
+   the Icons requires special fonts to be installed, which can be done
+   with `M-x all-the-icons-install-fonts`
 
 ## Upgrade Instructions
 

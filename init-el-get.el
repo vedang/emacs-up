@@ -19,10 +19,10 @@
   "The sub-directory where el-get packages are installed.")
 (defvar el-get-user-package-directory
   (concat dotfiles-dirname "el-get-init-files/")
-  "The sub-directory where optional user-configuration for various packages, and user-defined recipes live.")
+  "User-configuration for various packages and user-defined recipes live here.")
 (defvar el-get-my-recipes
   (concat el-get-user-package-directory "personal-recipes/")
-  "The sub-directory where user-defined recipes live, if the user needs to define and install his/her own recipes.")
+  "User-defined recipes live here.")
 
 ;; Make the el-get directories if required
 (make-directory el-get-dir t)
@@ -131,7 +131,7 @@
                                (add-hook 'racer-mode-hook #'eldoc-mode)
                                (add-hook 'racer-mode-hook #'company-mode))))
 
-           (error "Rust Lang programming is configured, but you need to install the `rustc', `cargo' and `racer' binaries! Please check the README file for installation instructions.")))
+           (error "Rust Lang programming is configured, but you need to install the `rustc', `cargo' and `racer' binaries! Please check the README file for installation instructions")))
 
        (when (bound-and-true-p configure-js-p)
          '((:name rjsx-mode
@@ -322,6 +322,21 @@
 
          (:name dockerfile-mode)
 
+         (:name doom-themes
+                :after (progn ;; Global settings (defaults)
+                         (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+                               doom-themes-enable-italic t) ; if nil, italics is universally disabled
+                         (load-theme 'doom-vibrant t)
+
+                         ;; Enable flashing mode-line on errors
+                         (doom-themes-visual-bell-config)
+                         ;; Enable custom neotree theme
+                         (doom-themes-neotree-config)
+                         ;; or for treemacs users
+                         (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
+                         (doom-themes-treemacs-config)
+                         ;; Corrects (and improves) org-mode's native fontification.
+                         (doom-themes-org-config)))
          (:name dumb-jump
                 :after (progn (dumb-jump-mode)
                               (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
@@ -797,8 +812,6 @@ Suggest the URL title as a description for resource."
                                   (add-to-list 'Info-directory-list
                                                (concat el-get-dir "sicp/"))))))
 
-         (:name spaceline-all-the-icons)
-
          (:name smart-tab
                 :after (progn
                          (setq smart-tab-using-hippie-expand t
@@ -807,6 +820,11 @@ Suggest the URL title as a description for resource."
                                smart-tab-completion-functions-alist
                                '((ledger-mode . dabbrev-completion)))
                          (global-smart-tab-mode 1)))
+
+         (:name solaire-mode
+                :after (solaire-global-mode +1))
+
+         (:name spaceline-all-the-icons)
 
          (:name tagedit
                 :after (with-eval-after-load 'sgml-mode
