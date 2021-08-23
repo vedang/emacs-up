@@ -38,8 +38,13 @@
 ;;; Native compilation
 (if (and (fboundp 'native-comp-available-p)
          (native-comp-available-p))
-    (setq comp-deferred-compilation t
-          comp-speed 2)
+    (progn
+      (when (boundp 'native-comp-eln-load-path)
+        (setcar native-comp-eln-load-path
+                (expand-file-name "cache/eln-cache/" user-emacs-directory)))
+      (setq comp-deferred-compilation t
+            comp-speed 2
+            native-comp-async-report-warnings-errors nil))
   (message "Native complation is *not* available"))
 
 
