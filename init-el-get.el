@@ -267,6 +267,9 @@
                               (global-set-key (kbd "M-g w") 'avy-goto-word-1)
                               (global-set-key (kbd "M-g SPC") 'avy-goto-word-1)))
 
+         (:name bookmark+
+                :after (progn (require 'bookmark+)))
+
          (:name color-theme-leuven
                 :after (progn (setq leuven-scale-outline-headlines nil
                                     leuven-scale-org-agenda-structure nil
