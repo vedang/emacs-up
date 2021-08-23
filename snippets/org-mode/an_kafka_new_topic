@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: HS: Create new topic in Kafka Prod
+# key: an_kafka_new_topic
+# --
+- [ ] $3
+  #+begin_src sh :eval no
+  /opt/kafka/kafka_2.13-2.7.0/bin/kafka-topics.sh --create --zookeeper zkcl02-01.p.helpshift.com:2181,zkcl02-02.p.helpshift.com:2181,zkcl02-03.p.helpshift.com:2181,zkcl02-04.p.helpshift.com:2181,zkcl02-05.p.helpshift.com:2181/hsft-kafka02 --partitions ${1:Number of Partitions} --replication-factor ${2:Replication Factor} --config retention.ms= --config retention.bytes=$0 --topic ${3:Topic Name}
+  #+end_src

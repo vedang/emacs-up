@@ -1,0 +1,21 @@
+# -*- mode: snippet -*-
+# name: HS Ansible: Spawn New Nodes for a Cluster in Virginia
+# key: an_prov
+# --
+* Add a new node for Cluster ${1:Service Name}
+** Command to execute on Bastion
+#+begin_example
+ansible-playbook2 ansible2/spawn_service_nodes.yml -e 'cli_cloud_provider=ec2 cli_env_tag=preprod ${2:$$(yas-choose-value '(cli_tag cli_sha))}=${3:Tag or SHA value to deploy} cli_service=$1 cli_cluster_size=${4:500} cli_ec2_dc_switch=${5:$$(yas-choose-value '(n-virginia n-california beijing))} cli_count=${6:1}' --vault-password-file ~/.vault -CD -vv
+#+end_example
+** Checklist post command execution
+SSH into the new node and check the following: (Note: If you cannot see the node name, run a ~refresh_inventory~ command.
+- [ ] Is haproxy config correctly set?
+  #+begin_example
+  less /etc/haproxy/haproxy.cfg
+  #+end_example
+- [ ] Are the environment variables correctly set for $1 (Note that sometimes the service name as provided in command is not the same as the service name ~ dashes tend to be converted to underscores)
+  #+begin_example
+  less /etc/default/$1
+  #+end_example
+- [ ] Review logs (above step will give you log location) to make sure that the service is working correctly.
+- [ ] Telnet all the host+ports that $1 needs to ensure that it has access. The haproxy config will give you all the details of the services it needs. You can also see this information in ~sudo hatop -s /run/haproxy_op.soc~ .

@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: HS Ansible: Change a tag on a node
+# key: an_change_tag
+# --
+* Change the tag for node(s) ${1:$$(yas-choose-value '(tag_Name_ cl_ rl_))${2:Name}}
+** Command to execute on Bastion
+#+begin_example
+  ansible-playbook2 ansible2/manage_tags.yml -e "cli_cloud_provider=ec2 cli_hosts=$1 cli_tag_key=${3:Tag Key to change} cli_tag_csv=${4:Value to change to} cli_mode=override" --vault-password-file ~/.vault
+#+end_example
+** Checklist
+The playbook will stop in the middle before making any tag changes and show you the diff. Review it carefully and then hit Enter, and the playbook will make the necessary change.

@@ -29,3 +29,4 @@ request/
 session*
 forge-database.sqlite
 .cask/
+.DS_Store

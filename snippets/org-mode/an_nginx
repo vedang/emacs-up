@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: HS Ansible: nginx_cluster.yml Update nginx configuration
+# key: an_nginx
+# --
+* Update the nginx_cluster configuration
+** Command to execute on Bastion
+#+begin_example
+ansible-playbook2 ansible2/nginx_cluster.yml -e 'cli_cloud_provider=ec2 cli_enable_ssl=false cli_env_tag=prod cli_hosts="cl_nginx${1:$$(yas-choose-value '(01 02))}" cli_cluster_type=nginx_haproxy_bionic cli_ec2_dc_switch=${2:$$(yas-choose-value '(n-virginia n-california beijing))}' --vault-password-file ~/.vault  -t nginx_update_conf -CD
+#+end_example
+** Checklist
+- Our prod nginx cluster is behind ALB and SSL offloading happens at ALB level. Our stage nginx node has public IP and not behind any LB. This is the reason we need to pass ~cli_enable_ssl=true~ for staging but not for prod. Make sure you have checked the value of the flag above.
+- Review the diff printed by the -CD flag to ensure that *only* the change you want to push is changing in the nginx configuration.
+- Run the command without -CD once you are sure
