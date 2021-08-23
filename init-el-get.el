@@ -782,6 +782,8 @@ Suggest the URL title as a description for resource."
                          (add-hook 'org-agenda-mode-hook
                                    #'org-mode-prettify-symbols)))
 
+         (:name propcheck)
+
          (:name rainbow-mode)
 
          (:name restclient)
