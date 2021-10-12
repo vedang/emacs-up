@@ -648,7 +648,14 @@ Suggest the URL title as a description for resource."
 
          (:name org-contrib)
 
-         (:name org-mode-crate)
+         (:name org-mode-crate
+                :after (progn (global-set-key (kbd "<f12>") 'org-agenda)
+                              (message "Press <f12> to get started with your agenda...")
+
+                              (with-eval-after-load 'org
+                                (require 'org-mode-crate)
+                                (when on-my-machine
+                                  (require 'org-crate-config)))))
 
          (:name org-noter
                 :after (progn (add-hook 'org-noter-insert-heading-hook
