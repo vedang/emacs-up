@@ -520,6 +520,8 @@
                          ;; (add-hook 'before-save-hook
                          ;;           #'org-brain-ensure-ids-in-buffer)
 
+                         (remove-hook 'before-save-hook
+                                      #'org-brain-ensure-ids-in-buffer)
 ;;; Configuration to integrate `org-noter'
 ;;; with `org-brain'
                          (defun org-brain-open-org-noter (entry)
