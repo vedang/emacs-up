@@ -233,6 +233,8 @@
                 :after (with-eval-after-load 'yaml-mode
                          (add-hook 'yaml-mode-hook #'ansible-doc-mode)))
 
+         (:name ansi-color)
+
          (:name anzu
                 :after (progn (global-anzu-mode +1)
                               (setq anzu-mode-lighter ""
