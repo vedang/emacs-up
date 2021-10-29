@@ -422,6 +422,8 @@
                 :after (progn (require 'gcmh)
                               (gcmh-mode 1)))
 
+         (:name groovy-emacs-mode)
+
          (:name helm
                 :after (progn (require 'init-helm)))
 
