@@ -500,7 +500,7 @@
                                org-brain-show-resources t
                                org-brain-show-text t
                                org-brain-visualize-use-capture-templates t
-                               org-brain-scan-directories-recursively nil
+                               org-brain-scan-directories-recursively t
                                org-brain-default-file-parent "index"
                                org-brain-backlink t
                                org-brain-narrow-to-entry t
