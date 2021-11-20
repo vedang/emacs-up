@@ -30,3 +30,5 @@ session*
 forge-database.sqlite
 .cask/
 .DS_Store
+parinfer-rust/
+eln-cache/

@@ -684,6 +684,9 @@ Suggest the URL title as a description for resource."
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
 
+         (:name parinfer-rust-mode
+                :after (progn (setq parinfer-rust-auto-download t)))
+
          (:name pcre2el)
 
 
