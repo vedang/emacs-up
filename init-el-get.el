@@ -830,7 +830,7 @@ Suggest the URL title as a description for resource."
                              (kbd "M-h") 'shrface-headline-helm)
                            (setq shrface-href-versatile t)
                            (set-face-attribute 'variable-pitch nil
-                                               :font "FantasqueSansMono NF 28"))))
+                                               :font "FantasqueSansMono NF 22"))))
 
          (:name sicp
                 :after (progn
