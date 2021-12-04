@@ -23,7 +23,7 @@
  '(mml-secure-openpgp-sign-with-sender t)
  '(org-super-agenda-mode t)
  '(package-selected-packages
-   '(elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
+   '(xref elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
  '(safe-local-variable-values
    '((checkdoc-package-keywords-flag)
      (eval font-lock-add-keywords nil
