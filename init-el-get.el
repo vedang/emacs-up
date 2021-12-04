@@ -685,7 +685,10 @@ Suggest the URL title as a description for resource."
                          (require 'ox-hugo)))
 
          (:name parinfer-rust-mode
-                :after (progn (setq parinfer-rust-auto-download t)))
+                :after (progn (setq parinfer-rust-auto-download t
+                                    ;; Don't check every time,
+                                    ;; just enable the damn thing.
+                                    parinfer-rust-check-before-enable nil)))
 
          (:name pcre2el)
 
