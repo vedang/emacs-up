@@ -373,7 +373,11 @@
                          (cl-defmethod project-root ((project (head go-module)))
                            (cdr project))
 
-                         (add-hook 'project-find-functions #'project-find-go-module)))
+                         (add-hook 'project-find-functions #'project-find-go-module)
+			 (add-hook 'go-mode-hook 'eglot-ensure)
+			 (defun eglot-format-buffer-on-save ()
+			   (add-hook 'before-save-hook #'eglot-format-buffer -10 t))
+			 (add-hook 'go-mode-hook #'eglot-format-buffer-on-save)))
 
          ;; Easy kill might remove the complete need of `change-inner'
          ;; and `expand-region'. I'll observe for a bit and then take
@@ -950,9 +954,7 @@ Suggest the URL title as a description for resource."
 
    (when (bound-and-true-p configure-go-p)
      (if (executable-find "go")
-         '(go-mode
-           go-def
-           go-errcheck-el)
+         '(go-mode)
        (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
 
    '(ag
