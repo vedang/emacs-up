@@ -678,6 +678,20 @@ Suggest the URL title as a description for resource."
                 :after (progn (add-hook 'org-mode-hook
                                         (lambda () (org-superstar-mode 1)))))
 
+         (:name org-tree-slide
+                :after (progn
+                         (with-eval-after-load 'org
+                           (define-key org-mode-map (kbd "<f8>")
+                                       'org-tree-slide-mode))
+                         (define-key org-tree-slide-mode-map (kbd "<f7>")
+                                     'org-tree-slide-move-previous-tree)
+                         (define-key org-tree-slide-mode-map (kbd "<f9>")
+                                     'org-tree-slide-move-next-tree)
+                         (define-key org-tree-slide-mode-map (kbd "<f6>")
+                                     'org-tree-slide-content)
+                         (setq org-tree-slide-header t
+                               org-tree-slide-slide-in-blank-lines 10)))
+
          (:name org-web-tools)
 
          (:name ox-hugo
@@ -960,7 +974,6 @@ Suggest the URL title as a description for resource."
    '(ag
      org-gcal
      org-jira
-     org-tree-slide
      color-theme-zenburn
      color-theme-idea-darkula
      dash
