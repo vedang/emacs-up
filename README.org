@@ -1,0 +1,146 @@
+#+title: Emacs Up: an extensible, easy way to maintain emacs config for your coding needs.
+#+author: Vedang Manerikar <vedang.manerikar at gmail>
+#+last_updated: <2021-12-04 Sat>
+
+* This starter kit provides:
+
+1. Working and well-tuned configurations for:
+   - Clojure Programming (CIDER + other minor modes)
+   - Emacs Lisp Programming (ElSpice + other minor modes)
+   - Note-taking and Task-tracking through Org Mode
+   - Rust Programming
+   - JS Programming
+   - Email through Emacs (Notmuch + mbsync + msmtp)
+
+2. Other minor but important additions:
+   - Avy Mode (Jumping and Navigation)
+   - Company Mode (Completion)
+   - Helm Mode (Navigation)
+   - Magit (Git Interface)
+   - Multiple Cursors (Editing)
+   - Paredit and Parinfer (Editing Lispy things)
+   - YASnippets (Templating and Boiler Plate)
+   - Correct path manipulation on OS X (System)
+
+3. Better defaults than "pure" Emacs. And a number of other small but beautiful packages.
+
+* Pre-requisites
+
+The following tools should be installed and available on the system:
+- [[http://git-scm.com/][git]]
+- [[http://mercurial.selenic.com/][mercurial]]
+- [[https://subversion.apache.org/][subversion]]
+- [[http://aspell.net/][aspell]]
+- [[https://www.gnu.org/software/automake/][automake]]
+- [[https://www.gnu.org/software/texinfo/][Texinfo]]
+- [[https://github.com/koalaman/shellcheck][Shellcheck]]
+
+Make sure that they are on $PATH. If you are on a Mac, ~git~ needs to be available at ~/usr/local/bin/git~.
+
+1. On a Mac, these can all be installed through Homebrew as follows:
+   #+begin_src sh
+   brew install git mercurial aspell automake texinfo subversion shellcheck
+   #+end_src
+
+2. On Ubuntu, these can all be installed through Apt as follows:
+   #+begin_src sh
+   apt install git mercurial aspell automake texinfo subversion shellcheck
+   #+end_src
+
+The following tools are optional, but recommended / needed for particular modes to work correctly.
+- [[https://notmuchmail.org/][notmuch]]: My preferred email client.
+- [[https://github.com/prettier/prettier-emacs][prettier]]: Provides formatting of JS code on save.
+- [[https://github.com/dandavison/delta][delta]]: Beautiful and fast diff tool.
+- [[https://github.com/ajeetdsouza/zoxide][zoxide]]: A smarter cd command
+- [[https://github.com/clj-kondo/clj-kondo][clj-kondo]]: A linter for Clojure code that sparks joy.
+- [[https://github.com/greglook/cljstyle][cljstyle]]: A tool for formatting Clojure code.
+
+* First-time installation instructions / Optional Pre-requisites
+
+** Org Mode:
+
+   For org-mode to work, you'll have to set your ~org-directory~. To do this, add the line
+
+   #+begin_src emacs-lisp
+   (setq org-directory "/path/to/org/directory")
+   #+end_src
+
+   somewhere in your Emacs config. I recommend that you create the file ~~/.emacs.d/personal.el~ and add the code to that file.
+
+   For more information about the org config, take a look at [[https://github.com/vedang/org-mode-crate][vedang/org-mode-crate]]
+
+** Clojure interactive development through Cider
+
+   [[https://github.com/clojure-emacs/cider/][cider]] needs a one time setup of [[https://github.com/clojure-emacs/cider-nrepl/][cider-nrepl]], [[https://github.com/clojure-emacs/refactor-nrepl/][refactor-nrepl]] middleware in order to work properly. Please follow the installation instructions in the respective repos to install ~cider-nrepl~ and ~refactor-nrepl~.
+
+** Rust development
+
+   Rust integration depends on ~rustic~ and ~rust-analyzer~ (LSP) for it's functionality. Refer to the following documents for instructions:
+   - [[https://www.rust-lang.org/tools/install][Install Rustup]]. This will also install ~cargo~, the build tool and package manager for Rust.
+   - [[https://github.com/rust-analyzer/rust-analyzer][Install Rust Analyzer]]. Rust uses ~rust-analyzer~ as the LSP backend to provide information to editors.
+   - Install Rust Source
+     #+begin_src sh
+       rustup component add rust-src
+     #+end_src
+
+   If you do not wish to install Rust specific recipes, go to ~features.el~ in the main directory and set the value of ~configure-rust-p~ to ~nil~.
+
+** Golang development
+
+   Go integration uses ~gopls~ (LSP) for working with Go Code.
+   - [[go install golang.org/x/tools/gopls@latest][Install gopls]]
+
+** Python interactive development through Elpy
+
+   These set of recipes are turned off by default. If you wish to install Python specific recipes, go to ~features.el~ in the main directory and set the value of ~configure-python-p~ to ~t~.
+
+   [[https://github.com/jorgenschaefer/elpy/][Elpy]] needs a one-time setup of Python packages. Please follow the installation instructions on the Elpy Page.
+
+** Scheme development
+
+   These set of recipes are turned off by default. If you wish to install Scheme specific recipes, go to ~features.el~ in the main directory and set the value of ~configure-scheme-p~ to ~t~.
+
+   Scheme integration is provided or Chicken Scheme, and interactive development is implemented through Geiser. Refer [[http://code.call-cc.org/][this document]] for instructions to install Chicken Scheme. On a Mac, it can be easily installed through Homebrew using:
+
+   #+begin_src sh
+   brew install chicken
+   #+end_src
+
+* Installation Instructions
+
+1. Clone the repository and move it to your ~.emacs.d~ folder
+
+     #+begin_example
+     $ cd /tmp/
+     $ git clone https://github.com/vedang/emacs-up.git
+     $ mv emacs-up ~/.emacs.d
+     #+end_example
+
+2. Make sure you've followed the One-Time installation instructions before proceeding.
+
+3. Start Emacs. Make yourself a cup of tea.
+
+   The first boot will trigger a (one-time) download of all the packages that Emacs-Up needs. This can take a lot of time.
+
+   Sometimes (rarely) Emacs will stop and throw an error. If this happens, try re-starting Emacs. If the error is still being thrown, file an issue with me. Don't forget to include the stacktrace. Don't worry, your perfect environment is being baked with love.
+
+4. ...
+
+5. Profit!
+
+* Post Installation instructions
+
+** All the Icons
+
+   This configuration installs ~all-the-icons~ for pretty icons. All the Icons requires special fonts to be installed, which can be done with ~M-x all-the-icons-install-fonts~
+
+* Upgrade Instructions
+
+1. Close running ~emacs~ session
+2. Fetch the latest changes from ~vedang/emacs-up~
+3. Start ~emacs~ and run the following code:
+   #+begin_example
+   M-x el-get-self-update
+   M-x el-get-update-all
+   #+end_example
+4. Restart ~emacs~
