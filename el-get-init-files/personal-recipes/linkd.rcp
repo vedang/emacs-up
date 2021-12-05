@@ -1,5 +1,0 @@
-(:name linkd
-       :pkgname "emacsmirror/linkd"
-       :description "Make hypertext with active links in any buffer"
-       :type github
-       :website "https://www.emacswiki.org/emacs/download/linkd.el")

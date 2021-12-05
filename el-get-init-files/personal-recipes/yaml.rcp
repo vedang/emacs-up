@@ -1,4 +1,0 @@
-(:name yaml
-       :type github
-       :description "YAML parser for Elisp"
-       :pkgname "zkry/yaml.el")
