@@ -39,7 +39,8 @@
       (url-retrieve-synchronously
        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
     (let ((el-get-git-install-url "https://github.com/vedang/el-get.git")
-          (el-get-install-branch "fix-obsolete-definition")
+          ;; Read through https://github.com/vedang/el-get/issues/1 for context
+          (el-get-install-branch "rcp/add-update-rcps")
           el-get-install-skip-emacswiki-recipes)
       (goto-char (point-max))
       (eval-print-last-sexp))))
