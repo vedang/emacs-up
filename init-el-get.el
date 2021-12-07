@@ -671,9 +671,10 @@ Suggest the URL title as a description for resource."
                 :after (progn
                          (with-eval-after-load 'org
                            (define-key org-mode-map (kbd "<f8>")
-                                       'org-tree-slide-mode))
+                             'org-tree-slide-mode))
+			 (require 'org-tree-slide)
                          (define-key org-tree-slide-mode-map (kbd "<f7>")
-                                     'org-tree-slide-move-previous-tree)
+                           'org-tree-slide-move-previous-tree)
                          (define-key org-tree-slide-mode-map (kbd "<f9>")
                                      'org-tree-slide-move-next-tree)
                          (define-key org-tree-slide-mode-map (kbd "<f6>")
