@@ -34,6 +34,7 @@
       debug-on-error t
       eshell-history-file-name (concat tempfiles-dirname "eshell-history")
       eww-bookmarks-directory tempfiles-dirname
+      browse-url-browser-function 'eww-browse-url
       bookmark-save-flag 1
       ;; Same location for bookmark file as default, but this change
       ;; makes the bookmark file independent of the .emacs.d
