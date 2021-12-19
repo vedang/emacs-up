@@ -257,10 +257,10 @@
          (:name bookmark+
                 :after (progn (require 'bookmark+)))
 
-         (:name color-theme-leuven
-                :after (progn (setq leuven-scale-outline-headlines nil
-                                    leuven-scale-org-agenda-structure nil
-                                    leuven-scale-volatile-highlight nil)))
+         ;; (:name color-theme-leuven
+         ;;        :after (progn (setq leuven-scale-outline-headlines nil
+         ;;                            leuven-scale-org-agenda-structure nil
+         ;;                            leuven-scale-volatile-highlight nil)))
 
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
@@ -966,8 +966,8 @@ Suggest the URL title as a description for resource."
    '(ag
      org-gcal
      org-jira
-     color-theme-zenburn
-     color-theme-idea-darkula
+     ;; color-theme-zenburn
+     ;; color-theme-idea-darkula
      dash
      edebug-x
      el-spice
