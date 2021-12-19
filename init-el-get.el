@@ -319,13 +319,17 @@
                          (load-theme 'doom-vibrant t)
 
                          ;; Enable flashing mode-line on errors
+                         (require 'doom-themes-ext-visual-bell)
                          (doom-themes-visual-bell-config)
                          ;; Enable custom neotree theme
+                         (require 'doom-themes-ext-neotree)
                          (doom-themes-neotree-config)
                          ;; or for treemacs users
+                         (require 'doom-themes-ext-treemacs)
                          (setq doom-themes-treemacs-theme "doom-atom") ; use "doom-colors" for less minimal icon theme
                          (doom-themes-treemacs-config)
                          ;; Corrects (and improves) org-mode's native fontification.
+                         (require 'doom-themes-ext-org)
                          (doom-themes-org-config)))
          (:name dumb-jump
                 :after (progn (dumb-jump-mode)
