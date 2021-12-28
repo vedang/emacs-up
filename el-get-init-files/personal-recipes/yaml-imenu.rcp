@@ -1,5 +1,0 @@
-(:name yaml-imenu
-       :type github
-       :pkgname "vedang/yaml-imenu.el"
-       :description "IMenu support for yaml-mode"
-       :depends (yaml-mode))

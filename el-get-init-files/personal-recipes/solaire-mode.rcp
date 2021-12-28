@@ -1,6 +1,0 @@
-(:name solaire-mode
-       :description "Make certain buffers grossly incandescent"
-       :minimum-emacs-version "25"
-       :type github
-       :pkgname "hlissner/emacs-solaire-mode"
-       :depends (cl-lib))

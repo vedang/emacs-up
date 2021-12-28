@@ -1,4 +1,0 @@
-(:name enlive
-       :description "Query html document with css selectors in elisp"
-       :type github
-       :pkgname "zweifisch/enlive")

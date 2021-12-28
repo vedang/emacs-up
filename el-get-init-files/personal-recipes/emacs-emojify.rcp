@@ -1,5 +1,0 @@
-(:name emacs-emojify
-       :description "Display emojis in Emacs"
-       :type github
-       :pkgname "iqbalansari/emacs-emojify"
-       :depends (seq ht))

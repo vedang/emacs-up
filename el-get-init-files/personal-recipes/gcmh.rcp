@@ -1,4 +1,0 @@
-(:name gcmh
-       :description "The Garbage Collector Magic Hack"
-       :type github
-       :pkgname "emacsmirror/gcmh")

@@ -1,7 +1,0 @@
-(:name org-contrib
-       :website "https://git.sr.ht/~bzg/org-contrib"
-       :description "This repository contains add-ons to Org."
-       :type git
-       :url "https://git.sr.ht/~bzg/org-contrib"
-       :depends (org-mode)
-       :load-path ("lisp"))
