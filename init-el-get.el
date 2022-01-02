@@ -669,6 +669,8 @@ Suggest the URL title as a description for resource."
                 :after (progn (add-hook 'org-mode-hook
                                         (lambda () (org-superstar-mode 1)))))
 
+         (:name org-transclusion)
+
          (:name org-tree-slide
                 :after (progn
                          (with-eval-after-load 'org
