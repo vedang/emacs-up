@@ -698,6 +698,8 @@ Suggest the URL title as a description for resource."
                                     ;; just enable the damn thing.
                                     parinfer-rust-check-before-enable nil)))
 
+         (:name package-lint)
+
          (:name pcre2el)
 
 
