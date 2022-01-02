@@ -391,8 +391,6 @@
                 :after (progn (global-set-key [remap kill-ring-save] 'easy-kill)
                               (global-set-key [remap mark-sexp] 'easy-mark)))
 
-         (:name emacs-emojify)
-
          (:name fancy-battery
                 :after (progn (setq fancy-battery-show-percentage t)
                               (add-hook 'after-init-hook #'fancy-battery-mode)))
