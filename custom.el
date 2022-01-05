@@ -25,7 +25,21 @@
  '(package-selected-packages
    '(xref elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
  '(safe-local-variable-values
-   '((checkdoc-package-keywords-flag)
+   '((org-duration-units
+      ("min" . 1)
+      ("h" . 60)
+      ("d" . 480)
+      ("w" . 2400)
+      ("m" . 9600)
+      ("y" . 96000))
+     (org-taskjuggler-keep-project-as-task . t)
+     (org-taskjuggler-target-version . 3.6)
+     (org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {
+   workinghours sat, sun off
+}
+leaves holiday \"New Year\" 2020-01-01
+")
+     (checkdoc-package-keywords-flag)
      (eval font-lock-add-keywords nil
            `((,(concat "("
                        (regexp-opt
