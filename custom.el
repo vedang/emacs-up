@@ -25,7 +25,13 @@
  '(package-selected-packages
    '(xref elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
  '(safe-local-variable-values
-   '((org-duration-units
+   '((org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {
+   workinghours sat, sun off
+}
+leaves holiday \"New Year\" 2020-01-01
+flags hsc_z, hsc_a
+")
+     (org-duration-units
       ("min" . 1)
       ("h" . 60)
       ("d" . 480)
