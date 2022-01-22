@@ -169,6 +169,12 @@
                   :after (setq dash-docs-browser-func 'eww))
 
            (:name nm)))
+;;; All the prettiness of Emacs is captured here.
+       (when prettify-my-emacs
+	     '((:name all-the-icons-dired
+                  :after (progn
+                           (add-hook 'dired-mode-hook
+                                     #'all-the-icons-dired-mode)))))
 
 ;;; All the other recipes
        '((:name ace-link
@@ -199,11 +205,6 @@
                                     aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))))
 
          (:name all-the-icons)
-
-         (:name all-the-icons-dired
-                :after (progn
-                         (add-hook 'dired-mode-hook
-                                   #'all-the-icons-dired-mode)))
 
          (:name all-the-icons-ibuffer
                 :after (progn (all-the-icons-ibuffer-mode 1)))
