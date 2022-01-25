@@ -166,9 +166,7 @@
            (:name elpher)
 
            (:name helm-dash
-                  :after (setq dash-docs-browser-func 'eww))
-
-           (:name nm)))
+                  :after (setq dash-docs-browser-func 'eww))))
 ;;; All the prettiness of Emacs is captured here.
        (when prettify-my-emacs
 	     '((:name all-the-icons-dired
