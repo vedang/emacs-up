@@ -643,8 +643,8 @@ Suggest the URL title as a description for resource."
          (:name org-contrib)
 
          (:name org-mode-crate
-                :after (progn (global-set-key (kbd "<f12>") 'org-agenda)
-                              (message "Press <f12> to get started with your agenda...")
+                :after (progn (global-set-key (kbd "C-c a") #'org-agenda)
+                              (message "Press `C-c a' to get started with your agenda...")
 
                               (with-eval-after-load 'org
                                 (require 'org-mode-crate)
@@ -662,13 +662,18 @@ Suggest the URL title as a description for resource."
          (:name org-pomodoro
                 :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
                                     org-pomodoro-clock-break t)
-                              (global-set-key (kbd "C-x c o p") 'org-pomodoro)))
+                              (global-set-key (kbd "C-x c o p")
+                                              #'org-pomodoro)))
 
          (:name org-superstar
                 :after (progn (add-hook 'org-mode-hook
                                         (lambda () (org-superstar-mode 1)))))
 
-         (:name org-transclusion)
+         (:name org-transclusion
+                :after (progn (global-set-key (kbd "C-c C-n a")
+                                              #'org-transclusion-add)
+                              (global-set-key (kbd "C-c C-n t")
+                                              #'org-transclusion-mode)))
 
          (:name org-tree-slide
                 :after (progn
