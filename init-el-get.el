@@ -642,6 +642,10 @@ Suggest the URL title as a description for resource."
 
          (:name org-contrib)
 
+         (:name org-menu
+                :after (progn
+                         (with-eval-after-load 'org
+                           (define-key org-mode-map (kbd "C-c m") 'org-menu))))
          (:name org-mode-crate
                 :after (progn (global-set-key (kbd "C-c a") #'org-agenda)
                               (message "Press `C-c a' to get started with your agenda...")
