@@ -457,7 +457,8 @@
                 :after (progn (setq lispy-compat
                                     '(edebug cider magit-blame-mode))
                               ;; Gimme back my `back-to-indentation'
-                              (define-key lispy-mode-map (kbd "M-m") nil)))
+                              (with-eval-after-load 'lispy-mode
+                                (define-key lispy-mode-map (kbd "M-m") nil))))
 
          ;; Note: `powerline' needs to be installed before `moe-theme'
          (:name powerline)
