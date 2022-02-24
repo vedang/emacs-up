@@ -37,7 +37,9 @@
   (show-paren-mode 1)
   (hs-minor-mode 1)
   (with-eval-after-load 'parinfer-rust-mode
-    (parinfer-rust-mode 1)))
+    (parinfer-rust-mode 1))
+  (with-eval-after-load 'lispy-mode
+    (lispy-mode 1)))
 
 (setq show-paren-style 'mixed)
 

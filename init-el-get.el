@@ -449,6 +449,16 @@
 
          (:name linkd)
 
+         (:name lispy
+                ;; Note that `lispy-mode' is installed alongside
+                ;; `pardedit-mode' via the `turn-on-paredit' function,
+                ;; since we already maintain a list of lispy modes
+                ;; there.
+                :after (progn (setq lispy-compat
+                                    '(edebug cider magit-blame-mode))
+                              ;; Gimme back my `back-to-indentation'
+                              (define-key lispy-mode-map (kbd "M-m") nil)))
+
          ;; Note: `powerline' needs to be installed before `moe-theme'
          (:name powerline)
          (:name moe-theme)
