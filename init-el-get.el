@@ -134,15 +134,6 @@
          '((:name prettier-js
                   :after (add-hook 'rjsx-mode-hook #'prettier-js-mode))))
 
-       ;; Beautiful diffs
-       ;; Prerequisite: cargo install delta
-       (when (executable-find "delta")
-         '((:name magit-delta
-                  :after (progn
-                           (defun turn-on-magit-delta ()
-                             (magit-delta-mode +1))
-                           (add-hook 'magit-mode-hook #'turn-on-magit-delta)))))
-
        ;; Keep updating the Zoxide DB for all the paths I open, keep
        ;; making Zoxide more powerful.
        (when (executable-find "zoxide")
@@ -169,10 +160,20 @@
                   :after (setq dash-docs-browser-func 'eww))))
 ;;; All the prettiness of Emacs is captured here.
        (when prettify-my-emacs
-	     '((:name all-the-icons-dired
-                  :after (progn
-                           (add-hook 'dired-mode-hook
-                                     #'all-the-icons-dired-mode)))))
+         (append
+          ;; Beautiful diffs
+          ;; Prerequisite: cargo install delta
+          (when (executable-find "delta")
+            '((:name magit-delta
+                     :after (progn
+                              (defun turn-on-magit-delta ()
+                                (magit-delta-mode +1))
+                              (add-hook 'magit-mode-hook #'turn-on-magit-delta)))))
+
+	      '((:name all-the-icons-dired
+                   :after (progn
+                            (add-hook 'dired-mode-hook
+                                      #'all-the-icons-dired-mode))))))
 
 ;;; All the other recipes
        '((:name ace-link
