@@ -369,6 +369,21 @@
                 :after (with-eval-after-load 'eglot
                          (add-to-list 'eglot-server-programs
                                       '(yaml-mode . ("yaml-language-server" "--stdio")))
+                         (add-to-list 'eglot-server-programs
+                                      '((tex-mode context-mode texinfo-mode bibtex-mode) . ("texlab")))
+                         (add-to-list 'eglot-server-programs
+                                      '(lua-mode . ("lua-language-server")))
+                         (add-to-list 'eglot-server-programs
+                                      '(python-mode . ("jedi-language-server")))
+                         (add-to-list 'eglot-server-programs
+                                      '(elixir-mode . ("elixir-ls")))
+                         (add-to-list 'eglot-server-programs
+                                      '((js2-mode typescript-mode) . (eglot-deno "deno" "lsp")))
+                         (add-to-list 'eglot-server-programs
+                                      '(zig-mode . ("zls")))
+                         (add-to-list 'eglot-server-programs
+                                      '(ess-r-mode . ("R" "--slave" "-e" "languageserver::run()")))
+
                          (require 'project)
 
                          (defun project-find-go-module (dir)
