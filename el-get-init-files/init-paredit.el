@@ -18,7 +18,7 @@
 
 (defvar paredit-major-modes
   '(emacs-lisp-mode lisp-mode clojure-mode cider-repl-mode
-                    scheme-mode ielm-mode es-mode)
+                    scheme-mode ielm-mode es-mode rustic)
   "List of modes where I want paredit to always work.")
 
 ;;; hideshow.el does not have anything to do with paredit, but I want
