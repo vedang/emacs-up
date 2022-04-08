@@ -38,10 +38,10 @@
       frame-title-format "%b"
       icon-title-format  "%b"
       ;; Binaries
-      magit-git-executable "/usr/local/bin/git"
-      vc-git-program "/usr/local/bin/git"
-      ispell-program-name "/usr/local/bin/aspell"
-      epg-gpg-program "/usr/local/bin/gpg"
+      magit-git-executable (or (executable-find "git") "/usr/local/bin/git")
+      vc-git-program (or (executable-find "git") "/usr/local/bin/git")
+      ispell-program-name (or (executable-find "aspell") "/usr/local/bin/aspell")
+      epg-gpg-program (or (executable-find "gpg") "/usr/local/bin/gpg")
       ;; source dirs
       ;; Note: These are hard-coded to my machine.
       source-directory (expand-file-name "~/src/emacs/src/")
