@@ -114,7 +114,7 @@
                   (executable-find "cargo"))
              '((:name rustic
                       :after (progn (setq rustic-lsp-client 'eglot
-					  rustic-format-on-save t))))
+					                      rustic-format-on-save t))))
 
            (error "Rust Lang programming is configured, but you need to install the `rustc', `cargo' and `rust-analyzer' binaries! Please check the README file for installation instructions")))
 
@@ -316,7 +316,7 @@
                 :after (progn ;; Global settings (defaults)
                          (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                                doom-themes-enable-italic t) ; if nil, italics is universally disabled
-                         (load-theme 'doom-vibrant t)
+                         (load-theme 'doom-acario-dark t)
 
                          ;; Enable flashing mode-line on errors
                          (require 'doom-themes-ext-visual-bell)
