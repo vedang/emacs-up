@@ -44,9 +44,7 @@
       (when (boundp 'native-comp-eln-load-path)
         (setcar native-comp-eln-load-path
                 (expand-file-name "cache/eln-cache/" user-emacs-directory)))
-      (setq comp-deferred-compilation t
-            comp-speed 2
-            native-comp-async-report-warnings-errors nil))
+      (setq native-comp-async-report-warnings-errors 'silent))
   (message "Native complation is *not* available"))
 
 
