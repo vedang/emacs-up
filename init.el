@@ -23,7 +23,8 @@
 ;; ninja
 ;; master
 ;; humble
-(defvar on-my-mac-machine (string-match "meditatingkombda" (system-name)))
+;; meditating
+(defvar on-my-mac-machine (string-match "raagitkombdi" (system-name)))
 (defvar on-my-linux-machine (string-match "zenkombda" (system-name)))
 (defvar on-my-machine (or on-my-mac-machine on-my-linux-machine))
 (defvar prettify-my-emacs nil)
