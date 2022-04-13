@@ -28,14 +28,9 @@
 (defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
 
 ;;; My personal capture templates
-(push '("j" "Journal" entry
+(push '("j" "Journal" plain
         (file+olp+datetree org-journal-file)
-        "* %?\n%i" :time-prompt t)
-      org-capture-templates)
-
-(push '("h" "Habit" entry
-        (file org-default-notes-file)
-        "*  %? :habit:  \nSCHEDULED: %t .+1d/3d\n:PROPERTIES:\n:STYLE: habit\n:REPEAT_TO_STATE: TODO\n:END:\n%U\n%a\n  %i")
+        "%U\n\n%?\n%i")
       org-capture-templates)
 
 (with-eval-after-load 'init-org-brain
@@ -59,16 +54,6 @@
 (push '("future" . ?F) org-tag-alist)
 (push '("writing" . ?W) org-tag-alist)
 
-
-;; https://lists.gnu.org/archive/html/emacs-orgmode/2011-06/msg00716.html
-(defun vm/org-extract-link ()
-  "Extract the link location at point and put it on the killring."
-  (interactive)
-  (when (org-in-regexp org-bracket-link-regexp 1)
-    (kill-new (org-link-unescape (org-match-string-no-properties 1)))))
-
-(eval-after-load 'org
-  '(progn (global-set-key (kbd "C-c M-l") 'vm/org-extract-link)))
 
 (eval-after-load 'org-super-agenda
   '(setq org-super-agenda-groups
