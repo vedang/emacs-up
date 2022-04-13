@@ -88,12 +88,12 @@ Ideally, this will be ~/.emacs.d.")
 (load personal-file 'noerror)
 (add-to-list 'load-path site-lisp-dirname)
 (add-to-list 'load-path enhance-dirname)
-(when (eq system-type 'darwin)
-  (require 'osx))
 
 ;;; El-Get for great good
 (load features-file 'noerror)
 (load el-get-config-file)
+(when (eq system-type 'darwin)
+  (require 'osx))
 
 ;;; Define my programming modes.
 (defvar vedang/programming-major-modes
