@@ -828,6 +828,7 @@ Suggest the URL title as a description for resource."
 	                                       ("WAITING" . ?)
    		                                   ("WORKING" . ?)
                                            ("CANCELLED" . ?)
+                                           ("MEETING" . ?)
 		                                   ("DONE" . ?)
 		                                   ("[#A]" . ?)
 		                                   ("[#B]" . ?)
