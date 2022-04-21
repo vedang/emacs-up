@@ -696,6 +696,44 @@ Suggest the URL title as a description for resource."
                               (global-set-key (kbd "C-x c o p")
                                               #'org-pomodoro)))
 
+         (:name org-remark
+                :after (progn
+                         ;; Key-bind `org-remark-mark' to global-map
+                         ;; so that you can call it globally before
+                         ;; the library is loaded.
+
+                         ;; This is originally `revert-buffer'
+                         (global-set-key (kbd "C-c r") nil)
+                         (global-set-key (kbd "C-c r m") #'org-remark-mark)
+                         (org-remark-global-tracking-mode)
+                         ;; The rest of keybidings are done only on
+                         ;; loading `org-remark'.
+                         (with-eval-after-load 'org-remark
+                           (defun vm/org-remark-notes ()
+                             (expand-file-name "marginalia.org" org-brain-path))
+                           (setq org-remark-notes-file-name
+                                 #'vm/org-remark-notes)
+                           (define-key org-remark-mode-map (kbd "C-c r o")
+                                       #'org-remark-open)
+                           (define-key org-remark-mode-map (kbd "C-c r n")
+                                       #'org-remark-view-next)
+                           (define-key org-remark-mode-map (kbd "C-c r p")
+                                       #'org-remark-view-prev)
+                           (define-key org-remark-mode-map (kbd "C-c r r")
+                                       #'org-remark-remove)
+                           (define-key org-remark-mode-map (kbd "C-c r s")
+                                       #'org-remark-save)
+                           (define-key org-remark-mode-map (kbd "C-c r l")
+                                       #'org-remark-highlights-load)
+                           (define-key org-remark-mode-map (kbd "C-c r y")
+                                       #'org-remark-mark-yellow)
+                           (define-key org-remark-mode-map (kbd "C-c r e")
+                                       #'org-remark-mark-red-line)
+                           (define-key org-remark-mode-map (kbd "C-c r t")
+                                       #'org-remark-toggle)
+                           (define-key org-remark-mode-map (kbd "C-c r v")
+                                       #'org-remark-view))))
+
          (:name org-superstar
                 :after (progn (add-hook 'org-mode-hook
                                         (lambda () (org-superstar-mode 1)))))
@@ -710,10 +748,10 @@ Suggest the URL title as a description for resource."
                 :after (progn
                          (with-eval-after-load 'org
                            (define-key org-mode-map (kbd "<f8>")
-                             'org-tree-slide-mode))
-			 (require 'org-tree-slide)
+                                       'org-tree-slide-mode))
+			             (require 'org-tree-slide)
                          (define-key org-tree-slide-mode-map (kbd "<f7>")
-                           'org-tree-slide-move-previous-tree)
+                                     'org-tree-slide-move-previous-tree)
                          (define-key org-tree-slide-mode-map (kbd "<f9>")
                                      'org-tree-slide-move-next-tree)
                          (define-key org-tree-slide-mode-map (kbd "<f6>")

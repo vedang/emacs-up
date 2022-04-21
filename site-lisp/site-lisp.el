@@ -68,7 +68,6 @@ right mode to start in the buffer."
 (global-set-key (kbd "C-x \\") 'align-regexp)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-c y") 'bury-buffer)
-(global-set-key (kbd "C-c r") 'revert-buffer)
 (global-set-key (kbd "<f5>") 'revert-buffer)
 (global-set-key (kbd "C-x m") 'eshell)
 (global-set-key (kbd "C-x M") 'shell)
