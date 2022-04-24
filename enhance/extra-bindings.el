@@ -25,10 +25,6 @@
 (global-set-key (kbd "<f7>") 'pr/jump-to-prev-slide)
 (global-set-key (kbd "<f8>") 'pr/jump-to-next-slide)
 
-;;; Window switching. (C-x o goes to the next window)
-;;; Emacs-starter-kit
-(windmove-default-keybindings) ;; Shift+direction
-
 ;; Custom 'apropos' key bindings
 ;; http://www.masteringemacs.org/articles/2011/08/04/full-text-searching-info-mode-apropos/#comment-1409
 (global-set-key (kbd "C-h a") 'Apropos-Prefix)
