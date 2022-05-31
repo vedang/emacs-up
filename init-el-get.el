@@ -951,6 +951,8 @@ Suggest the URL title as a description for resource."
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
 
+         (:name vterm)
+
          (:name writegood)
 
          (:name xterm-color
