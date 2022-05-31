@@ -66,7 +66,7 @@
 ;;; order can sometimes lead to nasty surprises, especially when you
 ;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
 (when (memq window-system '(mac ns x))
-  (el-get 'sync '(exec-path-from-shell)))
+  (el-get 'sync '(exec-path-from-shell org-mode org-contrib)))
 
 ;; Tie volatile stuff down, so that configuration does not break.
 ;; Add configuration for recipes that need very minor configuration.
@@ -665,10 +665,6 @@ Suggest the URL title as a description for resource."
 
          (:name orgit-forge)
 
-         (:name org-mode)
-
-         (:name org-contrib)
-
          (:name org-menu
                 :after (progn
                          (with-eval-after-load 'org
@@ -774,7 +770,6 @@ Suggest the URL title as a description for resource."
          (:name package-lint)
 
          (:name pcre2el)
-
 
          (:name pdf-tools
                 :after (progn (pdf-tools-install)
