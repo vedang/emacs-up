@@ -2,20 +2,6 @@
 # name: daily_planner
 # key: daily
 # --
-**** TODO [0/10] Morning Mindset  :checkin:
-- [ ] One thing I can get excited about today is: $0
-- [ ] If one word can describe the kind of person I want to be today, that word is: (and why)
-- [ ] Someone who needs me on my A game today is:
-- [ ] A situation that might stress me out or trip me up today is:
-  - [ ] The situation is:
-  - [ ] The way my best self would deal with it is:
-- [ ] Someone I could surprise with a note, a gift or a sign of appreciation is:
-- [ ] One action I could take today to demonstrate excellence or real value is:
-- [ ] One thing I could do today that is a little outside my comfort zone is:
-- [ ] If I was a high performance coach looking at my life from a high level, I would tell myself to remember that:
-- [ ] The big projects I have to keep in mind, that I want to take on, even if I cannot act on them today are:
-- [ ] I would know today was a great success if at the end of the day I did, said or felt this:
-
 **** TODO My Top Priority / Highlight today   :checkin:
 - The way to do this is to review my Custom Org Agenda + my normal Org Agenda and create a new Agenda specially for today.
 - Ideally, I'll pick only one. If I'm feeling ambitious, I'll pick two or three. Pick based on the following:
@@ -61,3 +47,17 @@
 | COURAGE      | I shared my real self, thoughts and feelings today.                    |                          |
 |--------------+------------------------------------------------------------------------+--------------------------|
 |              |                                                                        |                          |
+
+**** TODO [0/10] Next Day Morning Mindset  :checkin:
+- [ ] One thing I can get excited about tomorrow is: $0
+- [ ] If one word can describe the kind of person I want to be tomorrow, that word is: (and why)
+- [ ] Someone who needs me on my A game tomorrow is:
+- [ ] A situation that might stress me out or trip me up tomorrow is:
+  - [ ] The situation is:
+  - [ ] The way my best self would deal with it is:
+- [ ] Someone I could surprise with a note, a gift or a sign of appreciation is:
+- [ ] One action I could take tomorrow to demonstrate excellence or real value is:
+- [ ] One thing I could do tomorrow that is a little outside my comfort zone is:
+- [ ] If I was a high performance coach looking at my life from a high level, I would tell myself to remember that:
+- [ ] The big projects I have to keep in mind, that I want to take on, even if I cannot act on them tomorrow are:
+- [ ] I would know tomorrow was a great success if at the end of the day I did, said or felt this:
