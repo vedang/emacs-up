@@ -54,5 +54,7 @@
 (when (fboundp 'toggle-frame-fullscreen)
   (global-set-key (kbd "<f1>") 'toggle-frame-fullscreen))
 
+;;; Bind `frame.el' commands for easier access
+(global-set-key (kbd "A-`") 'other-frame)
 
 (provide 'osx)
