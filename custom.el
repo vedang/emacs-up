@@ -25,7 +25,7 @@
  '(package-selected-packages
    '(gnu-elpa-keyring-update xref elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
  '(safe-local-variable-values
-   '((org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2020-01-01\12flags hsc_z, hsc_a\12")
+   '((org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2022-01-01\12flags hsc_z, hsc_a\12")
      (org-duration-units
       ("min" . 1)
       ("h" . 60)

@@ -316,7 +316,9 @@
                 :after (progn ;; Global settings (defaults)
                          (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                                doom-themes-enable-italic t) ; if nil, italics is universally disabled
-                         (load-theme 'doom-one-light t) ; doom-one, doom-vibrant, doom-acario-dark
+                         ;; doom-one, doom-vibrant, doom-acario-dark
+                         ;; doom-one-light, doom-acario-light, doom-city-lights
+                         (load-theme 'doom-dracula t)
 
                          ;; Enable flashing mode-line on errors
                          (require 'doom-themes-ext-visual-bell)

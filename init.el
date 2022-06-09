@@ -15,6 +15,11 @@
 
 ;;; Code:
 
+;;; To debug problems with packages (example org), a great technique
+;;; is to drop into the debugger immediately after the problematic
+;;; package loads:
+;; (eval-after-load "org" '(debug))
+
 (when (version< emacs-version "25")
   (error "Unsupported Emacs Version! Please upgrade to Emacs 25 or above.  Emacs installation instructions: https://www.gnu.org/software/emacs/download.html"))
 
