@@ -348,5 +348,18 @@ If WEEK-NUM is not provided, use the current week."
                 (ts-apply :hour 23 :minute 59 :second 59))))
     (cons beg end)))
 
+;;; Taken from Shae, needs Cairo to work
+(defun screenshot-svg ()
+  "Save a screenshot of the current frame as an SVG image.
+    Saves to a temp file and puts the filename in the kill ring."
+  (interactive)
+  (if (fboundp 'x-export-frames)
+      (let* ((filename (make-temp-file "Emacs" nil ".svg"))
+             (data (x-export-frames nil 'svg)))
+        (with-temp-file filename
+          (insert data))
+        (kill-new filename)
+        (message filename))
+    (user-error "Cairo not supported in current Emacs build")))
 
 (provide 'utility-functions)
