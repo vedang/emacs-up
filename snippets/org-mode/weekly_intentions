@@ -2,11 +2,22 @@
 # name: weekly_intentions
 # key: weekint
 # --
-*** ${1:$(ts-format "Start of Week %W: %F %a" (car (this-week-range (string-to-number yas-text))))} -- ${1:$(ts-format "%F %a" (cdr (this-week-range (string-to-number yas-text))))}  :childless:checkin:weekly:
+*** ${1:$(ts-format "Start of Week %W: %F %a" (car (this-week-range (string-to-number yas-text))))} -- ${1:$(ts-format "%F %a" (cdr (this-week-range (string-to-number yas-text))))}  :checkin:weekly:
 Week Number: ${1:`(string-to-number (ts-format "%W" (car (this-week-range))))`}
 ${1:$(ts-format "<%F %a>" (car (this-week-range (string-to-number yas-text))))}--${1:$(ts-format "<%F %a>" (cdr (this-week-range (string-to-number yas-text))))}
 
+- Review
+  + [ ] Last Week's progress (Weekly Report)
+    - Reflect and celebrate my achievements in the last week!
+  + [ ] Yearly Goals
+  + [ ] Monthly Goals
+  + [ ] 31-day challenge
+
 **** Is there a goal I would like to achieve by the end of the week?
+#+begin_comment
+- Setup smart goals for the end of this week
+- Create tasks to track these goals
+#+end_comment
 
 **** What is one extremely concrete thing I can do next?
 
