@@ -262,6 +262,12 @@
          ;;                            leuven-scale-org-agenda-structure nil
          ;;                            leuven-scale-volatile-highlight nil)))
 
+         (:name calfw
+                :after (progn
+                         ;; For reasons that I do not understand, the
+                         ;; :timestamp value does not work here.
+                         (setq cfw:org-agenda-schedule-args
+                               '(:deadline :scheduled))))
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
