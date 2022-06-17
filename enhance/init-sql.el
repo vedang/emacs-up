@@ -52,6 +52,23 @@
 
 (add-hook 'sql-interactive-mode-hook 'emacswiki/sql-save-history-hook)
 
+;;; From:
+;;; https://fluca1978.github.io/2022/04/13/EmacsPgFormatter.html, with
+;;; minor modifications.
+(defun pgformatter-on-region ()
+  "A function to invoke pgFormatter as an external program."
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max)))
+        (pgfrm (executable-find "pg_format")))
+    (when pgfrm (shell-command-on-region b e pgfrm (current-buffer) 1))))
+
+(defun sql-format-buffer-on-save ()
+  "When saving an SQL buffer, format it with pg_format."
+  (add-hook 'before-save-hook #'pgformatter-on-region -10 t))
+
+(add-hook 'sql-mode-hook #'sql-format-buffer-on-save)
+
 (defun upcase-sql-keywords ()
   "Convert all SQL keywords to uppercase."
   (interactive)
