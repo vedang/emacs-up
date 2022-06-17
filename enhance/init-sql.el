@@ -25,12 +25,12 @@
 ;;; To speed up connection to an SQL database, add the following to a
 ;;; `.dir-locals.el' file:
 
-;; ((nil . ((sql-product . postgres)
-;;          (sql-user . "pgw")
-;;          (sql-password . "")
-;;          (sql-port . 5432)
-;;          (sql-server . "192.168.33.10")
-;;          (sql-database . "pgw-main"))))
+;; ((sql-mode . ((sql-product . postgres)
+;;               (sql-user . "pgw")
+;;               (sql-password . "")
+;;               (sql-port . 5432)
+;;               (sql-server . "192.168.33.10")
+;;               (sql-database . "pgw-main"))))
 
 ;;; Code:
 
