@@ -29,26 +29,41 @@
 (setq ibuffer-saved-filter-groups
       (quote (("default"
                ("Shell"
-                (mode . shell-mode))
+                (or (mode . shell-mode)
+                    (mode . sh-mode)
+                    (mode . conf-space-mode)
+                    (mode . Man-mode)
+                    (mode . dired-mode)
+                    (mode . bat-mode)
+                    (mode . vterm-mode)))
                ("Programming"
                 (or
                  (mode . c-mode)
                  (mode . c++-mode)
+                 (mode . dockerfile-mode)
                  (mode . erlang-mode)
                  (mode . perl-mode)
                  (mode . python-mode)
                  (mode . emacs-lisp-mode)
                  (mode . clojure-mode)
                  (mode . clojurescript-mode)
+                 (mode . clojurec-mode)
                  (mode . nrepl-repl-mode)
+                 (mode . cider-stacktrace-mode)
                  (name . "cider-repl")
+                 (mode . inferior-emacs-lisp-mode)
                  (mode . go-mode)
                  (mode . objc-mode)
                  (mode . mhtml-mode)
                  (mode . css-mode)
                  (mode . scss-mode)
                  (mode . java-mode)
-                 (mode . makefile-gmake-mode)))
+                 (mode . rjsx-mode)
+                 (mode . makefile-gmake-mode)
+                 (mode . makefile-bsdmake-mode)
+                 (mode . sql-interactive-mode)
+                 (mode . sql-mode)
+                 (mode . yaml-mode)))
                ("Writing"
                 (or
                  (mode . org-mode)
@@ -59,13 +74,16 @@
                  (mode . notmuch-message-mode)
                  (mode . LaTeX-mode)
                  (mode . fundamental-mode)
-                 (mode . text-mode)))
-               ("IRC"
-                (mode . rcirc-mode))
+                 (mode . text-mode)
+                 (mode . pdf-view-mode)))
                ("Magit"
                 (or
                  (derived-mode . magit-mode)
-                 (name . "magit")))))))
+                 (name . "magit")))
+               ("Helm"
+                (mode . helm-major-mode))
+               ("IRC"
+                (mode . rcirc-mode))))))
 
 
 (provide 'init-ibuffer)
