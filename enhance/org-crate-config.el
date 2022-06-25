@@ -28,12 +28,6 @@
 
 (defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
 
-;;; My personal capture templates
-(push '("j" "Journal" plain
-        (file+olp+datetree org-journal-file)
-        "%U\n\n%?\n%i")
-      org-capture-templates)
-
 (with-eval-after-load 'init-org-brain
   (let ((linklog-path (concat org-brain-path "/linklog_unread.org")))
     (push `("l" "Linklog"
