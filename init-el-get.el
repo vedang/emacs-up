@@ -323,8 +323,8 @@
                          (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                                doom-themes-enable-italic t) ; if nil, italics is universally disabled
                          ;; doom-one, doom-vibrant, doom-acario-dark
-                         ;; doom-one-light, doom-acario-light, doom-city-lights
-                         (load-theme 'doom-dracula t)
+                         ;; doom-one-light, doom-acario-light, doom-city-lights, doom-dracula
+                         (load-theme 'doom-city-lights t)
 
                          ;; Enable flashing mode-line on errors
                          (require 'doom-themes-ext-visual-bell)
@@ -781,8 +781,6 @@ Suggest the URL title as a description for resource."
 
          (:name pdf-tools
                 :after (progn (pdf-tools-install)
-                              (setq pdf-view-use-scaling t
-                                    pdf-view-use-imagemagick nil)
                               (require 'scroll-other-window)
                               (add-hook 'pdf-view-mode-hook #'sow-mode)
                               (with-eval-after-load 'org-noter
@@ -914,7 +912,7 @@ Suggest the URL title as a description for resource."
                              (kbd "M-h") 'shrface-headline-helm)
                            (setq shrface-href-versatile t)
                            (set-face-attribute 'variable-pitch nil
-                                               :font "FantasqueSansMono NF 22"))))
+                                               :font "FantasqueSansMono NF 24"))))
 
          (:name sicp
                 :after (progn
@@ -945,13 +943,6 @@ Suggest the URL title as a description for resource."
                            (tagedit-add-experimental-features)
                            (tagedit-mode +1))
                          (add-hook 'html-mode-hook #'turn-on-tagedit)))
-
-         (:name emacs-tree-sitter
-                :after (progn (require 'tree-sitter)
-                              (require 'tree-sitter-hl)
-                              (require 'tree-sitter-langs)
-                              (require 'tree-sitter-debug)
-                              (require 'tree-sitter-query)))
 
          (:name ts
                 :after (progn (require 'ts)))
