@@ -59,13 +59,14 @@
 (defun pgformatter-on-region ()
   "A function to invoke pgFormatter as an external program."
   (interactive)
-  (let ((b (if mark-active (min (point) (mark)) (point-min)))
-        (e (if mark-active (max (point) (mark)) (point-max)))
+  (let ((b (if mark-active (region-beginning) (point-min)))
+        (e (if mark-active (region-end) (point-max)))
         (pgfrm (executable-find "pg_format")))
-    (when pgfrm
+    (if pgfrm
       (let ((p (point)))
-        (shell-command-on-region b e pgfrm (current-buffer) 1)
-        (goto-char p)))))
+        (shell-command-on-region b e pgfrm (current-buffer) t)
+        (goto-char p))
+      (user-error "Could not find pg_format installed"))))
 
 (defun sql-format-buffer-on-save ()
   "When saving an SQL buffer, format it with pg_format."

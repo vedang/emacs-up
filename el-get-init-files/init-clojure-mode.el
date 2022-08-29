@@ -109,6 +109,21 @@
      ;;          (add-hook 'clojure-mode-hook 'define-orgstruct-heading)))
      ))
 
+;;; From:
+;;; https://gist.github.com/jackrusher/e628abb653429c22bc6330752b3e49a5,
+;;; with minor modifications from myself.
+(defun json->edn ()
+  "Convert the selected region, or entire file, from JSON to EDN."
+  (interactive)
+  (let ((b (if mark-active (region-beginning) (point-min)))
+        (e (if mark-active (region-end) (point-max)))
+        (jet (when (executable-find "jet")
+               "jet --pretty --keywordize keyword --from json --to edn")))
+    (if jet
+      (let ((p (point)))
+        (shell-command-on-region b e jet (current-buffer) t)
+        (goto-char p))
+      (user-error "Could not find jet installed"))))
 
 (provide 'init-clojure-mode)
 
