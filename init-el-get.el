@@ -896,21 +896,39 @@ Suggest the URL title as a description for resource."
 
          (:name shrface
                 :after (progn
-                         (add-hook 'eww-after-render-hook #'shrface-mode)
+                         (with-eval-after-load 'eww
+                           (require 'shrface)
+                           (add-hook 'eww-after-render-hook #'shrface-mode))
                          (with-eval-after-load 'nov
-                           (add-hook 'nov-mode-hook #'shrface-mode)
+                           (require 'shrface)
                            (setq nov-shr-rendering-functions
                                  (append nov-shr-rendering-functions
-                                         shr-external-rendering-functions)))
+                                         shr-external-rendering-functions))
+                           (add-hook 'nov-mode-hook #'shrface-mode))
+                         (with-eval-after-load 'anki
+                           (require 'shrface)
+                           (setq anki-shr-rendering-functions
+                                 (append anki-shr-rendering-functions
+                                         shr-external-rendering-functions))
+                           (setq sql-sqlite-program
+                                 (executable-find "sqlite3"))
+                           (setq anki-collection-dir
+                                 "/Users/nejo/Library/Application Support/Anki2/nejo")
+                           (add-hook 'anki-mode-hook #'shrface-mode)
+                           (autoload 'anki "anki")
+                           (autoload 'anki-browser "anki")
+                           (autoload 'anki-list-decks "anki"))
+
                          (with-eval-after-load 'shrface
                            (shrface-basic)
                            (shrface-trial)
                            (shrface-default-keybindings)
+                           (setq shrface-href-versatile t)
+
                            (define-key shrface-mode-map
-                             (kbd "M-l") 'shrface-links-helm)
+                                       (kbd "M-l") 'shrface-links-helm)
                            (define-key shrface-mode-map
                              (kbd "M-h") 'shrface-headline-helm)
-                           (setq shrface-href-versatile t)
                            (set-face-attribute 'variable-pitch nil
                                                :font "FantasqueSansMono NF 24"))))
 
