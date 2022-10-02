@@ -152,10 +152,6 @@
                   :after (progn
                            (setq c/preferred-browser "firefox")))
 
-           (:name elfeed)
-
-           (:name elpher)
-
            (:name helm-dash
                   :after (setq dash-docs-browser-func 'eww))))
 ;;; All the prettiness of Emacs is captured here.
@@ -323,8 +319,9 @@
                          (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
                                doom-themes-enable-italic t) ; if nil, italics is universally disabled
                          ;; doom-one, doom-vibrant, doom-acario-dark
-                         ;; doom-one-light, doom-acario-light, doom-city-lights, doom-dracula
-                         (load-theme 'doom-city-lights t)
+                         ;; doom-one-light, doom-acario-light,
+                         ;; doom-city-lights, doom-dracula
+                         (load-theme 'doom-one t)
 
                          ;; Enable flashing mode-line on errors
                          (require 'doom-themes-ext-visual-bell)
@@ -339,6 +336,7 @@
                          ;; Corrects (and improves) org-mode's native fontification.
                          (require 'doom-themes-ext-org)
                          (doom-themes-org-config)))
+
          (:name dumb-jump
                 :after (progn (dumb-jump-mode)
                               (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
@@ -406,6 +404,59 @@
 			 (defun eglot-format-buffer-on-save ()
 			   (add-hook 'before-save-hook #'eglot-format-buffer -10 t))
 			 (add-hook 'go-mode-hook #'eglot-format-buffer-on-save)))
+
+         (:name elfeed
+                :after (progn
+                         (require 'elfeed)
+
+                         (setq elfeed-feeds
+                               '(("http://nullprogram.com/feed/" emacs)
+                                 ("https://sachachua.com/blog/feed" emacs)
+                                 "http://www.50ply.com/atom.xml"
+                                 ("https://www.gwern.net/docs/personal/rss-subscriptions.opml" longreads)
+                                 ("https://waitbutwhy.com/feed" longreads)
+                                 ("https://oremacs.com/atom.xml" emacs)
+                                 ("https://tech.redplanetlabs.com/feed/" clojure distributed_systems)
+                                 ("http://planet.clojure.in/atom.xml" planet_clojure)
+                                 ("https://corfield.org/atom.xml" clojure sean_corfield)
+                                 ("https://dragan.rocks/feed.xml" clojure dragan machine_learning)
+                                 ("https://ideolalia.com/feed.xml" zach_tellman)
+                                 ("https://mcfunley.com/feed.xml" dan_mckinley)
+                                 ("https://feeds.feedburner.com/martinkl" distributed_systems)
+                                 ("https://blog.tecosaur.com/tmio/rss.xml" org_mode emacs important)
+                                 ("https://bzg.fr/en/index.xml" bzg emacs important)
+                                 ("https://martinfowler.com/feed.atom" bliki important)
+                                 ("https://drewdevault.com/blog/index.xml" programming)
+                                 ("https://www.kellblog.com/feed" dave_kellogg management)
+                                 ("https://evertpot.com/atom.xml" web_development)
+                                 ("https://vanderburg.org/feed.xml" software_engineering)
+                                 ("https://clojure.org/feed.xml" clojure important)
+                                 ("http://tonsky.me/blog/atom.xml" clojure software_engineering)
+                                 ("https://www.scattered-thoughts.net/atom.xml" hytradboi jamie_brandon)
+                                 ("https://vedang.me/feed.xml" personal important)
+                                 ("https://theheretic.org/feed.xml" leadership management)
+                                 ("https://randsinrepose.com/feed/" rands leadership management)
+                                 ("https://xenodium.com/rss.xml" xenodium emacs)))
+
+                         ;; Mark all YouTube entries
+                         (add-hook 'elfeed-new-entry-hook
+                                   (elfeed-make-tagger :feed-url "youtube\\.com"
+                                                       :add '(video youtube)))
+
+                         ;; Entries older than 4 weeks are marked as read
+                         (add-hook 'elfeed-new-entry-hook
+                                   (elfeed-make-tagger :before "4 weeks ago"
+                                                       :remove 'unread))
+
+                         (defface important-elfeed-entry
+                           '((t :foreground "#f77"))
+                           "Marks an important Elfeed entry.")
+
+                         (push '(important important-elfeed-entry)
+                               elfeed-search-face-alist)))
+
+         (:name elpher)
+
 
          ;; Easy kill might remove the complete need of `change-inner'
          ;; and `expand-region'. I'll observe for a bit and then take
