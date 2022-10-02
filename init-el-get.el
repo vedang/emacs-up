@@ -347,6 +347,34 @@
                               (setq dumb-jump-selector 'helm
                                     dumb-jump-prefer-searcher 'rg)))
 
+         (:name dwim-shell-command
+                :after (progn (require 'dwim-shell-commands)
+                              (define-key dired-mode-map
+                                          [remap shell-command]
+                                          #'dwim-shell-command)
+                              (define-key dired-mode-map
+                                          [remap dired-do-async-shell-command]
+                                          #'dwim-shell-command)
+                              (define-key dired-mode-map
+                                          [remap dired-do-shell-command]
+                                          #'dwim-shell-command)
+                              (define-key dired-mode-map
+                                          [remap dired-smart-shell-command]
+                                          #'dwim-shell-command)
+
+                              (defun dwim-shell-commands-copy-remote-to-downloads ()
+                                (interactive)
+                                (dwim-shell-command-on-marked-files
+                                 "Copy remote to local Downloads"
+                                 "scp '<<f>>' ~/Downloads/"
+                                 :utils "scp"
+                                 :post-process-template
+                                 (lambda (script file)
+                                   ;; Tramp file path start with "/ssh:". Drop it.
+                                   (string-replace file
+                                                   (string-remove-prefix "/ssh:" file)
+                                                   script))))))
+
          ;; Change-Inner, Expand-Region and Multiple-Cursors are
          ;; interesting selection and editing tools that go together.
          (:name change-inner
