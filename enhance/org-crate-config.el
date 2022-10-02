@@ -24,7 +24,10 @@
 (setq org-default-notes-file (expand-file-name "brain/daily.org" org-directory)
       org-id-track-globally t
       org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
-      org-clock-persist-file (concat tempfiles-dirname "org-clock-save"))
+      org-clock-persist-file (concat tempfiles-dirname "org-clock-save")
+      ;; Don't dim anything in the Agenda. If I want dimming, I will
+      ;; ask for it explicitly with the # key-binding in the Agenda.
+      org-agenda-dim-blocked-tasks nil)
 
 (defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
 
