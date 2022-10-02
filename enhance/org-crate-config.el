@@ -28,15 +28,6 @@
 
 (defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
 
-(with-eval-after-load 'init-org-brain
-  (let ((linklog-path (concat org-brain-path "/linklog_unread.org")))
-    (push `("l" "Linklog"
-            entry (file ,linklog-path)
-            "* %^{Title of post} \n:PROPERTIES:\n:URL: %c\n:END:\n%U\n- [[%c][Link to post]]"
-            :clock-in t
-            :clock-resume t)
-          org-capture-templates)))
-
 ;;; My personal tag hotkeys
 (push '("engineering_management" . ?e) org-tag-alist)
 (push '("refile" . ?r) org-tag-alist)
