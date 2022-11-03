@@ -436,6 +436,7 @@
 
                          (setq elfeed-feeds
                                '(("http://nullprogram.com/feed/" emacs)
+                                 ("https://tsdh.org/rss.xml" emacs tassilo_horn)
                                  ("https://sachachua.com/blog/feed" emacs)
                                  "http://www.50ply.com/atom.xml"
                                  ("https://www.gwern.net/docs/personal/rss-subscriptions.opml" longreads)
@@ -461,7 +462,9 @@
                                  ("https://vedang.me/feed.xml" personal important)
                                  ("https://theheretic.org/feed.xml" leadership management)
                                  ("https://randsinrepose.com/feed/" rands leadership management)
-                                 ("https://xenodium.com/rss.xml" xenodium emacs)))
+                                 ("https://xenodium.com/rss.xml" xenodium emacs)
+                                 ;; Alexander's site is gorgeous!
+                                 ("https://alexanderobenauer.com/assets/feed/rss.xml" operating_systems programming)))
 
                          ;; Mark all YouTube entries
                          (add-hook 'elfeed-new-entry-hook

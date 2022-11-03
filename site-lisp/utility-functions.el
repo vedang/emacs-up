@@ -57,10 +57,10 @@
         (progn
           (skip-syntax-forward "^\"")
           (goto-char (1+ (point)))
-          (decf arg))
+          (cl-decf arg))
       (skip-syntax-backward "^\"")
       (goto-char (1- (point)))
-      (incf arg)))
+      (cl-incf arg)))
   (up-list arg))
 
 

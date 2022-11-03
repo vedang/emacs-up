@@ -41,6 +41,7 @@
       magit-git-executable (or (executable-find "git") "/usr/local/bin/git")
       vc-git-program (or (executable-find "git") "/usr/local/bin/git")
       ispell-program-name (or (executable-find "aspell") "/usr/local/bin/aspell")
+      ispell-local-dictionary "british"
       epg-gpg-program (or (executable-find "gpg") "/usr/local/bin/gpg")
       ;; source dirs
       ;; Note: These are hard-coded to my machine.
