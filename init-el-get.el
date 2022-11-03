@@ -318,7 +318,7 @@
                          ;; doom-one, doom-vibrant, doom-acario-dark
                          ;; doom-one-light, doom-acario-light,
                          ;; doom-city-lights, doom-dracula
-                         (load-theme 'doom-one t)
+                         ;; (load-theme 'doom-one t)
 
                          ;; Enable flashing mode-line on errors
                          (require 'doom-themes-ext-visual-bell)
@@ -548,6 +548,9 @@
          (:name helm-system-packages)
 
          (:name highlight-indentation)
+
+         (:name emacs-humanoid-themes
+                :after (progn (load-theme 'humanoid-dark t)))
 
          (:name linkd)
 
