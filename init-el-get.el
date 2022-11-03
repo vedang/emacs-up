@@ -128,12 +128,6 @@
 
 ;;; Conditional Installs --- Things that depend on external services.
 
-       ;; Format JS, JSX files on save event.
-       ;; Prerequisite: npm install -g prettier
-       (when (executable-find "prettier")
-         '((:name prettier-js
-                  :after (add-hook 'rjsx-mode-hook #'prettier-js-mode))))
-
        ;; Keep updating the Zoxide DB for all the paths I open, keep
        ;; making Zoxide more powerful.
        (when (executable-find "zoxide")
@@ -230,6 +224,9 @@
                                 [remap isearch-query-replace-regexp]
                                 #'anzu-isearch-query-replace-regexp)
                               (defalias 'qrr 'anzu-query-replace-regexp)))
+
+         (:name apheleia
+                :after (progn (apheleia-global-mode +1)))
 
          (:name ascii-art-to-unicode
                 :after (require 'ascii-art-to-unicode))
