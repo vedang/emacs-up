@@ -999,6 +999,8 @@ Suggest the URL title as a description for resource."
 
          (:name propcheck)
 
+         (:name qpdf)
+
          (:name rainbow-mode)
 
          (:name restclient)
