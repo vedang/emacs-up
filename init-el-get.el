@@ -1082,6 +1082,15 @@ Suggest the URL title as a description for resource."
          (:name ts
                 :after (progn (require 'ts)))
 
+         (:name typescript-mode
+                :after (progn
+                         (define-derived-mode typescriptreact-mode typescript-mode
+                           "TypeScript TSX")
+                         (add-to-list 'auto-mode-alist
+                                      '("\\.tsx?\\'" . typescriptreact-mode))
+                         (add-to-list 'tree-sitter-major-mode-language-alist
+                                      '(typescriptreact-mode . tsx))))
+
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
 
