@@ -491,6 +491,27 @@
                          (push '(important important-elfeed-entry)
                                elfeed-search-face-alist)))
 
+         (:name elisp-tree-sitter
+                :after (progn (add-hook 'typescript-mode-hook
+                                        #'tree-sitter-mode)
+                              (add-hook 'zig-mode-hook
+                                        #'tree-sitter-mode)
+                              (add-hook 'rjsx-mode-hook
+                                        #'tree-sitter-mode)
+                              (add-hook 'js-mode-hook
+                                        #'tree-sitter-mode)
+                              (add-hook 'js2-mode-hook
+                                        #'tree-sitter-mode)
+                              (add-hook 'javascript-mode-hook
+                                        #'tree-sitter-mode)
+                              (add-hook 'java-mode-hook
+                                        #'tree-sitter-mode)
+                              (add-hook 'mhtml-mode-hook
+                                        #'tree-sitter-mode)
+
+                              (add-hook 'tree-sitter-after-on-hook
+                                        #'tree-sitter-hl-mode)))
+
          (:name elpher)
 
 
