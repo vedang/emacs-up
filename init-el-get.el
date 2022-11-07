@@ -1082,6 +1082,19 @@ Suggest the URL title as a description for resource."
          (:name ts
                 :after (progn (require 'ts)))
 
+         (:name tsi.el
+                :after (progn (require 'tsi-typescript)
+                              (require 'tsi-json)
+                              (require 'tsi-css)
+                              (add-hook 'typescript-mode-hook
+                                        (lambda () (tsi-typescript-mode 1)))
+                              (add-hook 'json-mode-hook
+                                        (lambda () (tsi-json-mode 1)))
+                              (add-hook 'css-mode-hook
+                                        (lambda () (tsi-css-mode 1)))
+                              (add-hook 'scss-mode-hook
+                                        (lambda () (tsi-scss-mode 1)))))
+
          (:name typescript-mode
                 :after (progn
                          (define-derived-mode typescriptreact-mode typescript-mode
