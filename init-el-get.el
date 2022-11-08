@@ -1183,7 +1183,9 @@ Suggest the URL title as a description for resource."
                                            'yas-hippie-try-expand)))
 
          (:name yatemplate
-                :after (progn (auto-insert-mode +1))))))
+                :after (progn (auto-insert-mode +1)))
+
+         (:name zig-mode))))
 
 
 (defvar el-get-my-packages
