@@ -59,7 +59,13 @@
         (forward-word)))))
 
 (setq flyspell-issue-welcome-flag nil)
-(global-set-key (kbd "C-,") 'flyspell-goto-previous-error)
+
+;;; Handy key for jumping to the last spelling error.
+(define-key flyspell-mode-map (kbd "C-,") #'flyspell-goto-previous-error)
+;; I want this for `iedit-mode', so unsetting it here and replacing it
+(define-key flyspell-mode-map (kbd "C-;") nil)
+(define-key flyspell-mode-map (kbd "C-:") #'flyspell-auto-correct-previous-word)
+
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 (add-hook 'fundamental-mode-hook 'turn-on-flyspell)
 

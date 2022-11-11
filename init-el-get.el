@@ -586,6 +586,8 @@
          (:name emacs-humanoid-themes
                 :after (progn (load-theme 'humanoid-dark t)))
 
+         (:name iedit)
+
          (:name linkd)
 
          (:name lispy
