@@ -103,7 +103,6 @@
                                  (cljstyle-mode +1)
                                (message "Could not find `cljstyle' on $PATH. Please ensure you have installed it correctly.")))))
 
-           (:name flycheck-joker)
            (:name flycheck-clj-kondo)))
 
        (when (bound-and-true-p configure-python-p)
@@ -255,12 +254,12 @@
          ;;                            leuven-scale-org-agenda-structure nil
          ;;                            leuven-scale-volatile-highlight nil)))
 
-         (:name calfw
-                :after (progn
-                         ;; For reasons that I do not understand, the
-                         ;; :timestamp value does not work here.
-                         (setq cfw:org-agenda-schedule-args
-                               '(:deadline :scheduled))))
+         ;; (:name calfw
+         ;;        :after (progn
+         ;;                 ;; For reasons that I do not understand, the
+         ;;                 ;; :timestamp value does not work here.
+         ;;                 (setq cfw:org-agenda-schedule-args
+         ;;                       '(:deadline :scheduled))))
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
@@ -273,8 +272,8 @@
 
          (:name company-ansible)
 
-         (:name dash-at-point
-                :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
+         ;; (:name dash-at-point
+         ;;        :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
 
          (:name deadgrep
                 :after (progn (global-set-key (kbd "M-g a") 'deadgrep)))
@@ -540,9 +539,9 @@
                 :after (with-eval-after-load 'flycheck
                          (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
 
-         (:name gcmh
-                :after (progn (require 'gcmh)
-                              (gcmh-mode 1)))
+         ;; (:name gcmh
+         ;;        :after (progn (require 'gcmh)
+         ;;                      (gcmh-mode 1)))
 
          (:name groovy-emacs-mode)
 
@@ -596,9 +595,9 @@
                               (with-eval-after-load 'lispy-mode
                                 (define-key lispy-mode-map (kbd "M-m") nil))))
 
-         ;; Note: `powerline' needs to be installed before `moe-theme'
-         (:name powerline)
-         (:name moe-theme)
+         ;; ;; Note: `powerline' needs to be installed before `moe-theme'
+         ;; (:name powerline)
+         ;; (:name moe-theme)
 
          (:name magit
                 :after (progn
@@ -629,10 +628,10 @@
                 :after (progn (global-set-key (kbd "C-c o")
                                               org-board-keymap)))
 
-         (:name org-books
-                ;; My personal settings set up the capture template
-                ;; mentioned in `org-books' README
-                )
+         ;; (:name org-books
+         ;;        ;; My personal settings set up the capture template
+         ;;        ;; mentioned in `org-books' README
+         ;;        )
 
          (:name org-brain
                 :before (progn (autoload 'helm-brain "org-brain")
@@ -776,7 +775,7 @@ Suggest the URL title as a description for resource."
                          (setq savehist-additional-variables
                                '(org-brain-headline-cache))))
 
-         (:name org-chef)
+         ;; (:name org-chef)
 
          (:name org-cliplink
                 :after (require 'org-cliplink))
@@ -882,13 +881,17 @@ Suggest the URL title as a description for resource."
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
 
-         (:name parinfer-rust-mode
-                :after (progn (setq parinfer-rust-auto-download t
-                                    ;; Don't check every time,
-                                    ;; just enable the damn thing.
-                                    parinfer-rust-check-before-enable nil)))
+         ;; (:name parinfer-rust-mode
+         ;;        :after (progn (setq parinfer-rust-auto-download t
+         ;;                            ;; Don't check every time,
+         ;;                            ;; just enable the damn thing.
+         ;;                            parinfer-rust-check-before-enable nil)))
 
          (:name package-lint)
+
+         (:name pandoc-mode
+                ;; Uses hydra to show export options, triggered by C-c /
+                )
 
          (:name pcre2el)
 
@@ -1072,7 +1075,7 @@ Suggest the URL title as a description for resource."
          (:name solaire-mode
                 :after (solaire-global-mode +1))
 
-         (:name spaceline-all-the-icons)
+         ;; (:name spaceline-all-the-icons)
 
          (:name tagedit
                 :after (with-eval-after-load 'sgml-mode
