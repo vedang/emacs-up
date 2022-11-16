@@ -44,7 +44,8 @@
    '(file free-text highlight squiggly strike-out text underline))
  '(pdf-annot-minor-mode-map-prefix [3 1])
  '(safe-local-variable-values
-   '((org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2022-01-01\12flags hsc_z, hsc_a\12")
+   '((system-time-locale . "C")
+     (org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2022-01-01\12flags hsc_z, hsc_a\12")
      (org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2020-01-01\12flags hsc_z, hsc_a\12")
      (org-duration-units
       ("min" . 1)

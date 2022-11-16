@@ -88,7 +88,10 @@ right mode to start in the buffer."
 
 
 ;; Require other site-lisp configuration
-(require 'dired+)
+
+;; commented out to see if this is causing problems in Emacs 29 /
+;; dired
+; (require 'dired+)
 (require 'init-ido)
 (require 'init-ibuffer)
 (require 'init-isearch)
