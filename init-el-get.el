@@ -366,7 +366,9 @@
                               (ansible-doc . ansible-doc-mode)
                               (autorevert . auto-revert-mode)
                               (company . company-mode)
-                              (gcmh . gcmh-mode))
+                              (gcmh . gcmh-mode)
+                              (org-remark . org-remark-mode)
+                              (org-remark-global-tracking . org-remark-global-tracking-mode))
                             "Tuples of (LIBRARY-NAME . MODE-NAME) that I don't want to see on the modeline.")
                           (defmacro vm/diminish-that-line ()
                             (cons 'progn
@@ -882,6 +884,7 @@ Suggest the URL title as a description for resource."
                                               #'org-pomodoro)))
 
          (:name org-remark
+                :before (setq org-remark-create-default-pen-set nil)
                 :after (progn
                          ;; Key-bind `org-remark-mark' to global-map
                          ;; so that you can call it globally before
@@ -898,6 +901,24 @@ Suggest the URL title as a description for resource."
                              (expand-file-name "marginalia.org" org-brain-path))
                            (setq org-remark-notes-file-name
                                  #'vm/org-remark-notes)
+                           ;; Create a pen set for specific kinds of
+                           ;; highlights. NOTE: This pen-set has been
+                           ;; made for dark themes, specifically
+                           ;; `humanoid-dark'.
+                           (org-remark-create "review"
+                                              ;; face: `dired-flagged'
+                                              '(:underline
+                                                (:color "dark red" :style wave)
+                                                :foreground "#f7143a")
+                                              '(CATEGORY "review"
+                                                         help-echo "Review this"))
+                           (org-remark-create "important"
+                                              ;; face: `dired-broken-symlink'
+                                              '(:underline "gold"
+                                                           :background "red1"
+                                                           :foreground "yellow1"
+                                                           :weight bold)
+                                              '(CATEGORY "important"))
                            (define-key org-remark-mode-map (kbd "C-c r o")
                                        #'org-remark-open)
                            (define-key org-remark-mode-map (kbd "C-c r n")
@@ -911,9 +932,9 @@ Suggest the URL title as a description for resource."
                            (define-key org-remark-mode-map (kbd "C-c r l")
                                        #'org-remark-highlights-load)
                            (define-key org-remark-mode-map (kbd "C-c r y")
-                                       #'org-remark-mark-yellow)
+                                       #'org-remark-mark-important)
                            (define-key org-remark-mode-map (kbd "C-c r e")
-                                       #'org-remark-mark-red-line)
+                                       #'org-remark-mark-review)
                            (define-key org-remark-mode-map (kbd "C-c r t")
                                        #'org-remark-toggle)
                            (define-key org-remark-mode-map (kbd "C-c r v")
