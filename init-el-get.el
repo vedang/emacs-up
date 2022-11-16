@@ -159,10 +159,84 @@
                                 (magit-delta-mode +1))
                               (add-hook 'magit-mode-hook #'turn-on-magit-delta)))))
 
-	      '((:name all-the-icons-dired
+	      '((:name all-the-icons)
+
+            (:name all-the-icons-ibuffer
+                   :after (progn (all-the-icons-ibuffer-mode 1)))
+
+            (:name all-the-icons-dired
                    :after (progn
                             (add-hook 'dired-mode-hook
-                                      #'all-the-icons-dired-mode))))))
+                                      #'all-the-icons-dired-mode)))
+
+            (:name org-superstar
+                   :after (progn (add-hook 'org-mode-hook
+                                           (lambda () (org-superstar-mode 1)))))
+
+            (:name prettify-utils
+                   :after (progn
+                            (defun prog-mode-prettify-symbols ()
+                              "Pretty symbols in all programming modes."
+                              (setq prettify-symbols-alist
+                                    (prettify-utils-generate
+                                     ("lambda " "λ")
+                                     ("<="      "≤")
+                                     (">="      "≥")
+                                     ("->"      "→ ")
+                                     ("=>"      "⇒")
+                                     ("->>"     "⇒  ")
+                                     ("fn "     "ƒ ")
+                                     ("#("      "λ(")
+                                     ("#{"      "∈{")))
+                              (prettify-symbols-mode 1))
+
+                            (add-hook 'prog-mode-hook #'prog-mode-prettify-symbols)
+
+                            (defun org-mode-prettify-symbols ()
+                              ;; ("#+begin_src" . "")
+                              ;; ("#+title: " . "")
+                              (setq prettify-symbols-alist
+                                    (append (mapcan (lambda (x) (list x (cons (upcase (car x)) (cdr x))))
+                                                    '(("#+begin_src" . ?)
+                                                      ("#+end_src" . ?)
+                                                      ("#+begin_example" . ?)
+                                                      ("#+end_example" . ?)
+                                                      ("#+header:" . ?)
+                                                      ("#+name:" . ?﮸)
+                                                      ("#+results:" . ?)
+                                                      ("#+call:" . ?)
+                                                      ("#+startup:" . ?)
+                                                      ("#+filetags:" . ?)
+		                                              ("#+html_head:" . ?)
+		                                              ("#+subtitle:" . ?)
+		                                              ("#+author:" . ?)
+                                                      (":properties:" . ?)
+                                                      (":logbook:" . ?)
+                                                      (":clock:" . ?)
+                                                      (":end:" . ?―)
+                                                      (":resources:" . ?)))
+                                            '(("TODO" . ?)
+	                                          ("WAITING" . ?)
+   		                                      ("WORKING" . ?)
+                                              ("CANCELLED" . ?)
+                                              ("MEETING" . ?)
+		                                      ("DONE" . ?)
+		                                      ("[#A]" . ?)
+		                                      ("[#B]" . ?)
+ 		                                      ("[#C]" . ?)
+		                                      ("[ ]" . ?)
+		                                      ("[X]" . ?)
+		                                      ("[-]" . ?)
+                                              ("CLOCK:" . ?)
+                                              (":Effort:" . ?)
+		                                      ("SCHEDULED:" . ?)
+		                                      ("DEADLINE:" . ?))))
+                              (prettify-symbols-mode 1))
+
+                            (add-hook 'org-mode-hook
+                                      #'org-mode-prettify-symbols)
+                            (add-hook 'org-agenda-mode-hook
+                                      #'org-mode-prettify-symbols))))))
 
 ;;; All the other recipes
        '((:name ace-link
@@ -191,11 +265,6 @@
                 :after (progn (global-set-key (kbd "C-x o") 'ace-window)
                               (setq aw-scope 'frame
                                     aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))))
-
-         (:name all-the-icons)
-
-         (:name all-the-icons-ibuffer
-                :after (progn (all-the-icons-ibuffer-mode 1)))
 
          (:name ansible
                 :after (with-eval-after-load 'yaml-mode
@@ -850,10 +919,6 @@ Suggest the URL title as a description for resource."
                            (define-key org-remark-mode-map (kbd "C-c r v")
                                        #'org-remark-view))))
 
-         (:name org-superstar
-                :after (progn (add-hook 'org-mode-hook
-                                        (lambda () (org-superstar-mode 1)))))
-
          (:name org-transclusion
                 :after (progn (global-set-key (kbd "C-c C-n a")
                                               #'org-transclusion-add)
@@ -926,81 +991,16 @@ Suggest the URL title as a description for resource."
                               ;; jar is downloaded on your system.
                               ))
 
-         (:name poet
-                :after (progn
-                         ;; (set-face-attribute 'default nil
-                         ;;                     :family "Iosevka"
-                         ;;                     :height 130)
-                         ;; (set-face-attribute 'fixed-pitch nil
-                         ;;                     :family "Iosevka")
-                         ;; (set-face-attribute 'variable-pitch nil
-                         ;;                     :family "Baskerville")
-                         ))
-
-         (:name prettify-utils
-                :after (progn
-                         (defun prog-mode-prettify-symbols ()
-                           "Pretty symbols in all programming modes."
-                           (setq prettify-symbols-alist
-                                 (prettify-utils-generate
-                                  ("lambda " "λ")
-                                  ("<="      "≤")
-                                  (">="      "≥")
-                                  ("->"      "→ ")
-                                  ("=>"      "⇒")
-                                  ("->>"     "⇒  ")
-                                  ("fn "     "ƒ ")
-                                  ("#("      "λ(")
-                                  ("#{"      "∈{")))
-                           (prettify-symbols-mode 1))
-
-                         (add-hook 'prog-mode-hook #'prog-mode-prettify-symbols)
-
-                         (defun org-mode-prettify-symbols ()
-                           ;; ("#+begin_src" . "")
-                           ;; ("#+title: " . "")
-                           (setq prettify-symbols-alist
-                                 (append (mapcan (lambda (x) (list x (cons (upcase (car x)) (cdr x))))
-                                                 '(("#+begin_src" . ?)
-                                                   ("#+end_src" . ?)
-                                                   ("#+begin_example" . ?)
-                                                   ("#+end_example" . ?)
-                                                   ("#+header:" . ?)
-                                                   ("#+name:" . ?﮸)
-                                                   ("#+results:" . ?)
-                                                   ("#+call:" . ?)
-                                                   ("#+startup:" . ?)
-                                                   ("#+filetags:" . ?)
-		                                           ("#+html_head:" . ?)
-		                                           ("#+subtitle:" . ?)
-		                                           ("#+author:" . ?)
-                                                   (":properties:" . ?)
-                                                   (":logbook:" . ?)
-                                                   (":clock:" . ?)
-                                                   (":end:" . ?―)
-                                                   (":resources:" . ?)))
-                                         '(("TODO" . ?)
-	                                       ("WAITING" . ?)
-   		                                   ("WORKING" . ?)
-                                           ("CANCELLED" . ?)
-                                           ("MEETING" . ?)
-		                                   ("DONE" . ?)
-		                                   ("[#A]" . ?)
-		                                   ("[#B]" . ?)
- 		                                   ("[#C]" . ?)
-		                                   ("[ ]" . ?)
-		                                   ("[X]" . ?)
-		                                   ("[-]" . ?)
-                                           ("CLOCK:" . ?)
-                                           (":Effort:" . ?)
-		                                   ("SCHEDULED:" . ?)
-		                                   ("DEADLINE:" . ?))))
-                           (prettify-symbols-mode 1))
-
-                         (add-hook 'org-mode-hook
-                                   #'org-mode-prettify-symbols)
-                         (add-hook 'org-agenda-mode-hook
-                                   #'org-mode-prettify-symbols)))
+         ;; (:name poet
+         ;;        :after (progn
+         ;;                 ;; (set-face-attribute 'default nil
+         ;;                 ;;                     :family "Iosevka"
+         ;;                 ;;                     :height 130)
+         ;;                 ;; (set-face-attribute 'fixed-pitch nil
+         ;;                 ;;                     :family "Iosevka")
+         ;;                 ;; (set-face-attribute 'variable-pitch nil
+         ;;                 ;;                     :family "Baskerville")
+         ;;                 ))
 
          (:name propcheck)
 
