@@ -1,0 +1,88 @@
+#+TITLE: Things your programming editor should be able to do.
+#+SUBTITLE: And how I do them in Emacs.
+#+AUTHOR: Vedang Manerikar
+#+EMAIL: vedang.manerikar@gmail.com
+#+DATE: [2016-11-11 Fri]
+
+This is an incomplete list, please help me make it better by suggesting functionality that you find indispensable in your editor. I have tried to arrange it in decreasing order of importance. I consider all this functionality table stakes, but if you must prioritise then start from the top.
+
+* company, capf: Complete Anything
+
+Your editor should be able to show you completions for anything you are currently typing. This list includes, but is not restricted to:
+
+- completion of functions, variables, types, namespaces, classes, plain-text.
+- completion of arguments, with doc-strings
+
+* xref, dump-jump, eglot: Jumping to source and back
+
+Your editor should be able to jump to the definition of something on demand. This can be symbol at point (meaning word under the cursor) or can be anything I choose to enter
+
+- M-. :: Jump to the source of something
+- M-, :: Jump back from the source of something
+
+* flycheck, flymake: On the fly syntax checking
+
+Your editor must be able to integrate with a linter program. As you are typing code, it should be able to point out all the problems in your code without getting in your way or slowing you down.
+
+- C-c ! l :: List all errors
+- C-c ! n :: Go to the next error
+- C-c ! p :: Go to the previous error
+- M-g M-n :: Go to the next error
+- M-g M-p :: Go to the previous error
+
+* projectile, project.el: Understanding projects
+
+Your editor should have an understanding of the current project you are working in, as a whole. You should be able to quickly search for occurrences of certain words / phrases / symbols across the project. You should be able to pull up any file you wish in the project quickly, without needing to know exactly how the project is structured on disk
+
+- C-x c p p :: Switch to a project on disk
+- C-x c p f :: Find a file in the current project
+- C-c s     :: Search for something in the current project
+
+* magit: Git from the editor
+
+Your editor should be able to give you the full power of your version control system in your editor. This includes, but is not limited to: creating new commits, listing changes made in a certain file(s), jumping to different versions of the code in the VCS.
+
+- C-x g   :: Access the magit-status buffer for your project.
+- C-c C-c :: Access the full set of possible actions in your buffer
+- M-x magit-blame-addition :: For each line of the current buffer, show the revision which it was added in
+
+* paredit: Structured Editing
+
+Your editor should be able to understand the semantics of your programming language. It should be able to recognise and move quickly between functions and expressions. It should be able to manipulate entire expressions in one go.
+
+- C-a   :: ~beginning-of-line~
+- C-e   :: ~end-of-line~
+- M-a   :: ~backward-sentence~
+- M-e   :: ~forward-sentence~
+- C-M-f :: ~forward-sexp~
+- C-M-b :: ~backward-sexp~
+- C-M-a :: ~beginning-of-defun~
+- C-M-e :: ~end-of-defun~
+- M-m   :: ~back-to-indentation~
+- C-)   :: ~paredit-forward-slurp-sexp~
+- C-(   :: ~paredit-backward-slurp-sexp~
+- C-}   :: ~paredit-forward-barf-sexp~
+- C-{   :: ~paredit-backward-barf-sexp~
+
+* helm, imenu and avy: Jumping to important points quickly
+
+Your editor should be able to jump to all the important points of your code in the least number of keystrokes (i.e. quickly). You should be able to quickly see all function names, type declarations, variable declarations in a given file and ideally in a given project as well. You should be able to jump to any word on the screen quickly.
+
+- C-x c i :: Show all the function, type, variable declaration names and be able to jump to any of them with a few keystrokes
+- C-x c b, C-c n :: Cycle through all the "sessions" and resume any you wish. A session here is a search of any kind that you have done before: for a file name, symbol name, variable listing, bookmarks etc
+- M-g SPC :: Jump to a word on screen by typing the starting character
+
+* eglot, cider, clj-refactor: Understand what you code
+
+Your editor should have a clear understanding of the code you are writing, and should be able to help you change it faster. This includes, but is not limited to:
+
+- Refactoring support:
+  + Being able to rename symbols across the project
+  + Being able to suggest code clean up
+  + Being able to quickly import / clean-up dependencies
+
+- Finding usages of code:
+  + Being able to find all the places where a certain function is being used
+
+- Debugging your code:
+  + Being able to integrate with and start a debugger on demand

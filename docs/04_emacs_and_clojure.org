@@ -1,0 +1,39 @@
+#+TITLE: Emacs and Clojure
+#+AUTHOR: Vedang Manerikar
+#+EMAIL: vedang.manerikar@gmail.com
+#+DATE: [2018-11-01 Thu]
+
+* Basic Emacs Operations
+
+- C-x C-f :: Opens a file for editing. (~find-file~)
+- C-x C-s :: Saves changes to disk. (~save-buffer~)
+- C-x C-c :: Exits Emacs. (~save-buffers-kill-terminal~)
+- C-x k   :: Close a file. (~kill-buffer~)
+
+* Basic Clojure Operations
+
+- C-c M-c :: Connect to a Clojure Repl. (~cider-connect-clj~)
+- C-c C-z :: Switch to the Repl from inside a clj file (and vice-versa). (~cider-switch-to-repl-buffer~)
+- M-. :: Jump to the definition of the symbol that the cursor is on. (~cider-find-var~)
+- C-c C-c :: Compile the function that you are working in (in a clj file). (~cider-eval-defun-at-point~)
+
+* Namespace related operations
+
+- C-c C-k :: Compile the entire namespace. (~cider-load-buffer~)
+- C-c M-n M-n :: Switch to the namespace on the REPL. (~cider-repl-set-ns~)
+
+* Test related operations
+
+- C-c C-t C-n :: Run all the tests in this namespace. (~cider-test-run-ns-tests~)
+
+* TODO [3/10] Add sections explaining how to do the following things
+
+- [X] paredit
+- [X] jumping (Emacs)
+- [X] searching in project / directory
+- [ ] find-usages
+- [ ] rename-symbols
+- [ ] import / require
+- [ ] clean namespaces
+- [ ] linting
+- [ ] debugging
