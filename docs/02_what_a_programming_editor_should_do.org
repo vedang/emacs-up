@@ -6,7 +6,7 @@
 
 This is an incomplete list, please help me make it better by suggesting functionality that you find indispensable in your editor. I have tried to arrange it in decreasing order of importance. I consider all this functionality table stakes, but if you must prioritise then start from the top.
 
-* company, capf: Complete Anything
+* company, capf, eldoc: Complete Anything
 
 Your editor should be able to show you completions for anything you are currently typing. This list includes, but is not restricted to:
 
