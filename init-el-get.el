@@ -863,6 +863,22 @@ Suggest the URL title as a description for resource."
          (:name org-mode-crate
                 :after (progn (global-set-key (kbd "C-c a") #'org-agenda)
                               (message "Press `C-c a' to get started with your agenda...")
+                              ;; Keep the table of contents on it's own page always
+                              (setq org-latex-toc-command "\\tableofcontents \\clearpage"
+                                    org-latex-with-hyperref
+                                    "\\hypersetup{
+ pdfauthor={%a},
+ pdftitle={%t},
+ pdfkeywords={%k},
+ pdfsubject={%d},
+ pdfcreator={%c},
+ pdflang={%L},
+ linktoc=all,
+ colorlinks=true
+ }
+")
+                              (add-to-list 'org-latex-default-packages-alist
+                                           "\\PassOptionsToPackage{hyphens}{url}")
 
                               (with-eval-after-load 'org
                                 (require 'org-mode-crate)
