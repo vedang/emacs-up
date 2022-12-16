@@ -5,7 +5,7 @@
 
 #+title: $1
 #+date: `(format-time-string (car org-time-stamp-formats))`
-#+author: Vedang Manerikar <vedang@helpshift.com>
+#+author: Vedang Manerikar <vedang.manerikar@gmail.com>
 
 * Introduction (Vision)
 - Purpose of this document, brief introduction to the problem and possibly solution.
