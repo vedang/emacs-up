@@ -137,11 +137,14 @@ Subsequent calls expands the selection to larger semantic unit."
 
 
 (defun uf/sudo-edit (&optional arg)
-  "Edit as root"
+  "Edit file as root.
+
+Call interactively with `\\[universal-argument]' prefix ARG to
+re-open variable `buffer-file-name' as root."
   (interactive "p")
-  (if (or arg (not buffer-file-name))
-      (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+  (if (and (= 4 arg) buffer-file-name)
+      (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))
+    (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))))
 
 
 (defun uf/revert-all-buffers ()
