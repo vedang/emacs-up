@@ -610,9 +610,9 @@
                 :after (with-eval-after-load 'flycheck
                          (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
 
-         ;; (:name gcmh
-         ;;        :after (progn (require 'gcmh)
-         ;;                      (gcmh-mode 1)))
+         (:name gcmh
+                :after (progn (require 'gcmh)
+                              (gcmh-mode 1)))
 
          (:name groovy-emacs-mode)
 
