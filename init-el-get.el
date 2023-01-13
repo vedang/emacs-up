@@ -935,6 +935,7 @@ Suggest the URL title as a description for resource."
                                                            :foreground "yellow1"
                                                            :weight bold)
                                               '(CATEGORY "important"))
+                           (set-face-bold 'org-remark-highlighter t)
                            (define-key org-remark-mode-map (kbd "C-c r o")
                                        #'org-remark-open)
                            (define-key org-remark-mode-map (kbd "C-c r n")
