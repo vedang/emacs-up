@@ -323,12 +323,32 @@
          ;;                            leuven-scale-org-agenda-structure nil
          ;;                            leuven-scale-volatile-highlight nil)))
 
-         ;; (:name calfw
-         ;;        :after (progn
-         ;;                 ;; For reasons that I do not understand, the
-         ;;                 ;; :timestamp value does not work here.
-         ;;                 (setq cfw:org-agenda-schedule-args
-         ;;                       '(:deadline :scheduled))))
+         (:name calfw
+                :after (with-eval-after-load 'org
+                         (require 'calfw)
+                         (require 'calfw-org)
+                         (setq cfw:org-agenda-schedule-args
+                               '(:deadline :scheduled :timestamp))))
+
+         (:name calfw-blocks
+                :after (with-eval-after-load 'org
+                         (require 'calfw-blocks)
+
+                         ;; From the readme of calfw-blocks
+                         (defun cfw:open-calendar-agenda-blocks ()
+                           (interactive)
+                           (cfw:open-calendar-buffer
+                            :contents-sources
+                            (list
+                             (cfw:org-create-source "medium purple"))
+                            :view 'block-day))
+
+                         (setq calfw-blocks-earliest-visible-time '(6 0)
+                               calfw-blocks-show-time-grid t
+                               calfw-blocks-show-current-time-indicator t
+                               calfw-blocks-default-event-length 1
+                               cfw:highlight-today nil)))
+
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
