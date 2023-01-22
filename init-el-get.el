@@ -874,6 +874,12 @@ Suggest the URL title as a description for resource."
          (:name org-cliplink
                 :after (require 'org-cliplink))
 
+         (:name org-fc
+                :after (progn
+                         (require 'org-fc)
+                         (setq org-fc-directories
+                               `(,(concat org-directory "/flashcards/")))))
+
          (:name orgit
                 :after (setq orgit-log-save-arguments t))
 
