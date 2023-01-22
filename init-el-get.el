@@ -908,7 +908,10 @@ Suggest the URL title as a description for resource."
 ")
                               (add-to-list 'org-latex-default-packages-alist
                                            "\\PassOptionsToPackage{hyphens}{url}")
-
+                              (setq org-html-htmlize-output-type 'css
+                                    org-html-head-include-default-style nil)
+                              (delete '("\\.pdf\\'" . default) org-file-apps)
+                              (add-to-list 'org-file-apps '("\\.pdf\\'" . emacs))
                               (with-eval-after-load 'org
                                 (require 'org-mode-crate)
                                 (when on-my-machine
