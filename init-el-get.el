@@ -388,7 +388,9 @@
                               (company . company-mode)
                               (gcmh . gcmh-mode)
                               (org-remark . org-remark-mode)
-                              (org-remark-global-tracking . org-remark-global-tracking-mode))
+                              (org-remark-global-tracking . org-remark-global-tracking-mode)
+                              (org-pomodoro-third-time . org-pomodoro-third-time-mode)
+                              (apheleia . apheleia-mode))
                             "Tuples of (LIBRARY-NAME . MODE-NAME) that I don't want to see on the modeline.")
                           (defmacro vm/diminish-that-line ()
                             (cons 'progn
@@ -914,11 +916,14 @@ Suggest the URL title as a description for resource."
                 :after (progn (require 'org-protocol)
                               (require 'org-protocol-capture-html)))
 
-         (:name org-pomodoro
-                :after (progn (setq org-pomodoro-keep-killed-pomodoro-time t
-                                    org-pomodoro-clock-break t)
+         (:name org-pomodoro)
+         (:name org-pomodoro-third-time
+                :after (progn (require 'org-pomodoro-third-time)
+                              (setq org-pomodoro-keep-killed-pomodoro-time t
+                                       org-pomodoro-clock-break t)
                               (global-set-key (kbd "C-x c o p")
-                                              #'org-pomodoro)))
+                                              #'org-pomodoro)
+                              (org-pomodoro-third-time-mode)))
 
          (:name org-remark
                 :before (setq org-remark-create-default-pen-set nil)
