@@ -562,7 +562,8 @@
                                  ("https://randsinrepose.com/feed/" rands leadership management)
                                  ("https://xenodium.com/rss.xml" xenodium emacs)
                                  ;; Alexander's site is gorgeous!
-                                 ("https://alexanderobenauer.com/assets/feed/rss.xml" operating_systems programming)))
+                                 ("https://alexanderobenauer.com/assets/feed/rss.xml" operating_systems programming)
+                                 ("https://buttondown.email/thehighpony/rss" bobdoto)))
 
                          ;; Mark all YouTube entries
                          (add-hook 'elfeed-new-entry-hook
