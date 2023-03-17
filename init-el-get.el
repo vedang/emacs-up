@@ -314,6 +314,7 @@
                               (global-set-key (kbd "M-g g") 'avy-goto-line)
                               (global-set-key (kbd "M-g w") 'avy-goto-word-1)
                               (global-set-key (kbd "M-g SPC") 'avy-goto-word-1)))
+         (:name bnf-mode)
 
          (:name bookmark+
                 :after (progn (require 'bookmark+)))
