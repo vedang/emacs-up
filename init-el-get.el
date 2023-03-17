@@ -675,6 +675,8 @@
          (:name emacs-humanoid-themes
                 :after (progn (load-theme 'humanoid-dark t)))
 
+         (:name emacs-fish)
+
          (:name iedit)
 
          (:name linkd)
