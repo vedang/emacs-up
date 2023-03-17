@@ -947,7 +947,9 @@ Suggest the URL title as a description for resource."
                          ;; This is originally `revert-buffer'
                          (global-set-key (kbd "C-c r") nil)
                          (global-set-key (kbd "C-c r m") #'org-remark-mark)
-                         (org-remark-global-tracking-mode)
+                         (org-remark-global-tracking-mode +1)
+                         (with-eval-after-load 'eww
+                           (org-remark-eww-mode +1))
                          ;; The rest of keybidings are done only on
                          ;; loading `org-remark'.
                          (with-eval-after-load 'org-remark
@@ -966,6 +968,9 @@ Suggest the URL title as a description for resource."
                                                 :foreground "#f7143a")
                                               '(CATEGORY "review"
                                                          help-echo "Review this"))
+                           (define-key org-remark-mode-map (kbd "C-c r e")
+                                       #'org-remark-mark-review)
+
                            (org-remark-create "important"
                                               ;; face: `dired-broken-symlink'
                                               '(:underline "gold"
@@ -973,6 +978,9 @@ Suggest the URL title as a description for resource."
                                                            :foreground "yellow1"
                                                            :weight bold)
                                               '(CATEGORY "important"))
+                           (define-key org-remark-mode-map (kbd "C-c r y")
+                                       #'org-remark-mark-important)
+
                            (set-face-bold 'org-remark-highlighter t)
                            (define-key org-remark-mode-map (kbd "C-c r o")
                                        #'org-remark-open)
@@ -986,10 +994,6 @@ Suggest the URL title as a description for resource."
                                        #'org-remark-save)
                            (define-key org-remark-mode-map (kbd "C-c r l")
                                        #'org-remark-highlights-load)
-                           (define-key org-remark-mode-map (kbd "C-c r y")
-                                       #'org-remark-mark-important)
-                           (define-key org-remark-mode-map (kbd "C-c r e")
-                                       #'org-remark-mark-review)
                            (define-key org-remark-mode-map (kbd "C-c r t")
                                        #'org-remark-toggle)
                            (define-key org-remark-mode-map (kbd "C-c r v")
