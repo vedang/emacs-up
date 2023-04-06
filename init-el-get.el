@@ -901,6 +901,7 @@ Suggest the URL title as a description for resource."
                               (message "Press `C-c a' to get started with your agenda...")
                               ;; Keep the table of contents on it's own page always
                               (setq org-latex-toc-command "\\tableofcontents \\clearpage"
+                                    org-babel-clojure-backend 'cider
                                     org-latex-with-hyperref
                                     "\\hypersetup{
  pdfauthor={%a},
