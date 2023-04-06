@@ -13,6 +13,11 @@ ${1:$(ts-format "<%F %a>" (car (this-week-range (string-to-number yas-text))))}-
   + [ ] Monthly Goals
   + [ ] 31-day challenge
 
+- Stacking your Habits
+  + eg: Meditation cushion right next to the morning bathroom
+  + What visible cue will remind me to stretch and meditate?
+  + What visible cue will get me to wake up for deep work?
+
 **** Is there a goal I would like to achieve by the end of the week?
 #+begin_comment
 - Setup smart goals for the end of this week
@@ -22,6 +27,9 @@ ${1:$(ts-format "<%F %a>" (car (this-week-range (string-to-number yas-text))))}-
 **** What is one extremely concrete thing I can do next?
 
 **** What are the important events I need to attend this week? (and why)
+
+**** What is one external stimulus that is likely to trigger you?
+Remember to center yourself before responding to this trigger
 
 **** What concrete, straightforward things can I fall back on during the week
 - This is a list of good to do tasks if I get too frustrated or stuck on my current project
