@@ -103,7 +103,9 @@
                                  (cljstyle-mode +1)
                                (message "Could not find `cljstyle' on $PATH. Please ensure you have installed it correctly.")))))
 
-           (:name flycheck-clj-kondo)))
+           (:name flycheck-clj-kondo)
+
+           (:name jet)))
 
        (when (bound-and-true-p configure-python-p)
          '((:name elpy :after (progn (elpy-enable)))))
@@ -678,6 +680,8 @@
          (:name emacs-fish)
 
          (:name iedit)
+
+         (:name json-to-org-table)
 
          (:name linkd)
 
