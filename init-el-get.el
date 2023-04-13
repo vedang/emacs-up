@@ -62,6 +62,10 @@
     (require 'scroll-other-window)
     (add-hook 'Info-mode-hook #'sow-mode)))
 
+(defun my/chatgpt-api-key ()
+  "Return my chatgpt-api-key from auth-sources."
+  (auth-source-pick-first-password :host "api.openai.com"))
+
 ;;; This is the order in which the packages are loaded. Changing this
 ;;; order can sometimes lead to nasty surprises, especially when you
 ;;; are overshadowing some in-built libraries. *cough*org-mode*cough*
@@ -352,6 +356,11 @@
                                calfw-blocks-default-event-length 1
                                cfw:highlight-today nil)))
 
+         (:name chatgpt-shell
+                :after (progn
+                         (setq chatgpt-shell-openai-key #'my/chatgpt-api-key)
+                         (setq dall-e-shell-openai-key #'my/chatgpt-api-key)))
+
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
@@ -639,6 +648,9 @@
          (:name gcmh
                 :after (progn (require 'gcmh)
                               (gcmh-mode 1)))
+         (:name gptel
+                :after (progn
+                         (setq gptel-api-key #'my/chatgpt-api-key)))
 
          (:name groovy-emacs-mode)
 
