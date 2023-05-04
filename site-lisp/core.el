@@ -126,6 +126,9 @@
 ;; Enable narrow-to-region, extremely useful for editing text
 (put 'narrow-to-region 'disabled nil)
 
+;; Zone
+(require 'zone)
+(zone-when-idle 25)
 
 (provide 'core)
 ;;; core.el ends here

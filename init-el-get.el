@@ -1282,8 +1282,13 @@ Suggest the URL title as a description for resource."
          (:name yatemplate
                 :after (progn (auto-insert-mode +1)))
 
-         (:name zig-mode))))
-
+         (:name zig-mode)
+         (:name zone-sl
+                :after (progn (setq zone-programs
+                                    (vconcat zone-programs '(zone-pgm-sl)))))
+         (:name zone-nyan
+                :after (progn (setq zone-programs
+                                    (vconcat zone-programs '(zone-nyan))))))))
 
 (defvar el-get-my-packages
   (append
