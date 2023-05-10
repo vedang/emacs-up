@@ -128,7 +128,7 @@
 
 ;; Zone
 (require 'zone)
-(zone-when-idle 25)
+(zone-when-idle 300)
 
 (provide 'core)
 ;;; core.el ends here
