@@ -108,7 +108,7 @@
  '(org-hugo-preserve-filling nil)
  '(org-super-agenda-mode t)
  '(package-selected-packages
-   '(map gnu-elpa-keyring-update elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
+   '(compat map gnu-elpa-keyring-update elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
  '(pdf-annot-default-annotation-properties
    '((t
       (label . "Vedang Manerikar")
