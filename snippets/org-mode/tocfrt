@@ -1,0 +1,32 @@
+# -*- mode: snippet -*-
+# name: Future Reality Tree
+# key: tocfrt
+# --
+
+* FRT: ${1:Future Reality Tree Title}                                    :frt:
+- Date and Time: `(ts-format "<%Y-%m-%d %a %H:%M>" (ts-now))`
+- Thinking Process: Sufficient Cause
+- Starting Point: Start with a proposed solution (injection), and build upwards to a set of Desirable Effects.
+- End Result: Necessary changes that implement the solution and avoid new problems
+- Entities used in FRT: Undesirable Effect, Desirable Effect, Intermediate Effect, Precondition, Action. Solution class is used for the initial injections.
+- Orientation: Bottom to Top
+- Bias: Top
+- Entity Junctor: Fuzzy OR
+- Default Junctor: Fuzzy AND
+$0
+** Step 1: State the proposed solution and desired effects
+** Step 2: Add other elements already developed
+- Do you have preconditions already identified in the CRT? If so, bring them over.
+- Same for Common Objective from EC
+
+** Step 3: Fill in the gaps
+Add entites that represent the direct, inevitable consequences (DE, UDE, IE) of the proposed solutions. Use the [[brain:86DECB26-DCC2-4314-90F9-6507A18B5388][Categories of Legitimate Reservation]] to check and add to your causal connections
+
+** Step 4: Read and verify the tree
+Remember that FRT uses Sufficient Cause thinking, so the way to read it is "If cause A then effect B"
+
+** Step 5: Build in Positive Reinforcement Loops
+Look for Desirable Effects that may intensify effects lower in the tree that lead back to one or more Desirable Effects.
+
+** Step 6: Seek and address the negative branches
+This is a critical step, you have to make sure that all the UDE are mitigated. There are two ways to deal with Negative Branches: Reactive and Proactive. Reactive: let the UDE occur and then inject new action entities that mitigate the problem. Proactive: find an alternative injection to achieve the next stage of IE that are on path to our DE, without causing the UDE.

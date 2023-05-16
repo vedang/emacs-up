@@ -1,0 +1,52 @@
+# -*- mode: snippet -*-
+# name: Current Reality Tree
+# key: toccrt
+# --
+
+* CRT: ${1:Current Reality Tree Title} :crt:
+- Date and Time: `(ts-format "<%Y-%m-%d %a %H:%M>" (ts-now))`
+- Thinking Process: Sufficient Cause
+- Starting Point: A set of undesirable symptoms
+- End Result: The core cause of the symptoms (the constraint)
+- Entities that are part of the CRT: Undesirable Effect, Precondition, Intermediate Effect.
+- CRTs are used to pinpoint problems.
+- Orientation: Bottom to Top
+- Bias: Top
+- Entity Junctor: Fuzzy OR
+- Default Junctor: Fuzzy AND
+$0
+** Step 1: Understand the scope of the CRT you are building
+- What is your system's goal?
+- What are the necessary conditions for knowing that your goal is being achieved?
+- What measures do you use to know how well the necessary conditions of the goal are being met?
+- Where do the boundaries of your system lie?
+- What greater system is your system a part of?
+- What systems does your system interact with?
+- What are your system's inputs and outputs?
+
+** Step 2: List the symptoms (un-desirable effects) that you are seeing right now
+Give each UDE a simple present-tense title that is intended to be clear to any stakeholder.
+
+** Step 3: Connect the Symptoms that are directly or indirectly related to others already in your list
+Do not be too concerned about direct / indirect at this stage. We will add other entities to the picture as we grow the tree.
+
+** Step 4: Apply the Categories of Legitimate Reservation of your rough diagram
+This process will help you add additional entities and causal relationships to your diagram, helping you create a true picture of the situation.
+
+** Step 5: Continue adding underlying causes for the effects in your diagram
+** Step 6: Consider Negative Reinforcing Loops in your diagram
+Are any of your UDEs aggravating the UDEs at a lower level
+** Step 7: Identify Root Causes: Entities with no predecessors
+Note: Preconditions are by definition out of your control.
+
+Question:
+- Have you uncovered the deepest causes over which you have some control or influence?
+- Are your root preconditions actually intermediate effects with other underlying causes?
+** Step 8: Trim the tree and remove unrelated entity clusters
+** Step 9: Identify the core driver constraint
+If you identify a root cause such that eliminating it causes a chain reaction of other problems being eliminated, then you have arrived at your core constraint.
+
+Questions for classifying root cause into core driver:
+- How many UDEs do they cause?
+- How severe are the UDEs they cause?
+- How much control or influence do you have other them?

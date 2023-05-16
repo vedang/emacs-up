@@ -1,0 +1,39 @@
+# -*- mode: snippet -*-
+# name: Evaporating Cloud
+# key: tocec
+# --
+* EC: ${1:Evaporating Cloud Title}                                        :ec:
+- Date and Time: `(ts-format "<%Y-%m-%d %a %H:%M>" (ts-now))`
+- Thinking Process: Necessary Condition
+- Starting Point: A perceived conflict underlying a constraint
+- End Result: Possible win-win situations
+- Entities that are part of the EC: Want, Need, Common Objective, Conflict, Solution
+- EC are used to find solutions that "evaporate" a conflict.
+  + A conflict is defined as two mutually exclusive wants.
+- Clouds are read from left to right, against the flow of the edges, using the pattern:
+  + In order to *satisfy the need* we must *obtain our want* because *of our assumptions*.
+- Remember that EC is just a tool for brainstorming a new set of options. Solidifying the solutions is the job of the FRT.
+$0
+** Step 1: Identify the Wants
+** Step 2: Identify the Conflict
+Make sure to set the weight on one of the edges to Negative. This accurately reflects the mutually exclusive nature of the two wants.
+** Step 3: Identify the underlying Needs
+Remember that Needs are conditions which are necessary to fulfil to meet the Common Objective. Wants are actions we are taking to meet the Need.
+** Step 4: Identify the Common Objective
+There has to be a Common Objective that both sides agree on. There can be no conflict resolution without a common objective.
+** Step 5: Ensure Clarity by reading the diagram
+** Step 6: Identify and Validate Assumptions
+Finding erroneous assumptions is the key to breaking the conflict. Assumptions hide underneath the Want -> Need edges, Need -> Objective edges and in the Conflict itself -- why we believe we cannot have both Wants simultaneously.
+
+Write the assumptions as edge annotations. Write down all the valid assumptions that you can think of. Start each assumption with "Because ..."
+** Step 7: Propose Solutions
+Eliminate Assumptions:
+- Eliminating all assumptions on an edge eliminates the necessary condition relationship between two of the entities.
+- Eliminating all assumptions on the Conflict entity eliminates the perception of conflict itself.
+
+In either of the above cases, the cloud has "evaporated", there is no conflict. If the cloud is still intact, we need to inject a Solution into it.
+
+Questions:
+- How can we satisfy Need without obtaining Want?
+- How can we accomplish Common Objective without satisfying Need?
+- How can we obtain both First Want as well as Second Want?

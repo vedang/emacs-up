@@ -1,0 +1,33 @@
+# -*- mode: snippet -*-
+# name: Prerequisite Tree
+# key: tocprt
+# --
+
+* PRT: ${1:Prerequisite Tree Title} :prt:
+- Date and Time: `(ts-format "<%Y-%m-%d %a %H:%M>" (ts-now))`
+- Thinking Process: Necessary Condition
+- Starting Point: Major objectives and the obstacles to overcoming them
+- End Result: Milestones that overcome all obstacles
+- Orientation: Bottom to Top,
+- Bias: Top
+- Entity Junctor: Fuzzy AND
+- Default Junctor: Fuzzy OR
+- Entities used in the PRT: Objective, Overcome, Milestone
+$0
+** Step 1: Identify the Objective
+Often, the wording of the objective is drawn from an injection you used in creating a FRT.
+
+** Step 2: Identify obstacles to Overcome
+Create a set of Overcome entities that represent the nonexistent necessary conditions for achieving your Objective. The point here is not to list everything you will need to do to achieve your Objectives, but to identify the things you still lack. Connect each Overcome entity as a predecessor of your Objective.
+
+** Step 3: Brainstorm milestones
+Brainstorm one or more Milestone entities that will negate the obstacles. Be creative: go around, over, under, the obstacle.
+
+** Step 4: Continue to deepen the tree
+What are obstacles to implementing your milestones? Identify them and continue to create new Overcome and Milestone entites. Do this until you reach milestones that do not have any significant obstacles.
+
+** Step 5: Read and Verify the Tree
+Apply the [[brain:86DECB26-DCC2-4314-90F9-6507A18B5388][Categories of Legitimate Reservation]] and clean up the tree.
+
+** Step 6: Trim and finalize the tree
+Place the rejected milestones in a collapsed group.

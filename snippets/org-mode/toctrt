@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: Transition Tree
+# key: toctrt
+# --
+
+* TRT: ${1:Transition Tree Title}                                        :trt:
+- Date and Time: `(ts-format "<%Y-%m-%d %a %H:%M>" (ts-now))`
+- Thinking Process: Sufficient Cause
+- Starting Point: A set of goals
+- End Result: Detailed actions to achieve the goals
+- The Transition Tree (TRT) is an effective tool for creating an execution plan that creates a transition from the current reality to a future reality.
+- Orientation: Bottom to Top
+- Bias: Top
+- Entity Junctor: Fuzzy OR
+- Default Junctor: Fuzzy AND
+- Entities used in the TRT: Goal, Precondition, Intermediate Effect, Action. Desirable Effect and Undesirable Effect, when more effects than just the Goal show up.
+$0
+** Step 1: Identify the Goal
+A TRT generally contains a single Goal entity (can contain more than one if the Goals are related). The Goal should be a clear, present-tense statement of the desired reality. The Goal can be taken from one of the injections in the FRT or from one of the Objectives of the PRT.
+
+** Step 2: Identify the Intermediate Effects
+For example, these are the set of Milestone entites from your PRT
+
+** Step 3: Define a complete step
+A complete step is:
+1. The outcome you want to achieve (Milestone or Intermediate Effect. Or Goal)
+2. A statement of the current reality. (a Precondition, or an Intermediate Effect / Milestone that was the outcome of a previous step)
+3. An Action (something within your control, with clear criteria for determining that it has been carried out successfully)
+
+The Precondition and Action must logically combine as necessary and sufficient causes to achieve the outcome.
+
+** Step 4: Continue Building the Tree
+
+** Step 5: Seek and Address the Negative Branches
+A complete plan will terminate only with Goals and Desirable Effects
+
+** Step 6: Read and Verify the Tree
+Check if the flow of the tree makes sense with the Confidence Spinners
