@@ -373,12 +373,6 @@
 
          (:name company-ansible)
 
-         ;; (:name dash-at-point
-         ;;        :after (progn (global-set-key (kbd "C-c d d") 'dash-at-point)))
-
-         (:name deadgrep
-                :after (progn (global-set-key (kbd "M-g a") 'deadgrep)))
-
          (:name diminish
                 :before (progn
                           (defvar vm/diminish-modes
@@ -492,13 +486,6 @@
                                               'mc/mark-all-symbols-like-this-in-defun)))
          ;; Breaking alphabetical order to put Change-Inner,
          ;; Expand-Region and Multiple-Cursors next to each other.
-
-         ;; (:name es-mode
-         ;;        :load-path "."
-         ;;        :features ob-elasticsearch)
-
-         (:name edit-server
-                :after (progn (edit-server-start)))
 
          (:name eglot
                 :after (with-eval-after-load 'eglot
@@ -679,6 +666,8 @@
                               (global-set-key (kbd "C-x c o a")
                                               'helm-org-agenda-files-headings)))
 
+         ;; This will soon be outdated via `C-x p ..` default binding
+         ;; for project.el @TODO: remove it eventually.
          (:name helm-projectile
                 :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
 
@@ -707,10 +696,6 @@
                               ;; Gimme back my `back-to-indentation'
                               (with-eval-after-load 'lispy-mode
                                 (define-key lispy-mode-map (kbd "M-m") nil))))
-
-         ;; ;; Note: `powerline' needs to be installed before `moe-theme'
-         ;; (:name powerline)
-         ;; (:name moe-theme)
 
          (:name magit
                 :after (progn
@@ -887,8 +872,6 @@ Suggest the URL title as a description for resource."
 
                          (setq savehist-additional-variables
                                '(org-brain-headline-cache))))
-
-         ;; (:name org-chef)
 
          (:name org-cliplink
                 :after (require 'org-cliplink))
@@ -1088,17 +1071,6 @@ Suggest the URL title as a description for resource."
                               ;; jar is downloaded on your system.
                               ))
 
-         ;; (:name poet
-         ;;        :after (progn
-         ;;                 ;; (set-face-attribute 'default nil
-         ;;                 ;;                     :family "Iosevka"
-         ;;                 ;;                     :height 130)
-         ;;                 ;; (set-face-attribute 'fixed-pitch nil
-         ;;                 ;;                     :family "Iosevka")
-         ;;                 ;; (set-face-attribute 'variable-pitch nil
-         ;;                 ;;                     :family "Baskerville")
-         ;;                 ))
-
          (:name propcheck)
 
          (:name qpdf)
@@ -1172,8 +1144,6 @@ Suggest the URL title as a description for resource."
          (:name solaire-mode
                 :after (solaire-global-mode +1))
 
-         ;; (:name spaceline-all-the-icons)
-
          (:name tagedit
                 :after (with-eval-after-load 'sgml-mode
                          (require 'tagedit)
@@ -1186,6 +1156,7 @@ Suggest the URL title as a description for resource."
          (:name ts
                 :after (progn (require 'ts)))
 
+         ;; @TODO: Do we need these now that tree-sitter is in Emacs itself?
          (:name tsi.el
                 :after (progn (require 'tsi-typescript)
                               (require 'tsi-json)
@@ -1223,56 +1194,56 @@ Suggest the URL title as a description for resource."
                                     (remove 'ansi-color-process-output
                                             comint-output-filter-functions))))
 
-         (:name yaml-mode
-                :after (progn
-                         (add-hook 'yaml-mode-hook #'superword-mode)
+         ;; (:name yaml-mode
+         ;;        :after (progn
+         ;;                 (add-hook 'yaml-mode-hook #'superword-mode)
 
-                         ;; From https://gist.github.com/antonj/874106
-                         (defun aj-toggle-fold ()
-                           "Toggle fold all lines larger than indentation on current line"
-                           (interactive)
-                           (let ((col 1))
-                             (save-excursion
-                               (back-to-indentation)
-                               (setq col (+ 1 (current-column)))
-                               (set-selective-display
-                                (if selective-display nil (or col 1))))))
+         ;;                 ;; From https://gist.github.com/antonj/874106
+         ;;                 (defun aj-toggle-fold ()
+         ;;                   "Toggle fold all lines larger than indentation on current line"
+         ;;                   (interactive)
+         ;;                   (let ((col 1))
+         ;;                     (save-excursion
+         ;;                       (back-to-indentation)
+         ;;                       (setq col (+ 1 (current-column)))
+         ;;                       (set-selective-display
+         ;;                        (if selective-display nil (or col 1))))))
 
-                         ;; From https://github.com/yoshiki/yaml-mode/issues/25
-                         (defun yaml-outline-minor-mode ()
-                           (outline-minor-mode)
-                           (setq outline-regexp
-                                 (rx
-                                  (seq
-                                   bol
-                                   (group (zero-or-more "  ")
-                                          (or (group
-                                               (seq (or (seq "\"" (*? (not (in "\"" "\n"))) "\"")
-                                                        (seq "'" (*? (not (in "'" "\n"))) "'")
-                                                        (*? (not (in ":" "\n"))))
-                                                    ":"
-                                                    (?? (seq
-                                                         (*? " ")
-                                                         (or (seq "&" (one-or-more nonl))
-                                                             (seq ">-")
-                                                             (seq "|"))
-                                                         eol))))
-                                              (group (seq
-                                                      "- "
-                                                      (+ (not (in ":" "\n")))
-                                                      ":"
-                                                      (+ nonl)
-                                                      eol))))))))
-                         (add-hook 'yaml-mode-hook #'yaml-outline-minor-mode)
-                         (with-eval-after-load 'yaml-mode
-                           (define-key yaml-mode-map
-                             (kbd "RET") #'newline-and-indent)
-                           ;; This weird key-binding to co-exist with outline-minor mode
-                           (define-key yaml-mode-map
-                             (kbd "C-c @ C-j") #'aj-toggle-fold))))
+         ;;                 ;; From https://github.com/yoshiki/yaml-mode/issues/25
+         ;;                 (defun yaml-outline-minor-mode ()
+         ;;                   (outline-minor-mode)
+         ;;                   (setq outline-regexp
+         ;;                         (rx
+         ;;                          (seq
+         ;;                           bol
+         ;;                           (group (zero-or-more "  ")
+         ;;                                  (or (group
+         ;;                                       (seq (or (seq "\"" (*? (not (in "\"" "\n"))) "\"")
+         ;;                                                (seq "'" (*? (not (in "'" "\n"))) "'")
+         ;;                                                (*? (not (in ":" "\n"))))
+         ;;                                            ":"
+         ;;                                            (?? (seq
+         ;;                                                 (*? " ")
+         ;;                                                 (or (seq "&" (one-or-more nonl))
+         ;;                                                     (seq ">-")
+         ;;                                                     (seq "|"))
+         ;;                                                 eol))))
+         ;;                                      (group (seq
+         ;;                                              "- "
+         ;;                                              (+ (not (in ":" "\n")))
+         ;;                                              ":"
+         ;;                                              (+ nonl)
+         ;;                                              eol))))))))
+         ;;                 (add-hook 'yaml-mode-hook #'yaml-outline-minor-mode)
+         ;;                 (with-eval-after-load 'yaml-mode
+         ;;                   (define-key yaml-mode-map
+         ;;                     (kbd "RET") #'newline-and-indent)
+         ;;                   ;; This weird key-binding to co-exist with outline-minor mode
+         ;;                   (define-key yaml-mode-map
+         ;;                     (kbd "C-c @ C-j") #'aj-toggle-fold))))
 
-         (:name yaml-imenu
-                :after (progn (yaml-imenu-enable)))
+         ;; (:name yaml-imenu
+         ;;        :after (progn (yaml-imenu-enable)))
 
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
