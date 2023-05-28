@@ -15,7 +15,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#fffefe" "#9d0000" "#006a00" "#0e1b00" "#6845138" "#840086" "#003567" "#494949"])
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "/Users/nejo/.emacs.d/bookmarks")
  '(cider-repl-print-length 200)
  '(connection-local-criteria-alist
    '(((:application tramp :machine "localhost")
@@ -108,7 +108,7 @@
  '(org-hugo-preserve-filling nil)
  '(org-super-agenda-mode t)
  '(package-selected-packages
-   '(compat map gnu-elpa-keyring-update elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
+   '(edit-indirect compat map gnu-elpa-keyring-update elpher rainbow-mode jsonrpc ascii-art-to-unicode persist inflections queue))
  '(pdf-annot-default-annotation-properties
    '((t
       (label . "Vedang Manerikar")

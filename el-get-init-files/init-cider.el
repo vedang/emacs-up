@@ -94,6 +94,16 @@ project."
   (define-key cider-repl-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
   (define-key cider-repl-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp))
 
+(defun clerk-show ()
+  "Show the current-file using Clerk."
+  (interactive)
+  (when-let ((filename (buffer-file-name)))
+    (save-buffer)
+    (cider-interactive-eval
+     (concat "(nextjournal.clerk/show! \"" filename "\")"))))
+
+(with-eval-after-load 'clojure-mode
+  (define-key clojure-mode-map (kbd "<M-return>") 'clerk-show))
 
 (provide 'init-cider)
 ;;; init-cider ends here

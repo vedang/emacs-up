@@ -39,4 +39,5 @@ forge-database.sqlite
 .DS_Store
 parinfer-rust/
 eln-cache/
+projects
 tree-sitter/
