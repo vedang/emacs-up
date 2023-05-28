@@ -13,7 +13,7 @@
 ;; Public License, Version 2, which is included with this distribution.
 ;; See the file LICENSE.txt
 
-;;; Code:;;;
+;;; Code:
 
 
 (require 'helm-config)
@@ -115,16 +115,16 @@
 (when (executable-find "curl")
   (setq helm-net-prefer-curl t))
 
-(with-eval-after-load 'projectile
-  (defun helm-do-grep-project-root (&optional with-types)
-    "Search in current project with. With WITH-TYPES, ask for file
-types to search in. Uses `projectile'."
-    (interactive "P")
-    (let ((default-directory (projectile-project-root)))
-      (call-interactively 'helm-do-grep-ag)))
+(defun helm-do-grep-project-root (&optional with-types)
+  "Search in current project with.
 
-  (global-set-key (kbd "C-x c g a") 'helm-do-grep-project-root)
-  (global-set-key (kbd "C-c s") 'helm-do-grep-project-root))
+With WITH-TYPES, ask for file types to search in."
+  (interactive "P")
+  (let ((default-directory (project-root (project-current t))))
+    (call-interactively 'helm-do-grep-ag)))
+
+(global-set-key (kbd "C-x c g a") 'helm-do-grep-project-root)
+(global-set-key (kbd "C-c s") 'helm-do-grep-project-root)
 
 (defun helm-do-grep-ag-with-directory (dir)
   "Do `helm-do-grep-ag' with `default-directory' set to DIR."
@@ -136,3 +136,4 @@ types to search in. Uses `projectile'."
 (global-set-key (kbd "C-x c g g") 'helm-do-grep-ag-with-directory)
 
 (provide 'init-helm)
+;;; init-helm.el ends here

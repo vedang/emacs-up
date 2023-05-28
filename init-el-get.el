@@ -119,8 +119,6 @@
          '((:name zoxide.el
                   :after (progn
                            (add-hook 'find-file-hook #'zoxide-add)
-                           (add-hook 'projectile-after-switch-project-hook
-                                     #'zoxide-add)
                            (add-hook 'dired-mode-hook #'zoxide-add)))))
 
 ;;; Things to install only on my machine. These are currently not set
@@ -361,7 +359,6 @@
                               (subword . subword-mode)
                               (subword . superword-mode)
                               (helm-mode . helm-mode)
-                              (projectile . projectile-mode)
                               (hideshow . hs-minor-mode)
                               (noutline . outline-minor-mode)
                               (ansible-doc . ansible-doc-mode)
