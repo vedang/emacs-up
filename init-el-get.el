@@ -1107,11 +1107,13 @@ Suggest the URL title as a description for resource."
 
          (:name zig-mode)
          (:name zone-sl
-                :after (progn (setq zone-programs
-                                    (vconcat zone-programs '(zone-pgm-sl)))))
+                :after (with-eval-after-load 'zone
+                         (setq zone-programs
+                               (vconcat zone-programs '(zone-pgm-sl)))))
          (:name zone-nyan
-                :after (progn (setq zone-programs
-                                    (vconcat zone-programs '(zone-nyan))))))))
+                :after (with-eval-after-load 'zone
+                         (setq zone-programs
+                               (vconcat zone-programs '(zone-nyan))))))))
 
 (defvar el-get-my-packages
   (append
