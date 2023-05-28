@@ -1,6 +1,6 @@
-#+title: Emacs Up: an extensible, easy way to maintain emacs config for your coding needs.
+#+title: Emacs Up: My personal El-get based Emacs configuration
 #+author: Vedang Manerikar <vedang.manerikar at gmail>
-#+last_updated: <2021-12-04 Sat>
+#+last_updated: <2023-05-28 Sun>
 
 * This starter kit provides:
 
@@ -8,8 +8,6 @@
    - Clojure Programming (CIDER + other minor modes)
    - Emacs Lisp Programming (ElSpice + other minor modes)
    - Note-taking and Task-tracking through Org Mode
-   - Rust Programming
-   - JS Programming
    - Email through Emacs (Notmuch + mbsync + msmtp)
 
 2. Other minor but important additions:
@@ -18,13 +16,17 @@
    - Helm Mode (Navigation)
    - Magit (Git Interface)
    - Multiple Cursors (Editing)
-   - Paredit and Parinfer (Editing Lispy things)
+   - Paredit (Editing Lispy things)
    - YASnippets (Templating and Boiler Plate)
    - Correct path manipulation on OS X (System)
 
 3. Better defaults than "pure" Emacs. And a number of other small but beautiful packages.
 
 * Pre-requisites
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:09]
+:ID:       492CBC79-1DF1-46CC-A9F9-604C6AE8AD2E
+:END:
 
 The following tools should be installed and available on the system:
 - [[http://git-scm.com/][git]]
@@ -35,7 +37,7 @@ The following tools should be installed and available on the system:
 - [[https://www.gnu.org/software/texinfo/][Texinfo]]
 - [[https://github.com/koalaman/shellcheck][Shellcheck]]
 
-Make sure that they are on $PATH. If you are on a Mac, ~git~ needs to be available at ~/usr/local/bin/git~.
+Make sure that they are on $PATH.
 
 1. On a Mac, these can all be installed through Homebrew as follows:
    #+begin_src sh
@@ -56,85 +58,76 @@ The following tools are optional, but recommended / needed for particular modes 
 - [[https://github.com/greglook/cljstyle][cljstyle]]: A tool for formatting Clojure code.
 
 * First-time installation instructions / Optional Pre-requisites
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:09]
+:ID:       8DEF2070-5BA5-475E-B9E6-3614FAD82EF3
+:END:
 
 ** Org Mode:
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:09]
+:ID:       D648AA0E-3881-4CCF-ADF2-4801E3153604
+:END:
 
-   For org-mode to work, you'll have to set your ~org-directory~. To do this, add the line
+For org-mode to work, you'll have to set your ~org-directory~. To do this, add the line
 
-   #+begin_src emacs-lisp
-   (setq org-directory "/path/to/org/directory")
-   #+end_src
+#+begin_src emacs-lisp
+(setq org-directory "/path/to/org/directory")
+#+end_src
 
-   somewhere in your Emacs config. I recommend that you create the file ~~/.emacs.d/personal.el~ and add the code to that file.
+somewhere in your Emacs config. I recommend that you create the file ~~/.emacs.d/personal.el~ and add the code to that file.
 
-   For more information about the org config, take a look at [[https://github.com/vedang/org-mode-crate][vedang/org-mode-crate]]
+For more information about the org config, take a look at [[https://github.com/vedang/org-mode-crate][vedang/org-mode-crate]]
 
 ** Clojure interactive development through Cider
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:09]
+:ID:       F7F6DF37-6E6A-41E0-8395-17EF47C427E5
+:END:
 
    [[https://github.com/clojure-emacs/cider/][cider]] needs a one time setup of [[https://github.com/clojure-emacs/cider-nrepl/][cider-nrepl]], [[https://github.com/clojure-emacs/refactor-nrepl/][refactor-nrepl]] middleware in order to work properly. Please follow the installation instructions in the respective repos to install ~cider-nrepl~ and ~refactor-nrepl~.
 
-** Rust development
-
-   Rust integration depends on ~rustic~ and ~rust-analyzer~ (LSP) for it's functionality. Refer to the following documents for instructions:
-   - [[https://www.rust-lang.org/tools/install][Install Rustup]]. This will also install ~cargo~, the build tool and package manager for Rust.
-   - [[https://github.com/rust-analyzer/rust-analyzer][Install Rust Analyzer]]. Rust uses ~rust-analyzer~ as the LSP backend to provide information to editors.
-   - Install Rust Source
-     #+begin_src sh
-       rustup component add rust-src
-     #+end_src
-
-   If you do not wish to install Rust specific recipes, go to ~features.el~ in the main directory and set the value of ~configure-rust-p~ to ~nil~.
-
-** Golang development
-
-   Go integration uses ~gopls~ (LSP) for working with Go Code.
-   - [[go install golang.org/x/tools/gopls@latest][Install gopls]]
-
-** Python interactive development through Elpy
-
-   These set of recipes are turned off by default. If you wish to install Python specific recipes, go to ~features.el~ in the main directory and set the value of ~configure-python-p~ to ~t~.
-
-   [[https://github.com/jorgenschaefer/elpy/][Elpy]] needs a one-time setup of Python packages. Please follow the installation instructions on the Elpy Page.
-
-** Scheme development
-
-   These set of recipes are turned off by default. If you wish to install Scheme specific recipes, go to ~features.el~ in the main directory and set the value of ~configure-scheme-p~ to ~t~.
-
-   Scheme integration is provided or Chicken Scheme, and interactive development is implemented through Geiser. Refer [[http://code.call-cc.org/][this document]] for instructions to install Chicken Scheme. On a Mac, it can be easily installed through Homebrew using:
-
-   #+begin_src sh
-   brew install chicken
-   #+end_src
-
 * Installation Instructions
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:07]
+:ID:       0D1C3749-5575-4EE8-AD4A-CFE97AC2CE18
+:END:
 
 1. Clone the repository and move it to your ~.emacs.d~ folder
-
-     #+begin_example
-     $ cd /tmp/
-     $ git clone https://github.com/vedang/emacs-up.git
-     $ mv emacs-up ~/.emacs.d
-     #+end_example
+   #+begin_example
+   $ cd /tmp/
+   $ git clone https://github.com/vedang/emacs-up.git
+   $ mv emacs-up ~/.emacs.d
+   #+end_example
 
 2. Make sure you've followed the One-Time installation instructions before proceeding.
 
 3. Start Emacs. Make yourself a cup of tea.
-
-   The first boot will trigger a (one-time) download of all the packages that Emacs-Up needs. This can take a lot of time.
-
-   Sometimes (rarely) Emacs will stop and throw an error. If this happens, try re-starting Emacs. If the error is still being thrown, file an issue with me. Don't forget to include the stacktrace. Don't worry, your perfect environment is being baked with love.
+   The first boot will trigger a (one-time) download of all the packages that Emacs-Up needs. This can take a lot of time. Sometimes (rarely) Emacs will stop and throw an error. If this happens, try re-starting Emacs. If the error is still being thrown, file an issue with me. Don't forget to include the stacktrace. Don't worry, your perfect environment is being baked with love.
 
 4. ...
 
 5. Profit!
 
-* Post Installation instructions
+* Post-Installation instructions
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:06]
+:ID:       517D43E3-6EBA-4519-B4BC-B9DD8EC5FC95
+:END:
 
 ** All the Icons
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:06]
+:ID:       30980333-DBC9-4A30-B27D-F0A3E50A4B11
+:END:
 
-   This configuration installs ~all-the-icons~ for pretty icons. All the Icons requires special fonts to be installed, which can be done with ~M-x all-the-icons-install-fonts~
+This configuration installs ~all-the-icons~ for pretty icons. All the Icons requires special fonts to be installed, which can be done with ~M-x all-the-icons-install-fonts~
 
-* Upgrade Instructions
+* Upgrading to the latest version of ~emacs-up~ from an older version
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:06]
+:ID:       F1F517A7-F86B-4914-A2C8-197F6CE3FA46
+:END:
 
 1. Close running ~emacs~ session
 2. Fetch the latest changes from ~vedang/emacs-up~
@@ -144,3 +137,64 @@ The following tools are optional, but recommended / needed for particular modes 
    M-x el-get-update-all
    #+end_example
 4. Restart ~emacs~
+
+* Features currently in experimental mode
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:05]
+:ID:       CACF57C6-61E1-479A-923D-C07907BA1EFC
+:END:
+** Using Tree Sitter with emacs-up
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:06]
+:ID:       4963A703-468F-4BA9-B680-590BCFBD36C0
+:END:
+~emacs-up~ now uses the new ~tree-sitter~ support that Emacs 29+ brings for many programming modes (see list below). Getting this to work requires installing ~tree-sitter~ and the language grammars. I consider this as experimental at the moment, *you can skip this setup if you do not care of any of these languages*.
+
+List of languages that use ~tree-sitter~, and their grammars:
+
+#+begin_src emacs-lisp
+  '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+    (c "https://github.com/tree-sitter/tree-sitter-c")
+    (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+    (clojure "https://github.com/sogaiu/tree-sitter-clojure")
+    (cmake "https://github.com/uyha/tree-sitter-cmake")
+    (css "https://github.com/tree-sitter/tree-sitter-css")
+    (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+    (html "https://github.com/tree-sitter/tree-sitter-html")
+    (java "https://github.com/tree-sitter/tree-sitter-java")
+    (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+    (json "https://github.com/tree-sitter/tree-sitter-json")
+    (make "https://github.com/alemuller/tree-sitter-make")
+    (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+    (python "https://github.com/tree-sitter/tree-sitter-python")
+    (rust "https://github.com/tree-sitter/tree-sitter-rust")
+    (toml "https://github.com/tree-sitter/tree-sitter-toml")
+    (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+    (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+    (yaml "https://github.com/ikatyang/tree-sitter-yaml"))
+#+end_src
+
+*** Set Emacs to use ~tree-sitter~ under the ~emacs-up~ configuration
+:PROPERTIES:
+:CREATED:  [2023-05-28 Sun 20:05]
+:ID:       DB10A180-7D3D-4016-B11B-E9A4FB136D90
+:END:
+- Make sure you are using Emacs 29+ with ~tree-sitter~ support enabled. You can check this with ~C-h v system-configuration-features~. The output should have ~TREE_SITTER~ in it.
+- Install ~tree-sitter~:
+  #+begin_src sh
+    git clone https://github.com/tree-sitter/tree-sitter
+    cd tree-sitter/
+    make
+    sudo make install
+  #+end_src
+- Create the default ~tree-sitter~ Grammar directory: ~mkdir ~/.emacs.d/tree-sitter~
+- Install ~tree-sitter~ Grammars. Start Emacs with ~emacs-up~ configuration and then run ~M-x ielm~, followed by:
+  #+begin_src emacs-lisp
+    (mapc #'treesit-install-language-grammar
+          (mapcar #'car treesit-language-source-alist))
+  #+end_src
+- Make sure the grammars are installed correctly. In IELM, run:
+  #+begin_src emacs-lisp
+    (treesit-language-available-p 'clojure)
+  #+end_src
+- Restart Emacs and profit.

@@ -111,26 +111,6 @@
 
            (:name jet)))
 
-       (when (bound-and-true-p configure-python-p)
-         '((:name elpy :after (progn (elpy-enable)))))
-
-       (when (bound-and-true-p configure-rust-p)
-         (if (and (executable-find "rustc")
-                  (executable-find "cargo"))
-             '((:name rustic
-                      :after (progn (setq rustic-lsp-client 'eglot
-					                      rustic-format-on-save t))))
-
-           (error "Rust Lang programming is configured, but you need to install the `rustc', `cargo' and `rust-analyzer' binaries! Please check the README file for installation instructions")))
-
-       (when (bound-and-true-p configure-js-p)
-         '((:name rjsx-mode
-                  :after (progn (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))
-                                (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-                                (add-to-list 'auto-mode-alist '("\\.json\\'" . rjsx-mode))
-                                (setq js2-basic-offset 2
-                                      js-switch-indent-offset 2)))))
-
 ;;; Conditional Installs --- Things that depend on external services.
 
        ;; Keep updating the Zoxide DB for all the paths I open, keep
@@ -407,8 +387,6 @@
 
          (:name docker)
 
-         (:name dockerfile-mode)
-
          (:name doom-themes
                 :after (progn ;; Global settings (defaults)
                          (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
@@ -583,26 +561,6 @@
                          (push '(important important-elfeed-entry)
                                elfeed-search-face-alist)))
 
-         (:name elisp-tree-sitter
-                :after (progn (add-hook 'typescript-mode-hook
-                                        #'tree-sitter-mode)
-                              (add-hook 'zig-mode-hook
-                                        #'tree-sitter-mode)
-                              (add-hook 'rjsx-mode-hook
-                                        #'tree-sitter-mode)
-                              (add-hook 'js-mode-hook
-                                        #'tree-sitter-mode)
-                              (add-hook 'js2-mode-hook
-                                        #'tree-sitter-mode)
-                              (add-hook 'javascript-mode-hook
-                                        #'tree-sitter-mode)
-                              (add-hook 'java-mode-hook
-                                        #'tree-sitter-mode)
-                              (add-hook 'mhtml-mode-hook
-                                        #'tree-sitter-mode)
-
-                              (add-hook 'tree-sitter-after-on-hook
-                                        #'tree-sitter-hl-mode)))
 
          (:name elpher)
 
@@ -1156,29 +1114,6 @@ Suggest the URL title as a description for resource."
          (:name ts
                 :after (progn (require 'ts)))
 
-         ;; @TODO: Do we need these now that tree-sitter is in Emacs itself?
-         (:name tsi.el
-                :after (progn (require 'tsi-typescript)
-                              (require 'tsi-json)
-                              (require 'tsi-css)
-                              (add-hook 'typescript-mode-hook
-                                        (lambda () (tsi-typescript-mode 1)))
-                              (add-hook 'json-mode-hook
-                                        (lambda () (tsi-json-mode 1)))
-                              (add-hook 'css-mode-hook
-                                        (lambda () (tsi-css-mode 1)))
-                              (add-hook 'scss-mode-hook
-                                        (lambda () (tsi-scss-mode 1)))))
-
-         (:name typescript-mode
-                :after (progn
-                         (define-derived-mode typescriptreact-mode typescript-mode
-                           "TypeScript TSX")
-                         (add-to-list 'auto-mode-alist
-                                      '("\\.tsx?\\'" . typescriptreact-mode))
-                         (add-to-list 'tree-sitter-major-mode-language-alist
-                                      '(typescriptreact-mode . tsx))))
-
          (:name unicode-fonts
                 :after (progn (unicode-fonts-setup)))
 
@@ -1193,57 +1128,6 @@ Suggest the URL title as a description for resource."
                               (setq comint-output-filter-functions
                                     (remove 'ansi-color-process-output
                                             comint-output-filter-functions))))
-
-         ;; (:name yaml-mode
-         ;;        :after (progn
-         ;;                 (add-hook 'yaml-mode-hook #'superword-mode)
-
-         ;;                 ;; From https://gist.github.com/antonj/874106
-         ;;                 (defun aj-toggle-fold ()
-         ;;                   "Toggle fold all lines larger than indentation on current line"
-         ;;                   (interactive)
-         ;;                   (let ((col 1))
-         ;;                     (save-excursion
-         ;;                       (back-to-indentation)
-         ;;                       (setq col (+ 1 (current-column)))
-         ;;                       (set-selective-display
-         ;;                        (if selective-display nil (or col 1))))))
-
-         ;;                 ;; From https://github.com/yoshiki/yaml-mode/issues/25
-         ;;                 (defun yaml-outline-minor-mode ()
-         ;;                   (outline-minor-mode)
-         ;;                   (setq outline-regexp
-         ;;                         (rx
-         ;;                          (seq
-         ;;                           bol
-         ;;                           (group (zero-or-more "  ")
-         ;;                                  (or (group
-         ;;                                       (seq (or (seq "\"" (*? (not (in "\"" "\n"))) "\"")
-         ;;                                                (seq "'" (*? (not (in "'" "\n"))) "'")
-         ;;                                                (*? (not (in ":" "\n"))))
-         ;;                                            ":"
-         ;;                                            (?? (seq
-         ;;                                                 (*? " ")
-         ;;                                                 (or (seq "&" (one-or-more nonl))
-         ;;                                                     (seq ">-")
-         ;;                                                     (seq "|"))
-         ;;                                                 eol))))
-         ;;                                      (group (seq
-         ;;                                              "- "
-         ;;                                              (+ (not (in ":" "\n")))
-         ;;                                              ":"
-         ;;                                              (+ nonl)
-         ;;                                              eol))))))))
-         ;;                 (add-hook 'yaml-mode-hook #'yaml-outline-minor-mode)
-         ;;                 (with-eval-after-load 'yaml-mode
-         ;;                   (define-key yaml-mode-map
-         ;;                     (kbd "RET") #'newline-and-indent)
-         ;;                   ;; This weird key-binding to co-exist with outline-minor mode
-         ;;                   (define-key yaml-mode-map
-         ;;                     (kbd "C-c @ C-j") #'aj-toggle-fold))))
-
-         ;; (:name yaml-imenu
-         ;;        :after (progn (yaml-imenu-enable)))
 
          (:name yasnippet
                 :after (progn (yas-global-mode 1)

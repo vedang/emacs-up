@@ -110,18 +110,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 (add-hook 'text-mode-hook 'turn-on-visual-line-mode)
 
-
-;;; open these files in the appropriate mode
-(add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
-(add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
-(add-to-list 'auto-mode-alist '("\\.\\(tex\\|ltx\\)$" . LaTeX-mode))
-(add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
-(if (eq system-type 'darwin)
-  (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
-  (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode)))
-
 (add-to-list 'safe-local-variable-values '(lexical-binding . t))
-
 
 ;; Enable narrow-to-region, extremely useful for editing text
 (put 'narrow-to-region 'disabled nil)
@@ -129,6 +118,92 @@
 ;; Zone
 (require 'zone)
 (zone-when-idle 300)
+
+;; Tree-sitter
+(require 'treesit)
+(setq treesit-language-source-alist
+      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
+        (c "https://github.com/tree-sitter/tree-sitter-c")
+        (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
+        (clojure "https://github.com/sogaiu/tree-sitter-clojure")
+        (cmake "https://github.com/uyha/tree-sitter-cmake")
+        (css "https://github.com/tree-sitter/tree-sitter-css")
+        (elisp "https://github.com/Wilfred/tree-sitter-elisp")
+        (html "https://github.com/tree-sitter/tree-sitter-html")
+        (java "https://github.com/tree-sitter/tree-sitter-java")
+        (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
+        (json "https://github.com/tree-sitter/tree-sitter-json")
+        (make "https://github.com/alemuller/tree-sitter-make")
+        (markdown "https://github.com/ikatyang/tree-sitter-markdown")
+        (python "https://github.com/tree-sitter/tree-sitter-python")
+        (rust "https://github.com/tree-sitter/tree-sitter-rust")
+        (toml "https://github.com/tree-sitter/tree-sitter-toml")
+        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+        (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+
+;;; Open these files in the appropriate mode
+(add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(erl\\|hrl\\)$" . erlang-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(tex\\|ltx\\)$" . LaTeX-mode))
+(add-to-list 'auto-mode-alist '("Vagrantfile$" . ruby-mode))
+(if (eq system-type 'darwin)
+    (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
+  (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode)))
+
+(when (treesit-ready-p 'bash)
+  (add-to-list 'auto-mode-alist '("\\.\\(sh\\|bash\\)$" . bash-ts-mode)))
+(when (treesit-ready-p 'c)
+  (add-to-list 'auto-mode-alist '("\\.\\(c\\|h\\)$" . c-ts-mode)))
+(when (treesit-ready-p 'cpp)
+  (add-to-list 'auto-mode-alist '("\\.\\(cpp\\|hpp\\)$" . cpp-ts-mode)))
+;; Since this is my bread and butter language, I won't move to
+;; tree-sitter until I'm happy with the status of the work.
+
+;; (when (treesit-ready-p 'clojure)
+;;   (add-to-list 'auto-mode-alist '("\\.\\(clj\\|cljc\\|cljs\\)$" . clojure-ts-mode)))
+(when (treesit-ready-p 'cmake)
+  (add-to-list 'auto-mode-alist
+               '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode)))
+(when (treesit-ready-p 'css)
+  (add-to-list 'auto-mode-alist '("\\.css\\'" . css-ts-mode)))
+(when (treesit-ready-p 'html)
+  (add-to-list 'auto-mode-alist '("\\.\\(html\\|xhtml\\)$" . html-ts-mode)))
+(when (treesit-ready-p 'java)
+  (add-to-list 'auto-mode-alist '("\\.java\\'" . java-ts-mode)))
+(when (treesit-ready-p 'javascript)
+  (add-to-list 'auto-mode-alist '("\\(\\.js[mx]\\|\\.har\\)\\'" . js-ts-mode)))
+(when (treesit-ready-p 'json)
+  (add-to-list 'auto-mode-alist '("\\.json\\'" . json-ts-mode)))
+(when (treesit-ready-p 'make)
+  ;; nothing to do, there is no make-ts-mode yet.
+  )
+(when (treesit-ready-p 'markdown)
+  ;; nothing to do, there is no markdown-ts-mode yet.
+  )
+(when (treesit-ready-p 'python)
+  (add-to-list 'auto-mode-alist '("\\.py[iw]?\\'" . python-ts-mode))
+  (add-to-list 'interpreter-mode-alist '("python[0-9.]*" . python-ts-mode)))
+(when (treesit-ready-p 'rust)
+  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode)))
+(when (treesit-ready-p 'toml)
+  (add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-ts-mode)))
+(when (treesit-ready-p 'tsx)
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode)))
+(when (treesit-ready-p 'typescript)
+  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode)))
+(when (treesit-ready-p 'yaml)
+  (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
+
+(defun mp-remove-treesit-sexp-changes ()
+  (when (eq forward-sexp-function #'treesit-forward-sexp)
+    (setq forward-sexp-function nil))
+  (when (eq transpose-sexps-function #'treesit-transpose-sexps)
+    (setq transpose-sexps-function #'transpose-sexps-default-function))
+  (when (eq forward-sentence-function #'treesit-forward-sentence)
+    (setq forward-sentence-function #'forward-sentence-default-function)))
+
+(add-hook 'prog-mode-hook #'mp-remove-treesit-sexp-changes)
 
 (provide 'core)
 ;;; core.el ends here
