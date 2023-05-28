@@ -305,11 +305,6 @@
          (:name bookmark+
                 :after (progn (require 'bookmark+)))
 
-         ;; (:name color-theme-leuven
-         ;;        :after (progn (setq leuven-scale-outline-headlines nil
-         ;;                            leuven-scale-org-agenda-structure nil
-         ;;                            leuven-scale-volatile-highlight nil)))
-
          (:name calfw
                 :after (with-eval-after-load 'org
                          (require 'calfw)
@@ -624,11 +619,6 @@
                               (global-set-key (kbd "C-x c o a")
                                               'helm-org-agenda-files-headings)))
 
-         ;; This will soon be outdated via `C-x p ..` default binding
-         ;; for project.el @TODO: remove it eventually.
-         (:name helm-projectile
-                :before (progn (setq projectile-keymap-prefix (kbd "C-x c p"))))
-
          (:name helm-system-packages)
 
          (:name highlight-indentation)
@@ -644,17 +634,6 @@
 
          (:name linkd)
 
-         (:name lispy
-                ;; Note that `lispy-mode' is installed alongside
-                ;; `pardedit-mode' via the `turn-on-paredit' function,
-                ;; since we already maintain a list of lispy modes
-                ;; there.
-                :after (progn (setq lispy-compat
-                                    '(edebug cider magit-blame-mode))
-                              ;; Gimme back my `back-to-indentation'
-                              (with-eval-after-load 'lispy-mode
-                                (define-key lispy-mode-map (kbd "M-m") nil))))
-
          (:name magit
                 :after (progn
                          (global-set-key (kbd "C-x g") 'magit-status)
@@ -667,10 +646,6 @@
                            (info-initialize)
                            (add-to-list 'Info-directory-list
                                         (concat el-get-dir "magit/")))))
-
-         (:name move-text
-                :after (progn (global-set-key (kbd "C-c <up>") 'move-text-up)
-                              (global-set-key (kbd "C-c <down>") 'move-text-down)))
 
          (:name nov.el
                 :after (progn (add-to-list 'auto-mode-alist
@@ -984,17 +959,10 @@ Suggest the URL title as a description for resource."
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
 
-         ;; (:name parinfer-rust-mode
-         ;;        :after (progn (setq parinfer-rust-auto-download t
-         ;;                            ;; Don't check every time,
-         ;;                            ;; just enable the damn thing.
-         ;;                            parinfer-rust-check-before-enable nil)))
-
          (:name package-lint)
 
-         (:name pandoc-mode
-                ;; Uses hydra to show export options, triggered by C-c /
-                )
+         ;; Uses hydra to show export options, triggered by C-c /
+         (:name pandoc-mode)
 
          (:name pcre2el)
 

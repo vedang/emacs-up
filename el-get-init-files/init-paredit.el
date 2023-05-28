@@ -18,7 +18,7 @@
 
 (defvar paredit-major-modes
   '(emacs-lisp-mode lisp-mode clojure-mode cider-repl-mode
-                    scheme-mode ielm-mode es-mode rustic)
+                    scheme-mode ielm-mode es-mode)
   "List of modes where I want paredit to always work.")
 
 ;;; hideshow.el does not have anything to do with paredit, but I want
@@ -35,11 +35,7 @@
   "Utility function to turn on Paredit."
   (paredit-mode 1)
   (show-paren-mode 1)
-  (hs-minor-mode 1)
-  (with-eval-after-load 'parinfer-rust-mode
-    (parinfer-rust-mode 1))
-  (with-eval-after-load 'lispy-mode
-    (lispy-mode 1)))
+  (hs-minor-mode 1))
 
 (setq show-paren-style 'mixed)
 
