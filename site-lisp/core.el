@@ -121,26 +121,87 @@
 
 ;; Tree-sitter
 (require 'treesit)
-(setq treesit-language-source-alist
-      '((bash "https://github.com/tree-sitter/tree-sitter-bash")
-        (c "https://github.com/tree-sitter/tree-sitter-c")
-        (cpp "https://github.com/tree-sitter/tree-sitter-cpp")
-        (clojure "https://github.com/sogaiu/tree-sitter-clojure")
-        (cmake "https://github.com/uyha/tree-sitter-cmake")
-        (css "https://github.com/tree-sitter/tree-sitter-css")
-        (elisp "https://github.com/Wilfred/tree-sitter-elisp")
-        (html "https://github.com/tree-sitter/tree-sitter-html")
-        (java "https://github.com/tree-sitter/tree-sitter-java")
-        (javascript "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src")
-        (json "https://github.com/tree-sitter/tree-sitter-json")
-        (make "https://github.com/alemuller/tree-sitter-make")
-        (markdown "https://github.com/ikatyang/tree-sitter-markdown")
-        (python "https://github.com/tree-sitter/tree-sitter-python")
-        (rust "https://github.com/tree-sitter/tree-sitter-rust")
-        (toml "https://github.com/tree-sitter/tree-sitter-toml")
-        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
-        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
-        (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
+(defvar vedang/treesit-grammars
+  '((bash
+     "https://github.com/tree-sitter/tree-sitter-bash"
+     ("\\.\\(sh\\|bash\\)$" . bash-ts-mode))
+    (c
+     "https://github.com/tree-sitter/tree-sitter-c"
+     ("\\.\\(c\\|h\\)$" . c-ts-mode))
+    (cpp
+     "https://github.com/tree-sitter/tree-sitter-cpp"
+     ("\\.\\(cpp\\|hpp\\)$" . cpp-ts-mode))
+    ;; Since this is my bread and butter language, I won't move to
+    ;; tree-sitter until I'm happy with the status of the work.
+    (clojure "https://github.com/sogaiu/tree-sitter-clojure" nil)
+    (cmake
+     "https://github.com/uyha/tree-sitter-cmake"
+     ("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode))
+    (css
+     "https://github.com/tree-sitter/tree-sitter-css"
+     ("\\.css\\'" . css-ts-mode))
+    (elisp "https://github.com/Wilfred/tree-sitter-elisp" nil)
+    (html
+     "https://github.com/tree-sitter/tree-sitter-html"
+     ("\\.\\(html\\|xhtml\\)$" . html-ts-mode))
+    (java
+     "https://github.com/tree-sitter/tree-sitter-java"
+     ("\\.java\\'" . java-ts-mode))
+    (javascript
+     "https://github.com/tree-sitter/tree-sitter-javascript" "master" "src"
+     ("\\(\\.js[mx]\\|\\.har\\)\\'" . js-ts-mode))
+    (json
+     "https://github.com/tree-sitter/tree-sitter-json"
+     ("\\.json\\'" . json-ts-mode))
+    ;; Waiting for -ts-mode variants to be available for these languages.
+    (make "https://github.com/alemuller/tree-sitter-make" nil)
+    (markdown "https://github.com/ikatyang/tree-sitter-markdown" nil)
+    (python
+     "https://github.com/tree-sitter/tree-sitter-python"
+     ("\\.py[iw]?\\'" . python-ts-mode))
+    (rust
+     "https://github.com/tree-sitter/tree-sitter-rust"
+     ("\\.rs\\'" . rust-ts-mode))
+    (toml
+     "https://github.com/tree-sitter/tree-sitter-toml"
+     ("\\.toml\\'" . toml-ts-mode))
+    (tsx
+     "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src"
+     ("\\.tsx\\'" . tsx-ts-mode))
+    (typescript
+     "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src"
+     ("\\.ts\\'" . typescript-ts-mode))
+    (yaml
+     "https://github.com/ikatyang/tree-sitter-yaml"
+     ("\\.ya?ml\\'" . yaml-ts-mode)))
+  "Install tree-sitter grammars for these languages, from the URL sources.
+
+Enable the treesit versions of major modes for all languages where the final
+element of the list is non-nil.")
+
+(defun vedang/install-treesit-grammars-and-modes ()
+  "Install grammars if they are missing, setup `auto-mode-alist` if requested.
+
+Borrows from `mickeynp/combobulate` install instructions."
+  (interactive)
+
+  (dolist (grammar vedang/treesit-grammars)
+    (add-to-list 'treesit-language-source-alist
+                 (nbutlast (copy-sequence grammar)))
+    ;; Only install `grammar' if we don't already have it
+    ;; installed. However, if you want to *update* a grammar then
+    ;; this obviously prevents that from happening.
+    (unless (treesit-language-available-p (car grammar))
+      (treesit-install-language-grammar (car grammar)))
+
+    ;; Once installed, add the appropriate settings to the
+    ;; `auto-mode-alist` to enable this grammar.
+    (when (and (treesit-ready-p (car grammar))
+               (car (last grammar)))
+      (add-to-list 'auto-mode-alist (car (last grammar))))))
+
+;;; Install treesit grammars
+(vedang/install-treesit-grammars-and-modes)
 
 ;;; Open these files in the appropriate mode
 (add-to-list 'auto-mode-alist '("\\.\\(mc\\|rc\\|def\\)$" . conf-mode))
@@ -150,50 +211,6 @@
 (if (eq system-type 'darwin)
     (add-to-list 'auto-mode-alist '("\\.m$" . objc-mode))
   (add-to-list 'auto-mode-alist '("\\.m$" . octave-mode)))
-
-(when (treesit-ready-p 'bash)
-  (add-to-list 'auto-mode-alist '("\\.\\(sh\\|bash\\)$" . bash-ts-mode)))
-(when (treesit-ready-p 'c)
-  (add-to-list 'auto-mode-alist '("\\.\\(c\\|h\\)$" . c-ts-mode)))
-(when (treesit-ready-p 'cpp)
-  (add-to-list 'auto-mode-alist '("\\.\\(cpp\\|hpp\\)$" . cpp-ts-mode)))
-;; Since this is my bread and butter language, I won't move to
-;; tree-sitter until I'm happy with the status of the work.
-
-;; (when (treesit-ready-p 'clojure)
-;;   (add-to-list 'auto-mode-alist '("\\.\\(clj\\|cljc\\|cljs\\)$" . clojure-ts-mode)))
-(when (treesit-ready-p 'cmake)
-  (add-to-list 'auto-mode-alist
-               '("\\(?:CMakeLists\\.txt\\|\\.cmake\\)\\'" . cmake-ts-mode)))
-(when (treesit-ready-p 'css)
-  (add-to-list 'auto-mode-alist '("\\.css\\'" . css-ts-mode)))
-(when (treesit-ready-p 'html)
-  (add-to-list 'auto-mode-alist '("\\.\\(html\\|xhtml\\)$" . html-ts-mode)))
-(when (treesit-ready-p 'java)
-  (add-to-list 'auto-mode-alist '("\\.java\\'" . java-ts-mode)))
-(when (treesit-ready-p 'javascript)
-  (add-to-list 'auto-mode-alist '("\\(\\.js[mx]\\|\\.har\\)\\'" . js-ts-mode)))
-(when (treesit-ready-p 'json)
-  (add-to-list 'auto-mode-alist '("\\.json\\'" . json-ts-mode)))
-(when (treesit-ready-p 'make)
-  ;; nothing to do, there is no make-ts-mode yet.
-  )
-(when (treesit-ready-p 'markdown)
-  ;; nothing to do, there is no markdown-ts-mode yet.
-  )
-(when (treesit-ready-p 'python)
-  (add-to-list 'auto-mode-alist '("\\.py[iw]?\\'" . python-ts-mode))
-  (add-to-list 'interpreter-mode-alist '("python[0-9.]*" . python-ts-mode)))
-(when (treesit-ready-p 'rust)
-  (add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode)))
-(when (treesit-ready-p 'toml)
-  (add-to-list 'auto-mode-alist '("\\.toml\\'" . toml-ts-mode)))
-(when (treesit-ready-p 'tsx)
-  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode)))
-(when (treesit-ready-p 'typescript)
-  (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode)))
-(when (treesit-ready-p 'yaml)
-  (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-ts-mode)))
 
 (defun mp-remove-treesit-sexp-changes ()
   (when (eq forward-sexp-function #'treesit-forward-sexp)

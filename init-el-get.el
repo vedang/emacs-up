@@ -334,6 +334,14 @@
                          (setq chatgpt-shell-openai-key #'my/chatgpt-api-key)
                          (setq dall-e-shell-openai-key #'my/chatgpt-api-key)))
 
+         (:name combobulate
+                :after (with-eval-after-load 'combobulate
+                         (add-hook 'python-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'js-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'css-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'yaml-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'typescript-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'tsx-ts-mode-hook #'combobulate-mode)))
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
@@ -494,7 +502,7 @@
                            (cdr project))
 
                          (add-hook 'project-find-functions #'project-find-go-module)
-			 (add-hook 'go-mode-hook 'eglot-ensure)
+			 (add-hook 'go-mode-hook #'eglot-ensure)
 			 (defun eglot-format-buffer-on-save ()
 			   (add-hook 'before-save-hook #'eglot-format-buffer -10 t))
 			 (add-hook 'go-mode-hook #'eglot-format-buffer-on-save)))
@@ -653,8 +661,8 @@
                                (expand-file-name "~/node_modules/.bin/mmdc"))))
 
          (:name org-board
-                :after (progn (global-set-key (kbd "C-c o")
-                                              org-board-keymap)))
+                :after (progn (define-key org-mode-map
+                                          (kbd "C-c o") org-board-keymap)))
 
          ;; (:name org-books
          ;;        ;; My personal settings set up the capture template
