@@ -354,6 +354,170 @@
 
          (:name company-ansible)
 
+         (:name denote
+                :after (progn
+                         (setq denote-directory
+                               (expand-file-name "~/Tresors/Documents/diary/notes")
+                               denote-date-prompt-use-org-read-date t
+                               denote-backlinks-show-context t)
+
+                         (defvar my-denote-silo-directories
+                           `(,(expand-file-name "~/Tresors/Documents/salher-content/docs")
+                             ;; You don't actually need to include the
+                             ;; `denote-directory' here if you use the
+                             ;; regular commands in their global
+                             ;; context. I am including it for
+                             ;; completeness.
+                             ,denote-directory)
+                           "List of file paths pointing to my Denote silos.")
+
+                         (defvar my-denote-commands-for-silos
+                           '(denote
+                             denote-date
+                             denote-subdirectory
+                             denote-template
+                             denote-type
+                             denote-signature)
+                           "List of commands to call after selecting a silo.")
+
+                         (defun my-denote-pick-silo-then-command (silo command)
+                           "Select SILO and run Denote COMMAND in it.
+SILO is a file path from `my-denote-silo-directories', while
+COMMAND is one among `my-denote-commands-for-silos'."
+                           (interactive
+                            (list (completing-read "Select a silo: " my-denote-silo-directories nil t)
+                                  (intern (completing-read
+                                           "Run command in silo: "
+                                           my-denote-commands-for-silos nil t))))
+                           (let ((denote-directory silo))
+                             (call-interactively command)))
+
+                         (defun my-denote-open-or-create (&optional ask-silo)
+                           "Select SILO and run Denote COMMAND in it.
+SILO is a file path from `my-denote-silo-directories', while
+COMMAND is one among `my-denote-commands-for-silos'."
+                           (interactive
+                            (list (when current-prefix-arg
+                                    (completing-read "Select a silo: " my-denote-silo-directories nil t))))
+                           (let ((denote-directory (or ask-silo denote-directory)))
+                             (call-interactively #'denote-open-or-create)))
+
+                         (setq denote-dired-directories
+                               my-denote-silo-directories
+                               denote-org-front-matter
+                               ":PROPERTIES:
+:ID: %4$s
+:CREATED: %2$s
+:END:
+#+title:      %1$s
+#+filetags:   %3$s
+#+date:       %2$s
+#+identifier: %4$s
+\n")
+                         (add-hook 'find-file-hook
+                                   #'denote-link-buttonize-buffer)
+                         (add-hook 'dired-mode-hook
+                                   #'denote-dired-mode-in-directories)
+
+                         (denote-rename-buffer-mode 1)
+
+                         ;; Register Denote's Org dynamic blocks
+                         (require 'denote-org-dblock)
+
+                         ;; I use Yasnippet to expand these into a
+                         ;; better template.
+                         (setq denote-templates
+                               '((journal . "checkin")))
+
+                         (defun my-denote-journal ()
+                           "Create a new journal entry."
+                           (interactive)
+                           (denote
+                            ;; format like Tuesday 14 June 2022
+                            (format-time-string "%A %e %B %Y")
+                            nil nil ; no need for keywords or file-type
+                            ;; Specify the subdirectory
+                            (expand-file-name "journal" denote-directory)
+                            nil ; no need for date
+                            'journal))
+
+                         (defun my-denote-create-new-note-from-region (beg end)
+                           "Create note whose contents include the text between BEG and END.
+Prompt for title and keywords of the new note."
+                           (interactive "r")
+                           (if-let (((region-active-p))
+                                    (text (buffer-substring-no-properties beg end)))
+                               (progn
+                                 (denote (denote-title-prompt) (denote-keywords-prompt))
+                                 (insert text))
+                             (user-error "No region is available")))
+
+
+                         (defun my-org-entry-end-position ()
+                           "Return the end position of the current subtree."
+                           (save-excursion (org-end-of-subtree t) (point)))
+
+                         (defun my-denote-org-extract-subtree ()
+                           "Create new Denote note using current Org subtree.
+Make the new note use the Org file type, regardless of the value
+of `denote-file-type'.
+
+Use the subtree title as the note's title.  If available, use the
+tags of the heading are used as note keywords.
+
+Delete the original subtree."
+                           (interactive)
+                           (if-let ((text (org-get-entry))
+                                    (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
+                               (let ((element (org-element-at-point))
+                                     (tags (org-get-tags)))
+                                 (delete-region (org-entry-beginning-position) (my-org-entry-end-position))
+                                 (denote heading
+                                         tags
+                                         'org
+                                         nil
+                                         (or
+                                          (org-element-property :DATE element)
+                                          (org-element-property :CREATED element)))
+                                 (insert text))
+                             (user-error "No subtree to extract; aborting")))
+
+                         ;;; Key Bindings
+                         ;; Create a new note, or open an existing
+                         ;; one. With a prefix argfument, first pick
+                         ;; the silo you want to use.
+                         (global-set-key (kbd "C-c d n")
+                                         #'my-denote-open-or-create)
+                         ;; Create a new note, specifying where it
+                         ;; goes and what type it is. Useful when you
+                         ;; want to run a specific denote command that
+                         ;; is not on any other keybinding.
+                         (global-set-key (kbd "C-c d N")
+                                         #'my-denote-pick-silo-then-command)
+                         ;; Link to an existing note or create a new one
+                         (global-set-key (kbd "C-c d l")
+                                         #'denote-link-or-create)
+                         ;; Display the backlinks buffer
+                         (global-set-key (kbd "C-c d B")
+                                         #'denote-link-backlinks)
+                         ;; Visit a backlink directly
+                         (global-set-key (kbd "C-c d b")
+                                         #'denote-link-find-backlink)
+                         ;; Visit a forwardlink directly
+                         (global-set-key (kbd "C-c d f")
+                                         #'denote-link-find-file)
+                         ;; Write a new journal entry
+                         (global-set-key (kbd "C-c d j")
+                                         #'my-denote-journal)
+
+                         ;; Key bindings specifically for Dired.
+                         (let ((map dired-mode-map))
+                           (define-key map (kbd "C-c C-d C-i")
+                                       #'denote-link-dired-marked-notes)
+                           (define-key map (kbd "C-c C-d C-r")
+                                       #'denote-dired-rename-marked-files)
+                           (define-key map (kbd "C-c C-d C-R")
+                                       #'denote-dired-rename-marked-files-using-front-matter))))
          (:name diminish
                 :before (progn
                           (defvar vm/diminish-modes
@@ -415,8 +579,6 @@
                               (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
                               (define-key dumb-jump-mode-map (kbd "C-M-q") nil)
                               (define-key dumb-jump-mode-map (kbd "C-M-p") nil)
-                              (define-key dumb-jump-mode-map (kbd "C-c d g") 'dumb-jump-go)
-                              (define-key dumb-jump-mode-map (kbd "C-c d b") 'dumb-jump-back)
                               (setq dumb-jump-selector 'helm
                                     dumb-jump-prefer-searcher 'rg)))
 
