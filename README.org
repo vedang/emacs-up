@@ -150,7 +150,15 @@ This configuration installs ~all-the-icons~ for pretty icons. All the Icons requ
 :END:
 ~emacs-up~ now uses the new ~tree-sitter~ support that Emacs 29+ brings for many programming modes (see list below). Getting this to work requires installing ~tree-sitter~ and the language grammars. I consider this as experimental at the moment, *you can skip this setup if you do not care of any of these languages*.
 
-List of languages that use ~tree-sitter~, and their grammars:
+The *pre-requisite* for this to work is that you need to install ~tree-sitter~ on your system. You can do this as follows:
+#+begin_src sh
+  git clone https://github.com/tree-sitter/tree-sitter
+  cd tree-sitter/
+  make
+  sudo make install
+#+end_src
+
+Here is the list of languages that use ~tree-sitter~ in this config, along with where we clone the grammars from:
 
 #+begin_src emacs-lisp
   '((bash "https://github.com/tree-sitter/tree-sitter-bash")
@@ -174,27 +182,8 @@ List of languages that use ~tree-sitter~, and their grammars:
     (yaml "https://github.com/ikatyang/tree-sitter-yaml"))
 #+end_src
 
-*** Set Emacs to use ~tree-sitter~ under the ~emacs-up~ configuration
-:PROPERTIES:
-:CREATED:  [2023-05-28 Sun 20:05]
-:ID:       DB10A180-7D3D-4016-B11B-E9A4FB136D90
-:END:
-- Make sure you are using Emacs 29+ with ~tree-sitter~ support enabled. You can check this with ~C-h v system-configuration-features~. The output should have ~TREE_SITTER~ in it.
-- Install ~tree-sitter~:
-  #+begin_src sh
-    git clone https://github.com/tree-sitter/tree-sitter
-    cd tree-sitter/
-    make
-    sudo make install
-  #+end_src
-- Create the default ~tree-sitter~ Grammar directory: ~mkdir ~/.emacs.d/tree-sitter~
-- Install ~tree-sitter~ Grammars. Start Emacs with ~emacs-up~ configuration and then run ~M-x ielm~, followed by:
-  #+begin_src emacs-lisp
-    (mapc #'treesit-install-language-grammar
-          (mapcar #'car treesit-language-source-alist))
-  #+end_src
-- Make sure the grammars are installed correctly. In IELM, run:
-  #+begin_src emacs-lisp
-    (treesit-language-available-p 'clojure)
-  #+end_src
-- Restart Emacs and profit.
+This list is maintained in the variable ~vedang/treesit-grammars~, in case you are interested in modifying it.
+
+Make sure you are using Emacs 29+ with ~tree-sitter~ support enabled. You can check this with ~C-h v system-configuration-features~. The output should have ~TREE_SITTER~ in it.
+
+~emacs-up~ will install ~tree-sitter~ grammars automatically. We use code inspired from the ~combobulate~ README to do this. Check ~vedang/install-treesit-grammars-and-modes~ if you are curious.
