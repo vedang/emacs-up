@@ -15,10 +15,12 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#fffefe" "#9d0000" "#006a00" "#0e1b00" "#6845138" "#840086" "#003567" "#494949"])
- '(bmkp-last-as-first-bookmark-file "/Users/nejo/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(cider-repl-print-length 200)
  '(connection-local-criteria-alist
-   '(((:application tramp :machine "localhost")
+   '(((:application tramp :protocol "flatpak")
+      tramp-container-connection-local-default-flatpak-profile)
+     ((:application tramp :machine "localhost")
       tramp-connection-local-darwin-ps-profile)
      ((:application tramp :machine "raagitkombdi.vedang.me")
       tramp-connection-local-darwin-ps-profile)
@@ -27,7 +29,9 @@
      ((:application eshell)
       eshell-connection-default-profile)))
  '(connection-local-profile-alist
-   '((tramp-connection-local-darwin-ps-profile
+   '((tramp-container-connection-local-default-flatpak-profile
+      (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin"))
+     (tramp-connection-local-darwin-ps-profile
       (tramp-process-attributes-ps-args "-acxww" "-o" "pid,uid,user,gid,comm=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" "-o" "state=abcde" "-o" "ppid,pgid,sess,tty,tpgid,minflt,majflt,time,pri,nice,vsz,rss,etime,pcpu,pmem,args")
       (tramp-process-attributes-ps-format
        (pid . number)
@@ -128,7 +132,9 @@
    '(file free-text highlight squiggly strike-out text underline))
  '(pdf-annot-minor-mode-map-prefix [3 1])
  '(safe-local-variable-values
-   '((system-time-locale . "C")
+   '((denote-file-type . markdown-yaml)
+     (denote-file-type quote markdown-yaml)
+     (system-time-locale . "C")
      (org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2022-01-01\12flags hsc_z, hsc_a\12")
      (org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2020-01-01\12flags hsc_z, hsc_a\12")
      (org-duration-units
