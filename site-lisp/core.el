@@ -222,5 +222,12 @@ Borrows from `mickeynp/combobulate` install instructions."
 
 (add-hook 'prog-mode-hook #'mp-remove-treesit-sexp-changes)
 
+;;; ask xref to use ripgrep (Emacs 28 and higher)
+(setq xref-search-program
+      (if (or (executable-find "rg")
+              (executable-find "ripgrep"))
+          'ripgrep
+        'grep))
+
 (provide 'core)
 ;;; core.el ends here

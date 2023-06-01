@@ -27,6 +27,7 @@
                                   helm-source-recentf
                                   helm-source-bookmarks
                                   helm-source-buffer-not-found)
+      ;; Use ripgrep for searching
       helm-grep-ag-command
       "rg --color=always --colors 'match:style:underline' --colors 'match:bg:black' --colors 'match:fg:white' --smart-case --no-heading --line-number %s %s %s"
 
@@ -48,6 +49,7 @@
       ;; Similarly, set these to t
       helm-use-frame-when-more-than-two-windows nil
       helm-use-frame-when-dedicated-window nil
+      ;; Use fd for finding
       helm-locate-recursive-dirs-command "fd --hidden --type d .*%s.*$ %s"
       helm-ff-auto-update-initial-value t)
 
