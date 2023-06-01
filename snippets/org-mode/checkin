@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: The Checkin Capture Template
+# key: checkin
+# --
+
+* ${1:$$(yas-choose-value '("The Daily Ongoing Check-in" "The Morning Journaling Ritual"))}  :noexport:
+$0
+- I'm feeling grateful for:
+  + Capture gratitude here
+- I had an insight!
+  + Capture insight here
+- Thinking / Feeling:
+  + Capture other thoughts, feels here
