@@ -419,7 +419,11 @@ COMMAND is one among `my-denote-commands-for-silos'."
                          (add-hook 'dired-mode-hook
                                    #'denote-dired-mode-in-directories)
 
-                         (denote-rename-buffer-mode 1)
+                         ;;; Denote Rename Buffer is causing errors
+                         ;;; when linking to notes. I'm not interested
+                         ;;; in debugging this further at the moment,
+                         ;;; so just commenting it out right now.
+                         ;; (denote-rename-buffer-mode 1)
 
                          ;; Register Denote's Org dynamic blocks
                          (require 'denote-org-dblock)
