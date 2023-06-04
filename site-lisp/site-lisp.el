@@ -38,6 +38,9 @@
   (lambda ()
     (interactive)
     (eww-open-file (dired-get-file-for-visit))))
+(add-hook 'dired-mode-hook #'dired-hide-details-mode)
+;;; commented out to see if this is causing problems in Emacs 29
+;; (require 'dired+)
 
 ;; customizations for auto-indentation
 (defadvice yank (after indent-region activate)
@@ -89,9 +92,6 @@ right mode to start in the buffer."
 
 ;; Require other site-lisp configuration
 
-;; commented out to see if this is causing problems in Emacs 29 /
-;; dired
-; (require 'dired+)
 (require 'init-ido)
 (require 'init-ibuffer)
 (require 'init-isearch)
