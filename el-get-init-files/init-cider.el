@@ -37,25 +37,6 @@ NS is the namespace information passed into the function by cider."
                                "project.clj")))
         (cider-load-buffer buf)))))
 
-
-;;; Integration with REBL
-;; Similar to C-x C-e, but sends to REBL
-(defun rebl-eval-last-sexp ()
-  (interactive)
-  (let* ((bounds (cider-last-sexp 'bounds))
-         (s (cider-last-sexp))
-         (reblized (concat "(cognitect.rebl/inspect " s ")")))
-    (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
-
-;; Similar to C-M-x, but sends to REBL
-(defun rebl-eval-defun-at-point ()
-  (interactive)
-  (let* ((bounds (cider-defun-at-point 'bounds))
-         (s (cider-defun-at-point))
-         (reblized (concat "(cognitect.rebl/inspect " s ")")))
-    (cider-interactive-eval reblized nil bounds (cider--nrepl-print-request-map))))
-
-
 (with-eval-after-load 'cider-mode
   (add-hook 'cider-mode-hook 'eldoc-mode)
   (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
@@ -78,19 +59,10 @@ NS is the namespace information passed into the function by cider."
           ("display-doc" . cider-doc-lookup)
           ("lookup-on-clojuredocs" . cider-clojuredocs-lookup))))
 
-
-;; C-S-x send defun to rebl
-;; C-x C-r send last sexp to rebl
-(with-eval-after-load 'cider-mode
-  (define-key cider-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
-  (define-key cider-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp))
-
 (with-eval-after-load 'cider-repl
   (add-hook 'cider-repl-mode-hook 'subword-mode)
   (define-key cider-repl-mode-map (kbd "C-M-q") 'prog-indent-sexp)
-  (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer)
-  (define-key cider-repl-mode-map (kbd "C-S-x") 'rebl-eval-defun-at-point)
-  (define-key cider-repl-mode-map (kbd "C-x C-r") 'rebl-eval-last-sexp))
+  (define-key cider-repl-mode-map (kbd "C-c M-o") 'cider-repl-clear-buffer))
 
 (defun clerk-show ()
   "Show the current-file using Clerk."
