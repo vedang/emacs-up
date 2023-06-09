@@ -389,7 +389,7 @@ COMMAND is one among `my-denote-commands-for-silos'."
                                   (intern (completing-read
                                            "Run command in silo: "
                                            my-denote-commands-for-silos nil t))))
-                           (let ((denote-directory silo))
+                           (let ((user-enforced-denote-directory silo))
                              (call-interactively command)))
 
                          (defun my-denote-open-or-create (&optional ask-silo)
@@ -399,7 +399,8 @@ COMMAND is one among `my-denote-commands-for-silos'."
                            (interactive
                             (list (when current-prefix-arg
                                     (completing-read "Select a silo: " my-denote-silo-directories nil t))))
-                           (let ((denote-directory (or ask-silo denote-directory)))
+                           (let ((user-enforced-denote-directory ask-silo))
+                             (message "My value is: %s" user-enforced-denote-directory)
                              (call-interactively #'denote-open-or-create)))
 
                          (setq denote-dired-directories
@@ -461,7 +462,7 @@ Prompt for title and keywords of the new note."
                            "Return the end position of the current subtree."
                            (save-excursion (org-end-of-subtree t) (point)))
 
-                         (defun my-denote-org-extract-subtree ()
+                         (defun my-denote-org-extract-subtree (&optional ask-silo)
                            "Create new Denote note using current Org subtree.
 Make the new note use the Org file type, regardless of the value
 of `denote-file-type'.
@@ -470,19 +471,24 @@ Use the subtree title as the note's title.  If available, use the
 tags of the heading are used as note keywords.
 
 Delete the original subtree."
-                           (interactive)
+                           (interactive
+                            (list (when current-prefix-arg
+                                    (completing-read "Select a silo: " my-denote-silo-directories nil t))))
                            (if-let ((text (org-get-entry))
                                     (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
                                (let ((element (org-element-at-point))
                                      (tags (org-get-tags)))
                                  (delete-region (org-entry-beginning-position) (my-org-entry-end-position))
-                                 (denote heading
-                                         tags
-                                         'org
-                                         nil
-                                         (or
-                                          (org-element-property :DATE element)
-                                          (org-element-property :CREATED element)))
+                                 (let ((user-enforced-denote-directory ask-silo))
+                                   (denote heading
+                                           tags
+                                           'org
+                                           nil
+                                           (or
+                                            (org-element-property :DATE element)
+                                            (org-element-property :CREATED element)
+                                            (org-element-property :raw-value
+                                                                  (org-element-property :closed element)))))
                                  (insert text))
                              (user-error "No subtree to extract; aborting")))
 
@@ -491,6 +497,8 @@ Delete the original subtree."
                          ;; one. With a prefix argfument, first pick
                          ;; the silo you want to use.
                          (global-set-key (kbd "C-c d n")
+                                         #'my-denote-open-or-create)
+                         (global-set-key (kbd "C-c d o") ; intuitive for open
                                          #'my-denote-open-or-create)
                          ;; Create a new note, specifying where it
                          ;; goes and what type it is. Useful when you
@@ -501,6 +509,9 @@ Delete the original subtree."
                          ;; Link to an existing note or create a new one
                          (global-set-key (kbd "C-c d l")
                                          #'denote-link-or-create)
+                         ;; Create a new note and insert a link
+                         (global-set-key (kbd "C-c d L")
+                                         #'denote-link-after-creating)
                          ;; Display the backlinks buffer
                          (global-set-key (kbd "C-c d B")
                                          #'denote-link-backlinks)
@@ -511,16 +522,18 @@ Delete the original subtree."
                          (global-set-key (kbd "C-c d f")
                                          #'denote-link-find-file)
                          ;; Write a new journal entry
-                         (global-set-key (kbd "C-c d j")
-                                         #'my-denote-journal)
-
+                         (global-set-key (kbd "C-c d j") #'my-denote-journal)
+                         ;; Rename the file
+                         (global-set-key (kbd "C-c d r") #'denote-rename-file)
+                         (global-set-key (kbd "C-c d R")
+                                         #'denote-rename-file-using-front-matter)
                          ;; Key bindings specifically for Dired.
                          (let ((map dired-mode-map))
-                           (define-key map (kbd "C-c C-d C-i")
+                           (define-key map (kbd "C-c C-d i")
                                        #'denote-link-dired-marked-notes)
-                           (define-key map (kbd "C-c C-d C-r")
+                           (define-key map (kbd "C-c C-d r")
                                        #'denote-dired-rename-marked-files)
-                           (define-key map (kbd "C-c C-d C-R")
+                           (define-key map (kbd "C-c C-d R")
                                        #'denote-dired-rename-marked-files-using-front-matter))))
          (:name diminish
                 :before (progn
