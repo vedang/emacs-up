@@ -437,14 +437,16 @@ COMMAND is one among `my-denote-commands-for-silos'."
                          (defun my-denote-journal ()
                            "Create a new journal entry."
                            (interactive)
-                           (denote
-                            ;; format like Tuesday 14 June 2022
-                            (format-time-string "%A %e %B %Y")
-                            nil nil ; no need for keywords or file-type
-                            ;; Specify the subdirectory
-                            (expand-file-name "journal" denote-directory)
-                            nil ; no need for date
-                            'journal))
+                           (let ((user-enforced-denote-directory
+                                  (expand-file-name "~/Tresors/Documents/diary/notes")))
+                             (denote
+                              ;; format like Tuesday 14 June 2022
+                              (format-time-string "%A %e %B %Y")
+                              nil nil ; no need for keywords or file-type
+                              ;; Specify the subdirectory
+                              (expand-file-name "journal" user-enforced-denote-directory)
+                              nil       ; no need for date
+                              'journal)))
 
                          (defun my-denote-create-new-note-from-region (beg end)
                            "Create note whose contents include the text between BEG and END.

@@ -132,7 +132,8 @@
    '(file free-text highlight squiggly strike-out text underline))
  '(pdf-annot-minor-mode-map-prefix [3 1])
  '(safe-local-variable-values
-   '((denote-file-type . markdown-yaml)
+   '((denote-file-type . org)
+     (denote-file-type . markdown-yaml)
      (denote-file-type quote markdown-yaml)
      (system-time-locale . "C")
      (org-taskjuggler-default-global-properties . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2022-01-01\12flags hsc_z, hsc_a\12")
