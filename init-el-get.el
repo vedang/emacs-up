@@ -389,7 +389,7 @@ COMMAND is one among `my-denote-commands-for-silos'."
                                   (intern (completing-read
                                            "Run command in silo: "
                                            my-denote-commands-for-silos nil t))))
-                           (let ((user-enforced-denote-directory silo))
+                           (let ((denote-user-enforced-denote-directory silo))
                              (call-interactively command)))
 
                          (defun my-denote-open-or-create (&optional ask-silo)
@@ -399,8 +399,8 @@ COMMAND is one among `my-denote-commands-for-silos'."
                            (interactive
                             (list (when current-prefix-arg
                                     (completing-read "Select a silo: " my-denote-silo-directories nil t))))
-                           (let ((user-enforced-denote-directory ask-silo))
-                             (message "My value is: %s" user-enforced-denote-directory)
+                           (let ((denote-user-enforced-denote-directory ask-silo))
+                             (message "My value is: %s" denote-user-enforced-denote-directory)
                              (call-interactively #'denote-open-or-create)))
 
                          (setq denote-dired-directories
@@ -437,14 +437,14 @@ COMMAND is one among `my-denote-commands-for-silos'."
                          (defun my-denote-journal ()
                            "Create a new journal entry."
                            (interactive)
-                           (let ((user-enforced-denote-directory
+                           (let ((denote-user-enforced-denote-directory
                                   (expand-file-name "~/Tresors/Documents/diary/notes")))
                              (denote
                               ;; format like Tuesday 14 June 2022
                               (format-time-string "%A %e %B %Y")
                               nil nil ; no need for keywords or file-type
                               ;; Specify the subdirectory
-                              (expand-file-name "journal" user-enforced-denote-directory)
+                              (expand-file-name "journal" denote-user-enforced-denote-directory)
                               nil       ; no need for date
                               'journal)))
 
@@ -481,7 +481,7 @@ Delete the original subtree."
                                (let ((element (org-element-at-point))
                                      (tags (org-get-tags)))
                                  (delete-region (org-entry-beginning-position) (my-org-entry-end-position))
-                                 (let ((user-enforced-denote-directory ask-silo))
+                                 (let ((denote-user-enforced-denote-directory ask-silo))
                                    (denote heading
                                            tags
                                            'org

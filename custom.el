@@ -15,7 +15,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#fffefe" "#9d0000" "#006a00" "#0e1b00" "#6845138" "#840086" "#003567" "#494949"])
- '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(bmkp-last-as-first-bookmark-file "/Users/nejo/.emacs.d/bookmarks")
  '(cider-repl-print-length 200)
  '(connection-local-criteria-alist
    '(((:application tramp :protocol "flatpak")
@@ -132,7 +132,8 @@
    '(file free-text highlight squiggly strike-out text underline))
  '(pdf-annot-minor-mode-map-prefix [3 1])
  '(safe-local-variable-values
-   '((denote-file-type . org)
+   '((denote-directory . "/Users/nejo/Tresors/Documents/salher-content/docs")
+     (denote-file-type . org)
      (denote-file-type . markdown-yaml)
      (denote-file-type quote markdown-yaml)
      (system-time-locale . "C")
