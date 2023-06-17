@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: Helper template for quickly noting a quote in a reference note
+# key: rq
+# --
+- /(Pg ${1:Page Number})/ "${2:The Quote}" *[${3:Tags}]*
+  + $0

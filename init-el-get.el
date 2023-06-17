@@ -446,7 +446,8 @@ SILO is a file path from `my-denote-silo-directories'."
                          ;; I use Yasnippet to expand these into a
                          ;; better template.
                          (setq denote-templates
-                               '((journal . "checkin")))
+                               '((journal . "checkin")
+                                 (reference-note . "reference")))
 
                          (defun my-denote-journal ()
                            "Create a new journal entry."
