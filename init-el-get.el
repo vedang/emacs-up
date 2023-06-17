@@ -359,7 +359,18 @@
                          (setq denote-directory
                                (expand-file-name "~/Tresors/Documents/diary/notes")
                                denote-date-prompt-use-org-read-date t
-                               denote-backlinks-show-context t)
+                               denote-backlinks-show-context t
+                               denote-excluded-directories-regexp "data"
+                               denote-org-front-matter
+                               ":PROPERTIES:
+:ID: %4$s
+:CREATED: %2$s
+:END:
+#+title:      %1$s
+#+filetags:   %3$s
+#+date:       %2$s
+#+identifier: %4$s
+\n")
 
                          (defvar my-denote-silo-directories
                            `(,(expand-file-name "~/Tresors/Documents/salher-content/docs")
@@ -392,29 +403,32 @@ COMMAND is one among `my-denote-commands-for-silos'."
                            (let ((denote-user-enforced-denote-directory silo))
                              (call-interactively command)))
 
-                         (defun my-denote-open-or-create (&optional ask-silo)
-                           "Select SILO and run Denote COMMAND in it.
-SILO is a file path from `my-denote-silo-directories', while
-COMMAND is one among `my-denote-commands-for-silos'."
+                         (defun my-denote-open-or-create (&optional silo)
+                           "Select SILO and run `denote-open-or-create' in it.
+SILO is a file path from `my-denote-silo-directories'."
                            (interactive
                             (list (when current-prefix-arg
                                     (completing-read "Select a silo: " my-denote-silo-directories nil t))))
-                           (let ((denote-user-enforced-denote-directory ask-silo))
+                           (let ((denote-user-enforced-denote-directory silo))
                              (message "My value is: %s" denote-user-enforced-denote-directory)
                              (call-interactively #'denote-open-or-create)))
 
+                         (defun my-denote-create (&optional silo)
+                           "Select SILO and run `denote' in it.
+SILO is a file path from `my-denote-silo-directories'."
+                           (interactive
+                            (list (when current-prefix-arg
+                                    (completing-read "Select a silo: " my-denote-silo-directories nil t))))
+                           (let ((denote-user-enforced-denote-directory silo))
+                             (message "My value is: %s" denote-user-enforced-denote-directory)
+                             (call-interactively #'denote)))
+
                          (setq denote-dired-directories
-                               my-denote-silo-directories
-                               denote-org-front-matter
-                               ":PROPERTIES:
-:ID: %4$s
-:CREATED: %2$s
-:END:
-#+title:      %1$s
-#+filetags:   %3$s
-#+date:       %2$s
-#+identifier: %4$s
-\n")
+                               (append my-denote-silo-directories
+                                       (list (expand-file-name "journal" denote-directory)
+                                             (expand-file-name "reference" denote-directory)
+                                             (expand-file-name "main" denote-directory)
+                                             (expand-file-name "archive" denote-directory))))
                          (add-hook 'find-file-hook
                                    #'denote-link-buttonize-buffer)
                          (add-hook 'dired-mode-hook
@@ -499,7 +513,7 @@ Delete the original subtree."
                          ;; one. With a prefix argfument, first pick
                          ;; the silo you want to use.
                          (global-set-key (kbd "C-c d n")
-                                         #'my-denote-open-or-create)
+                                         #'my-denote-create)
                          (global-set-key (kbd "C-c d o") ; intuitive for open
                                          #'my-denote-open-or-create)
                          ;; Create a new note, specifying where it
