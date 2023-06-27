@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: The Emotions Check-in Template
+# key: emotion
+# --
+
+* I am feeling ${1:$$(yas-choose-value '("grateful for" "happy about" "angry about" "unhappy about" "excited for"))}   :noexport:
+I'm feeling $1:
+- $0 Capture your emotion here

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: The Insight Check-in Template
+# key: insight
+# --
+
+* I had an insight!   :noexport:insight:
+$0 Capture your insight here
