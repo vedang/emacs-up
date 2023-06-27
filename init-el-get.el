@@ -371,60 +371,14 @@
 #+date:       %2$s
 #+identifier: %4$s
 \n")
+                         (require 'denote-extras-silo)
+                         (require 'denote-extras-journal)
 
-                         (defvar my-denote-silo-directories
-                           `(,(expand-file-name "~/Tresors/Documents/salher-content/docs")
-                             ;; You don't actually need to include the
-                             ;; `denote-directory' here if you use the
-                             ;; regular commands in their global
-                             ;; context. I am including it for
-                             ;; completeness.
-                             ,denote-directory)
-                           "List of file paths pointing to my Denote silos.")
-
-                         (defvar my-denote-commands-for-silos
-                           '(denote
-                             denote-date
-                             denote-subdirectory
-                             denote-template
-                             denote-type
-                             denote-signature)
-                           "List of commands to call after selecting a silo.")
-
-                         (defun my-denote-pick-silo-then-command (silo command)
-                           "Select SILO and run Denote COMMAND in it.
-SILO is a file path from `my-denote-silo-directories', while
-COMMAND is one among `my-denote-commands-for-silos'."
-                           (interactive
-                            (list (completing-read "Select a silo: " my-denote-silo-directories nil t)
-                                  (intern (completing-read
-                                           "Run command in silo: "
-                                           my-denote-commands-for-silos nil t))))
-                           (let ((denote-user-enforced-denote-directory silo))
-                             (call-interactively command)))
-
-                         (defun my-denote-open-or-create (&optional silo)
-                           "Select SILO and run `denote-open-or-create' in it.
-SILO is a file path from `my-denote-silo-directories'."
-                           (interactive
-                            (list (when current-prefix-arg
-                                    (completing-read "Select a silo: " my-denote-silo-directories nil t))))
-                           (let ((denote-user-enforced-denote-directory silo))
-                             (message "My value is: %s" denote-user-enforced-denote-directory)
-                             (call-interactively #'denote-open-or-create)))
-
-                         (defun my-denote-create (&optional silo)
-                           "Select SILO and run `denote' in it.
-SILO is a file path from `my-denote-silo-directories'."
-                           (interactive
-                            (list (when current-prefix-arg
-                                    (completing-read "Select a silo: " my-denote-silo-directories nil t))))
-                           (let ((denote-user-enforced-denote-directory silo))
-                             (message "My value is: %s" denote-user-enforced-denote-directory)
-                             (call-interactively #'denote)))
+                         (add-to-list 'denote-extras-silo-directories
+                                      (expand-file-name "~/Tresors/Documents/salher-content/docs"))
 
                          (setq denote-dired-directories
-                               (append my-denote-silo-directories
+                               (append denote-extras-silo-directories
                                        (list (expand-file-name "journal" denote-directory)
                                              (expand-file-name "reference" denote-directory)
                                              (expand-file-name "main" denote-directory)
@@ -445,23 +399,8 @@ SILO is a file path from `my-denote-silo-directories'."
 
                          ;; I use Yasnippet to expand these into a
                          ;; better template.
-                         (setq denote-templates
-                               '((journal . "checkin")
-                                 (reference-note . "reference")))
-
-                         (defun my-denote-journal ()
-                           "Create a new journal entry."
-                           (interactive)
-                           (let ((denote-user-enforced-denote-directory
-                                  (expand-file-name "~/Tresors/Documents/diary/notes")))
-                             (denote
-                              ;; format like Tuesday 14 June 2022
-                              (format-time-string "%A %e %B %Y")
-                              nil nil ; no need for keywords or file-type
-                              ;; Specify the subdirectory
-                              (expand-file-name "journal" denote-user-enforced-denote-directory)
-                              nil       ; no need for date
-                              'journal)))
+                         (add-to-list 'denote-templates
+                                      '(reference-note . "reference"))
 
                          (defun my-denote-create-new-note-from-region (beg end)
                            "Create note whose contents include the text between BEG and END.
@@ -490,7 +429,7 @@ tags of the heading are used as note keywords.
 Delete the original subtree."
                            (interactive
                             (list (when current-prefix-arg
-                                    (completing-read "Select a silo: " my-denote-silo-directories nil t))))
+                                    (completing-read "Select a silo: " denote-extras-silo-directories nil t))))
                            (if-let ((text (org-get-entry))
                                     (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
                                (let ((element (org-element-at-point))
@@ -514,15 +453,15 @@ Delete the original subtree."
                          ;; one. With a prefix argfument, first pick
                          ;; the silo you want to use.
                          (global-set-key (kbd "C-c d n")
-                                         #'my-denote-create)
+                                         #'denote-extras-silo-create)
                          (global-set-key (kbd "C-c d o") ; intuitive for open
-                                         #'my-denote-open-or-create)
+                                         #'denote-extras-silo-open-or-create)
                          ;; Create a new note, specifying where it
                          ;; goes and what type it is. Useful when you
                          ;; want to run a specific denote command that
                          ;; is not on any other keybinding.
                          (global-set-key (kbd "C-c d N")
-                                         #'my-denote-pick-silo-then-command)
+                                         #'denote-extras-silo-pick-silo-then-command)
                          ;; Link to an existing note or create a new one
                          (global-set-key (kbd "C-c d l")
                                          #'denote-link-or-create)
@@ -539,7 +478,8 @@ Delete the original subtree."
                          (global-set-key (kbd "C-c d f")
                                          #'denote-link-find-file)
                          ;; Write a new journal entry
-                         (global-set-key (kbd "C-c d j") #'my-denote-journal)
+                         (global-set-key (kbd "C-c d j")
+                                         #'denote-extras-journal-new-stand-alone-journal-entry)
                          ;; Rename the file
                          (global-set-key (kbd "C-c d r") #'denote-rename-file)
                          (global-set-key (kbd "C-c d R")
