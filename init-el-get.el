@@ -514,7 +514,7 @@ Delete the original subtree."
                               (org-remark . org-remark-mode)
                               (org-remark-global-tracking . org-remark-global-tracking-mode)
                               (org-pomodoro-third-time . org-pomodoro-third-time-mode)
-                              (apheleia . apheleia-mode))
+                              (apheleia-core . apheleia-mode))
                             "Tuples of (LIBRARY-NAME . MODE-NAME) that I don't want to see on the modeline.")
                           (defmacro vm/diminish-that-line ()
                             (cons 'progn
