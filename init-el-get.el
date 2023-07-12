@@ -469,14 +469,11 @@ Delete the original subtree."
                          (global-set-key (kbd "C-c d L")
                                          #'denote-link-after-creating)
                          ;; Display the backlinks buffer
-                         (global-set-key (kbd "C-c d B")
-                                         #'denote-link-backlinks)
+                         (global-set-key (kbd "C-c d B") #'denote-backlinks)
                          ;; Visit a backlink directly
-                         (global-set-key (kbd "C-c d b")
-                                         #'denote-link-find-backlink)
+                         (global-set-key (kbd "C-c d b") #'denote-find-backlink)
                          ;; Visit a forwardlink directly
-                         (global-set-key (kbd "C-c d f")
-                                         #'denote-link-find-file)
+                         (global-set-key (kbd "C-c d f") #'denote-find-link)
                          ;; Write a new journal entry
                          (global-set-key (kbd "C-c d j")
                                          #'denote-extras-journal-new-stand-alone-journal-entry)
