@@ -371,14 +371,15 @@
 #+date:       %2$s
 #+identifier: %4$s
 \n")
-                         (require 'denote-extras-silo)
-                         (require 'denote-extras-journal)
+                         (require 'denote-silo-extra)
+                         (require 'denote-journal-extra)
+                         (require 'denote-create-extra)
 
-                         (add-to-list 'denote-extras-silo-directories
+                         (add-to-list 'denote-silo-extra-directories
                                       (expand-file-name "~/Tresors/Documents/salher-content/docs"))
 
                          (setq denote-dired-directories
-                               (append denote-extras-silo-directories
+                               (append denote-silo-extra-directories
                                        (list (expand-file-name "journal" denote-directory)
                                              (expand-file-name "reference" denote-directory)
                                              (expand-file-name "main" denote-directory)
@@ -389,10 +390,9 @@
                                    #'denote-dired-mode-in-directories)
 
                          ;;; Denote Rename Buffer is causing errors
-                         ;;; when linking to notes. I'm not interested
-                         ;;; in debugging this further at the moment,
-                         ;;; so just commenting it out right now.
-                         ;; (denote-rename-buffer-mode 1)
+                         ;;; when linking to notes. @TODO: Comment
+                         ;;; this out if problems continue
+                         (denote-rename-buffer-mode 1)
 
                          ;; Register Denote's Org dynamic blocks
                          (require 'denote-org-dblock)
@@ -402,66 +402,20 @@
                          (add-to-list 'denote-templates
                                       '(reference-note . "reference"))
 
-                         (defun my-denote-create-new-note-from-region (beg end)
-                           "Create note whose contents include the text between BEG and END.
-Prompt for title and keywords of the new note."
-                           (interactive "r")
-                           (if-let (((region-active-p))
-                                    (text (buffer-substring-no-properties beg end)))
-                               (progn
-                                 (denote (denote-title-prompt) (denote-keywords-prompt))
-                                 (insert text))
-                             (user-error "No region is available")))
-
-
-                         (defun my-org-entry-end-position ()
-                           "Return the end position of the current subtree."
-                           (save-excursion (org-end-of-subtree t) (point)))
-
-                         (defun my-denote-org-extract-subtree (&optional ask-silo)
-                           "Create new Denote note using current Org subtree.
-Make the new note use the Org file type, regardless of the value
-of `denote-file-type'.
-
-Use the subtree title as the note's title.  If available, use the
-tags of the heading are used as note keywords.
-
-Delete the original subtree."
-                           (interactive
-                            (list (when current-prefix-arg
-                                    (completing-read "Select a silo: " denote-extras-silo-directories nil t))))
-                           (if-let ((text (org-get-entry))
-                                    (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
-                               (let ((element (org-element-at-point))
-                                     (tags (org-get-tags)))
-                                 (delete-region (org-entry-beginning-position) (my-org-entry-end-position))
-                                 (let ((denote-user-enforced-denote-directory ask-silo))
-                                   (denote heading
-                                           tags
-                                           'org
-                                           nil
-                                           (or
-                                            (org-element-property :DATE element)
-                                            (org-element-property :CREATED element)
-                                            (org-element-property :raw-value
-                                                                  (org-element-property :closed element)))))
-                                 (insert text))
-                             (user-error "No subtree to extract; aborting")))
-
                          ;;; Key Bindings
                          ;; Create a new note, or open an existing
                          ;; one. With a prefix argfument, first pick
                          ;; the silo you want to use.
                          (global-set-key (kbd "C-c d n")
-                                         #'denote-extras-silo-create)
+                                         #'denote-silo-extra-create)
                          (global-set-key (kbd "C-c d o") ; intuitive for open
-                                         #'denote-extras-silo-open-or-create)
+                                         #'denote-silo-extra-open-or-create)
                          ;; Create a new note, specifying where it
                          ;; goes and what type it is. Useful when you
                          ;; want to run a specific denote command that
                          ;; is not on any other keybinding.
                          (global-set-key (kbd "C-c d N")
-                                         #'denote-extras-silo-pick-silo-then-command)
+                                         #'denote-silo-extra-pick-silo-then-command)
                          ;; Link to an existing note or create a new one
                          (global-set-key (kbd "C-c d l")
                                          #'denote-link-or-create)
@@ -476,7 +430,7 @@ Delete the original subtree."
                          (global-set-key (kbd "C-c d f") #'denote-find-link)
                          ;; Write a new journal entry
                          (global-set-key (kbd "C-c d j")
-                                         #'denote-extras-journal-new-stand-alone-journal-entry)
+                                         #'denote-journal-extra-new-stand-alone-journal-entry)
                          ;; Rename the file
                          (global-set-key (kbd "C-c d r") #'denote-rename-file)
                          (global-set-key (kbd "C-c d R")
