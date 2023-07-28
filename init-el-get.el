@@ -435,6 +435,10 @@
                          (global-set-key (kbd "C-c d r") #'denote-rename-file)
                          (global-set-key (kbd "C-c d R")
                                          #'denote-rename-file-using-front-matter)
+                         (global-set-key (kbd "C-c d a")
+                                         #'denote-add-front-matter)
+                         (global-set-key (kbd "C-c d k") #'denote-keywords-add)
+                         (global-set-key (kbd "C-c d K") #'denote-keywords-remove)
                          ;; Key bindings specifically for Dired.
                          (let ((map dired-mode-map))
                            (define-key map (kbd "C-c C-d i")
