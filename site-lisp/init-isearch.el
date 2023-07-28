@@ -59,8 +59,9 @@ vice-versa. depending on the `use-default?' arg."
 
 
 ;; Activate occur easily inside isearch
-(define-key isearch-mode-map (kbd "C-o")
-  'is/activate-occur)
+(with-eval-after-load 'helm-occur
+  (define-key isearch-mode-map (kbd "C-o")
+              'helm-occur-from-isearch))
 
 
 ;; Use regex searches by default.
