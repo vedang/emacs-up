@@ -487,7 +487,7 @@
                          ;; doom-one, doom-vibrant, doom-acario-dark
                          ;; doom-one-light, doom-acario-light,
                          ;; doom-city-lights, doom-dracula
-                         ;; (load-theme 'doom-one t)
+                         (load-theme 'doom-city-lights t)
 
                          ;; Enable flashing mode-line on errors
                          (require 'doom-themes-ext-visual-bell)
@@ -720,7 +720,8 @@
          (:name highlight-indentation)
 
          (:name emacs-humanoid-themes
-                :after (progn (load-theme 'humanoid-dark t)))
+                :after (progn ;; (load-theme 'humanoid-light t)
+                              ))
 
          (:name emacs-fish)
 
@@ -979,6 +980,8 @@ Suggest the URL title as a description for resource."
                          (org-remark-global-tracking-mode +1)
                          (with-eval-after-load 'eww
                            (org-remark-eww-mode +1))
+                         (with-eval-after-load 'nov
+                           (org-remark-nov-mode +1))
                          ;; The rest of keybidings are done only on
                          ;; loading `org-remark'.
                          (with-eval-after-load 'org-remark
@@ -1021,8 +1024,6 @@ Suggest the URL title as a description for resource."
                                        #'org-remark-remove)
                            (define-key org-remark-mode-map (kbd "C-c r s")
                                        #'org-remark-save)
-                           (define-key org-remark-mode-map (kbd "C-c r l")
-                                       #'org-remark-highlights-load)
                            (define-key org-remark-mode-map (kbd "C-c r t")
                                        #'org-remark-toggle)
                            (define-key org-remark-mode-map (kbd "C-c r v")
