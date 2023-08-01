@@ -412,6 +412,8 @@
                                          #'denote-silo-extra-create)
                          (global-set-key (kbd "C-c d o") ; intuitive for open
                                          #'denote-silo-extra-open-or-create)
+                         (global-set-key (kbd "C-c d s")
+                                         #'denote-silo-extra-pick-silo-then-command)
                          ;; Create a new note, specifying where it
                          ;; goes and what type it is. Useful when you
                          ;; want to run a specific denote command that
