@@ -1,0 +1,5 @@
+(:name dart-mode
+       :type github
+       :pkgname "bradyt/dart-mode"
+       :description "Major mode for editing Dart files"
+       :minimum-emacs-version (24 3))

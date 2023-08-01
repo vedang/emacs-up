@@ -354,6 +354,8 @@
 
          (:name company-ansible)
 
+         (:name dart)
+
          (:name denote
                 :after (progn
                          (setq denote-directory
