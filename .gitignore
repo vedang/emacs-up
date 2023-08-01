@@ -40,3 +40,4 @@ forge-database.sqlite
 parinfer-rust/
 eln-cache/
 projects
+tree-sitter/*.dylib
