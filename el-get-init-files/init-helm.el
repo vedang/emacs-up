@@ -93,7 +93,8 @@
 
 (require 'helm-info)
 (global-set-key (kbd "C-h r") #'helm-info-emacs)
-
+(require 'helm-command)
+(global-set-key (kbd "M-x") #'helm-M-x)
 ;; I want to use `helm-mini' and `helm-find-files' as my primary entry
 ;; point into helm.
 (global-set-key (kbd "C-x b") #'helm-mini)

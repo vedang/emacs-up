@@ -1162,11 +1162,11 @@ Suggest the URL title as a description for resource."
                                '((ledger-mode . dabbrev-completion)))
                          (global-smart-tab-mode 1)))
 
-         (:name smex
-                :after (progn
-                         (smex-initialize)
-                         (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-                         (global-set-key (kbd "M-x") 'smex)))
+         ;; (:name smex
+         ;;        :after (progn
+         ;;                 (smex-initialize)
+         ;;                 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+         ;;                 (global-set-key (kbd "M-x") 'smex)))
 
          (:name solaire-mode
                 :after (solaire-global-mode +1))
