@@ -354,7 +354,7 @@
 
          (:name company-ansible)
 
-         (:name dart)
+         (:name dart-mode)
 
          (:name denote
                 :after (progn
