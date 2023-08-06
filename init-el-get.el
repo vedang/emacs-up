@@ -425,7 +425,7 @@
                                          #'denote-link-or-create)
                          ;; Create a new note and insert a link
                          (global-set-key (kbd "C-c d L")
-                                         #'denote-link-after-creating)
+                                         #'denote-create-extra-link-after-creating-command)
                          ;; Display the backlinks buffer
                          (global-set-key (kbd "C-c d B") #'denote-backlinks)
                          ;; Visit a backlink directly
