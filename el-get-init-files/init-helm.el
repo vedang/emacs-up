@@ -16,8 +16,6 @@
 ;;; Code:
 
 
-(require 'helm-config)
-
 (setq helm-reuse-last-window-split-state t
       helm-move-to-line-cycle-in-source t
       helm-ff-file-name-history-use-recentf t
@@ -98,17 +96,17 @@
 
 ;; I want to use `helm-mini' and `helm-find-files' as my primary entry
 ;; point into helm.
-(global-set-key (kbd "C-x b") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-x b") #'helm-mini)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
 
 (global-set-key (kbd "C-x c r") nil) ; unset this because I plan to
                                      ; use it as a prefix key.
-(global-set-key (kbd "C-x c r b") 'helm-filtered-bookmarks)
-(global-set-key (kbd "C-x c r r") 'helm-regexp)
-(global-set-key (kbd "M-y") 'helm-show-kill-ring)
-(global-set-key (kbd "C-x c SPC") 'helm-all-mark-rings)
-(global-set-key (kbd "C-h SPC") 'helm-all-mark-rings)
-(global-set-key (kbd "C-x c r i") 'helm-register)
+(global-set-key (kbd "C-x c r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x c r r") #'helm-regexp)
+(global-set-key (kbd "M-y") #'helm-show-kill-ring)
+(global-set-key (kbd "C-x c SPC") #'helm-all-mark-rings)
+(global-set-key (kbd "C-h SPC") #'helm-all-mark-rings)
+(global-set-key (kbd "C-x c r i") #'helm-register)
 
 ;; rebind tab to run persistent action. now <tab> and <C-j> will both
 ;; perform persistent actions
