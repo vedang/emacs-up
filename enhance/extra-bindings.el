@@ -18,7 +18,9 @@
 
 (require 'utility-functions)
 (global-set-key (kbd "C-w") 'uf/backward-kill-word-or-kill-region)
+(global-set-key (kbd "C-M-y") #'uf/reverse-transpose-sexps)
 (global-set-key (kbd "C-x M-s") 'uf/transpose-windows)
+
 (global-set-key (kbd "A-q") 'uf/unfill-paragraph)
 
 (require 'presenting)

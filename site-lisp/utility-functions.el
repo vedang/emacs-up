@@ -183,6 +183,16 @@ otherwise call `backward-kill-word' instead.  ARG is passed to
         (select-window (funcall selector)))
       (setq arg (if (plusp arg) (1- arg) (1+ arg))))))
 
+;;; from: https://emacs.stackexchange.com/a/12800/20448
+(defun uf/reverse-transpose-sexps (arg)
+  (interactive "*p")
+  (transpose-sexps (- arg))
+  ;; when transpose-sexps can no longer transpose, it throws an error and code
+  ;; below this line won't be executed. So, we don't have to worry about side
+  ;; effects of backward-sexp and forward-sexp.
+  (backward-sexp (1+ arg))
+  (forward-sexp 1))
+
 
 ;; Thank you @magnars
 ;; =================
