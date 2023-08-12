@@ -491,7 +491,7 @@
                          ;; doom-one, doom-vibrant, doom-acario-dark
                          ;; doom-one-light, doom-acario-light,
                          ;; doom-city-lights, doom-dracula
-                         (load-theme 'doom-city-lights t)
+                         ;; (load-theme 'doom-city-lights t)
 
                          ;; Enable flashing mode-line on errors
                          (require 'doom-themes-ext-visual-bell)
@@ -723,7 +723,7 @@
 
          (:name highlight-indentation)
 
-         (:name emacs-humanoid-themes
+         (:name emacs-humanoid-themes ;; Commenting to use built-in modus
                 :after (progn ;; (load-theme 'humanoid-light t)
                               ))
 
@@ -1232,8 +1232,6 @@ Suggest the URL title as a description for resource."
    '(ag
      org-gcal
      org-jira
-     ;; color-theme-zenburn
-     ;; color-theme-idea-darkula
      dash
      edebug-x
      el-spice
