@@ -38,7 +38,7 @@
 
 ;;; Function to launch a google search
 (defun uf/google ()
-  "googles a query or a selected region"
+  "Googles a query or a selected region."
   (interactive)
   (browse-url
    (concat
