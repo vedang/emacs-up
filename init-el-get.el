@@ -246,12 +246,15 @@
 
          (:name combobulate
                 :after (with-eval-after-load 'combobulate
-                         (add-hook 'python-ts-mode-hook #'combobulate-mode)
-                         (add-hook 'js-ts-mode-hook #'combobulate-mode)
                          (add-hook 'css-ts-mode-hook #'combobulate-mode)
-                         (add-hook 'yaml-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'html-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'js-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'json-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'python-ts-mode-hook #'combobulate-mode)
+                         (add-hook 'tsx-ts-mode-hook #'combobulate-mode)
                          (add-hook 'typescript-ts-mode-hook #'combobulate-mode)
-                         (add-hook 'tsx-ts-mode-hook #'combobulate-mode)))
+                         (add-hook 'yaml-ts-mode-hook #'combobulate-mode)))
+
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
