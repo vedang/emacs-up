@@ -865,6 +865,10 @@ Suggest the URL title as a description for resource."
                                 (when on-my-machine
                                   (require 'org-crate-config)))))
 
+         (:name org-modern
+                :after (progn
+                         (with-eval-after-load 'org (global-org-modern-mode))))
+
          (:name org-noter
                 :after (progn (add-hook 'org-noter-insert-heading-hook
                                         #'org-id-get-create)))
