@@ -545,6 +545,7 @@
                                  ("https://theheretic.org/feed.xml" leadership management)
                                  ("https://randsinrepose.com/feed/" rands leadership management)
                                  ("https://xenodium.com/rss.xml" xenodium emacs)
+                                 ("https://borretti.me/feed.xml" fernando_borretti)
                                  ;; Alexander's site is gorgeous!
                                  ("https://alexanderobenauer.com/assets/feed/rss.xml" operating_systems programming)
                                  ("https://buttondown.email/thehighpony/rss" bobdoto)))
