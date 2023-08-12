@@ -75,7 +75,6 @@ right mode to start in the buffer."
 (global-set-key (kbd "C-c y") #'bury-buffer)
 (global-set-key (kbd "<f5>") #'revert-buffer)
 (global-set-key (kbd "C-x m") #'eshell)
-(global-set-key (kbd "C-x M") #'shell)
 (global-set-key (kbd "C-c a") #'org-agenda)
 (global-set-key (kbd "C-+") #'text-scale-increase)
 (global-set-key (kbd "C--") #'text-scale-decrease)
