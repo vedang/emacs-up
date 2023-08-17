@@ -582,7 +582,6 @@
          ;; (:name helm-notmuch)
 
          (:name helm-org
-                :before (progn (require 'helm-config))
                 :after (progn (require 'helm-org)
                               (add-to-list 'helm-completing-read-handlers-alist
                                            '(org-capture . helm-org-completing-read-tags))
