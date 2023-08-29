@@ -30,13 +30,13 @@ Your editor must be able to integrate with a linter program. As you are typing c
 - M-g M-n :: Go to the next error
 - M-g M-p :: Go to the previous error
 
-* projectile, project.el: Understand and manipulate your project structure
+* project.el: Understand and manipulate your project structure
 
 Your editor should have an understanding of the current project you are working in, as a whole. You should be able to quickly search for occurrences of certain words / phrases / symbols across the project. You should be able to pull up any file you wish in the project quickly, without needing to know exactly how the project is structured on disk
 
-- C-x c p p :: Switch to a project on disk
-- C-x c p f :: Find a file in the current project
-- C-c s     :: Search for something in the current project
+- C-x p p :: Switch to a project on disk
+- C-x p f :: Find a file in the current project
+- C-x p G :: Search for something in the current project
 
 * magit: Use Git from the editor
 
