@@ -375,4 +375,43 @@ If WEEK-NUM is not provided, use the current week."
         (message filename))
     (user-error "Cairo not supported in current Emacs build")))
 
+(defun org-fc-make-cloze (begin end &optional arg)
+  "Cloze the region between BEGIN and END in an `org-fc' compatible way.
+
+With a universal prefix argument, use the Anki format of cloze deletion."
+  (interactive "r\nP")
+  (let ((selection (buffer-substring begin end)))
+    (delete-region begin end)
+    (if arg
+        (insert (format "{{c1::%s}}" selection))
+      (insert (format "{{%s}@0}" selection)))))
+
+;;; I used ChatGPT to generate this code, and that makes me happy.
+(defun org-fc-make-cloze (begin end &optional arg)
+  "Toggle between normal text and cloze deletion formats.
+
+If the text is normal (does not start with \"{{\"), convert it to
+`org-fc' compatible Cloze Deletion format. With a universal
+prefix argument, prioritize the Anki format."
+  (interactive "r\nP")
+  (let ((selection (buffer-substring begin end)))
+    ;; If the selection matches any of the cloze formats, replace it
+    (cond
+     ((string-match "{{\\(.*?\\)}@[0-9]+}" selection)
+      (delete-region begin end)
+      (insert (replace-match "\\1" nil nil selection)))
+     ((string-match "{{c[0-9]+::\\(.*?\\)}}" selection)
+      (delete-region begin end)
+      (insert (replace-match "\\1" nil nil selection)))
+     ;; If there's a universal prefix, use the Anki format
+     (arg
+      (delete-region begin end)
+      (insert (format "{{c1::%s}}" selection)))
+     ;; Default case: use the org-fc format
+     (t
+      (delete-region begin end)
+      (insert (format "{{%s}@0}" selection))))))
+
+(global-set-key (kbd "C-c z") #'org-fc-make-cloze)
+
 (provide 'utility-functions)
