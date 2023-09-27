@@ -843,7 +843,8 @@ Suggest the URL title as a description for resource."
          (:name org-pomodoro-third-time
                 :after (progn (require 'org-pomodoro-third-time)
                               (setq org-pomodoro-keep-killed-pomodoro-time t
-                                       org-pomodoro-clock-break t)
+                                    org-pomodoro-clock-break t
+                                    org-pomodoro-length 45)
                               (global-set-key (kbd "C-x c o p")
                                               #'org-pomodoro)
                               (org-pomodoro-third-time-mode)))
