@@ -286,15 +286,14 @@
 #+date:       %2$s
 #+identifier: %4$s
 \n")
-                         (require 'denote-silo-extra)
-                         (require 'denote-journal-extra)
-                         (require 'denote-create-extra)
+                         (require 'denote-silo-extras)
+                         (require 'denote-journal-extras)
 
-                         (add-to-list 'denote-silo-extra-directories
+                         (add-to-list 'denote-silo-extras-directories
                                       (expand-file-name "~/Tresors/Documents/salher-content/docs"))
 
                          (setq denote-dired-directories
-                               (append denote-silo-extra-directories
+                               (append denote-silo-extras-directories
                                        (list (expand-file-name "journal" denote-directory)
                                              (expand-file-name "reference" denote-directory)
                                              (expand-file-name "reference/quotes" denote-directory)
@@ -311,6 +310,8 @@
                          ;;; this out if problems continue
                          (denote-rename-buffer-mode 1)
 
+                         ;; Journal settings
+                         (setq denote-journal-extras-keyword "")
                          ;; Register Denote's Org dynamic blocks
                          (require 'denote-org-dblock)
 
@@ -324,23 +325,23 @@
                          ;; one. With a prefix argfument, first pick
                          ;; the silo you want to use.
                          (global-set-key (kbd "C-c d n")
-                                         #'denote-silo-extra-create)
+                                         #'denote-silo-extras-create)
                          (global-set-key (kbd "C-c d o") ; intuitive for open
-                                         #'denote-silo-extra-open-or-create)
+                                         #'denote-silo-extras-open-or-create)
                          (global-set-key (kbd "C-c d s")
-                                         #'denote-silo-extra-pick-silo-then-command)
+                                         #'denote-silo-extras-pick-silo-then-command)
                          ;; Create a new note, specifying where it
                          ;; goes and what type it is. Useful when you
                          ;; want to run a specific denote command that
                          ;; is not on any other keybinding.
                          (global-set-key (kbd "C-c d N")
-                                         #'denote-silo-extra-pick-silo-then-command)
+                                         #'denote-silo-extras-pick-silo-then-command)
                          ;; Link to an existing note or create a new one
                          (global-set-key (kbd "C-c d l")
                                          #'denote-link-or-create)
                          ;; Create a new note and insert a link
                          (global-set-key (kbd "C-c d L")
-                                         #'denote-create-extra-link-after-creating-command)
+                                         #'denote-create-extras-link-after-creating-command)
                          ;; Display the backlinks buffer
                          (global-set-key (kbd "C-c d B") #'denote-backlinks)
                          ;; Visit a backlink directly
@@ -349,7 +350,7 @@
                          (global-set-key (kbd "C-c d f") #'denote-find-link)
                          ;; Write a new journal entry
                          (global-set-key (kbd "C-c d j")
-                                         #'denote-journal-extra-new-stand-alone-journal-entry)
+                                         #'denote-journal-extras-new-entry)
                          ;; Rename the file
                          (global-set-key (kbd "C-c d r") #'denote-rename-file)
                          (global-set-key (kbd "C-c d R")
