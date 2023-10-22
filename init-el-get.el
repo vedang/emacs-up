@@ -329,23 +329,23 @@
                          ;; one. With a prefix argfument, first pick
                          ;; the silo you want to use.
                          (global-set-key (kbd "C-c d n")
-                                         #'denote-silo-extras-create)
+                                         #'denote-silo-extras-create-note)
                          (global-set-key (kbd "C-c d o") ; intuitive for open
                                          #'denote-silo-extras-open-or-create)
                          (global-set-key (kbd "C-c d s")
-                                         #'denote-silo-extras-pick-silo-then-command)
+                                         #'denote-silo-extras-select-silo-then-command)
                          ;; Create a new note, specifying where it
                          ;; goes and what type it is. Useful when you
                          ;; want to run a specific denote command that
                          ;; is not on any other keybinding.
                          (global-set-key (kbd "C-c d N")
-                                         #'denote-silo-extras-pick-silo-then-command)
+                                         #'denote-silo-extras-select-silo-then-command)
                          ;; Link to an existing note or create a new one
                          (global-set-key (kbd "C-c d l")
                                          #'denote-link-or-create)
                          ;; Create a new note and insert a link
                          (global-set-key (kbd "C-c d L")
-                                         #'denote-create-extras-link-after-creating-command)
+                                         #'denote-link-after-creating-with-command)
                          ;; Display the backlinks buffer
                          (global-set-key (kbd "C-c d B") #'denote-backlinks)
                          ;; Visit a backlink directly
@@ -370,7 +370,50 @@
                            (define-key map (kbd "C-c C-d r")
                                        #'denote-dired-rename-marked-files)
                            (define-key map (kbd "C-c C-d R")
-                                       #'denote-dired-rename-marked-files-using-front-matter))))
+                                       #'denote-dired-rename-marked-files-using-front-matter))
+
+                         ;; Putting this here until my denote-create-extras change is merged in:
+                         (require 'org)
+                         (require 'org-element)
+
+                         (defun denote-create-extras-org-extract-subtree (&optional silo)
+  "Create new Denote note using current Org subtree.
+
+Select SILO, a file path from `denote-silo-extra-directories',
+with a universal prefix argument (\\[universal-argument]).
+
+Make the new note use the Org file type, regardless of the value
+of `denote-file-type'.
+
+Use the subtree title as the note's title.  If available, use the
+tags of the heading are used as note keywords.
+
+Delete the original subtree."
+  (interactive
+   (list
+    (when current-prefix-arg
+      (completing-read "Select a silo: "
+                       denote-silo-extras-directories nil t))))
+  (if-let ((text (org-get-entry))
+           (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
+      (let ((element (org-element-at-point))
+            (tags (org-get-tags))
+            (denote-user-enforced-denote-directory silo))
+        (delete-region (org-entry-beginning-position)
+                       (save-excursion (org-end-of-subtree t) (point)))
+        (denote heading
+                tags
+                'org
+                (denote-subdirectory-prompt)
+                (or
+                 ;; Check PROPERTIES drawer for :created: or :date:
+                 (org-element-property :DATE element)
+                 (org-element-property :CREATED element)
+                 ;; Check the subtree for CLOSED
+                 (org-element-property :raw-value
+                                       (org-element-property :closed element))))
+        (insert text))
+    (user-error "No subtree to extract; aborting")))))
 
          (:name denote-explore)
 
