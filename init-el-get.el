@@ -537,6 +537,10 @@
 
          (:name elpher)
 
+         (:name emacs-dashboard
+                :after (progn (dashboard-setup-startup-hook)
+                              (setq dashboard-projects-backend 'project-el)
+                              (add-to-list 'dashboard-items '(projects . 5))))
 
          ;; Easy kill might remove the complete need of `change-inner'
          ;; and `expand-region'. I'll observe for a bit and then take
