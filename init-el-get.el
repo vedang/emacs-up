@@ -138,16 +138,16 @@
                 (progn (ace-link-setup-default)
                        (ace-link-setup-default (kbd "M-g o"))
                        (with-eval-after-load 'org
-                         (define-key org-mode-map (kbd "M-g o") 'ace-link-org))
+                         (define-key org-mode-map (kbd "M-g o") #'ace-link-org))
                        (with-eval-after-load 'org-agenda
                          (define-key org-agenda-mode-map (kbd "M-g o")
-                           'ace-link-org-agenda))
+                           #'ace-link-org-agenda))
                        (with-eval-after-load 'org-brain
                          (define-key org-brain-visualize-mode-map (kbd "M-g o")
-                           'ace-link-org))
+                           #'ace-link-org))
                        (with-eval-after-load 'ert
                          (define-key ert-results-mode-map (kbd "o")
-                           'ace-link-help))))
+                           #'ace-link-help))))
          ;; Breaking alphabetical recipe pattern for link-hint, to
          ;; ensure it is next to ace-link. Both provide the same
          ;; functionality, but link-hint also allows for copying
@@ -156,7 +156,7 @@
                 :after (progn (global-set-key (kbd "M-g c") 'link-hint-copy-link)))
 
          (:name ace-window
-                :after (progn (global-set-key (kbd "C-x o") 'ace-window)
+                :after (progn (global-set-key (kbd "C-x o") #'ace-window)
                               (setq aw-scope 'frame
                                     aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))))
 
@@ -204,10 +204,10 @@
 
          (:name avy
                 :after (progn (avy-setup-default)
-                              (global-set-key (kbd "M-g C-j") 'avy-resume)
-                              (global-set-key (kbd "M-g g") 'avy-goto-line)
-                              (global-set-key (kbd "M-g w") 'avy-goto-word-1)
-                              (global-set-key (kbd "M-g SPC") 'avy-goto-word-1)))
+                              (global-set-key (kbd "M-g C-j") #'avy-resume)
+                              (global-set-key (kbd "M-g g") #'avy-goto-line)
+                              (global-set-key (kbd "M-g w") #'avy-goto-word-1)
+                              (global-set-key (kbd "M-g SPC") #'avy-goto-word-1)))
          (:name bnf-mode)
 
          (:name bookmark+
