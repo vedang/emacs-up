@@ -153,7 +153,10 @@
          ;; functionality, but link-hint also allows for copying
          ;; links, which is very valuable to me.
          (:name link-hint
-                :after (progn (global-set-key (kbd "M-g c") 'link-hint-copy-link)))
+                :after (progn (global-set-key (kbd "M-g c")
+                                              #'link-hint-copy-link)
+                              (global-set-key (kbd "M-g O")
+                                              #'link-hint-open-link)))
 
          (:name ace-window
                 :after (progn (global-set-key (kbd "C-x o") #'ace-window)
