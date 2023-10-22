@@ -302,7 +302,8 @@
                                              (expand-file-name "reference/quotes" denote-directory)
                                              (expand-file-name "main" denote-directory)
                                              (expand-file-name "main/presentations" denote-directory)
-                                             (expand-file-name "archive" denote-directory))))
+                                             (expand-file-name "archive" denote-directory)
+                                             (expand-file-name "prm" denote-directory))))
                          (add-hook 'find-file-hook
                                    #'denote-link-buttonize-buffer)
                          (add-hook 'dired-mode-hook
