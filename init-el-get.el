@@ -370,6 +370,9 @@
                                        #'denote-dired-rename-marked-files)
                            (define-key map (kbd "C-c C-d R")
                                        #'denote-dired-rename-marked-files-using-front-matter))))
+
+         (:name denote-explore)
+
          (:name diminish
                 :before (progn
                           (defvar vm/diminish-modes
