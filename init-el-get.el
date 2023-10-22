@@ -988,6 +988,11 @@ Suggest the URL title as a description for resource."
 
          (:name restclient)
 
+         (:name rfc-mode
+                :after (progn
+                         (setq rfc-mode-directory
+                               (concat (expand-file-name "rfc" dotfiles-dirname) "/"))))
+
          (:name saveplace-pdf-view)
 
          (:name shrface
