@@ -413,7 +413,20 @@ Delete the original subtree."
                  (org-element-property :raw-value
                                        (org-element-property :closed element))))
         (insert text))
-    (user-error "No subtree to extract; aborting")))))
+    (user-error "No subtree to extract; aborting")))
+
+                         (defun denote-subdirectory-and-signature ()
+                           "Create note while prompting for a file signature and subdirectory.
+
+This is the equivalent to calling `denote' when `denote-prompts'
+is set to \\='(signature subdirectory title keywords)."
+                           (declare (interactive-only t))
+                           (interactive)
+                           (let ((denote-prompts '(signature subdirectory title keywords)))
+                             (call-interactively #'denote)))
+
+                         (add-to-list 'denote-commands-for-new-notes
+                                      'denote-subdirectory-and-signature)))
 
          (:name denote-explore)
 
