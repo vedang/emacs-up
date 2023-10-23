@@ -309,10 +309,8 @@
                          (add-hook 'dired-mode-hook
                                    #'denote-dired-mode-in-directories)
 
-                         ;;; Denote Rename Buffer is causing errors
-                         ;;; when linking to notes. @TODO: Comment
-                         ;;; this out if problems continue
                          (denote-rename-buffer-mode 1)
+                         (setq denote-rename-buffer-format "%s %t")
 
                          ;; Journal settings
                          (setq denote-journal-extras-keyword "")
