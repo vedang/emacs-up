@@ -79,6 +79,12 @@
 
        (when (bound-and-true-p configure-clojure-p)
          '((:name cider)
+           (:name cider-storm
+                  :after (progn
+                           (with-eval-after-load 'cider
+                             (require 'cider-storm)
+                             (define-key cider-mode-map
+                                         (kbd "C-c C-f") #'cider-storm-map))))
            (:name clojure-mode)
            (:name helm-cider)
            (:name clojure-snippets)
