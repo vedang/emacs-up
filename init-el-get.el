@@ -84,6 +84,8 @@
                            (with-eval-after-load 'cider
                              (require 'cider-storm)
                              (define-key cider-mode-map
+                                         (kbd "C-c C-f") #'cider-storm-map)
+                             (define-key cider-repl-mode-map
                                          (kbd "C-c C-f") #'cider-storm-map))))
            (:name clojure-mode)
            (:name helm-cider)
