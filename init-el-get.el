@@ -301,7 +301,7 @@
                          (require 'denote-journal-extras)
 
                          (add-to-list 'denote-silo-extras-directories
-                                      (expand-file-name "~/Tresors/Documents/salher-content/docs"))
+                                      (expand-file-name "~/src/prototypes/salher-docs"))
 
                          (setq denote-dired-directories
                                (append denote-silo-extras-directories
@@ -876,22 +876,7 @@ Suggest the URL title as a description for resource."
                 :after (progn (global-set-key (kbd "C-c a") #'org-agenda)
                               (message "Press `C-c a' to get started with your agenda...")
                               ;; Keep the table of contents on it's own page always
-                              (setq org-latex-toc-command "\\tableofcontents \\clearpage"
-                                    org-babel-clojure-backend 'cider
-                                    org-latex-with-hyperref
-                                    "\\hypersetup{
- pdfauthor={%a},
- pdftitle={%t},
- pdfkeywords={%k},
- pdfsubject={%d},
- pdfcreator={%c},
- pdflang={%L},
- linktoc=all,
- colorlinks=true
- }
-")
-                              (add-to-list 'org-latex-default-packages-alist
-                                           "\\PassOptionsToPackage{hyphens}{url}")
+                              (setq org-babel-clojure-backend 'cider)
                               (setq org-html-htmlize-output-type 'css
                                     org-html-head-include-default-style nil)
                               (delete '("\\.pdf\\'" . default) org-file-apps)
