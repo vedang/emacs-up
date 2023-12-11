@@ -211,7 +211,7 @@ CURR-THEME is the theme that gets loaded. Available values:
       ;; Add all your customizations prior to loading the themes.
       ;; (setq modus-themes-italic-constructs t
       ;;       modus-themes-bold-constructs nil)
-      (load-theme 'modus-operandi-tritanopia)))))
+      (load-theme 'modus-vivendi)))))
 
 ;;; NOTE: We also have theme configuration in `init-el-get.el', search
 ;;; for calls to `load-theme' in that file. Those are all turned off
