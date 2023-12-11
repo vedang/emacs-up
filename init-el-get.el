@@ -303,15 +303,9 @@
                          (add-to-list 'denote-silo-extras-directories
                                       (expand-file-name "~/src/prototypes/salher-docs"))
 
-                         (setq denote-dired-directories
-                               (append denote-silo-extras-directories
-                                       (list (expand-file-name "journal" denote-directory)
-                                             (expand-file-name "reference" denote-directory)
-                                             (expand-file-name "reference/quotes" denote-directory)
-                                             (expand-file-name "main" denote-directory)
-                                             (expand-file-name "main/presentations" denote-directory)
-                                             (expand-file-name "archive" denote-directory)
-                                             (expand-file-name "prm" denote-directory))))
+                         (setq denote-dired-directories-include-subdirectories t
+                               denote-dired-directories denote-silo-extras-directories)
+
                          (add-hook 'find-file-hook
                                    #'denote-link-buttonize-buffer)
                          (add-hook 'dired-mode-hook
@@ -336,16 +330,18 @@
                          ;; the silo you want to use.
                          (global-set-key (kbd "C-c d n")
                                          #'denote-silo-extras-create-note)
-                         (global-set-key (kbd "C-c d o") ; intuitive for open
+                         ;; Open a Denote
+                         (global-set-key (kbd "C-c d o")
                                          #'denote-silo-extras-open-or-create)
-                         (global-set-key (kbd "C-c d s")
-                                         #'denote-silo-extras-select-silo-then-command)
                          ;; Create a new note, specifying where it
                          ;; goes and what type it is. Useful when you
                          ;; want to run a specific denote command that
                          ;; is not on any other keybinding.
                          (global-set-key (kbd "C-c d N")
                                          #'denote-silo-extras-select-silo-then-command)
+                         ;; Open a sorted Denote Dired buffer
+                         (global-set-key (kbd "C-c d s") #'denote-sort-dired)
+
                          ;; Link to an existing note or create a new one
                          (global-set-key (kbd "C-c d l")
                                          #'denote-link-or-create)
@@ -374,9 +370,9 @@
                            (define-key map (kbd "C-c C-d i")
                                        #'denote-link-dired-marked-notes)
                            (define-key map (kbd "C-c C-d r")
-                                       #'denote-dired-rename-marked-files-with-keywords)
+                                       #'denote-dired-rename-files)
                            (define-key map (kbd "C-c C-d R")
-                                       #'denote-dired-rename-marked-files-using-front-matter))
+                                       #'denote-dired-rename-marked-files-with-keywords))
 
                          ;; Putting this here until my denote-create-extras change is merged in:
                          (require 'org)
