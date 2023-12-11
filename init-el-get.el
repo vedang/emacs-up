@@ -563,25 +563,29 @@ is set to \\='(signature subdirectory title keywords)."
                                  ("https://dragan.rocks/feed.xml" clojure dragan machine_learning)
                                  ("https://ideolalia.com/feed.xml" zach_tellman)
                                  ("https://mcfunley.com/feed.xml" dan_mckinley)
-                                 ("https://feeds.feedburner.com/martinkl" distributed_systems)
+                                 ("https://feeds.feedburner.com/martinkl" distributed_systems programming)
                                  ("https://blog.tecosaur.com/tmio/rss.xml" org_mode emacs important)
                                  ("https://bzg.fr/en/index.xml" bzg emacs important)
-                                 ("https://martinfowler.com/feed.atom" bliki important)
-                                 ("https://drewdevault.com/blog/index.xml" programming)
-                                 ("https://www.kellblog.com/feed" dave_kellogg management)
+                                 ("https://martinfowler.com/feed.atom" bliki distributed_systems programming important)
+                                 ("https://drewdevault.com/blog/index.xml" programming open_source)
+                                 ("https://www.kellblog.com/feed" dave_kellogg leadership)
                                  ("https://evertpot.com/atom.xml" web_development)
-                                 ("https://vanderburg.org/feed.xml" software_engineering)
+                                 ("https://vanderburg.org/feed.xml" programming)
                                  ("https://clojure.org/feed.xml" clojure important)
-                                 ("http://tonsky.me/blog/atom.xml" clojure software_engineering)
-                                 ("https://www.scattered-thoughts.net/atom.xml" hytradboi jamie_brandon)
+                                 ("http://tonsky.me/blog/atom.xml" rants clojure programming important)
+                                 ("https://www.scattered-thoughts.net/atom.xml" hytradboi jamie_brandon programming important)
                                  ("https://vedang.me/feed.xml" personal important)
-                                 ("https://theheretic.org/feed.xml" leadership management)
-                                 ("https://randsinrepose.com/feed/" rands leadership management)
+                                 ("https://theheretic.org/feed.xml" leadership)
+                                 ("https://randsinrepose.com/feed/" rands leadership)
                                  ("https://xenodium.com/rss.xml" xenodium emacs)
-                                 ("https://borretti.me/feed.xml" fernando_borretti)
+                                 ("https://borretti.me/feed.xml" fernando_borretti learning important)
                                  ;; Alexander's site is gorgeous!
                                  ("https://alexanderobenauer.com/assets/feed/rss.xml" operating_systems programming)
-                                 ("https://buttondown.email/thehighpony/rss" bobdoto)))
+                                 ("https://buttondown.email/thehighpony/rss" bobdoto taking_notes)
+                                 ("https://biffweb.com/feed.xml" biff jacob_obryant)
+                                 ("https://apenwarr.ca/log/rss.php" apenwarr leadership important)
+                                 ("https://josem.co/articles/index.xml" josem software)
+                                 ("https://ludic.mataroa.blog/rss/" rants)))
 
                          ;; Mark all YouTube entries
                          (add-hook 'elfeed-new-entry-hook
@@ -598,6 +602,13 @@ is set to \\='(signature subdirectory title keywords)."
                            "Marks an important Elfeed entry.")
 
                          (push '(important important-elfeed-entry)
+                               elfeed-search-face-alist)
+
+                         (defface reference-elfeed-entry
+                           '((t :foreground "#0373fc"))
+                           "Marks an Elfeed entry as something I want in my reference notes.")
+
+                         (push '(reference reference-elfeed-entry)
                                elfeed-search-face-alist)))
 
 
