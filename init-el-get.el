@@ -323,6 +323,16 @@
                          ;; better template.
                          (add-to-list 'denote-templates
                                       '(reference-note . "reference"))
+                         (add-to-list 'denote-templates
+                                      '(morning . "morningpage"))
+                         (add-to-list 'denote-templates
+                                      '(emotion . "emotion"))
+                         (add-to-list 'denote-templates
+                                      '(insight . "insight"))
+                         (add-to-list 'denote-templates
+                                      '(weekly_intentions . "weekint"))
+                         (add-to-list 'denote-templates
+                                      '(weekly_report . "weekrpt"))
 
                          ;;; Key Bindings
                          ;; Create a new note, or open an existing
