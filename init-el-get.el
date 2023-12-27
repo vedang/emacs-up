@@ -149,13 +149,13 @@
                          (define-key org-mode-map (kbd "M-g o") #'ace-link-org))
                        (with-eval-after-load 'org-agenda
                          (define-key org-agenda-mode-map (kbd "M-g o")
-                           #'ace-link-org-agenda))
+                                     #'ace-link-org-agenda))
                        (with-eval-after-load 'org-brain
                          (define-key org-brain-visualize-mode-map (kbd "M-g o")
-                           #'ace-link-org))
+                                     #'ace-link-org))
                        (with-eval-after-load 'ert
                          (define-key ert-results-mode-map (kbd "o")
-                           #'ace-link-help))))
+                                     #'ace-link-help))))
          ;; Breaking alphabetical recipe pattern for link-hint, to
          ;; ensure it is next to ace-link. Both provide the same
          ;; functionality, but link-hint also allows for copying
@@ -191,11 +191,11 @@
                                     anzu-replace-threshold 50
                                     anzu-replace-to-string-separator " => ")
                               (define-key isearch-mode-map
-                                [remap isearch-query-replace]
-                                #'anzu-isearch-query-replace)
+                                          [remap isearch-query-replace]
+                                          #'anzu-isearch-query-replace)
                               (define-key isearch-mode-map
-                                [remap isearch-query-replace-regexp]
-                                #'anzu-isearch-query-replace-regexp)
+                                          [remap isearch-query-replace-regexp]
+                                          #'anzu-isearch-query-replace-regexp)
                               (defalias 'qrr 'anzu-query-replace-regexp)))
 
          (:name apheleia
@@ -272,7 +272,7 @@
                                     company-tooltip-align-annotations t)
                               (with-eval-after-load 'company
                                 (define-key company-active-map
-                                  (kbd "TAB") 'company-complete))))
+                                            (kbd "TAB") 'company-complete))))
 
          (:name company-auctex)
 
@@ -379,7 +379,7 @@
                          (require 'org-element)
 
                          (defun denote-create-extras-org-extract-subtree (&optional silo)
-  "Create new Denote note using current Org subtree.
+                           "Create new Denote note using current Org subtree.
 
 Select SILO, a file path from `denote-silo-extra-directories',
 with a universal prefix argument (\\[universal-argument]).
@@ -391,31 +391,31 @@ Use the subtree title as the note's title.  If available, use the
 tags of the heading are used as note keywords.
 
 Delete the original subtree."
-  (interactive
-   (list
-    (when current-prefix-arg
-      (completing-read "Select a silo: "
-                       denote-silo-extras-directories nil t))))
-  (if-let ((text (org-get-entry))
-           (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
-      (let ((element (org-element-at-point))
-            (tags (org-get-tags))
-            (denote-user-enforced-denote-directory silo))
-        (delete-region (org-entry-beginning-position)
-                       (save-excursion (org-end-of-subtree t) (point)))
-        (denote heading
-                tags
-                'org
-                (denote-subdirectory-prompt)
-                (or
-                 ;; Check PROPERTIES drawer for :created: or :date:
-                 (org-element-property :DATE element)
-                 (org-element-property :CREATED element)
-                 ;; Check the subtree for CLOSED
-                 (org-element-property :raw-value
-                                       (org-element-property :closed element))))
-        (insert text))
-    (user-error "No subtree to extract; aborting")))
+                           (interactive
+                            (list
+                             (when current-prefix-arg
+                               (completing-read "Select a silo: "
+                                                denote-silo-extras-directories nil t))))
+                           (if-let ((text (org-get-entry))
+                                    (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
+                               (let ((element (org-element-at-point))
+                                     (tags (org-get-tags))
+                                     (denote-user-enforced-denote-directory silo))
+                                 (delete-region (org-entry-beginning-position)
+                                                (save-excursion (org-end-of-subtree t) (point)))
+                                 (denote heading
+                                         tags
+                                         'org
+                                         (denote-subdirectory-prompt)
+                                         (or
+                                          ;; Check PROPERTIES drawer for :created: or :date:
+                                          (org-element-property :DATE element)
+                                          (org-element-property :CREATED element)
+                                          ;; Check the subtree for CLOSED
+                                          (org-element-property :raw-value
+                                                                (org-element-property :closed element))))
+                                 (insert text))
+                             (user-error "No subtree to extract; aborting")))
 
                          (defun denote-subdirectory-and-signature ()
                            "Create note while prompting for a file signature and subdirectory.
@@ -679,7 +679,7 @@ is set to \\='(signature subdirectory title keywords)."
 
          (:name emacs-humanoid-themes ;; Commenting to use built-in modus
                 :after (progn ;; (load-theme 'humanoid-light t)
-                              ))
+                         ))
 
          (:name emacs-fish)
 
@@ -741,7 +741,7 @@ is set to \\='(signature subdirectory title keywords)."
                                org-brain-quit-after-goto t)
 ;;; Key Bindings
                          (define-key org-mode-map (kbd "C-c b")
-                           'org-brain-prefix-map)
+                                     'org-brain-prefix-map)
 ;;; Ensure that all org-mode entries have an ID.
                          ;;
                          ;; (add-hook 'before-save-hook
@@ -759,7 +759,7 @@ is set to \\='(signature subdirectory title keywords)."
 
                          (with-eval-after-load 'org-noter
                            (define-key org-brain-visualize-mode-map
-                             (kbd "C-c n") 'org-brain-open-org-noter))
+                                       (kbd "C-c n") 'org-brain-open-org-noter))
 
                          ;; Setup `org-expiry' and define a
                          ;; `org-agenda' function to compare
@@ -846,7 +846,7 @@ Suggest the URL title as a description for resource."
                                 t)))
 
                            (define-key org-brain-visualize-mode-map (kbd "L")
-                             'org-brain-cliplink-resource))
+                                       'org-brain-cliplink-resource))
 
                          (defun org-brain-random-reading ()
                            "Find something I've already read, to re-read."
@@ -856,7 +856,7 @@ Suggest the URL title as a description for resource."
                              (expand-file-name "linklog.org" org-brain-path))))
 
                          (define-key org-brain-visualize-mode-map (kbd "R")
-                           'org-brain-random-reading)
+                                     'org-brain-random-reading)
 
                          (setq savehist-additional-variables
                                '(org-brain-headline-cache))))
@@ -1091,7 +1091,7 @@ Suggest the URL title as a description for resource."
                            (define-key shrface-mode-map
                                        (kbd "M-l") 'shrface-links-helm)
                            (define-key shrface-mode-map
-                             (kbd "M-h") 'shrface-headline-helm)
+                                       (kbd "M-h") 'shrface-headline-helm)
                            (set-face-attribute 'variable-pitch nil
                                                :font "FantasqueSansMono NF 24"))))
 
