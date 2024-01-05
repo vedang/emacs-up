@@ -423,7 +423,9 @@ Delete the original subtree."
                                           (org-element-property :CREATED element)
                                           ;; Check the subtree for CLOSED
                                           (org-element-property :raw-value
-                                                                (org-element-property :closed element))))
+                                                                (org-element-property :closed element)))
+                                         nil
+                                         (denote-signature-prompt))
                                  (insert text))
                              (user-error "No subtree to extract; aborting")))
 
