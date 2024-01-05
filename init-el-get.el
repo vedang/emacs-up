@@ -880,7 +880,7 @@ Suggest the URL title as a description for resource."
                 :after (progn
                          (require 'org-fc)
                          (setq org-fc-directories
-                               `(,(concat org-directory "/flashcards/")))))
+                               `(,(concat org-directory "/notes/")))))
 
          (:name orgit
                 :after (setq orgit-log-save-arguments t))
