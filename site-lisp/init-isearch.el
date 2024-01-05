@@ -64,5 +64,12 @@ vice-versa. depending on the `use-default?' arg."
 (global-set-key (kbd "C-M-s") 'isearch-forward)
 (global-set-key (kbd "C-M-r") 'isearch-backward)
 
+(setq-default isearch-lazy-count t ; Show total count when searching
+              isearch-yank-on-move t ; copy char into search on moving
+              )
+;; Yanking Tips and Tricks
+;; C-M-y : Yank one char at a time
+;; C-M-z : Yank upto given char
+;; M-s C-e: Yank to the end of the line
 
 (provide 'init-isearch)
