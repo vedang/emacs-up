@@ -1,7 +1,8 @@
-#+TITLE: Emacs and Clojure
-#+AUTHOR: Vedang Manerikar
-#+EMAIL: vedang.manerikar@gmail.com
-#+DATE: [2018-11-01 Thu]
+#+title: 04 Emacs and Clojure
+#+author: Vedang Manerikar
+#+email: vedang.manerikar@gmail.com
+#+date: [2018-11-01 Thu 11:11]
+#+identifier: 20181101T111110
 
 * Basic Emacs Operations
 

@@ -1,0 +1,22 @@
+:PROPERTIES:
+:ID: 20170317T110410
+:CREATED: [2017-03-17 Fri 11:04]
+:END:
+#+title: 03 A Demo of my day in Emacs
+#+author: Vedang Manerikar
+#+email: vedang.manerikar@gmail.com
+#+date: [2017-03-17 Fri 11:04]
+#+filetags:
+#+identifier: 20170317T110410
+
+* Org-Mode
+
+** Agenda
+
+** Capture
+
+* Shell
+
+* It's All Text
+
+* Email

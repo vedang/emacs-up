@@ -1,8 +1,14 @@
-#+TITLE: Things your programming editor should be able to do.
-#+SUBTITLE: And how I do them in Emacs.
-#+AUTHOR: Vedang Manerikar
-#+EMAIL: vedang.manerikar@gmail.com
-#+DATE: [2016-11-11 Fri]
+:PROPERTIES:
+:ID: 20161111T202810
+:CREATED: [2016-11-11 Fri 20:28]
+:END:
+#+title:      02 What your programming editor should be able to do.
+#+subtitle: And how I do them in Emacs.
+#+author: Vedang Manerikar
+#+email: vedang.manerikar@gmail.com
+#+filetags:
+#+date: [2016-11-11 Fri 20:28]
+#+identifier: 20161111T202810
 
 This is an incomplete list, please help me make it better by suggesting functionality that you find indispensable in your editor. I have tried to arrange it in decreasing order of importance. I consider all this functionality table stakes, but if you must prioritise then start from the top.
 

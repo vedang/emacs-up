@@ -1,7 +1,14 @@
-#+TITLE: An Opinionated Emacs Tutorial: Getting started fast.
-#+AUTHOR: Vedang Manerikar
-#+EMAIL: vedang.manerikar@gmail.com
-#+DATE: [2016-07-11 Mon]
+:PROPERTIES:
+:ID: 20160711T195101
+:CREATED: [2016-07-11 Mon 19:51]
+:END:
+#+title:      01 An Opinionated Emacs Tutorial
+#+subtitle: Getting started fast.
+#+author: Vedang Manerikar
+#+email: vedang.manerikar@gmail.com
+#+date: [2016-07-11 Mon 19:51]
+#+filetags:
+#+identifier: 20160711T195101
 
 If you have opened this document inside Emacs and do not now how to open up the sections to see the content, press <Shift tab> three times (until the minibuffer at the bottom of the screen says SHOW ALL).
 
@@ -151,7 +158,9 @@ I'd rather be here:
 - C-r :: ~isearch-repeat-backward~
 - C-w :: ~isearch-yank-word-or-char~
 - C-y :: ~isearch-yank-kill~
-- isearch-lazy-highlight
+- C-M-y :: Yank one char at a time
+- C-M-z :: Yank upto given char
+- M-s C-e :: Yank to the end of the line
 
 ** A segue into History: The Mark and the Point
 
