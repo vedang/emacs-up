@@ -171,15 +171,15 @@
                               (setq aw-scope 'frame
                                     aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))))
 
-         (:name ansible
-                :after (with-eval-after-load 'yaml-mode
-                         (defun turn-on-ansible-mode ()
-                           (ansible 1))
-                         (add-hook 'yaml-mode-hook #'turn-on-ansible-mode)))
+         ;; (:name ansible
+         ;;        :after (with-eval-after-load 'yaml-mode
+         ;;                 (defun turn-on-ansible-mode ()
+         ;;                   (ansible 1))
+         ;;                 (add-hook 'yaml-mode-hook #'turn-on-ansible-mode)))
 
-         (:name ansible-doc
-                :after (with-eval-after-load 'yaml-mode
-                         (add-hook 'yaml-mode-hook #'ansible-doc-mode)))
+         ;; (:name ansible-doc
+         ;;        :after (with-eval-after-load 'yaml-mode
+         ;;                 (add-hook 'yaml-mode-hook #'ansible-doc-mode)))
 
          (:name ansi-color)
 
@@ -622,10 +622,10 @@ is set to \\='(signature subdirectory title keywords)."
 
          (:name elpher)
 
-         (:name emacs-dashboard
-                :after (progn (dashboard-setup-startup-hook)
-                              (setq dashboard-projects-backend 'project-el)
-                              (add-to-list 'dashboard-items '(projects . 5))))
+         ;; (:name emacs-dashboard
+         ;;        :after (progn (dashboard-setup-startup-hook)
+         ;;                      (setq dashboard-projects-backend 'project-el)
+         ;;                      (add-to-list 'dashboard-items '(projects . 5))))
 
          ;; Easy kill might remove the complete need of `change-inner'
          ;; and `expand-region'. I'll observe for a bit and then take

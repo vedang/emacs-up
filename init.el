@@ -41,17 +41,6 @@
   (interactive)
   (message "Emacs Up %s" emacs-up--version))
 
-;;; Native compilation
-(if (and (fboundp 'native-comp-available-p)
-         (native-comp-available-p))
-    (progn
-      (when (boundp 'native-comp-eln-load-path)
-        (setcar native-comp-eln-load-path
-                (expand-file-name "cache/eln-cache/" user-emacs-directory)))
-      (setq native-comp-async-report-warnings-errors 'silent))
-  (message "Native complation is *not* available"))
-
-
 ;;; Some global defs
 
 ;; Set a directory for temporary/state related files.
