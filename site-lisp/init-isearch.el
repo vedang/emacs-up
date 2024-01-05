@@ -22,7 +22,6 @@
 
 (require 'thingatpt)
 
-
 (defun is/subst-isearch-yank-word-or-char (&optional use-default?)
   "Activate my customized Isearch word yank command. or
 vice-versa. depending on the `use-default?' arg."
@@ -33,7 +32,6 @@ vice-versa. depending on the `use-default?' arg."
     (substitute-key-definition 'isearch-yank-word-or-char
                                'is/isearch-yank-word-or-char-from-beginning
                                isearch-mode-map)))
-
 
 (defun is/isearch-yank-word-or-char-from-beginning (&optional arg)
   "Move to beginning of word before yanking word in isearch-mode."
@@ -46,9 +44,7 @@ vice-versa. depending on the `use-default?' arg."
   ;; Revert to 'isearch-yank-word-or-char for subsequent calls
   (is/subst-isearch-yank-word-or-char t))
 
-
 ;; (add-hook 'isearch-mode-hook 'is/subst-isearch-yank-word-or-char)
-
 
 (defun is/activate-occur ()
   (interactive)
@@ -57,12 +53,10 @@ vice-versa. depending on the `use-default?' arg."
                isearch-string
              (regexp-quote isearch-string)))))
 
-
 ;; Activate occur easily inside isearch
 (with-eval-after-load 'helm-occur
   (define-key isearch-mode-map (kbd "C-o")
               'helm-occur-from-isearch))
-
 
 ;; Use regex searches by default.
 (global-set-key (kbd "C-s") 'isearch-forward-regexp)

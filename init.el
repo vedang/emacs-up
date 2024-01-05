@@ -45,8 +45,7 @@
 
 ;; Set a directory for temporary/state related files.
 (defvar dotfiles-dirname
-  (file-name-directory (or load-file-name
-                           (buffer-file-name)))
+  (file-name-directory (or load-file-name (buffer-file-name)))
   "The directory where this code is running from.
 Ideally, this will be ~/.emacs.d.")
 (defvar tempfiles-dirname
