@@ -47,6 +47,8 @@
   ;; Unbind `M-s' because it's bound to some handy occur related
   ;; functions by default
   (define-key paredit-mode-map (kbd "M-s") nil)
+  ;; Unbind `M-?' because `xref-find-references` uses it.
+  (define-key paredit-mode-map (kbd "M-?") nil)
   (define-key paredit-mode-map (kbd "M-D") 'paredit-splice-sexp)
   (define-key paredit-mode-map (kbd "C-A-d") 'paredit-forward-down)
   (define-key paredit-mode-map (kbd "C-A-u") 'paredit-backward-up))
