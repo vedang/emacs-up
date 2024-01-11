@@ -113,45 +113,9 @@ right mode to start in the buffer."
 (setq eshell-review-quick-commands nil)
 (setq eshell-smart-space-goes-to-end t)
 
-(with-eval-after-load 'eglot
-  (defclass eglot-deno (eglot-lsp-server) ()
-    :documentation "A custom class for deno lsp.")
+;;; Macros for rejister
+(defalias 'idbi-txn-date
+  (kmacro "M-f M-f C-f C-SPC M-f C-w M-b M-b C-y - M-f C-f C-SPC M-f C-w M-b C-y - M-f C-d C-d C-n C-a C-s / C-b C-b C-b"))
 
-  (cl-defmethod eglot-initialization-options ((server eglot-deno))
-    "Passes through required deno initialization options"
-    (list :enable t
-          :lint t))
-
-  (add-to-list 'eglot-server-programs
-               '(yaml-mode . ("yaml-language-server" "--stdio")))
-  (add-to-list 'eglot-server-programs
-               '((tex-mode context-mode texinfo-mode bibtex-mode) . ("texlab")))
-  (add-to-list 'eglot-server-programs
-               '(lua-mode . ("lua-language-server")))
-  (add-to-list 'eglot-server-programs
-               '(python-mode . ("jedi-language-server")))
-  (add-to-list 'eglot-server-programs
-               '(elixir-mode . ("elixir-ls")))
-  (add-to-list 'eglot-server-programs
-               '((js2-mode typescript-mode) . (eglot-deno "deno" "lsp")))
-  (add-to-list 'eglot-server-programs
-               '(zig-mode . ("zls")))
-  (add-to-list 'eglot-server-programs
-               '(ess-r-mode . ("R" "--slave" "-e" "languageserver::run()")))
-
-  (require 'project)
-
-  (defun project-find-go-module (dir)
-    (when-let ((root (locate-dominating-file dir "go.mod")))
-      (cons 'go-module root)))
-
-  (cl-defmethod project-root ((project (head go-module)))
-    (cdr project))
-
-  (add-hook 'project-find-functions #'project-find-go-module)
-  (add-hook 'go-mode-hook #'eglot-ensure)
-  (defun eglot-format-buffer-on-save ()
-	(add-hook 'before-save-hook #'eglot-format-buffer -10 t))
-  (add-hook 'go-mode-hook #'eglot-format-buffer-on-save))
 (provide 'site-lisp)
 ;;; site-lisp.el ends here
