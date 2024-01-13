@@ -45,16 +45,16 @@
 ;; (require 'dired+)
 
 ;; customizations for auto-indentation
-(defadvice yank (after indent-region activate)
+(defun indent-on-yank-in-prog-mode (orig &rest args)
+  "Automatically `indent-region' after ORIG function yank is executed.
+
+Ignore ARGS."
   (if (member major-mode vedang/programming-major-modes)
       (let ((mark-even-if-inactive t))
         (indent-region (region-beginning) (region-end) nil))))
 
-(defadvice yank-pop (after indent-region activate)
-  (if (member major-mode vedang/programming-major-modes)
-      (let ((mark-even-if-inactive t))
-        (indent-region (region-beginning) (region-end) nil))))
-
+(advice-add 'yank :after #'indent-on-yank-in-prog-mode)
+(advice-add 'yank-pop :after #'indent-on-yank-in-prog-mode)
 
 (defun sl/set-auto-major-mode ()
   "When I create a temporary buffer, auto-detect the mode in the buffer."
