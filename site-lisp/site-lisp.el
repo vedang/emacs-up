@@ -35,9 +35,9 @@
       wdired-use-interactive-rename nil
       wdired-confirm-overwrite t)
 (define-key dired-mode-map (kbd "e")
-  (lambda ()
-    (interactive)
-    (eww-open-file (dired-get-file-for-visit))))
+            (lambda ()
+              (interactive)
+              (eww-open-file (dired-get-file-for-visit))))
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
 (global-set-key (kbd "C-x D") #'find-dired)
 
@@ -57,12 +57,11 @@
 
 
 (defun sl/set-auto-major-mode ()
-  "When I create a temporary buffer, it should auto-detect the
-right mode to start in the buffer."
+  "When I create a temporary buffer, auto-detect the mode in the buffer."
   (let ((buffer-file-name (or buffer-file-name
                               (buffer-name))))
     (set-auto-mode)))
-;(setq default-major-mode 'sl/set-auto-major-mode)
+;; (setq default-major-mode 'sl/set-auto-major-mode)
 
 
 ;; Bindings
