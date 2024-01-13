@@ -93,20 +93,22 @@
 (setq eshell-smart-space-goes-to-end t)
 
 ;;; Configuration for Flymake
-(global-set-key (kbd "C-c #") flymake-mode-map)
-(define-key flymake-mode-map (kbd "n") 'flymake-goto-next-error)
-(define-key flymake-mode-map (kbd "p") 'flymake-goto-prev-error)
-(define-key flymake-mode-map (kbd "l") 'flymake-show-buffer-diagnostics)
-(define-key flymake-mode-map (kbd "L") 'flymake-show-project-diagnostics)
+(with-eval-after-load 'flymake
+  (global-set-key (kbd "C-c #") flymake-mode-map)
+  (define-key flymake-mode-map (kbd "n") 'flymake-goto-next-error)
+  (define-key flymake-mode-map (kbd "p") 'flymake-goto-prev-error)
+  (define-key flymake-mode-map (kbd "l") 'flymake-show-buffer-diagnostics)
+  (define-key flymake-mode-map (kbd "L") 'flymake-show-project-diagnostics))
 
 ;;; Configuration for Eglot
-(global-set-key (kbd "C-c e") eglot-mode-map)
-(define-key eglot-mode-map (kbd "r") 'eglot-rename)
-(define-key eglot-mode-map (kbd "o") 'eglot-code-action-organize-imports)
-(define-key eglot-mode-map (kbd "h") 'eldoc)
-(define-key eglot-mode-map (kbd "c") 'eglot-code-actions)
-(define-key eglot-mode-map (kbd "f") 'eglot-format)
-(setq eglot-extend-to-xref t)
+(with-eval-after-load 'eglot
+  (global-set-key (kbd "C-c e") eglot-mode-map)
+  (define-key eglot-mode-map (kbd "r") 'eglot-rename)
+  (define-key eglot-mode-map (kbd "o") 'eglot-code-action-organize-imports)
+  (define-key eglot-mode-map (kbd "h") 'eldoc)
+  (define-key eglot-mode-map (kbd "c") 'eglot-code-actions)
+  (define-key eglot-mode-map (kbd "f") 'eglot-format)
+  (setq eglot-extend-to-xref t))
 
 ;;; Macros for rejister
 (defalias 'idbi-txn-date
