@@ -44,26 +44,6 @@
 ;;; commented out to see if this is causing problems in Emacs 29
 ;; (require 'dired+)
 
-;; customizations for auto-indentation
-(defun indent-on-yank-in-prog-mode (orig &rest args)
-  "Automatically `indent-region' after ORIG function yank is executed.
-
-Ignore ARGS."
-  (if (member major-mode vedang/programming-major-modes)
-      (let ((mark-even-if-inactive t))
-        (indent-region (region-beginning) (region-end) nil))))
-
-(advice-add 'yank :after #'indent-on-yank-in-prog-mode)
-(advice-add 'yank-pop :after #'indent-on-yank-in-prog-mode)
-
-(defun sl/set-auto-major-mode ()
-  "When I create a temporary buffer, auto-detect the mode in the buffer."
-  (let ((buffer-file-name (or buffer-file-name
-                              (buffer-name))))
-    (set-auto-mode)))
-;; (setq default-major-mode 'sl/set-auto-major-mode)
-
-
 ;; Bindings
 (global-set-key (kbd "M-j") #'pop-to-mark-command)
 (global-set-key (kbd "RET") #'reindent-then-newline-and-indent)
