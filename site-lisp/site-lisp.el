@@ -113,6 +113,12 @@ right mode to start in the buffer."
 (setq eshell-review-quick-commands nil)
 (setq eshell-smart-space-goes-to-end t)
 
+;;; Configuration for Flymake
+(global-set-key (kbd "C-c #") flymake-mode-map)
+(define-key flymake-mode-map (kbd "n") 'flymake-goto-next-error)
+(define-key flymake-mode-map (kbd "p") 'flymake-goto-prev-error)
+(define-key flymake-mode-map (kbd "l") 'flymake-show-buffer-diagnostics)
+(define-key flymake-mode-map (kbd "L") 'flymake-show-project-diagnostics)
 ;;; Macros for rejister
 (defalias 'idbi-txn-date
   (kmacro "M-f M-f C-f C-SPC M-f C-w M-b M-b C-y - M-f C-f C-SPC M-f C-w M-b C-y - M-f C-d C-d C-n C-a C-s / C-b C-b C-b"))
