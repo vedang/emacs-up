@@ -118,6 +118,16 @@ Ignore ARGS."
 (define-key flymake-mode-map (kbd "p") 'flymake-goto-prev-error)
 (define-key flymake-mode-map (kbd "l") 'flymake-show-buffer-diagnostics)
 (define-key flymake-mode-map (kbd "L") 'flymake-show-project-diagnostics)
+
+;;; Configuration for Eglot
+(global-set-key (kbd "C-c e") eglot-mode-map)
+(define-key eglot-mode-map (kbd "r") 'eglot-rename)
+(define-key eglot-mode-map (kbd "o") 'eglot-code-action-organize-imports)
+(define-key eglot-mode-map (kbd "h") 'eldoc)
+(define-key eglot-mode-map (kbd "c") 'eglot-code-actions)
+(define-key eglot-mode-map (kbd "f") 'eglot-format)
+(setq eglot-extend-to-xref t)
+
 ;;; Macros for rejister
 (defalias 'idbi-txn-date
   (kmacro "M-f M-f C-f C-SPC M-f C-w M-b M-b C-y - M-f C-f C-SPC M-f C-w M-b C-y - M-f C-d C-d C-n C-a C-s / C-b C-b C-b"))
