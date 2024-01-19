@@ -657,7 +657,8 @@ is set to \\='(signature subdirectory title keywords)."
                               (gcmh-mode 1)))
          (:name gptel
                 :after (progn
-                         (setq gptel-api-key #'my/chatgpt-api-key)))
+                         (setq gptel-api-key #'my/chatgpt-api-key
+                               gptel-default-mode 'org-mode)))
 
          (:name groovy-emacs-mode)
 
