@@ -1042,10 +1042,10 @@ Suggest the URL title as a description for resource."
                            "Store a link taken from a pinboard buffer."
                            (when (eq major-mode 'pinboard-mode)
                              (pinboard-with-current-pin pin
-                               (org-store-link-props
-                                :type "pinboard"
-                                :link (alist-get 'href pin)
-                                :description (alist-get 'description pin)))))
+                                                        (org-store-link-props
+                                                         :type "pinboard"
+                                                         :link (alist-get 'href pin)
+                                                         :description (alist-get 'description pin)))))
 
                          (org-link-set-parameters "pinboard"
                                                   :follow #'browse-url
