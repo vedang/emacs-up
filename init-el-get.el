@@ -410,7 +410,7 @@ Delete the original subtree."
                                     (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
                                (let ((element (org-element-at-point))
                                      (tags (org-get-tags))
-                                     (denote-directory silo))
+                                     (denote-user-enforced-denote-directory silo))
                                  (delete-region (org-entry-beginning-position)
                                                 (save-excursion (org-end-of-subtree t) (point)))
                                  (denote heading
