@@ -943,6 +943,8 @@ Suggest the URL title as a description for resource."
                            (org-remark-eww-mode +1))
                          (with-eval-after-load 'nov
                            (org-remark-nov-mode +1))
+                         (with-eval-after-load 'info
+                           (org-remark-info-mode +1))
                          ;; The rest of keybidings are done only on
                          ;; loading `org-remark'.
                          (with-eval-after-load 'org-remark
@@ -983,6 +985,8 @@ Suggest the URL title as a description for resource."
                                        #'org-remark-view-prev)
                            (define-key org-remark-mode-map (kbd "C-c r r")
                                        #'org-remark-remove)
+                           (define-key org-remark-mode-map (kbd "C-c r d")
+                                       #'org-remark-delete)
                            (define-key org-remark-mode-map (kbd "C-c r s")
                                        #'org-remark-save)
                            (define-key org-remark-mode-map (kbd "C-c r t")
