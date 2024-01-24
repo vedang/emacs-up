@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: Links I'm Reading
+# key: links
+# --
+
+Links I read in $1
+
+* Reading for the first time
+
+* Re-reads
+
+* Other links                                                      :noexport:
+
+#+BEGIN: denote-links :regexp "reference/202401$2" :missing-only t
+$0
+#+END:
