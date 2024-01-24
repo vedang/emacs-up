@@ -13,10 +13,12 @@ ${1:$(ts-format "<%F %a>" (car (this-week-range (string-to-number yas-text))))}-
   + [ ] Monthly Goals
   + [ ] 31-day challenge
 
-- Stacking your Habits
-  + eg: Meditation cushion right next to the morning bathroom
-  + What visible cue will remind me to stretch and meditate?
-  + What visible cue will get me to wake up for deep work?
+Stacking your Habits
+#+begin_comment
++ eg: Meditation cushion right next to the morning bathroom
++ What visible cue will remind me to stretch and meditate?
++ What visible cue will get me to wake up for deep work?
+#+end_comment
 
 **** Is there a goal I would like to achieve by the end of the week?
 #+begin_comment
