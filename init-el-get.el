@@ -617,6 +617,7 @@ is set to \\='(signature subdirectory title keywords)."
                          (push '(reference reference-elfeed-entry)
                                elfeed-search-face-alist)))
 
+         (:name elm-mode)
 
          (:name elpher)
 
