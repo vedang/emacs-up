@@ -299,6 +299,7 @@
 \n")
                          (require 'denote-silo-extras)
                          (require 'denote-journal-extras)
+                         (require 'denote-org-extras)
 
                          (add-to-list 'denote-silo-extras-directories
                                       (expand-file-name "~/src/prototypes/salher-docs"))
@@ -316,8 +317,6 @@
 
                          ;; Journal settings
                          (setq denote-journal-extras-keyword "")
-                         ;; Register Denote's Org dynamic blocks
-                         (require 'denote-org-dblock)
 
                          ;; I use Yasnippet to expand these into a
                          ;; better template.
@@ -387,7 +386,6 @@
                          ;; Putting this here until my denote-create-extras change is merged in:
                          (require 'org)
                          (require 'org-element)
-
                          (defun denote-create-extras-org-extract-subtree (&optional silo)
                            "Create new Denote note using current Org subtree.
 
