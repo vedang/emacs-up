@@ -285,6 +285,7 @@
                          (setq denote-directory
                                (expand-file-name "~/Tresors/Documents/diary/notes")
                                denote-date-prompt-use-org-read-date t
+                               denote-prompts '(title keywords subdirectory signature)
                                denote-backlinks-show-context t
                                denote-excluded-directories-regexp "data"
                                denote-org-front-matter
@@ -334,39 +335,35 @@
                                       '(weekly_report . "weekrpt"))
 
                          ;;; Key Bindings
-                         ;; Create a new note, or open an existing
-                         ;; one. With a prefix argfument, first pick
-                         ;; the silo you want to use.
-                         (global-set-key (kbd "C-c d n")
-                                         #'denote-silo-extras-create-note)
-                         ;; Open a Denote
-                         (global-set-key (kbd "C-c d o")
-                                         #'denote-silo-extras-open-or-create)
-                         ;; Create a new note, specifying where it
-                         ;; goes and what type it is. Useful when you
-                         ;; want to run a specific denote command that
-                         ;; is not on any other keybinding.
+                         ;; Creating New Notes
+                         (global-set-key (kbd "C-c d n") #'denote-create-note)
                          (global-set-key (kbd "C-c d N")
                                          #'denote-silo-extras-select-silo-then-command)
-                         ;; Open a sorted Denote Dired buffer
+                         ;; Opening Notes
+                         (global-set-key (kbd "C-c d o")
+                                         #'denote-open-or-create)
+                         (global-set-key (kbd "C-c d O")
+                                         #'denote-silo-extras-open-or-create)
+
+                         ;; Opening Dired on a Search
                          (global-set-key (kbd "C-c d s") #'denote-sort-dired)
 
-                         ;; Link to an existing note or create a new one
+                         ;; Linking Notes
                          (global-set-key (kbd "C-c d l")
                                          #'denote-link-or-create)
-                         ;; Create a new note and insert a link
                          (global-set-key (kbd "C-c d L")
                                          #'denote-link-after-creating-with-command)
-                         ;; Display the backlinks buffer
+
+                         ;; Links and Backlinks
                          (global-set-key (kbd "C-c d B") #'denote-backlinks)
-                         ;; Visit a backlink directly
                          (global-set-key (kbd "C-c d b") #'denote-find-backlink)
-                         ;; Visit a forwardlink directly
                          (global-set-key (kbd "C-c d f") #'denote-find-link)
-                         ;; Write a new journal entry
+
+                         ;; Journal Entries
                          (global-set-key (kbd "C-c d j")
                                          #'denote-journal-extras-new-entry)
-                         ;; Rename the file
+
+                         ;; Renaming Files
                          (global-set-key (kbd "C-c d r") #'denote-rename-file)
                          (global-set-key (kbd "C-c d R")
                                          #'denote-rename-file-using-front-matter)
@@ -374,7 +371,6 @@
                                          #'denote-add-front-matter)
                          (global-set-key (kbd "C-c d k") #'denote-keywords-add)
                          (global-set-key (kbd "C-c d K") #'denote-keywords-remove)
-                         ;; Key bindings specifically for Dired.
                          (let ((map dired-mode-map))
                            (define-key map (kbd "C-c C-d i")
                                        #'denote-link-dired-marked-notes)
@@ -383,49 +379,18 @@
                            (define-key map (kbd "C-c C-d R")
                                        #'denote-dired-rename-marked-files-with-keywords))
 
-                         ;; Putting this here until my denote-create-extras change is merged in:
-                         (require 'org)
-                         (require 'org-element)
-                         (defun denote-create-extras-org-extract-subtree (&optional silo)
+                         (defun denote-org-extras-extract-org-subtree-silo ()
                            "Create new Denote note using current Org subtree.
 
 Select SILO, a file path from `denote-silo-extra-directories',
-with a universal prefix argument (\\[universal-argument]).
-
-Make the new note use the Org file type, regardless of the value
-of `denote-file-type'.
-
-Use the subtree title as the note's title.  If available, use the
-tags of the heading are used as note keywords.
-
-Delete the original subtree."
+and then call `denote-org-extras-extract-org-subtree'."
                            (interactive
                             (list
                              (when current-prefix-arg
                                (completing-read "Select a silo: "
                                                 denote-silo-extras-directories nil t))))
-                           (if-let ((text (org-get-entry))
-                                    (heading (org-get-heading :no-tags :no-todo :no-priority :no-comment)))
-                               (let ((element (org-element-at-point))
-                                     (tags (org-get-tags))
-                                     (denote-user-enforced-denote-directory silo))
-                                 (delete-region (org-entry-beginning-position)
-                                                (save-excursion (org-end-of-subtree t) (point)))
-                                 (denote heading
-                                         tags
-                                         'org
-                                         (denote-subdirectory-prompt)
-                                         (or
-                                          ;; Check PROPERTIES drawer for :created: or :date:
-                                          (org-element-property :DATE element)
-                                          (org-element-property :CREATED element)
-                                          ;; Check the subtree for CLOSED
-                                          (org-element-property :raw-value
-                                                                (org-element-property :closed element)))
-                                         nil
-                                         (denote-signature-prompt))
-                                 (insert text))
-                             (user-error "No subtree to extract; aborting")))
+                           (let ((denote-user-enforced-denote-directory silo))
+                             (denote-org-extras-extract-org-subtree)))
 
                          (defun denote-subdirectory-and-signature ()
                            "Create note while prompting for a file signature and subdirectory.
