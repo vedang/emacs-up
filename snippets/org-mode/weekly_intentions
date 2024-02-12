@@ -5,7 +5,7 @@
 *** ${1:$(ts-format "Start of Week %W: %F %a" (car (this-week-range (string-to-number yas-text))))} -- ${1:$(ts-format "%F %a" (cdr (this-week-range (string-to-number yas-text))))}  :checkin:weekly:
 Week Number: ${1:`(string-to-number (ts-format "%W" (car (this-week-range))))`}
 ${1:$(ts-format "<%F %a>" (car (this-week-range (string-to-number yas-text))))}--${1:$(ts-format "<%F %a>" (cdr (this-week-range (string-to-number yas-text))))}
-
+$0
 - Review
   + [ ] Last Week's progress (Weekly Report)
     - Reflect and celebrate my achievements in the last week!
