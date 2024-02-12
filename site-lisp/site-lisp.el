@@ -81,10 +81,11 @@
 (save-place-mode 1)
 (savehist-mode 1)
 
-(eval-after-load 'rcirc
-  '(require 'init-rcirc))
-(eval-after-load 'eldoc
-  '(setq eldoc-minor-mode-string nil))
+(with-eval-after-load 'rcirc
+  (require 'init-rcirc))
+(with-eval-after-load 'eldoc
+  (setq eldoc-minor-mode-string nil
+        eldoc-idle-delay 0.75))
 
 (require 'eshell)
 (require 'em-smart)
@@ -97,7 +98,8 @@
   (define-key flymake-mode-map (kbd "C-c # n") 'flymake-goto-next-error)
   (define-key flymake-mode-map (kbd "C-c # p") 'flymake-goto-prev-error)
   (define-key flymake-mode-map (kbd "C-c # l") 'flymake-show-buffer-diagnostics)
-  (define-key flymake-mode-map (kbd "C-c # L") 'flymake-show-project-diagnostics))
+  (define-key flymake-mode-map (kbd "C-c # L") 'flymake-show-project-diagnostics)
+  (setq flymake-no-changes-timeout 0.75))
 
 ;;; Configuration for Eglot
 (with-eval-after-load 'eglot

@@ -269,7 +269,8 @@
          (:name company-mode
                 :after (progn (add-hook 'after-init-hook #'global-company-mode)
                               (setq company-require-match nil
-                                    company-tooltip-align-annotations t)
+                                    company-tooltip-align-annotations t
+                                    company-idle-delay 0.75)
                               (with-eval-after-load 'company
                                 (define-key company-active-map
                                             (kbd "TAB") 'company-complete))))
