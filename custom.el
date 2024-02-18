@@ -139,6 +139,23 @@
      default))
  '(helm-imenu-use-icon t)
  '(hl-sexp-background-color "#060404")
+ '(ignored-local-variable-values
+   '((eval
+      (lambda nil
+        (defun cider-jack-in-wrapper-function (orig-fun &rest args)
+          (if (and (boundp 'use-bb-dev) use-bb-dev)
+              (message
+               "Use `bb dev` to start the development server, then `cider-connect` to the port it specifies.")
+            (apply orig-fun args)))
+        (advice-add 'cider-jack-in :around
+                    #'cider-jack-in-wrapper-function)
+        (when (not (featurep 'clerk))
+          (let
+              ((init-file-path
+                (expand-file-name "clerk.el" default-directory)))
+            (when (file-exists-p init-file-path)
+              (load init-file-path) (require 'clerk))))))
+     (use-bb-dev . t) (prettify-symbols-mode)))
  '(mml-secure-openpgp-sign-with-sender t)
  '(org-hugo-preserve-filling nil)
  '(org-super-agenda-mode t)
