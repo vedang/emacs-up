@@ -14,6 +14,7 @@
     "#003567" "#494949"])
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
  '(cider-repl-print-length 200)
+ '(completion-styles '(basic partial-completion emacs22))
  '(connection-local-criteria-alist
    '(((:application tramp :protocol "kubernetes")
       tramp-kubernetes-connection-local-default-profile)
@@ -137,7 +138,22 @@
      "170bb47b35baa3d2439f0fd26b49f4278e9a8decf611aa33a0dad1397620ddc3"
      "fa2af0c40576f3bde32290d7f4e7aa865eb6bf7ebe31eb9e37c32aa6f4ae8d10"
      default))
+ '(helm-always-two-windows nil)
+ '(helm-apropos-show-short-doc t)
+ '(helm-buffers-fuzzy-matching t)
+ '(helm-commands-using-frame '(helm-apropos))
+ '(helm-completion-style 'emacs)
+ '(helm-ff-auto-update-initial-value t)
+ '(helm-ff-file-name-history-use-recentf t)
  '(helm-imenu-use-icon t)
+ '(helm-locate-recursive-dirs-command "fd --hidden --type d .*%s.*$ %s")
+ '(helm-mini-default-sources
+   '(helm-source-buffers-list helm-source-recentf helm-source-bookmarks
+                              helm-source-buffer-not-found
+                              helm-source-files-in-all-dired))
+ '(helm-reuse-last-window-split-state nil)
+ '(helm-use-frame-when-more-than-two-windows t)
+ '(helm-use-frame-when-no-suitable-window t)
  '(hl-sexp-background-color "#060404")
  '(ignored-local-variable-values
    '((eval
