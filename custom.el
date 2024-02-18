@@ -138,6 +138,7 @@
      "170bb47b35baa3d2439f0fd26b49f4278e9a8decf611aa33a0dad1397620ddc3"
      "fa2af0c40576f3bde32290d7f4e7aa865eb6bf7ebe31eb9e37c32aa6f4ae8d10"
      default))
+ '(eldoc-echo-area-prefer-doc-buffer 'maybe)
  '(helm-always-two-windows nil)
  '(helm-apropos-show-short-doc t)
  '(helm-buffers-fuzzy-matching t)
