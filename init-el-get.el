@@ -583,6 +583,11 @@ is set to \\='(signature subdirectory title keywords)."
                          (push '(reference reference-elfeed-entry)
                                elfeed-search-face-alist)))
 
+         (:name ef-themes
+                :after
+                (progn (setq ef-themes-to-toggle '(ef-elea-light ef-elea-dark))
+                       (ef-themes-select 'ef-elea-light)))
+
          (:name elm-mode)
 
          (:name elpher)

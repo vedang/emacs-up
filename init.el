@@ -204,7 +204,7 @@ CURR-THEME is the theme that gets loaded. Available values:
 ;;; NOTE: We also have theme configuration in `init-el-get.el', search
 ;;; for calls to `load-theme' in that file. Those are all turned off
 ;;; when the line below is turned on.
-(add-hook 'after-init-hook (lambda () (vedang/theme-config 'modus)))
+;; (add-hook 'after-init-hook (lambda () (vedang/theme-config 'modus)))
 
 (message "My .emacs loaded in %ds"
          (cl-destructuring-bind (hi lo ms psec) (current-time)
