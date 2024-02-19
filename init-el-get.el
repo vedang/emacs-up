@@ -608,6 +608,60 @@ is set to \\='(signature subdirectory title keywords)."
                 :after (progn (setq fancy-battery-show-percentage t)
                               (add-hook 'after-init-hook #'fancy-battery-mode)))
 
+         (:name fontaine
+                :after (progn (setq fontaine-latest-state-file
+                                    (concat tempfiles-dirname "fontaine-latest-state.eld"))
+                              (fontaine-set-preset (or (fontaine-restore-latest-preset)
+                                                       'regular))
+                              (add-hook 'kill-emacs-hook #'fontaine-store-latest-preset)
+                              (dolist (hook '(modus-themes-after-load-theme-hook ef-themes-post-load-hook))
+                                (add-hook hook #'fontaine-apply-current-preset))
+
+                              (setq fontaine-presets
+                                    '((tiny
+                                       :default-family "Iosevka Comfy Wide Fixed"
+                                       :default-height 170)
+                                      (small
+                                       :default-family "Iosevka Comfy Fixed"
+                                       :default-height 190)
+                                      (regular
+                                       :default-height 200)
+                                      (medium
+                                       :default-height 210)
+                                      (large
+                                       :default-weight semilight
+                                       :default-height 250
+                                       :bold-weight extrabold)
+                                      (presentation
+                                       :default-weight semilight
+                                       :default-height 280
+                                       :bold-weight extrabold)
+                                      (jumbo
+                                       :default-weight semilight
+                                       :default-height 330
+                                       :bold-weight extrabold)
+                                      (t
+                                       ;; I keep all properties for didactic purposes, but most can be
+                                       ;; omitted.  See the fontaine manual for the technicalities:
+                                       ;; <https://protesilaos.com/emacs/fontaine>.
+                                       :default-family "Iosevka Comfy"
+                                       :default-weight regular
+                                       :default-height 200
+                                       :fixed-pitch-family nil ; falls back to :default-family
+                                       :fixed-pitch-weight nil ; falls back to :default-weight
+                                       :fixed-pitch-height 1.0
+                                       :fixed-pitch-serif-family nil ; falls back to :default-family
+                                       :fixed-pitch-serif-weight nil ; falls back to :default-weight
+                                       :fixed-pitch-serif-height 1.0
+                                       :variable-pitch-family "Iosevka Comfy Duo"
+                                       :variable-pitch-weight nil
+                                       :variable-pitch-height 1.0
+                                       :bold-family nil ; use whatever the underlying face has
+                                       :bold-weight bold
+                                       :italic-family nil
+                                       :italic-slant italic
+                                       :line-spacing nil)))))
+
          (:name forge
                 :after (progn (setq auth-sources '("~/.authinfo.gpg"))
                               (with-eval-after-load 'magit
