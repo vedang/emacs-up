@@ -1132,9 +1132,7 @@ Suggest the URL title as a description for resource."
                            (define-key shrface-mode-map
                                        (kbd "M-l") 'shrface-links-helm)
                            (define-key shrface-mode-map
-                                       (kbd "M-h") 'shrface-headline-helm)
-                           (set-face-attribute 'variable-pitch nil
-                                               :font "FantasqueSansMono NF 24"))))
+                                       (kbd "M-h") 'shrface-headline-helm))))
 
          (:name sicp
                 :after (progn
