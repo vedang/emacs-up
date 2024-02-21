@@ -11,6 +11,6 @@ Links I read in $1
 
 * Other links                                                      :noexport:
 
-#+BEGIN: denote-links :regexp "reference/202401$2" :missing-only t
+#+BEGIN: denote-missing-links :regexp "reference/2024$2"
 $0
 #+END:
