@@ -80,6 +80,23 @@
                    "-message" msg
                    "-title" "Org Mode")))
 
+;;; Settings for org-capture
+(require 'org-protocol)
+(require 'org-capture)
+(defvar org-mode-crate-dir
+  (concat user-emacs-directory "el-get/org-mode-crate"))
+
+;;; Add my personal targets for org-capture
+
+;; A capture template to create a task for improving Emacs.
+(push `("te" "Improve Emacs Immediate Finish" entry
+        (id "B751DE04-D5BD-4CA3-B6F7-7C3943CF8F76")
+        (file ,(expand-file-name "capture-templates/todo.org" org-mode-crate-dir))
+        :clock-in t
+        :clock-resume t
+        :immediate-finish t)
+      org-capture-templates)
+
 (setq org-show-notification-handler 'vm/org-notify-message)
 
 ;; (setq org-ellipsis " ")
