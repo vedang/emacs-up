@@ -611,8 +611,7 @@ is set to \\='(signature subdirectory title keywords)."
          (:name fontaine
                 :after (progn (setq fontaine-latest-state-file
                                     (concat tempfiles-dirname "fontaine-latest-state.eld"))
-                              (fontaine-set-preset (or (fontaine-restore-latest-preset)
-                                                       'regular))
+                              (fontaine-set-preset (or (fontaine-restore-latest-preset) 'medium))
                               (add-hook 'kill-emacs-hook #'fontaine-store-latest-preset)
                               (dolist (hook '(modus-themes-after-load-theme-hook ef-themes-post-load-hook))
                                 (add-hook hook #'fontaine-apply-current-preset))
