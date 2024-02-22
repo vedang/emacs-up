@@ -6,12 +6,13 @@
 Week Number: ${1:`(string-to-number (ts-format "%W" (car (this-week-range))))`}
 ${1:$(ts-format "<%F %a>" (car (this-week-range (string-to-number yas-text))))}--${1:$(ts-format "<%F %a>" (cdr (this-week-range (string-to-number yas-text))))}
 $0
-- Review
-  + [ ] Last Week's progress (Weekly Report)
-    - Reflect and celebrate my achievements in the last week!
-  + [ ] Yearly Goals
-  + [ ] Monthly Goals
-  + [ ] 31-day challenge
+Review:
++ [ ] Last Week's progress (Weekly Report)
+  - Reflect and celebrate my achievements in the last week!
+  - Did you actually do what you had planned in last week's Weekly Intentions?
++ [ ] Yearly Goals
++ [ ] Monthly Goals
++ [ ] 31-day challenge
 
 Stacking your Habits
 #+begin_comment
@@ -25,8 +26,7 @@ Stacking your Habits
 - Setup smart goals for the end of this week
 - Create tasks to track these goals
 #+end_comment
-
-**** What is one extremely concrete thing I can do next?
+Goals I need to achieve by ${1:$(ts-format "<%F %a>" (cdr (this-week-range (string-to-number yas-text))))}:
 
 **** What are the important events I need to attend this week? (and why)
 
@@ -34,7 +34,5 @@ Stacking your Habits
 Remember to center yourself before responding to this trigger
 
 **** What concrete, straightforward things can I fall back on during the week
-- This is a list of good to do tasks if I get too frustrated or stuck on my current project
-  + (tutorials, reading a paper, etc)
-
-**** What will I work on in the immediate next hour after this?
+This is a list of good to do tasks if I get too frustrated or stuck on my current project
+1. (tutorials, reading a paper, etc)
