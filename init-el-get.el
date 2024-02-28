@@ -941,13 +941,14 @@ Suggest the URL title as a description for resource."
 
          (:name org-pomodoro)
          (:name org-pomodoro-third-time
-                :after (progn (require 'org-pomodoro-third-time)
-                              (setq org-pomodoro-keep-killed-pomodoro-time t
-                                    org-pomodoro-clock-break t
-                                    org-pomodoro-length 45)
-                              (global-set-key (kbd "C-x c o p")
-                                              #'org-pomodoro)
-                              (org-pomodoro-third-time-mode)))
+                :after (with-eval-after-load 'org
+                         (require 'org-pomodoro-third-time)
+                         (setq org-pomodoro-keep-killed-pomodoro-time t
+                               org-pomodoro-clock-break t
+                               org-pomodoro-length 45)
+                         (global-set-key (kbd "C-x c o p")
+                                         #'org-pomodoro)
+                         (org-pomodoro-third-time-mode)))
 
          (:name org-remark
                 :before (setq org-remark-create-default-pen-set nil)
@@ -959,7 +960,6 @@ Suggest the URL title as a description for resource."
                          ;; This is originally `revert-buffer'
                          (global-set-key (kbd "C-c r") nil)
                          (global-set-key (kbd "C-c r m") #'org-remark-mark)
-                         (org-remark-global-tracking-mode +1)
                          (with-eval-after-load 'eww
                            (org-remark-eww-mode +1))
                          (with-eval-after-load 'nov
@@ -969,6 +969,29 @@ Suggest the URL title as a description for resource."
                          ;; The rest of keybidings are done only on
                          ;; loading `org-remark'.
                          (with-eval-after-load 'org-remark
+                           (defvar org-remark-locations-file
+                             (concat tempfiles-dirname ".org-remark-locations")
+                             "Cache for locations of notes files used by Remark")
+
+                           (defun org-remark-notes-file-name-prompt-function ()
+                             "Prompt the user for where we should save marginalia.
+
+Throw an error is the filename is not of type org."
+                             (let ((source-filename (org-remark-source-find-file-name)))
+                               (read-file-name "Select Remark Notes File: "
+                                               nil
+                                               (if (and (stringp source-filename)
+                                                        (file-exists-p source-filename)
+                                                        (string-equal "org" (file-name-extension source-filename)))
+                                                   source-filename
+                                                 (if (and (stringp source-filename)
+                                                          (file-exists-p source-filename)
+                                                          (string-equal "org" (file-name-extension source-filename)))
+                                                     (concat (file-name-sans-extension
+                                                              (file-name-nondirectory source-filename))
+                                                             "-notes.org")
+                                                   (expand-file-name "marginalia.org" user-emacs-directory))))))
+
                            (defun vm/org-remark-notes ()
                              (expand-file-name "marginalia.org" org-brain-path))
                            (setq org-remark-notes-file-name
