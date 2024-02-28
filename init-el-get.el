@@ -380,17 +380,15 @@
                            (define-key map (kbd "C-c C-d R")
                                        #'denote-dired-rename-marked-files-with-keywords))
 
-                         (defun denote-org-extras-extract-org-subtree-silo ()
+                         (defun denote-org-extras-extract-org-subtree-silo (silo)
                            "Create new Denote note using current Org subtree.
 
 Select SILO, a file path from `denote-silo-extra-directories',
 and then call `denote-org-extras-extract-org-subtree'."
                            (interactive
-                            (list
-                             (when current-prefix-arg
-                               (completing-read "Select a silo: "
-                                                denote-silo-extras-directories nil t))))
-                           (let ((denote-user-enforced-denote-directory silo))
+                            (list (completing-read "Select a silo: "
+                                                   denote-silo-extras-directories nil t)))
+                           (let ((denote-directory silo))
                              (denote-org-extras-extract-org-subtree)))
 
                          (defun denote-subdirectory-and-signature ()
