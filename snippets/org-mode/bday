@@ -3,8 +3,7 @@
 # key: bday
 # --
 * ${1:First Name} ${2: Last Name}: ADD BDAY
-  :PROPERTIES:
-  :CATEGORY: prm:$1
-  :END:
-** Birthday
+:PROPERTIES:
+:END:
+** $1's Birthday
 $0
