@@ -16,9 +16,10 @@
 
 
 (require 'recentf)
-
+(defvar tempfiles-dirname)
 (when (not (boundp 'tempfiles-dirname))
-  (setq tempfiles-dirname "~/.emacs.d/"))
+  (let ((tempfiles-dir (make-directory (concat user-emacs-directory "temp-files"))))
+    (setq tempfiles-dirname tempfiles-dir)))
 
 (setq recentf-exclude (list (concat tempfiles-dirname "*"))
       recentf-save-file (concat tempfiles-dirname ".recentf")
