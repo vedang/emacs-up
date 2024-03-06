@@ -662,7 +662,9 @@ is set to \\='(signature subdirectory title keywords)."
          (:name forge
                 :after (progn (setq auth-sources '("~/.authinfo.gpg"))
                               (with-eval-after-load 'magit
-                                (require 'forge))))
+                                (require 'forge)
+                                (setq forge-database-file
+                                      (concat tempfiles-dirname "forge-database.sqlite")))))
 
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode)
