@@ -60,9 +60,7 @@ Ideally, this will be ~/.emacs.d.")
 (defvar el-get-config-file
   (concat dotfiles-dirname "init-el-get.el")
   "File to load packages via el-get and to load associated configuration.")
-(defvar features-file
-  (concat dotfiles-dirname "features.el")
-  "File containing information about which progamming packages / Emacs features to enable.")
+
 (defvar site-lisp-dirname
   (concat dotfiles-dirname "site-lisp/")
   "Extra configuration for packages that are built into Emacs.")
@@ -82,7 +80,6 @@ Ideally, this will be ~/.emacs.d.")
 (add-to-list 'load-path enhance-dirname)
 
 ;;; El-Get for great good
-(load features-file 'noerror)
 (load el-get-config-file)
 (when (eq system-type 'darwin)
   (require 'osx))

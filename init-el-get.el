@@ -77,47 +77,47 @@
 (setq el-get-sources
       (append
 
-       (when (bound-and-true-p configure-clojure-p)
-         '((:name cider)
-           (:name cider-storm
-                  :after (progn
-                           (with-eval-after-load 'cider
-                             (require 'cider-storm)
-                             (define-key cider-mode-map
-                                         (kbd "C-c C-f") #'cider-storm-map)
-                             (define-key cider-repl-mode-map
-                                         (kbd "C-c C-f") #'cider-storm-map))))
-           (:name clojure-mode)
-           (:name helm-cider)
-           (:name clojure-snippets)
-           (:name clj-refactor)
+       ;; Clojure Config
+       '((:name cider)
+         (:name cider-storm
+                :after (progn
+                         (with-eval-after-load 'cider
+                           (require 'cider-storm)
+                           (define-key cider-mode-map
+                                       (kbd "C-c C-f") #'cider-storm-map)
+                           (define-key cider-repl-mode-map
+                                       (kbd "C-c C-f") #'cider-storm-map))))
+         (:name clojure-mode)
+         (:name helm-cider)
+         (:name clojure-snippets)
+         (:name clj-refactor)
 
-           (:name cljstyle
-                  :after (progn
-                           ;; Note: I don't turn cljstyle on by
-                           ;; default. The reason for this is that
-                           ;; rewriting the buffer on save causes me
-                           ;; to lose marks in the buffer, which is
-                           ;; extremely irritating. For the moment, I
-                           ;; either use cljstyle on demand (M-x
-                           ;; cljstyle-mode) or from the terminal
+         (:name cljstyle
+                :after (progn
+                         ;; Note: I don't turn cljstyle on by
+                         ;; default. The reason for this is that
+                         ;; rewriting the buffer on save causes me
+                         ;; to lose marks in the buffer, which is
+                         ;; extremely irritating. For the moment, I
+                         ;; either use cljstyle on demand (M-x
+                         ;; cljstyle-mode) or from the terminal
 
-                           ;; TODO: Write a function / hook to run
-                           ;; cljstyle when I enter magit, on modified
-                           ;; files.
+                         ;; TODO: Write a function / hook to run
+                         ;; cljstyle when I enter magit, on modified
+                         ;; files.
 
-                           ;; If you wish, you can turn on cljstyle on
-                           ;; each save with:
-                           ;; (add-hook 'clojure-mode-hook 'turn-on-cljstyle)
-                           (defun turn-on-cljstyle ()
-                             "Utility function to turn on `cljstyle-mode' and auto-formatting."
-                             (if (executable-find "cljstyle")
-                                 (cljstyle-mode +1)
-                               (message "Could not find `cljstyle' on $PATH. Please ensure you have installed it correctly.")))))
+                         ;; If you wish, you can turn on cljstyle on
+                         ;; each save with:
+                         ;; (add-hook 'clojure-mode-hook 'turn-on-cljstyle)
+                         (defun turn-on-cljstyle ()
+                           "Utility function to turn on `cljstyle-mode' and auto-formatting."
+                           (if (executable-find "cljstyle")
+                               (cljstyle-mode +1)
+                             (message "Could not find `cljstyle' on $PATH. Please ensure you have installed it correctly.")))))
 
-           (:name flycheck-clj-kondo)
+         (:name flycheck-clj-kondo)
 
-           (:name jet)))
+         (:name jet))
 
 ;;; Conditional Installs --- Things that depend on external services.
 
@@ -1228,15 +1228,11 @@ Throw an error is the filename is not of type org."
 (defvar el-get-my-packages
   (append
 
-   (when (bound-and-true-p configure-scheme-p)
-     (if (executable-find "csi")
-         '(geiser)
-       (error "Scheme programming (via Chicken) is configured, but I can't find the `csi' binary! Have you read the README file?")))
+   (when (executable-find "csi")
+     '(geiser))
 
-   (when (bound-and-true-p configure-go-p)
-     (if (executable-find "go")
-         '(go-mode)
-       (error "Golang programming is configured, but I can't find the `go' binary! Have you read the README file?")))
+   (when (executable-find "go")
+     '(go-mode))
 
    '(ag
      org-gcal

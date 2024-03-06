@@ -85,7 +85,7 @@ For more information about the org config, take a look at [[https://github.com/v
 :ID:       F7F6DF37-6E6A-41E0-8395-17EF47C427E5
 :END:
 
-   [[https://github.com/clojure-emacs/cider/][cider]] needs a one time setup of [[https://github.com/clojure-emacs/cider-nrepl/][cider-nrepl]], [[https://github.com/clojure-emacs/refactor-nrepl/][refactor-nrepl]] middleware in order to work properly. Please follow the installation instructions in the respective repos to install ~cider-nrepl~ and ~refactor-nrepl~.
+[[https://github.com/clojure-emacs/cider/][cider]] needs a one time setup of [[https://github.com/clojure-emacs/cider-nrepl/][cider-nrepl]], [[https://github.com/clojure-emacs/refactor-nrepl/][refactor-nrepl]] middleware in order to work properly. Please follow the installation instructions in the respective repos to install ~cider-nrepl~ and ~refactor-nrepl~.
 
 * Installation Instructions
 :PROPERTIES:
