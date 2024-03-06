@@ -1,11 +1,8 @@
-.org-generic-id-locations
-.org-id-locations
 multisession/
 network-security.data
 oauth2-auto.plist
 org-fc-reviews.tsv
 persist/
-auto-save-list/
 temp-files/
 *.elc
 *.eln
@@ -41,3 +38,5 @@ parinfer-rust/
 eln-cache/
 projects
 tree-sitter/*.dylib
+rfc/
+snippets/org-mode/salher_student_interview
