@@ -78,8 +78,14 @@
 (require 'init-recentf)
 (require 'init-flyspell)
 (require 'init-sql)
+(setq save-place-file
+      (concat tempfiles-dirname "saveplace"))
 (save-place-mode 1)
+(setq savehist-file
+      (concat tempfiles-dirname "savehist"))
 (savehist-mode 1)
+(setq project-list-file
+      (concat tempfiles-dirname "projects"))
 
 (with-eval-after-load 'rcirc
   (require 'init-rcirc))
