@@ -74,13 +74,13 @@ Ideally, this will be ~/.emacs.d.")
 ;; Create temp directories if necessary
 (make-directory tempfiles-dirname t)
 
-(load custom-file 'noerror)
-(load personal-file 'noerror)
+(load custom-file nil nil t t)
+(load personal-file nil nil t t)
 (add-to-list 'load-path site-lisp-dirname)
 (add-to-list 'load-path enhance-dirname)
 
 ;;; El-Get for great good
-(load el-get-config-file)
+(load el-get-config-file nil nil t t)
 (when (eq system-type 'darwin)
   (require 'osx))
 
