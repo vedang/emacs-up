@@ -21,6 +21,11 @@
 ;; Expects `org-journal-file' to be defined (for example, in `personal.el' file)
 ;;; Code:
 
+(defvar tempfiles-dirname)
+(require 'org)
+(require 'org-id)
+(require 'org-clock)
+(require 'org-agenda)
 (setq org-default-notes-file (expand-file-name "brain/daily.org" org-directory)
       org-id-track-globally t
       org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
@@ -43,35 +48,36 @@
 (push '("writing" . ?W) org-tag-alist)
 
 
-(eval-after-load 'org-super-agenda
-  '(setq org-super-agenda-groups
-         '((:name "These are your IMPORTANT Tasks"
-                  :tag "important"
-                  :order 0)
-           (:name "Your Meetings today"
-                  :and (:date today :not (:habit t :deadline t :scheduled t))
-                  :order 1)
-           (:name "These are your URGENT Tasks"
-                  :not (:habit t :deadline future :scheduled future)
-                  :order 2)
-           (:name "Habits"
-                  :habit t
-                  :order 3)
-           (:name "Upcoming Tasks"
-                  :scheduled t
-                  :deadline t
-                  :order 4)
-           (:name "Clocked today"
-                  :log t
-                  :order 5)
-           ;; After the last group, the agenda will display items that didn't
-           ;; match any of these groups, with the default order position of 99
-           )))
+(with-eval-after-load 'org-super-agenda
+  (defvar org-super-agenda-groups)
+  (setq org-super-agenda-groups
+        '((:name "These are your IMPORTANT Tasks"
+                 :tag "important"
+                 :order 0)
+          (:name "Your Meetings today"
+                 :and (:date today :not (:habit t :deadline t :scheduled t))
+                 :order 1)
+          (:name "These are your URGENT Tasks"
+                 :not (:habit t :deadline future :scheduled future)
+                 :order 2)
+          (:name "Habits"
+                 :habit t
+                 :order 3)
+          (:name "Upcoming Tasks"
+                 :scheduled t
+                 :deadline t
+                 :order 4)
+          (:name "Clocked today"
+                 :log t
+                 :order 5)
+          ;; After the last group, the agenda will display items that didn't
+          ;; match any of these groups, with the default order position of 99
+          )))
 
 ;;; Use `terminal-notifier' to push notifications on osx, if this
 ;;; program is not installed, ignore notifications.
 (defun vm/org-notify-message (msg)
-  "Push MSG as a notification via `terminal-notifier'"
+  "Push MSG as a notification via `terminal-notifier'."
   (when (executable-find "terminal-notifier")
     (start-process "page-me"
                    "*debug*"
