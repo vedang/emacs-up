@@ -1,4 +1,4 @@
-;;; init-helm.el --- Configuration for Smex mode
+;;; init-helm.el --- Configuration for Helm mode
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 15 Mar 2016
