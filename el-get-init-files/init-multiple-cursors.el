@@ -21,7 +21,4 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-(setq mc/list-file (concat tempfiles-dirname ".mc-lists"))
-
-
 (provide 'init-multiple-cursors)

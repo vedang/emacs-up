@@ -16,14 +16,8 @@
 
 
 (require 'recentf)
-(defvar tempfiles-dirname)
-(when (not (boundp 'tempfiles-dirname))
-  (let ((tempfiles-dir (make-directory (concat user-emacs-directory "temp-files"))))
-    (setq tempfiles-dirname tempfiles-dir)))
 
-(setq recentf-exclude (list (concat tempfiles-dirname "*"))
-      recentf-save-file (concat tempfiles-dirname ".recentf")
-      recentf-max-saved-items 1000
+(setq recentf-max-saved-items 1000
       recentf-max-menu-items 1000
       recentf-menu-filter 'recentf-show-basenames)
 

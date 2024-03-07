@@ -12,7 +12,10 @@
  '(ansi-color-names-vector
    ["#fffefe" "#9d0000" "#006a00" "#0e1b00" "#6845138" "#840086"
     "#003567" "#494949"])
+ '(auto-save-list-file-prefix "~/.emacs.d/temp-files/auto-save-list/.auto-saves-")
  '(bmkp-last-as-first-bookmark-file "~/.emacs.d/bookmarks")
+ '(bookmark-default-file "~/.emacs.d/bookmarks")
+ '(cider-repl-history-file "~/.emacs.d/temp-files/nrepl-history.txt")
  '(cider-repl-print-length 200)
  '(completion-styles '(basic partial-completion emacs22))
  '(connection-local-criteria-alist
@@ -139,6 +142,10 @@
      "fa2af0c40576f3bde32290d7f4e7aa865eb6bf7ebe31eb9e37c32aa6f4ae8d10"
      default))
  '(eldoc-echo-area-prefer-doc-buffer 'maybe)
+ '(eww-bookmarks-directory "~/.emacs.d/temp-files/")
+ '(fontaine-latest-state-file "~/.emacs.d/temp-files/fontaine-latest-state.eld")
+ '(forge-database-file "~/.emacs.d/temp-files/forge-database.sqlite")
+ '(helm-adaptive-history-file "~/.emacs.d/temp-files/helm-adaptive-history")
  '(helm-always-two-windows nil)
  '(helm-apropos-show-short-doc t)
  '(helm-buffers-fuzzy-matching t)
@@ -173,13 +180,13 @@
             (when (file-exists-p init-file-path)
               (load init-file-path) (require 'clerk))))))
      (use-bb-dev . t) (prettify-symbols-mode)))
+ '(mc/list-file "~/.emacs.d/temp-files/mc-lists.el")
  '(mml-secure-openpgp-sign-with-sender t)
+ '(org-clock-persist-file "~/.emacs.d/temp-files/org-clock-save.el")
  '(org-hugo-preserve-filling nil)
+ '(org-id-locations-file "~/.emacs.d/temp-files/.org-id-locations")
  '(org-super-agenda-mode t)
- '(package-selected-packages
-   '(edit-indirect compat map gnu-elpa-keyring-update elpher rainbow-mode
-                   jsonrpc ascii-art-to-unicode persist inflections
-                   queue))
+ '(package-selected-packages nil)
  '(pdf-annot-default-annotation-properties
    '((t (label . "Vedang Manerikar") (color . "light green"))
      (text (color . "#ff0000") (icon . "Note"))
@@ -188,6 +195,11 @@
  '(pdf-annot-list-listed-types
    '(file free-text highlight squiggly strike-out text underline))
  '(pdf-annot-minor-mode-map-prefix [3 1])
+ '(project-list-file "~/.emacs.d/temp-files/projects")
+ '(recentf-exclude
+   '("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|MERGEREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
+     "~/.emacs.d/temp-files/*"))
+ '(recentf-save-file "~/.emacs.d/temp-files/recentf")
  '(safe-local-variable-values
    '((denote-directory .
                        "/Users/nejo/Tresors/Documents/salher-content/docs")
@@ -236,7 +248,9 @@
            (def-aggregate-plan-fn 'defun))
      (eval define-clojure-indent (cluster-spec 1) (group-spec 1))
      (eval define-clojure-indent (facts 'defun) (fact-group 'defun))
-     (lexical-binding . t))))
+     (lexical-binding . t)))
+ '(save-place-file "~/.emacs.d/temp-files/saveplace")
+ '(savehist-file "~/.emacs.d/temp-files/savehist"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

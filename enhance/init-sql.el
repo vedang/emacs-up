@@ -34,7 +34,8 @@
 
 ;;; Code:
 
-(defvar sql-history-folder (expand-file-name "sql/" tempfiles-dirname))
+(defvar sql-history-folder
+  (expand-file-name "temp-files/sql/" user-emacs-directory))
 
 (defun emacswiki/sql-save-history-hook ()
   "Save the command history from SQLi buffers."
@@ -63,9 +64,9 @@
         (e (if mark-active (region-end) (point-max)))
         (pgfrm (executable-find "pg_format")))
     (if pgfrm
-      (let ((p (point)))
-        (shell-command-on-region b e pgfrm (current-buffer) t)
-        (goto-char p))
+        (let ((p (point)))
+          (shell-command-on-region b e pgfrm (current-buffer) t)
+          (goto-char p))
       (user-error "Could not find pg_format installed"))))
 
 (defun sql-format-buffer-on-save ()

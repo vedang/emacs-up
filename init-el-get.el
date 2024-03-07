@@ -607,9 +607,7 @@ is set to \\='(signature subdirectory title keywords)."
                               (add-hook 'after-init-hook #'fancy-battery-mode)))
 
          (:name fontaine
-                :after (progn (setq fontaine-latest-state-file
-                                    (concat tempfiles-dirname "fontaine-latest-state.eld"))
-                              (add-hook 'kill-emacs-hook #'fontaine-store-latest-preset)
+                :after (progn (add-hook 'kill-emacs-hook #'fontaine-store-latest-preset)
                               (dolist (hook '(modus-themes-after-load-theme-hook ef-themes-post-load-hook))
                                 (add-hook hook #'fontaine-apply-current-preset))
                               (setq fontaine-presets
@@ -662,9 +660,7 @@ is set to \\='(signature subdirectory title keywords)."
          (:name forge
                 :after (progn (setq auth-sources '("~/.authinfo.gpg"))
                               (with-eval-after-load 'magit
-                                (require 'forge)
-                                (setq forge-database-file
-                                      (concat tempfiles-dirname "forge-database.sqlite")))))
+                                (require 'forge))))
 
          (:name flycheck
                 :after (progn (setq flycheck-global-modes '(not org-mode)
@@ -972,7 +968,7 @@ Suggest the URL title as a description for resource."
                          ;; loading `org-remark'.
                          (with-eval-after-load 'org-remark
                            (defvar org-remark-locations-file
-                             (concat tempfiles-dirname ".org-remark-locations")
+                             (locate-user-emacs-file "temp-files/.org-remark-locations")
                              "Cache for locations of notes files used by Remark")
 
                            (defun org-remark-notes-file-name-prompt-function ()

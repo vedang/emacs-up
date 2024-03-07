@@ -29,17 +29,10 @@
       confirm-kill-emacs 'y-or-n-p
       require-final-newline t
       ediff-window-setup-function 'ediff-setup-windows-plain
-      save-place-file (concat tempfiles-dirname "places")
       column-number-mode t
       debug-on-error t
-      eshell-history-file-name (concat tempfiles-dirname "eshell-history")
-      eww-bookmarks-directory tempfiles-dirname
       browse-url-browser-function 'browse-url-default-browser
       bookmark-save-flag 1
-      ;; Same location for bookmark file as default, but this change
-      ;; makes the bookmark file independent of the .emacs.d
-      ;; directory.
-      bookmark-default-file (concat dotfiles-dirname "bookmarks")
       display-buffer-reuse-frames t
       whitespace-line-column 80
       recenter-positions '(top middle bottom)
@@ -51,17 +44,12 @@
 
 ;; Don't clutter up directories with files
 (setq backup-directory-alist
-      `(("." . ,(expand-file-name
-                 (concat tempfiles-dirname "backups"))))
-      auto-save-list-file-prefix
-      (concat tempfiles-dirname "auto-save-list/.auto-saves-")
-      auto-save-file-name-transforms
-      `((".*" ,(concat tempfiles-dirname "auto-save-list/") t)))
+      `(("." . ,(locate-user-emacs-file "temp-files/backups"))))
 
 ;;; Increase display length of profiler output
 (with-eval-after-load 'profiler
-    (setf (caar profiler-report-cpu-line-format) 80
-          (caar profiler-report-memory-line-format) 80))
+  (setf (caar profiler-report-cpu-line-format) 80
+        (caar profiler-report-memory-line-format) 80))
 
 ;;; Display garbage-collection messages, so that I can see impact on performance
 (when on-my-linux-machine (setq garbage-collection-messages t))
@@ -75,7 +63,7 @@
 
 ;; Set path for saving desktop
 (require 'desktop)
-(add-to-list 'desktop-path tempfiles-dirname)
+(add-to-list 'desktop-path (locate-user-emacs-file "temp-files/"))
 
 ;;; Everything in UTF8
 (prefer-coding-system 'utf-8)
@@ -83,7 +71,7 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (when (boundp 'buffer-file-coding-system)
-    (setq-default buffer-file-coding-system 'utf-8))
+  (setq-default buffer-file-coding-system 'utf-8))
 (when (boundp 'default-buffer-file-coding-system)
   (setq default-buffer-file-coding-system 'utf-8))
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))

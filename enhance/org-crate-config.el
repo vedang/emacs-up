@@ -21,15 +21,12 @@
 ;; Expects `org-journal-file' to be defined (for example, in `personal.el' file)
 ;;; Code:
 
-(defvar tempfiles-dirname)
 (require 'org)
 (require 'org-id)
 (require 'org-clock)
 (require 'org-agenda)
 (setq org-default-notes-file (expand-file-name "brain/daily.org" org-directory)
       org-id-track-globally t
-      org-id-locations-file (concat tempfiles-dirname ".org-id-locations")
-      org-clock-persist-file (concat tempfiles-dirname "org-clock-save")
       ;; Don't dim anything in the Agenda. If I want dimming, I will
       ;; ask for it explicitly with the # key-binding in the Agenda.
       org-agenda-dim-blocked-tasks nil)

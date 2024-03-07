@@ -76,9 +76,6 @@
 ;;       helm-completing-read-handlers-alist)
 
 (require 'helm-adaptive)
-(defvar tempfiles-dirname)
-(setq helm-adaptive-history-file
-      (concat tempfiles-dirname "helm-adaptive-history"))
 (helm-adaptive-mode +1)
 
 (require 'helm-utils)

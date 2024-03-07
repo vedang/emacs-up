@@ -15,18 +15,11 @@
 ;;; Code:
 
 
-(when (not (boundp 'tempfiles-dirname))
-  (setq tempfiles-dirname "~/.emacs.d/"))
-
-
 (setq wg-morph-on nil
-      wg-file (concat tempfiles-dirname "wg-store.dat")
       wg-switch-on-load nil)
-
 
 (workgroups-mode 1)
 (wg-load wg-file)
-
 
 (provide 'init-workgroups)
 

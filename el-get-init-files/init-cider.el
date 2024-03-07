@@ -15,16 +15,10 @@
 
 ;;; Code:
 
-
-(when (not (boundp 'tempfiles-dirname))
-  (setq tempfiles-dirname "~/.emacs.d/"))
-
-
 (defun cider-repl-prompt-on-newline (ns)
   "Return a prompt string with newline.
 NS is the namespace information passed into the function by cider."
   (concat ns ">\n"))
-
 
 (defun vineet/cider-load-open-buffers ()
   "Load all open clojure buffers in the project."
@@ -40,8 +34,7 @@ NS is the namespace information passed into the function by cider."
 (with-eval-after-load 'cider-mode
   (add-hook 'cider-mode-hook 'eldoc-mode)
   (define-key cider-mode-map (kbd "C-c z") 'cider-selector)
-  (setq cider-repl-history-file (concat tempfiles-dirname "nrepl-history.txt")
-        cider-repl-history-size most-positive-fixnum
+  (setq cider-repl-history-size most-positive-fixnum
         cider-repl-wrap-history t
         cider-repl-prompt-function 'cider-repl-prompt-on-newline
         cider-repl-use-pretty-printing nil
