@@ -153,6 +153,7 @@
  '(helm-completion-style 'emacs)
  '(helm-ff-auto-update-initial-value t)
  '(helm-ff-file-name-history-use-recentf t)
+ '(helm-grep-file-path-style 'relative)
  '(helm-imenu-use-icon t)
  '(helm-locate-recursive-dirs-command "fd --hidden --type d .*%s.*$ %s")
  '(helm-mini-default-sources
