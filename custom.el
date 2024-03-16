@@ -251,7 +251,14 @@
      (eval define-clojure-indent (facts 'defun) (fact-group 'defun))
      (lexical-binding . t)))
  '(save-place-file "~/.emacs.d/temp-files/saveplace")
- '(savehist-file "~/.emacs.d/temp-files/savehist"))
+ '(savehist-file "~/.emacs.d/temp-files/savehist")
+ '(zoneinfo-style-world-list
+   '(("America/Los_Angeles" "SF (Jitesh)")
+     ("America/New_York" "NYC (Kaushal)")
+     ("Europe/London" "London (RHI)") ("Europe/Paris" "Paris (Parul)")
+     ("Asia/Calcutta" "Bangalore") ("Asia/Tokyo" "Tokyo (Siddhi)")
+     ("America/Los_Angeles" "Seattle (Soniya)")
+     ("Europe/Berlin" "Stuttgard (RHI)"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
