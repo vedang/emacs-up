@@ -627,11 +627,11 @@ is set to \\='(signature subdirectory title keywords)."
                                        :bold-weight extrabold)
                                       (presentation
                                        :default-weight semilight
-                                       :default-height 280
+                                       :default-height 330
                                        :bold-weight extrabold)
                                       (jumbo
                                        :default-weight semilight
-                                       :default-height 330
+                                       :default-height 380
                                        :bold-weight extrabold)
                                       (t
                                        ;; I keep all properties for didactic purposes, but most can be
