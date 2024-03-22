@@ -1056,7 +1056,9 @@ Throw an error is the filename is not of type org."
                          (define-key org-tree-slide-mode-map (kbd "<f6>")
                                      'org-tree-slide-content)
                          (setq org-tree-slide-header t
-                               org-tree-slide-slide-in-blank-lines 10)))
+                               org-tree-slide-slide-in-blank-lines 10
+                               org-tree-slide-skip-comments 'inherit
+                               org-tree-slide-skip-outline-level 2)))
 
          (:name org-web-tools)
 
