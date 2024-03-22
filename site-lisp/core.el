@@ -212,6 +212,7 @@ Borrows from `mickeynp/combobulate` install instructions."
   (add-hook 'prog-mode-hook #'mp-remove-treesit-sexp-changes))
 
 ;;; ask xref to use ripgrep (Emacs 28 and higher)
+(require 'xref)
 (setq xref-search-program
       (if (or (executable-find "rg")
               (executable-find "ripgrep"))

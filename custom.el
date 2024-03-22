@@ -187,7 +187,9 @@
  '(org-hugo-preserve-filling nil)
  '(org-id-locations-file "~/.emacs.d/temp-files/.org-id-locations")
  '(org-super-agenda-mode t)
- '(package-selected-packages nil)
+ '(package-selected-packages
+   '(ascii-art-to-unicode compat easy-kill elpher map persist
+                          rainbow-mode))
  '(pdf-annot-default-annotation-properties
    '((t (label . "Vedang Manerikar") (color . "light green"))
      (text (color . "#ff0000") (icon . "Note"))
