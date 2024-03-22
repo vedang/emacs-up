@@ -254,6 +254,7 @@
      (lexical-binding . t)))
  '(save-place-file "~/.emacs.d/temp-files/saveplace")
  '(savehist-file "~/.emacs.d/temp-files/savehist")
+ '(vterm-shell "/opt/homebrew/bin/fish")
  '(zoneinfo-style-world-list
    '(("America/Los_Angeles" "SF (Jitesh)")
      ("America/New_York" "NYC (Kaushal)")
