@@ -1119,6 +1119,13 @@ Throw an error is the filename is not of type org."
 
          (:name saveplace-pdf-view)
 
+         (:name separedit
+                :after (progn
+                         (define-key prog-mode-map (kbd "C-c '") #'separedit)
+                         (define-key minibuffer-local-map (kbd "C-c '") #'separedit)
+                         (define-key help-mode-map (kbd "C-c '") #'separedit)
+                         (setq separedit-default-mode 'markdown-mode)))
+
          (:name shrface
                 :after (progn
                          (with-eval-after-load 'eww
