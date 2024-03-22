@@ -666,7 +666,8 @@ is set to \\='(signature subdirectory title keywords)."
                 :after (progn (setq flycheck-global-modes '(not org-mode)
                                     flycheck-emacs-lisp-load-path 'inherit)
                               (global-flycheck-mode)))
-
+         (:name flycheck-eglot
+                :after (progn (global-flycheck-eglot-mode 1)))
          (:name flycheck-inline
                 :after (with-eval-after-load 'flycheck
                          (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
