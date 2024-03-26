@@ -199,7 +199,9 @@
          ;;                      (defalias 'qrr 'anzu-query-replace-regexp)))
 
          (:name apheleia
-                :after (progn (apheleia-global-mode +1)))
+                :after (progn
+                         (push '(zprint . ("zprint")) apheleia-formatters)
+                         (apheleia-global-mode +1)))
 
          (:name ascii-art-to-unicode
                 :after (require 'ascii-art-to-unicode))
