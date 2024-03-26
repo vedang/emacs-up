@@ -557,7 +557,8 @@ is set to \\='(signature subdirectory title keywords)."
                                  ("https://biffweb.com/feed.xml" biff jacob_obryant)
                                  ("https://apenwarr.ca/log/rss.php" apenwarr leadership important)
                                  ("https://josem.co/articles/index.xml" josem software)
-                                 ("https://ludic.mataroa.blog/rss/" rants)))
+                                 ("https://ludic.mataroa.blog/rss/" rants)
+                                 ("https://andrewkelley.me/rss.xml" zig foss)))
 
                          ;; Mark all YouTube entries
                          (add-hook 'elfeed-new-entry-hook
