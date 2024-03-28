@@ -200,8 +200,9 @@
 
          (:name apheleia
                 :after (progn
-                         (push '(zprint . ("zprint")) apheleia-formatters)
-                         (apheleia-global-mode +1)))
+                         (apheleia-global-mode +1)
+                         (with-eval-after-load 'apheleia-formatters
+                           (push '(zprint . ("zprint")) apheleia-formatters))))
 
          (:name ascii-art-to-unicode
                 :after (require 'ascii-art-to-unicode))
