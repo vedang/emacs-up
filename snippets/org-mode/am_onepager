@@ -1,0 +1,38 @@
+# -*- mode: snippet -*-
+# name: am_onepager
+# key: am1p
+# comment: Shared by Arindham Mukherjee on LinkedIn
+# --
+
+#+title: ${1:Project Name}
+#+description: ${2:one-line description}
+#+date: `(format-time-string (car org-time-stamp-formats))`
+#+author: Vedang Manerikar <vedang.manerikar@gmail.com>
+
+* Problem Alignment:
+$0
+Write in 4-5 sentences. Readers should be able to read this and understand the value and communicate their thoughts around risks.
+
+- What is the problem?
+- Who is facing the problem?
+- What is the business value that will be unlocked by solving the problem?
+- How will the target users benefit if the problem is solved?
+- Why is it urgent to solve this problem now?
+
+* Goals:
+Describe the high level goals and ideally in priority order.
+- List out the measurable metrics here
+- Why are these metrics important
+
+* Non-Goals:
+List out areas that you don’t plan to address. Define the scope clearly.
+
+* Solution Alignment:
+Describe briefly the approach you will be taking. Reading this should give the reader an understanding of the possible solution directions and enable you to solicit feedback on the chosen direction.
+- *Hypothesis*: If we <make this change>, then <user behaviour Y changes in this way> leading to positive metrics Z. Include guesses for size of the win on specific metrics, using learnings from past experiments/launches.
+- *User Flow diagram*: Include a high level sketch of the user flow/system diagram which helps to understand the solution direction.
+
+* Next Steps:
+- Outline the next actionable steps, if there’s alignment with the stakeholders
+- What are the resource requirements?
+- What would the rough timelines for the next steps look like?
