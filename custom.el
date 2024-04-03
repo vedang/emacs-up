@@ -191,9 +191,9 @@
    '(ascii-art-to-unicode compat easy-kill elpher map persist
                           rainbow-mode))
  '(pdf-annot-default-annotation-properties
-   '((t (label . "Vedang Manerikar") (color . "light green"))
-     (text (color . "#ff0000") (icon . "Note"))
-     (highlight (color . "dark cyan")) (underline (color . "blue"))
+   '((t (label . "Vedang Manerikar") (color . "yellow"))
+     (text (color . "#ff0000") (icon . "Comment"))
+     (highlight (color . "yellow")) (underline (color . "blue"))
      (squiggly (color . "orange")) (strike-out (color . "red"))))
  '(pdf-annot-list-listed-types
    '(file free-text highlight squiggly strike-out text underline))
