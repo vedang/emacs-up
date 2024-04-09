@@ -362,6 +362,7 @@
                          (global-set-key (kbd "C-c d B") #'denote-backlinks)
                          (global-set-key (kbd "C-c d b") #'denote-find-backlink)
                          (global-set-key (kbd "C-c d f") #'denote-find-link)
+                         (global-set-key (kbd "C-c d h") #'denote-org-extras-link-to-heading)
 
                          ;; Journal Entries
                          (global-set-key (kbd "C-c d j")
@@ -383,6 +384,8 @@
                            (define-key map (kbd "C-c C-d R")
                                        #'denote-dired-rename-marked-files-with-keywords))
 
+                         ;; More functionality
+                         (setq denote-org-store-link-to-heading t)
                          (defun denote-org-extras-extract-org-subtree-silo (silo)
                            "Create new Denote note using current Org subtree.
 
