@@ -105,44 +105,41 @@
 ;; (setq org-ellipsis " ")
 (setq org-ellipsis "⤵")
 
-;;; Configuration for publishing with ox-publish
+;;; # Configuration for publishing my denote files with `ox-publish'
+;; ## Require the libraries that I depend on
 (require 'ox-publish)
 (require 'ox-hugo)
-(defvar vm-base-dir)
-(defvar vm-publishing-dir)
-(setq vm-base-dir (expand-file-name "~/Tresors/Documents/diary/notes/published")
-      vm-publishing-dir (expand-file-name "~/src/prototypes/vedang.me/v7/components/content/resources/content"))
 (setq org-hugo-front-matter-format "yaml")
 
-(defun vm/org-hugo--get-front-matter (info)
+;; ## Project-specific directories
+(defvar vm-base-dir)
+(defvar vm-publishing-dir)
+
+(setq vm-base-dir (expand-file-name "~/Tresors/Documents/diary/notes/published")
+      vm-publishing-dir (expand-file-name "~/src/prototypes/vedang.me/v7/components/content/resources/content"))
+
+;; ## Convert the Front-Matter from org to md format.
+(defun vm/get-front-matter (info)
   "Return the front-matter string.
 
 INFO is a plist used as a communication channel."
-  (let* ((description (org-string-nw-p (plist-get info :description)))
-         (aliases (when (plist-get info :hugo-aliases)
-                    (org-split-string (org-string-nw-p
-                                       (plist-get info :hugo-aliases))
-                                      " ")))
-         (categories (org-hugo--delim-str-to-list
-                      (plist-get info :hugo-categories)))
-         (custom-fm-data (org-hugo--parse-property-arguments
-                          (plist-get info :hugo-custom-front-matter)))
+  (let* ((title (org-string-nw-p (car (plist-get info :title))))
+         (description (org-string-nw-p (plist-get info :description)))
          (date (org-string-nw-p (org-export-get-date info "%Y-%m-%d")))
+         (aliases (when (plist-get info :aliases)
+                    (org-split-string (org-string-nw-p
+                                       (plist-get info :aliases))
+                                      " ")))
          (category (org-export-get-category (plist-get info :parse-tree) info))
-         (data `((title . ,(org-hugo--get-sanitized-title info))
+         (data `((title . ,title)
                  (description . ,description)
                  (date . ,date)
                  (aliases . ,aliases)
-                 (linkTitle . ,(plist-get info :hugo-linktitle))
-                 (markup . ,(plist-get info :hugo-markup))
-                 (series . ,(org-hugo--delim-str-to-list (plist-get info :hugo-series)))
-                 (slug . ,(plist-get info :hugo-slug))
                  (tags . ,org-file-tags)
                  (category . ,category))))
+    (org-hugo--gen-yaml-front-matter data)))
 
-    (org-hugo--gen-front-matter data "yaml")))
-
-(defun vm/org-md-publish-to-md (plist filename pub-dir)
+(defun vm/denote-publish-to-md (plist filename pub-dir)
   "Just like `org-md-publish-to-md' but with front-matter.
 
 FILENAME is the filename of the Org file to be published.  PLIST
@@ -155,14 +152,13 @@ the exported file.
 Return output file name."
   (interactive)
   (let* ((ast (org-element-parse-buffer))
-         (org-use-property-inheritance (org-hugo--selective-property-inheritance))
          (info (org-combine-plists
                 (list :parse-tree ast)
                 (org-export--get-export-attributes 'md)
                 (org-export--get-buffer-attributes)
                 (org-export-get-environment 'md)))
          ;; (_tempinfo (setq tempinfo info)) ;; for debugging
-         (fm (vm/org-hugo--get-front-matter info))
+         (fm (vm/get-front-matter info))
          (outfile (org-publish-org-to 'md filename ".md" plist pub-dir)))
     (with-temp-buffer
       (insert fm)
@@ -175,7 +171,7 @@ Return output file name."
       `(("vedangme" .
          (:base-directory ,vm-base-dir
                           :publishing-directory ,vm-publishing-dir
-                          :publishing-function vm/org-md-publish-to-md
+                          :publishing-function vm/denote-publish-to-md
                           :recursive nil
                           :exclude-tags ("noexport" "draft" "private")
                           :section-numbers nil
