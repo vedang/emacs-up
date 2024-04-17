@@ -108,8 +108,6 @@
 ;;; # Configuration for publishing my denote files with `ox-publish'
 ;; ## Require the libraries that I depend on
 (require 'ox-publish)
-(require 'ox-hugo)
-(setq org-hugo-front-matter-format "yaml")
 
 ;; ## Project-specific directories
 (defvar vm-base-dir)
@@ -119,6 +117,108 @@
       vm-publishing-dir (expand-file-name "~/src/prototypes/vedang.me/v7/components/content/resources/content"))
 
 ;; ## Convert the Front-Matter from org to md format.
+;; Fields I want to support in export, which are not already supported by ox-md:
+;;
+;; 1. :aliases
+
+(defvar vm/date-time-regexp
+  (concat "\\`[[:digit:]]\\{4\\}-[[:digit:]]\\{2\\}-[[:digit:]]\\{2\\}"
+          "\\(?:T[[:digit:]]\\{2\\}:[[:digit:]]\\{2\\}:[[:digit:]]\\{2\\}"
+          "\\(?:Z\\|[+-][[:digit:]]\\{2\\}:[[:digit:]]\\{2\\}\\)*\\)*\\'")
+  "Regexp to match the time stamp strings.
+
+Reference: https://tools.ietf.org/html/rfc3339#section-5.8
+
+Examples:
+  2017-07-31
+  2017-07-31T17:05:38
+  2017-07-31T17:05:38Z
+  2017-07-31T17:05:38+04:00
+  2017-07-31T17:05:38-04:00.")
+
+(defun vm/yaml-quote-string (val)
+  "Wrap VAL with quotes as appropriate.
+
+VAL can be a string, symbol, number or nil.
+
+VAL is returned as-it-is under the following cases:
+- It is a number.
+- It is a string and is already wrapped with double quotes.
+- It is a string and it's value is \"true\" or \"false\".
+- It is a string representing a date.
+- It is a string representing an integer or float.
+
+If VAL is nil or an empty string, a quoted empty string \"\" is
+returned."
+  (cond
+   ((null val) val)
+   ((numberp val) val)
+   ((symbolp val) (format "\"%s\"" (symbol-name val)))
+   ;; If `val' is a non-empty string
+   ((org-string-nw-p val)
+    (if (or (and (string= (substring val 0 1) "\"") ;First char is literally a "
+                 (string= (substring val -1) "\"")) ;Last char is literally a "
+            (string= "true" val)
+            (string= "false" val)
+            ;; or if it is a date (date, publishDate, expiryDate, lastmod)
+            (string-match-p vm/date-time-regexp val))
+        val
+      ;; Escape the backslashes
+      (setq val (replace-regexp-in-string "\\\\" "\\\\\\\\" val))
+      ;; Escape the double-quotes
+      (setq val (replace-regexp-in-string "\"" "\\\\\""  val))
+      (concat "\"" val "\"")))
+   ;; Return empty string if anything else
+   (t "\"\"")))
+
+(defun vm/get-yaml-list-string (key list)
+  "Return KEY's LIST value as a YAML list, represented as a string.
+
+KEY is a string and LIST is a list where an element can be a
+symbol, number or a non-empty string.  Examples:
+
+  \(\"abc\" \"def\")   -> \"[\\\"abc\\\", \\\"def\\\"]\"."
+  (concat "["
+          (mapconcat #'identity
+                     (mapcar (lambda (v)
+                               (vm/yaml-quote-string
+                                (cond
+                                 ((symbolp v) (symbol-name v))
+                                 ((numberp v) (number-to-string v))
+                                 ((org-string-nw-p v) v)
+                                 (t (user-error "Invalid element %S in `%s' value %S" v key list)))))
+                             list)
+                     ", ")
+          "]"))
+
+(defun vm/gen-yaml-front-matter (data)
+  "Generate front-matter in YAML format, and return that string.
+
+DATA is an alist of the form \((KEY1 . VAL1) (KEY2 . VAL2) .. \),
+where KEY is a symbol and VAL is a string."
+  (let ((sep "---\n")
+        (sign ":")
+        (front-matter ""))
+    (dolist (pair data)
+      (let ((key (symbol-name (car pair)))
+            (value (cdr pair)))
+        ;; Skip writing front-matter variables whose value is nil
+        (unless (or (null value) (and (stringp value) (string= "" value)))
+          ;; In YAML, the value portion needs to be wrapped in double
+          ;; quotes. Example:
+          ;;     title: "My Post"
+          (setq front-matter
+                (concat front-matter
+                        (format "%s%s %s\n"
+                                key
+                                sign
+                                ;; Tags, categories, aliases:
+                                ;; front-matter which are lists.
+                                (if (listp value)
+                                    (vm/get-yaml-list-string key value)
+                                  (vm/yaml-quote-string value))))))))
+    (concat sep front-matter sep)))
+
 (defun vm/get-front-matter (info)
   "Return the front-matter string.
 
@@ -126,18 +226,25 @@ INFO is a plist used as a communication channel."
   (let* ((title (org-string-nw-p (car (plist-get info :title))))
          (description (org-string-nw-p (plist-get info :description)))
          (date (org-string-nw-p (org-export-get-date info "%Y-%m-%d")))
+         (last-updated-at (format-time-string "%Y-%m-%d" (current-time)))
          (aliases (when (plist-get info :aliases)
                     (org-split-string (org-string-nw-p
                                        (plist-get info :aliases))
                                       " ")))
-         (category (org-export-get-category (plist-get info :parse-tree) info))
+         ;; See: [ref: do_not_use_`org-export-get-category']
+         (category (org-element-map (plist-get info :parse-tree) 'keyword
+	                 (lambda (kwd)
+	                   (when (equal (org-element-property :key kwd) "CATEGORY")
+	                     (org-element-property :value kwd)))
+	                 info 'first-match))
          (data `((title . ,title)
                  (description . ,description)
                  (date . ,date)
+                 (last_updated_at . ,last-updated-at)
                  (aliases . ,aliases)
                  (tags . ,org-file-tags)
                  (category . ,category))))
-    (org-hugo--gen-yaml-front-matter data)))
+    (vm/gen-yaml-front-matter data)))
 
 (defun vm/denote-publish-to-md (plist filename pub-dir)
   "Just like `org-md-publish-to-md' but with front-matter.
@@ -145,9 +252,6 @@ INFO is a plist used as a communication channel."
 FILENAME is the filename of the Org file to be published.  PLIST
 is the property list for the given project.  PUB-DIR is the
 publishing directory.
-
-This function adds front-matter using `org-hugo--get-front-matter' to
-the exported file.
 
 Return output file name."
   (interactive)
@@ -182,5 +286,14 @@ Return output file name."
 ;;; Use Plantuml for diagrams
 ;; This value is set in my personal.el file
 ;; (setq org-plantuml-jar-path "")
+
+;; # Notes
+;; ## Do not use `org-export-get-category'
+;; _[tag: do_not_use_`org-export-get-category']_
+;;
+;; We do not want the fallback behaviour of `org-export-get-category',
+;; which is to return the file-name of the file as the category. For
+;; us, this field only makes sense when it has been explicitly
+;; defined.
 (provide 'org-crate-config)
 ;;; org-crate-config.el ends here.
