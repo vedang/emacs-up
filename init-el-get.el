@@ -385,7 +385,8 @@
                                        #'denote-dired-rename-marked-files-with-keywords))
 
                          ;; More functionality
-                         (setq denote-org-store-link-to-heading t)
+                         (setq denote-org-store-link-to-heading t
+                               denote-rename-no-confirm t)
                          (defun denote-org-extras-extract-org-subtree-silo (silo)
                            "Create new Denote note using current Org subtree.
 
