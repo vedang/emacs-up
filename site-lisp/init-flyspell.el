@@ -1,4 +1,4 @@
-;;; init-flyspell.el --- Configuration for flyspell
+;;; init-flyspell.el --- Configuration for flyspell -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012

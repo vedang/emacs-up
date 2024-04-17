@@ -1,4 +1,4 @@
-;;; init-helm.el --- Configuration for Helm mode
+;;; init-helm.el --- Configuration for Helm mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 15 Mar 2016

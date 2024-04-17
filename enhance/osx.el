@@ -1,4 +1,4 @@
-;;; osx.el --- emacs configuration for OS X
+;;; osx.el --- emacs configuration for OS X -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 12 Jul 2012
 ;;; Copyright (c) 2012, 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

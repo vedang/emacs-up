@@ -1,4 +1,4 @@
-;;; init-ido.el --- Configuration for ido mode
+;;; init-ido.el --- Configuration for ido mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 18 Oct 2013

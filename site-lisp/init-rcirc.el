@@ -1,4 +1,4 @@
-;;; init-rcirc.el --- Configuration for RCIRC
+;;; init-rcirc.el --- Configuration for RCIRC -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 04 Mar 2012
 ;;; Copyright (c) 2012, 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

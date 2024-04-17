@@ -1,4 +1,4 @@
-;;; site-lisp.el --- Change the behavior of things that come built
+;;; site-lisp.el --- Change the behavior of things that come built -*- lexical-binding: t -*-
 ;;; into Emacs
 ;;; Commentary:
 ;;; Author: Vedang Manerikar

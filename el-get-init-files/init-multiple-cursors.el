@@ -1,4 +1,4 @@
-;;; init-multiple-cursors.el
+;;; init-multiple-cursors.el -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
 ;;; Copyright (c) 2012, 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

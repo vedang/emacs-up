@@ -1,4 +1,4 @@
-;;; autoload-defuns.el - Autoloading and byte-compilation related functions
+;;; autoload-defuns.el - Autoloading and byte-compilation related functions -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

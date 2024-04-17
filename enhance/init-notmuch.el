@@ -1,4 +1,4 @@
-;;; init-notmuch.el --- configuration for using notmuch to manage email
+;;; init-notmuch.el --- configuration for using notmuch to manage email -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 07th June 2014
 ;;; Copyright (c) 2014 Vedang Manerikar <vedang.manerikar@gmail.com>

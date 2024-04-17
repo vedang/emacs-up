@@ -1,4 +1,4 @@
-;;; core.el --- customizing core emacs variables
+;;; core.el --- customizing core emacs variables -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

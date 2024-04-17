@@ -1,4 +1,4 @@
-;;; presenting.el - tools for a simple text-based presentation through
+;;; presenting.el --- tools for a simple text-based presentation through -*- lexical-binding: t -*-
 ;;; Emacs.
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013

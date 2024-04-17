@@ -1,4 +1,4 @@
-;;; init-ibuffer-vc.el - Configuration for ibuffer-vc mode
+;;; init-ibuffer-vc.el - Configuration for ibuffer-vc mode -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 21 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

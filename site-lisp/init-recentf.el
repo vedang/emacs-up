@@ -1,4 +1,4 @@
-;;; init-recentf.el --- Configuration for recentf
+;;; init-recentf.el --- Configuration for recentf -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

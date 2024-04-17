@@ -1,4 +1,4 @@
-;;; init-clojure-mode.el --- Configuration for Clojure Mode
+;;; init-clojure-mode.el --- Configuration for Clojure Mode -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 27 Oct 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

@@ -1,4 +1,4 @@
-;;; init-cider.el --- Configuration for Cider.
+;;; init-cider.el --- Configuration for Cider. -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 27 Oct 2013

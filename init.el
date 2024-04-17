@@ -1,4 +1,4 @@
-;;; init.el --- Root emacs configuration file.
+;;; init.el --- Root emacs configuration file. -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012

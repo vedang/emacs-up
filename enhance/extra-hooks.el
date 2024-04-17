@@ -1,4 +1,4 @@
-;;; extra-hooks.el --- functions that hook into stuff for the greater good.
+;;; extra-hooks.el --- functions that hook into stuff for the greater good. -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013
 ;;; Copyright (c) 2013 -- 2021 Vedang Manerikar <vedang.manerikar@gmail.com>

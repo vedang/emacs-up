@@ -1,4 +1,4 @@
-;;; init-clj-refactor.el --- Magic refactoring for Clojure.
+;;; init-clj-refactor.el --- Magic refactoring for Clojure. -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 27 Oct 2013

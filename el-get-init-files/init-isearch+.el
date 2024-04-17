@@ -1,4 +1,4 @@
-;;; init-search+.el --- configuration for isearch+ and isearch-prop
+;;; init-search+.el --- configuration for isearch+ and isearch-prop -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
 ;;; Copyright (c) 2012, 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

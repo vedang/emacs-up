@@ -1,9 +1,11 @@
-;;; init-go-mode.el --- configuration for go-mode:
+;;; init-go-mode.el --- configuration for go-mode -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 8 Aug 2014
 ;;; Copyright (c) 2014 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
+
+;;; Commentary:
 
 ;;; License:
 

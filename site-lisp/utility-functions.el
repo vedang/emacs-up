@@ -1,9 +1,11 @@
-;;; utility-functions.el --- Useful Functions from around the web
+;;; utility-functions.el --- Useful Functions from around the web -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Jan 2012
 ;;; Copyright (c) 2012 Vedang Manerikar <vedang.manerikar@gmail.com>
 
 ;; This file is not part of GNU Emacs.
+
+;;; Commentary:
 
 ;;; License:
 
@@ -352,13 +354,13 @@ If WEEK-NUM is not provided, use the current week."
          ;; day and hour/minute/second values.  These functions return
          ;; new timestamps, so `now' is unchanged.
          (beg (thread-last now
-                ;; `ts-adjust' makes relative adjustments to timestamps.
-                (ts-adjust 'day (- adjust-beg-day days-to-adjust))
-                ;; `ts-apply' applies absolute values to timestamps.
-                (ts-apply :hour 0 :minute 0 :second 0)))
+                           ;; `ts-adjust' makes relative adjustments to timestamps.
+                           (ts-adjust 'day (- adjust-beg-day days-to-adjust))
+                           ;; `ts-apply' applies absolute values to timestamps.
+                           (ts-apply :hour 0 :minute 0 :second 0)))
          (end (thread-last now
-                (ts-adjust 'day (- adjust-end-day days-to-adjust))
-                (ts-apply :hour 23 :minute 59 :second 59))))
+                           (ts-adjust 'day (- adjust-end-day days-to-adjust))
+                           (ts-apply :hour 23 :minute 59 :second 59))))
     (cons beg end)))
 
 ;;; Taken from Shae, needs Cairo to work

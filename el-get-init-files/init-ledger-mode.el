@@ -1,4 +1,4 @@
-;;; init-ledger-mode.el --- Configuration for Ledger Mode
+;;; init-ledger-mode.el --- Configuration for Ledger Mode -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 06 July 2015
 ;;; Copyright (c) 2015 Vedang Manerikar <vedang.manerikar@gmail.com>

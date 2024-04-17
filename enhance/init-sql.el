@@ -1,4 +1,4 @@
-;;; init-sql.el --- convenience functions for working with SQL.
+;;; init-sql.el --- convenience functions for working with SQL. -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 19 Jul 2020
 ;;; Copyright (c) 2020 Vedang Manerikar <vedang.manerikar@gmail.com>

@@ -1,4 +1,4 @@
-;;; init-isearch.el --- Configuration for isearch
+;;; init-isearch.el --- Configuring built-in isearch the way I like it -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

@@ -1,4 +1,4 @@
-;;; init-flycheck-clj-kondo.el --- Configuration for clj-kondo checkers
+;;; init-flycheck-clj-kondo.el --- Configuration for clj-kondo checkers -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 8th Oct 2019

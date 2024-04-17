@@ -1,4 +1,4 @@
-;;; init-workgroups.el --- Configuration for workgroups
+;;; init-workgroups.el --- Configuration for workgroups -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 6 Dec 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

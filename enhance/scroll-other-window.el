@@ -1,4 +1,4 @@
-;;; scroll-other-window.el --- Variable commands for scrolling the other window.
+;;; scroll-other-window.el --- Variable commands for scrolling the other window. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 2016  Andreas Politz
 

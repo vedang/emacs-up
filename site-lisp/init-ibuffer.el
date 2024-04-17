@@ -1,4 +1,4 @@
-;;; init-ibuffer.el --- Configuration for ibuffer
+;;; init-ibuffer.el --- Configuration for ibuffer -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 16 Jan 2012
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

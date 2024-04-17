@@ -1,4 +1,4 @@
-;;; init-helm-cider.el --- Configuration for helm Cider.
+;;; init-helm-cider.el --- Configuration for helm Cider. -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 24 Oct 2016

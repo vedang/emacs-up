@@ -1,4 +1,4 @@
-;;; extra-bindings.el --- convenience bindings for various things.
+;;; extra-bindings.el --- convenience bindings for various things. -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 13 Oct 2013
 ;;; Copyright (c) 2013 -- 2021 Vedang Manerikar <vedang.manerikar@gmail.com>

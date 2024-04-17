@@ -1,4 +1,4 @@
-;;; init-elpy.el - Configuration for ElPy
+;;; init-elpy.el - Configuration for ElPy -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 28 Apr 2014
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

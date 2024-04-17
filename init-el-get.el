@@ -1,4 +1,4 @@
-;;; init-el-get.el --- El-get for Great Good.
+;;; init-el-get.el --- El-get for Great Good. -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 22 Dec 2013
 ;;; Copyright (c) 2013 Vedang Manerikar <vedang.manerikar@gmail.com>

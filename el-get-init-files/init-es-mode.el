@@ -1,4 +1,4 @@
-;;; init-es-mode.el --- Configuration for es-mode
+;;; init-es-mode.el --- Configuration for es-mode -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 9 Jul 2016

@@ -1,4 +1,4 @@
-;;; init-exec-path-from-shell.el - Manage paths correctly on OSX and
+;;; init-exec-path-from-shell.el - Manage paths correctly on OSX and -*- lexical-binding: t -*-
 ;;; other non-conformist systems
 ;;; Author: Vedang Manerikar
 ;;; Created on: 08 Aug 2014

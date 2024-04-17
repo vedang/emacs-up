@@ -1,4 +1,4 @@
-;;; init-paredit.el --- Paredit goodness everywhere
+;;; init-paredit.el --- Paredit goodness everywhere -*- lexical-binding: t -*-
 ;;; Commentary:
 ;;; Author: Vedang Manerikar
 ;;; Created on: 01 Apr 2014

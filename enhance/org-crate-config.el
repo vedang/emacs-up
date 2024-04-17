@@ -1,4 +1,4 @@
-;;; org-crate-config.el --- Configuration for org-mode
+;;; org-crate-config.el --- Configuration for org-mode -*- lexical-binding: t -*-
 ;;; Author: Vedang Manerikar
 ;;; Created on: 18 Dec 2012
 ;;; Copyright (c) 2012, 2013 Vedang Manerikar <vedang.manerikar@gmail.com>
