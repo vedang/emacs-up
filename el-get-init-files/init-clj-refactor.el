@@ -33,9 +33,8 @@
       ;; typed out what you wanted to.
       cljr-magic-requires nil)
 
-(eval-after-load 'clojure-mode
-  '(progn
-     (add-hook 'clojure-mode-hook 'turn-on-clj-refactor)))
+(with-eval-after-load 'clojure-mode
+  (add-hook 'clojure-mode-hook 'turn-on-clj-refactor))
 
 
 (provide 'init-clj-refactor)

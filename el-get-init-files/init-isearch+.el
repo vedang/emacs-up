@@ -15,7 +15,8 @@
 ;;; Code:
 
 
-(eval-after-load "isearch" '(require 'isearch+))
+(with-eval-after-load 'isearch
+  (require 'isearch+))
 
 
 (provide 'init-search+)

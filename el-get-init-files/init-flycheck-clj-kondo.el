@@ -19,8 +19,8 @@
 ;; `flycheck-checkers` list. This is needed to make the chain work. To
 ;; create the chain, also add the following code:
 
-(eval-after-load 'flycheck-joker
-  '(progn
+(with-eval-after-load 'flycheck-joker
+  (progn
     (dolist (checker '(clj-kondo-clj clj-kondo-cljs clj-kondo-cljc clj-kondo-edn))
       (setq flycheck-checkers
             (cons checker (delq checker flycheck-checkers))))

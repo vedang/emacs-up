@@ -86,28 +86,20 @@
         (remove-hook 'clojure-mode-hook 'clojure-test-maybe-enable)))))
 
 
-(eval-after-load 'clojure-mode
-  '(progn
-     (require 'clojure-mode-extra-font-locking)
-     (put-clojure-indent 'describe 'defun)
-     (put-clojure-indent 'given 'defun)
-     (put-clojure-indent 'using 'defun)
-     ;; *** DEPRECATED ***
-     ;; Adding the `icl/midje-test-maybe-enable' hook is unnecessary,
-     ;; since `clojure-test-mode' no longer exists. The call and
-     ;; associated function will be deleted in a future commit
-     (add-hook 'clojure-mode-hook 'icl/midje-test-maybe-enable)
-     (add-hook 'clojure-mode-hook 'subword-mode)
-     (define-key clojure-mode-map (kbd "C-c t")
-       'icl/midje-jump-between-tests-and-code)
-     (require 'flycheck-clj-kondo)
-     ;; (eval-after-load 'org
-     ;;  '(progn (add-hook 'clojure-mode-hook 'turn-on-orgstruct)
-     ;;          (add-hook 'clojure-mode-hook 'turn-on-orgstruct++)
-     ;;          (defun define-orgstruct-heading ()
-     ;;            (setq-local orgstruct-heading-prefix-regexp ";;; * "))
-     ;;          (add-hook 'clojure-mode-hook 'define-orgstruct-heading)))
-     ))
+(with-eval-after-load 'clojure-mode
+  (require 'clojure-mode-extra-font-locking)
+  (put-clojure-indent 'describe 'defun)
+  (put-clojure-indent 'given 'defun)
+  (put-clojure-indent 'using 'defun)
+  ;; *** DEPRECATED ***
+  ;; Adding the `icl/midje-test-maybe-enable' hook is unnecessary,
+  ;; since `clojure-test-mode' no longer exists. The call and
+  ;; associated function will be deleted in a future commit
+  (add-hook 'clojure-mode-hook 'icl/midje-test-maybe-enable)
+  (add-hook 'clojure-mode-hook 'subword-mode)
+  (define-key clojure-mode-map (kbd "C-c t")
+              'icl/midje-jump-between-tests-and-code)
+  (require 'flycheck-clj-kondo))
 
 ;;; From:
 ;;; https://gist.github.com/jackrusher/e628abb653429c22bc6330752b3e49a5,
@@ -120,9 +112,9 @@
         (jet (when (executable-find "jet")
                "jet --pretty --keywordize keyword --from json --to edn")))
     (if jet
-      (let ((p (point)))
-        (shell-command-on-region b e jet (current-buffer) t)
-        (goto-char p))
+        (let ((p (point)))
+          (shell-command-on-region b e jet (current-buffer) t)
+          (goto-char p))
       (user-error "Could not find jet installed"))))
 
 (provide 'init-clojure-mode)

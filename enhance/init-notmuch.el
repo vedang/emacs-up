@@ -64,63 +64,62 @@
 ;; Integrate with org-mode
 (require 'ol-notmuch)
 
-(eval-after-load 'notmuch-show
-  '(progn
-     ;; Bindings in `notmuch-show-mode'
-     (define-key notmuch-show-mode-map (kbd "r")
-       'notmuch-show-reply)
-     (define-key notmuch-show-mode-map (kbd "R")
-       'notmuch-show-reply-sender)
-     (define-key notmuch-show-mode-map (kbd "C")
-       'vedang/notmuch-reply-later)
+(with-eval-after-load 'notmuch-show
+  ;; Bindings in `notmuch-show-mode'
+  (define-key notmuch-show-mode-map (kbd "r")
+              'notmuch-show-reply)
+  (define-key notmuch-show-mode-map (kbd "R")
+              'notmuch-show-reply-sender)
+  (define-key notmuch-show-mode-map (kbd "C")
+              'vedang/notmuch-reply-later)
 
-     ;; The HEY workflow bindings
-     (define-key notmuch-show-mode-map (kbd "I")
-       'vedang/notmuch-move-sender-to-screened)
+  ;; The HEY workflow bindings
+  (define-key notmuch-show-mode-map (kbd "I")
+              'vedang/notmuch-move-sender-to-screened)
 
-     ;; Bindings in `notmuch-search-mode'
-     (define-key notmuch-search-mode-map (kbd "r")
-       'notmuch-search-reply-to-thread)
-     (define-key notmuch-search-mode-map (kbd "R")
-       'notmuch-search-reply-to-thread-sender)
-     (define-key notmuch-search-mode-map (kbd "/")
-       'notmuch-search-filter)
-     (define-key notmuch-search-mode-map (kbd "A")
-       'vedang/notmuch-archive-all)
-     (define-key notmuch-search-mode-map (kbd "D")
-       'vedang/notmuch-delete-all)
-     (define-key notmuch-search-mode-map (kbd "L")
-       'vedang/notmuch-filter-by-from)
-     (define-key notmuch-search-mode-map (kbd ";")
-       'vedang/notmuch-search-by-from)
-     (define-key notmuch-search-mode-map (kbd "d")
-       'vedang/notmuch-search-delete-and-archive-thread)
+  ;; Bindings in `notmuch-search-mode'
+  (define-key notmuch-search-mode-map (kbd "r")
+              'notmuch-search-reply-to-thread)
+  (define-key notmuch-search-mode-map (kbd "R")
+              'notmuch-search-reply-to-thread-sender)
+  (define-key notmuch-search-mode-map (kbd "/")
+              'notmuch-search-filter)
+  (define-key notmuch-search-mode-map (kbd "A")
+              'vedang/notmuch-archive-all)
+  (define-key notmuch-search-mode-map (kbd "D")
+              'vedang/notmuch-delete-all)
+  (define-key notmuch-search-mode-map (kbd "L")
+              'vedang/notmuch-filter-by-from)
+  (define-key notmuch-search-mode-map (kbd ";")
+              'vedang/notmuch-search-by-from)
+  (define-key notmuch-search-mode-map (kbd "d")
+              'vedang/notmuch-search-delete-and-archive-thread)
 
-     ;; The HEY Workflow Bindings
-     (define-key notmuch-search-mode-map (kbd "S")
-       'vedang/notmuch-move-sender-to-spam)
-     (define-key notmuch-search-mode-map (kbd "I")
-       'vedang/notmuch-move-sender-to-screened)
-     (define-key notmuch-search-mode-map (kbd "P")
-       'vedang/notmuch-move-sender-to-papertrail)
-     (define-key notmuch-search-mode-map (kbd "f")
-       'vedang/notmuch-move-sender-to-thefeed)
-     (define-key notmuch-search-mode-map (kbd "C")
-       'vedang/notmuch-reply-later)
+  ;; The HEY Workflow Bindings
+  (define-key notmuch-search-mode-map (kbd "S")
+              'vedang/notmuch-move-sender-to-spam)
+  (define-key notmuch-search-mode-map (kbd "I")
+              'vedang/notmuch-move-sender-to-screened)
+  (define-key notmuch-search-mode-map (kbd "P")
+              'vedang/notmuch-move-sender-to-papertrail)
+  (define-key notmuch-search-mode-map (kbd "f")
+              'vedang/notmuch-move-sender-to-thefeed)
+  (define-key notmuch-search-mode-map (kbd "C")
+              'vedang/notmuch-reply-later)
 
-     ;; Bindings in `notmuch-tree-mode'
-     (define-key notmuch-tree-mode-map (kbd "C")
-       'vedang/notmuch-reply-later)
+  ;; Bindings in `notmuch-tree-mode'
+  (define-key notmuch-tree-mode-map (kbd "C")
+              'vedang/notmuch-reply-later)
 
-     ;; The HEY workflow bindings
-     (define-key notmuch-tree-mode-map (kbd "I")
-       'vedang/notmuch-move-sender-to-screened)
-     ;; Move the existing functionality to a prefix.
-     (define-key notmuch-tree-mode-map (kbd "P") nil)
-     (define-key notmuch-tree-mode-map (kbd "P p")
-       'notmuch-tree-prev-message)
-     (define-key notmuch-tree-mode-map (kbd "P l")
-       'vedang/notmuch-move-sender-to-papertrail)))
+  ;; The HEY workflow bindings
+  (define-key notmuch-tree-mode-map (kbd "I")
+              'vedang/notmuch-move-sender-to-screened)
+  ;; Move the existing functionality to a prefix.
+  (define-key notmuch-tree-mode-map (kbd "P") nil)
+  (define-key notmuch-tree-mode-map (kbd "P p")
+              'notmuch-tree-prev-message)
+  (define-key notmuch-tree-mode-map (kbd "P l")
+              'vedang/notmuch-move-sender-to-papertrail))
 
 (defun vedang/notmuch-archive-all ()
   "Archive all the emails in the current view."

@@ -83,17 +83,15 @@ providing an argument."
 
 
 ;; SP config for other modes.
-(eval-after-load 'cider-repl
-  '(progn
-     (define-key cider-repl-mode-map (kbd ")") 'sp-up-sexp)
-     (define-key cider-repl-mode-map (kbd "]") 'sp-up-sexp)
-     (define-key cider-repl-mode-map (kbd "}") 'sp-up-sexp)))
+(with-eval-after-load 'cider-repl
+  (define-key cider-repl-mode-map (kbd ")") 'sp-up-sexp)
+  (define-key cider-repl-mode-map (kbd "]") 'sp-up-sexp)
+  (define-key cider-repl-mode-map (kbd "}") 'sp-up-sexp))
 
-(eval-after-load 'clojure-mode
-  '(progn
-     (define-key clojure-mode-map (kbd ")") 'sp-up-sexp)
-     (define-key clojure-mode-map (kbd "]") 'sp-up-sexp)
-     (define-key clojure-mode-map (kbd "}") 'sp-up-sexp)))
+(with-eval-after-load 'clojure-mode
+  (define-key clojure-mode-map (kbd ")") 'sp-up-sexp)
+  (define-key clojure-mode-map (kbd "]") 'sp-up-sexp)
+  (define-key clojure-mode-map (kbd "}") 'sp-up-sexp))
 
 
 (provide 'init-smartparens)

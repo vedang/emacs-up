@@ -17,8 +17,8 @@
 
 (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
 (setq es-always-pretty-print t)
-(eval-after-load 'es-cc
-  '(progn (setq es-cc-endpoint "http://shiva.local:9202")))
+(with-eval-after-load 'es-cc
+  (setq es-cc-endpoint "http://shiva.local:9202"))
 
 (provide 'init-es-mode)
 ;;; init-es-mode.el ends here

@@ -14,39 +14,39 @@
 
 ;;; Code:
 
-(eval-after-load 'go-mode
-  '(progn (add-hook 'before-save-hook 'gofmt-before-save)
+(with-eval-after-load 'go-mode
+  (add-hook 'before-save-hook 'gofmt-before-save)
 
-          ;; Add functions to jump back. This will be merged into
-          ;; go-mode master soon hopefully.
-          (defvar godef--marker-list nil)
+  ;; Add functions to jump back. This will be merged into
+  ;; go-mode master soon hopefully.
+  (defvar godef--marker-list nil)
 
-          (defun godef-jump (point &optional other-window)
-            "Jump to the definition of the expression at POINT."
-            (interactive "d")
-            (condition-case nil
-                (let ((file (car (godef--call point))))
-                  (if (not (godef--successful-p file))
-                      (message "%s" (godef--error file))
-                    (push (point-marker) godef--marker-list)
-                    (ring-insert find-tag-marker-ring (point-marker))
-                    (godef--find-file-line-column file other-window)))
-              (file-error (message "Could not run godef binary"))))
+  (defun godef-jump (point &optional other-window)
+    "Jump to the definition of the expression at POINT."
+    (interactive "d")
+    (condition-case nil
+        (let ((file (car (godef--call point))))
+          (if (not (godef--successful-p file))
+              (message "%s" (godef--error file))
+            (push (point-marker) godef--marker-list)
+            (ring-insert find-tag-marker-ring (point-marker))
+            (godef--find-file-line-column file other-window)))
+      (file-error (message "Could not run godef binary"))))
 
-          (defun godef-jump-back ()
-            "Pop back to where `godef-jump' was last invoked"
-            (interactive)
-            (when (null godef--marker-list)
-              (error "Marker list is empty. Can't pop back"))
-            (let ((marker (pop godef--marker-list)))
-              (switch-to-buffer (or (marker-buffer marker)
-                                    (error "Buffer has been deleted")))
-              (goto-char (marker-position marker))
-              ;; Cleanup the marker so as to avoid them piling up.
-              (set-marker marker nil nil)))
+  (defun godef-jump-back ()
+    "Pop back to where `godef-jump' was last invoked"
+    (interactive)
+    (when (null godef--marker-list)
+      (error "Marker list is empty. Can't pop back"))
+    (let ((marker (pop godef--marker-list)))
+      (switch-to-buffer (or (marker-buffer marker)
+                            (error "Buffer has been deleted")))
+      (goto-char (marker-position marker))
+      ;; Cleanup the marker so as to avoid them piling up.
+      (set-marker marker nil nil)))
 
-          (define-key go-mode-map (kbd "M-.") 'godef-jump)
-          (define-key go-mode-map (kbd "M-,") 'godef-jump-back)))
+  (define-key go-mode-map (kbd "M-.") 'godef-jump)
+  (define-key go-mode-map (kbd "M-,") 'godef-jump-back))
 
 
 (provide 'init-go-mode)

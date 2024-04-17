@@ -42,18 +42,19 @@
 
 
 ;; Stop IELM from being stupid
-(eval-after-load 'ielm
-  '(progn (define-key ielm-map (kbd "C-j") 'newline-and-indent)))
+(with-eval-after-load 'ielm
+  (define-key ielm-map (kbd "C-j") 'newline-and-indent))
 
 ;; Keybindings for notmuch
 (global-set-key (kbd "<f10>") 'notmuch)
 
 ;;; Use ~C-c C-o~ as binding for `goto-address-at-point' to mimic
 ;;; org-mode behaviour for opening links.
-(eval-after-load 'goto-addr
-  '(progn (define-key goto-address-highlight-keymap (kbd "C-c C-o")
-            'goto-address-at-point)))
-(eval-after-load 'shr
-  '(progn (define-key shr-map (kbd "C-c C-o") 'shr-browse-url)))
+(with-eval-after-load 'goto-addr
+  (define-key goto-address-highlight-keymap (kbd "C-c C-o")
+              'goto-address-at-point))
+
+(with-eval-after-load 'shr
+  (define-key shr-map (kbd "C-c C-o") 'shr-browse-url))
 
 (provide 'extra-bindings)

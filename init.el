@@ -18,7 +18,7 @@
 ;;; To debug problems with packages (example org), a great technique
 ;;; is to drop into the debugger immediately after the problematic
 ;;; package loads:
-;; (eval-after-load "org" '(debug))
+;; (with-eval-after-load 'org (debug))
 
 (when (version< emacs-version "25")
   (error "Unsupported Emacs Version! Please upgrade to Emacs 25 or above.  Emacs installation instructions: https://www.gnu.org/software/emacs/download.html"))
@@ -104,8 +104,8 @@ Ideally, this will be ~/.emacs.d.")
   (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/")
   (setq notmuch-init-file (concat enhance-dirname "init-notmuch.el"))
   (autoload 'notmuch "notmuch" "notmuch mail" t)
-  (eval-after-load 'notmuch
-    '(progn (require 'init-notmuch))))
+  (with-eval-after-load 'notmuch
+    (require 'init-notmuch)))
 
 ;;; NOTE: Personal Experience: Theme stuff needs to load after
 ;;; everything else has loaded for the least number of surprises.

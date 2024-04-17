@@ -19,24 +19,23 @@
   "Set ibuffer filter roots by vc root" t)
 
 
-(eval-after-load "ibuffer"
-  '(progn
-     (require 'ibuffer-vc)
-     (setq ibuffer-default-sorting-mode 'major-mode
-           ibuffer-always-show-last-buffer t)
-     (define-key ibuffer-mode-map (kbd "C-c C-z")
-       'ibuffer-vc-set-filter-groups-by-vc-root)
-     (setq ibuffer-formats
-           '((mark modified read-only vc-status-mini " "
-                   (name 18 18 :left :elide)
-                   " "
-                   (size 9 -1 :right)
-                   " "
-                   (mode 16 16 :left :elide)
-                   " "
-                   (vc-status 16 16 :left)
-                   " "
-                   filename-and-process)))))
+(with-eval-after-load 'ibuffer
+  (require 'ibuffer-vc)
+  (setq ibuffer-default-sorting-mode 'major-mode
+        ibuffer-always-show-last-buffer t)
+  (define-key ibuffer-mode-map (kbd "C-c C-z")
+              'ibuffer-vc-set-filter-groups-by-vc-root)
+  (setq ibuffer-formats
+        '((mark modified read-only vc-status-mini " "
+                (name 18 18 :left :elide)
+                " "
+                (size 9 -1 :right)
+                " "
+                (mode 16 16 :left :elide)
+                " "
+                (vc-status 16 16 :left)
+                " "
+                filename-and-process))))
 
 
 (provide 'init-ibuffer-vc)
