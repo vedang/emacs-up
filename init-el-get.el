@@ -382,7 +382,11 @@
                            (define-key map (kbd "C-c C-d r")
                                        #'denote-dired-rename-files)
                            (define-key map (kbd "C-c C-d R")
-                                       #'denote-dired-rename-marked-files-with-keywords))
+                                       #'denote-dired-rename-marked-files-with-keywords)
+                           (define-key map (kbd "C-c C-d A")
+                                       #'denote-dired-rename-marked-files-add-keywords)
+                           (define-key map (kbd "C-c C-d K")
+                                       #'denote-dired-rename-marked-files-remove-keywords))
 
                          ;; More functionality
                          (setq denote-org-store-link-to-heading t
