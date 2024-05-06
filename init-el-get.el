@@ -1193,6 +1193,10 @@ Throw an error is the filename is not of type org."
          (:name solaire-mode
                 :after (solaire-global-mode +1))
 
+         (:name spacious-padding
+                :after (progn (setq spacious-padding-subtle-mode-line t)
+                              (spacious-padding-mode +1)))
+
          (:name tagedit
                 :after (with-eval-after-load 'sgml-mode
                          (require 'tagedit)
