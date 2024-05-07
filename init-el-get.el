@@ -1241,6 +1241,8 @@ Throw an error is the filename is not of type org."
                                     (remove 'ansi-color-process-output
                                             comint-output-filter-functions))))
 
+         (:name yaml-mode)
+
          (:name yasnippet
                 :after (progn (yas-global-mode 1)
                               (add-to-list 'hippie-expand-try-functions-list
