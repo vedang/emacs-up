@@ -223,6 +223,25 @@ INFO is a plist used as a communication channel."
 
 ;; ## Publish denote file to external directory
 
+(defun denote-publish-get-front-matter (filename)
+  "Get the front-matter for FILENAME"
+  (let* ((org-inhibit-startup t)
+	     (visiting (find-buffer-visiting filename))
+	     (work-buffer (or visiting (find-file-noselect filename))))
+    (unwind-protect
+	    (with-current-buffer work-buffer
+	      (let* ((ast (org-element-parse-buffer))
+                 (info (org-combine-plists
+                        (list :parse-tree ast)
+                        (org-export--get-export-attributes 'denote-publish)
+                        (org-export-get-environment 'denote-publish)))
+                 ;; (_tempinfo (setq denote-publish--tempinfo info))
+                 ;; [ref: debugging_variables]
+                 )
+            (denote-publish--get-front-matter info)))
+      ;; Remove opened buffer in the process.
+      (unless visiting (kill-buffer work-buffer)))))
+
 (defun denote-publish-to-md (plist filename pub-dir)
   "Just like `org-md-publish-to-md' but with front-matter.
 
@@ -232,16 +251,8 @@ publishing directory.
 
 Return output file name."
   (interactive)
-  (let* ((ast (org-element-parse-buffer))
-         (info (org-combine-plists
-                (list :parse-tree ast)
-                (org-export--get-export-attributes 'denote-publish)
-                (org-export--get-buffer-attributes)
-                (org-export-get-environment 'denote-publish)))
-         ;; (_tempinfo (setq denote-publish--tempinfo info))
-         ;; [ref: debugging_variables]
-         (fm (denote-publish--get-front-matter info))
-         (outfile (org-publish-org-to 'denote-publish filename ".md" plist pub-dir)))
+  (let ((fm (denote-publish-get-front-matter filename))
+        (outfile (org-publish-org-to 'denote-publish filename ".md" plist pub-dir)))
     (with-temp-buffer
       (insert fm)
       (insert "\n\n")
