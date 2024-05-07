@@ -102,9 +102,6 @@
 
 (setq org-show-notification-handler 'vm/org-notify-message)
 
-;; (setq org-ellipsis " ")
-(setq org-ellipsis "⤵")
-
 ;;; # Configuration for publishing my denote files with `ox-publish'
 ;; ## Require the libraries that I depend on
 (require 'ox-publish)
