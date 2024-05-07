@@ -595,7 +595,21 @@ is set to \\='(signature subdirectory title keywords)."
 
          (:name ef-themes
                 :after
-                (progn (setq ef-themes-to-toggle '(ef-elea-light ef-elea-dark))
+                (progn (setq ef-themes-to-toggle '(ef-elea-light ef-elea-dark)
+                             ef-themes-variable-pitch-ui t
+                             ef-themes-mixed-fonts t
+                             ef-themes-headings
+                             '((0 . (variable-pitch light 1.9))
+                               (1 . (variable-pitch light 1.8))
+                               (2 . (variable-pitch regular 1.7))
+                               (3 . (variable-pitch regular 1.6))
+                               (4 . (variable-pitch regular 1.5))
+                               (5 . (variable-pitch 1.4)) ; absence of weight means `bold'
+                               (6 . (variable-pitch 1.3))
+                               (7 . (variable-pitch 1.2))
+                               (agenda-date . (semilight 1.5))
+                               (agenda-structure . (variable-pitch light 1.9))
+                               (t . (variable-pitch 1.1))))
                        (ef-themes-select 'ef-elea-light)))
 
          (:name elm-mode)
