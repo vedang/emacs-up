@@ -188,14 +188,15 @@ backend."
                    :full-data))
          (id (nth 1 path-id))
          (query (nth 2 path-id))
-         (path (cond
-                (query (format "denote:%s::%s" id query))
-                (t (concat "denote:" id))))
+         (path (concat "denote:" id))
          (desc (cond
                 (description)
                 (query (format "%s::%s" id query))
                 (t id))))
-    (format "[%s](%s)" desc path)))
+    (if query
+        (format "<a href=\"%s.html%s\" class=\"internal-link\">%s</a>"
+                path query desc)
+      (format "<a href=\"%s.html\" class=\"internal-link\">%s</a>" path desc))))
 
 (defun denote-publish-link (link desc info)
   "Convert LINK to Markdown format.
