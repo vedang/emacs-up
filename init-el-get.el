@@ -390,7 +390,8 @@
 
                          ;; More functionality
                          (setq denote-org-store-link-to-heading t
-                               denote-rename-no-confirm t)
+                               denote-rename-confirmations nil
+                               denote-save-buffers t)
                          (defun denote-org-extras-extract-org-subtree-silo (silo)
                            "Create new Denote note using current Org subtree.
 
