@@ -950,7 +950,8 @@ Suggest the URL title as a description for resource."
                               (with-eval-after-load 'org
                                 (require 'org-mode-crate)
                                 (when on-my-machine
-                                  (require 'org-crate-config)))))
+                                  (require 'org-crate-config)
+                                  (require 'denote-publish)))))
 
          (:name org-modern
                 :after (progn
