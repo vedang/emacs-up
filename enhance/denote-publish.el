@@ -271,6 +271,7 @@ Return output file name."
                           :exclude-tags ("noexport" "draft" "private")
                           :section-numbers nil
                           :with-creator nil
+                          :with-toc nil
                           :auto-sitemap t
                           :makeindex t))))
 
