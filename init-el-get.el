@@ -1090,6 +1090,10 @@ Throw an error is the filename is not of type org."
 
          (:name org-web-tools)
 
+         (:name ox-gfm
+                :after (with-eval-after-load 'ox
+                         (require 'ox-gfm)))
+
          (:name ox-hugo
                 :after (with-eval-after-load 'ox
                          (require 'ox-hugo)))
