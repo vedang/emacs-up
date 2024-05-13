@@ -952,7 +952,8 @@ Suggest the URL title as a description for resource."
                                 (require 'org-mode-crate)
                                 (when on-my-machine
                                   (require 'org-crate-config)
-                                  (require 'denote-publish)))))
+                                  (with-eval-after-load 'ox-gfm
+                                    (require 'denote-publish))))))
 
          (:name org-modern
                 :after (progn

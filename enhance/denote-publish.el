@@ -26,6 +26,23 @@
 ;;; Code:
 
 (require 'ox-publish)
+(require 'ox-md)
+(require 'ox-gfm)
+(require 'denote-org-extras)
+
+;; ## The new exporter backend
+;; We extend ox-gfm to get the properties we want: aliases,
+;; description, subtitle
+
+(org-export-define-derived-backend 'denote-publish 'gfm
+  :translate-alist
+  '((link . denote-publish-link))
+  :options-alist
+  '((:with-drawers nil nil nil t)
+    (:aliases "ALIASES" nil nil t)
+    (:description "DESCRIPTION" nil nil t)
+    (:subtitle "SUBTITLE" nil nil t)
+    (:identifier "IDENTIFIER" nil nil t)))
 
 ;; ## Project-specific directories
 (defvar vm-base-dir)
@@ -166,13 +183,6 @@ INFO is a plist used as a communication channel."
                  (category . ,category))))
     (denote-publish--gen-yaml-front-matter data)))
 
-;;; ## New backend for supporting special properties
-;; We extend ox-md to get the properties we want: aliases,
-;; description, subtitle
-
-(require 'ox-md)
-(require 'denote-org-extras)
-
 ;; [tag: debugging_variables]
 (defvar denote-publish--tempinfo nil "Debug variable.")
 (defvar denote-publish--templink nil "Debug variable.")
@@ -210,16 +220,6 @@ INFO is a plist used as a communication channel."
     (cond
      ((member type '("denote")) (denote-publish--link-ol-export link desc))
      (t (org-md-link link desc info)))))
-
-(org-export-define-derived-backend 'denote-publish 'md
-  :translate-alist
-  '((link . denote-publish-link))
-  :options-alist
-  '((:with-drawers nil nil nil t)
-    (:aliases "ALIASES" nil nil t)
-    (:description "DESCRIPTION" nil nil t)
-    (:subtitle "SUBTITLE" nil nil t)
-    (:identifier "IDENTIFIER" nil nil t)))
 
 ;; ## Publish denote file to external directory
 
