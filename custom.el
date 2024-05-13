@@ -267,4 +267,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(auto-dim-other-buffers-face ((t (:background "#2E3440")))))
+ '(auto-dim-other-buffers-face ((t (:background "#2E3440"))))
+ '(fringe ((t :background "#edf5e2")))
+ '(header-line ((t :box (:line-width 4 :color "#e3e9d6" :style nil))))
+ '(header-line-highlight ((t :box (:color "#221321"))))
+ '(keycast-key ((t)))
+ '(line-number ((t :background "#edf5e2")))
+ '(mode-line ((t :background "#edf5e2" :overline "#142810" :box (:line-width 6 :color "#edf5e2" :style nil))))
+ '(mode-line-active ((t :background "#edf5e2" :overline "#142810" :box (:line-width 6 :color "#edf5e2" :style nil))))
+ '(mode-line-highlight ((t :box (:color "#221321"))))
+ '(mode-line-inactive ((t :background "#edf5e2" :overline "#676470" :box (:line-width 6 :color "#edf5e2" :style nil))))
+ '(tab-bar-tab ((t :box (:line-width 4 :color "#edf5e2" :style nil))))
+ '(tab-bar-tab-inactive ((t :box (:line-width 4 :color "#b0b7aa" :style nil))))
+ '(tab-line-tab ((t)))
+ '(tab-line-tab-active ((t)))
+ '(tab-line-tab-inactive ((t)))
+ '(vertical-border ((t :background "#edf5e2" :foreground "#edf5e2")))
+ '(window-divider ((t (:background "#edf5e2" :foreground "#edf5e2"))))
+ '(window-divider-first-pixel ((t (:background "#edf5e2" :foreground "#edf5e2"))))
+ '(window-divider-last-pixel ((t (:background "#edf5e2" :foreground "#edf5e2")))))
