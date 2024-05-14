@@ -204,9 +204,9 @@ backend."
                 (query (format "%s::%s" id query))
                 (t id))))
     (if query
-        (format "<a href=\"%s.html%s\" class=\"internal-link\">%s</a>"
+        (format "<a href=\"%s.html%s\" class=\"internal-link\" target=\"_blank\">%s</a>"
                 path query desc)
-      (format "<a href=\"%s.html\" class=\"internal-link\">%s</a>" path desc))))
+      (format "<a href=\"%s.html\" class=\"internal-link\" target=\"_blank\">%s</a>" path desc))))
 
 (defun denote-publish-link (link desc info)
   "Convert LINK to Markdown format.
