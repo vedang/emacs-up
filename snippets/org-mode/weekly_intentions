@@ -21,7 +21,8 @@ Stacking your Habits
 + What visible cue will get me to wake up for deep work?
 #+end_comment
 
-**** Is there a goal I would like to achieve by the end of the week?
+**** What goals do I need to achieve by the end of the week?
+
 #+begin_comment
 - Setup smart goals for the end of this week
 - Create tasks to track these goals
@@ -31,8 +32,11 @@ Goals I need to achieve by ${1:$(ts-format "<%F %a>" (cdr (this-week-range (stri
 **** What are the important events I need to attend this week? (and why)
 
 **** What is one external stimulus that is likely to trigger you?
+
 Remember to center yourself before responding to this trigger
 
 **** What concrete, straightforward things can I fall back on during the week
+
 This is a list of good to do tasks if I get too frustrated or stuck on my current project
+
 1. (tutorials, reading a paper, etc)
