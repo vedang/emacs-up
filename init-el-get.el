@@ -414,7 +414,25 @@ is set to \\='(signature subdirectory title keywords)."
                              (call-interactively #'denote)))
 
                          (add-to-list 'denote-commands-for-new-notes
-                                      'denote-subdirectory-and-signature)))
+                                      'denote-subdirectory-and-signature)
+
+                         (defun my-denote-link-global (file file-type description &optional id-only)
+                           "Like the `denote-link', but works in any buffer.
+The FILE, FILE-TYPE, DESCRIPTION, and ID-ONLY have the same meaning as
+in `denote-link'."
+                           (interactive
+                            (let* ((file (denote-file-prompt nil "Link to FILE"))
+                                   (file-type (denote-filetype-heuristics buffer-file-name))
+                                   (description (when (file-exists-p file)
+                                                  (denote--link-get-description file))))
+                              (list file file-type description current-prefix-arg)))
+                           (unless (file-exists-p file)
+                             (user-error "The linked file does not exists"))
+                           (let ((beg (point)))
+                             (denote--delete-active-region-content)
+                             (insert (denote-format-link file description file-type id-only))
+                             (unless (derived-mode-p 'org-mode)
+                               (make-button beg (point) 'type 'denote-link-button))))))
 
          (:name denote-explore)
 
