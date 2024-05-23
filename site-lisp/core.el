@@ -130,6 +130,9 @@
        "https://github.com/tree-sitter/tree-sitter-css"
        ("\\.css\\'" . css-ts-mode))
       (elisp "https://github.com/Wilfred/tree-sitter-elisp" nil)
+      (elixir "https://github.com/elixir-lang/tree-sitter-elixir"
+              ("\\(\\.elixir\\|\\.elixir2\\)\\'" . elixir-ts-mode))
+      (heex "https://github.com/phoenixframework/tree-sitter-heex" nil)
       (html
        "https://github.com/tree-sitter/tree-sitter-html"
        ("\\.\\(html\\|xhtml\\)$" . html-ts-mode))
