@@ -39,8 +39,8 @@
       (url-retrieve-synchronously
        "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
     (let ((el-get-git-install-url "https://github.com/vedang/el-get.git")
-          ;; Read through https://github.com/vedang/el-get/issues/1 for context
-          (el-get-install-branch "dev")
+          ;; Read through https://github.com/vedang/el-get/issues/2 for context
+          (el-get-install-branch "master")
           el-get-install-skip-emacswiki-recipes)
       (goto-char (point-max))
       (eval-print-last-sexp))))
