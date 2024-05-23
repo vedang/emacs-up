@@ -631,6 +631,8 @@ in `denote-link'."
                                (t . (variable-pitch 1.1))))
                        (ef-themes-select 'ef-elea-light)))
 
+         (:name elixir-ts-mode)
+
          (:name elm-mode)
 
          (:name elpher)
