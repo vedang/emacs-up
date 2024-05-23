@@ -31,8 +31,7 @@
 (require 'denote-org-extras)
 
 ;; ## The new exporter backend
-;; We extend ox-gfm to get the properties we want: aliases,
-;; description, subtitle, image, skip_archive, identifier
+;; We extend ox-gfm to get the properties we want
 
 (org-export-define-derived-backend 'denote-publish 'gfm
   :translate-alist
@@ -44,7 +43,8 @@
     (:subtitle "SUBTITLE" nil nil t)
     (:identifier "IDENTIFIER" nil nil t)
     (:image "IMAGE" nil nil t)
-    (:skip_archive "SKIP_ARCHIVE" nil nil t)))
+    (:skip_archive "SKIP_ARCHIVE" nil nil t)
+    (:has_code "HAS_CODE" nil nil t)))
 
 ;; ## Project-specific directories
 (defvar vm-base-dir)
@@ -163,6 +163,7 @@ INFO is a plist used as a communication channel."
          (description (org-string-nw-p (plist-get info :description)))
          (identifier (org-string-nw-p (plist-get info :identifier)))
          (skip-archive (org-string-nw-p (plist-get info :skip_archive)))
+         (has-code (org-string-nw-p (plist-get info :has_code)))
          (image (org-string-nw-p (plist-get info :image)))
          (date (org-string-nw-p (org-export-get-date info "%Y-%m-%d")))
          (last-updated-at (format-time-string "%Y-%m-%d" (current-time)))
@@ -186,6 +187,7 @@ INFO is a plist used as a communication channel."
                  (tags . ,org-file-tags)
                  (category . ,category)
                  (skip_archive . ,skip-archive)
+                 (has_code . ,has-code)
                  (image . ,image))))
     (denote-publish--gen-yaml-front-matter data)))
 
