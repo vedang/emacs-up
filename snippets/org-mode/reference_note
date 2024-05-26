@@ -2,7 +2,7 @@
 # name: A template for creating Reference Notes (books, videos)
 # key: reference
 # --
-* Meta Information
+* Meta Information   :noexport:
 :PROPERTIES:
 :Author: $1
 :URL: $2
