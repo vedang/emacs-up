@@ -392,6 +392,7 @@
                          (setq denote-org-store-link-to-heading t
                                denote-rename-confirmations nil
                                denote-save-buffers t)
+
                          (defun denote-org-extras-extract-org-subtree-silo (silo)
                            "Create new Denote note using current Org subtree.
 
@@ -561,6 +562,7 @@ in `denote-link'."
                                  ("http://planet.clojure.in/atom.xml" planet_clojure)
                                  ("https://corfield.org/atom.xml" clojure sean_corfield)
                                  ("https://dragan.rocks/feed.xml" clojure dragan machine_learning)
+                                 ("https://leahneukirchen.org/trivium/index.atom" recommendations)
                                  ("https://ideolalia.com/feed.xml" zach_tellman)
                                  ("https://mcfunley.com/feed.xml" dan_mckinley)
                                  ("https://feeds.feedburner.com/martinkl" distributed_systems programming)
