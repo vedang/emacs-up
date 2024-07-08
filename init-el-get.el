@@ -312,8 +312,8 @@
                          (setq denote-dired-directories-include-subdirectories t
                                denote-dired-directories denote-silo-extras-directories)
 
-                         (add-hook 'find-file-hook
-                                   #'denote-link-buttonize-buffer)
+                         (add-hook 'text-mode-hook
+                                   #'denote-fontify-links-mode-maybe)
                          (add-hook 'dired-mode-hook
                                    #'denote-dired-mode-in-directories)
 
