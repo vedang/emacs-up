@@ -418,6 +418,19 @@ is set to \\='(signature subdirectory title keywords)."
                          (add-to-list 'denote-commands-for-new-notes
                                       'denote-subdirectory-and-signature)
 
+                         (defun my-denote-link-ol-get-id ()
+                           "Get the CUSTOM_ID of the current entry.
+If the entry already has a CUSTOM_ID, return it as-is, else
+create a new one."
+                           (interactive)
+                           (let* ((pos (point))
+                                  (id (org-entry-get pos "CUSTOM_ID")))
+                             (if (and (stringp id) (string-match-p "\\S-" id))
+                                 id
+                               (setq id (org-id-new "h"))
+                               (org-entry-put pos "CUSTOM_ID" id)
+                               id)))
+
                          (defun my-denote-link-global (file file-type description &optional id-only)
                            "Like the `denote-link', but works in any buffer.
 The FILE, FILE-TYPE, DESCRIPTION, and ID-ONLY have the same meaning as
