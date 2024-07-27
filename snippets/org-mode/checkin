@@ -3,5 +3,7 @@
 # key: checkin
 # --
 
-* The Daily Ongoing Check-in   :noexport:
-$0 Capture your generic check-in here
+#+begin_comment
+What are you thinking?
+#+end_comment
+$0

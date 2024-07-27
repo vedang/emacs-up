@@ -337,6 +337,8 @@
                                       '(weekly_intentions . "weekint"))
                          (add-to-list 'denote-templates
                                       '(weekly_report . "weekrpt"))
+                         (add-to-list 'denote-templates
+                                      '(checkin . "checkin"))
 
                          ;;; Key Bindings
                          ;; Creating New Notes
