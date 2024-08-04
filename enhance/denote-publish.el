@@ -23,6 +23,9 @@
 ;; This code takes different project notes, and publishes them as
 ;; markdown with the correct front-matter.
 
+;; To see the custom options that the exporter supports, see the
+;; `options-alist' in the `org-export-define-derived-backend'.
+
 ;;; Code:
 
 (require 'ox-publish)
@@ -39,12 +42,12 @@
   :options-alist
   '((:with-drawers nil nil nil t)
     (:aliases "ALIASES" nil nil t)
-    (:description "DESCRIPTION" nil nil t)
     (:subtitle "SUBTITLE" nil nil t)
     (:identifier "IDENTIFIER" nil nil t)
-    (:image "IMAGE" nil nil t)
     (:skip_archive "SKIP_ARCHIVE" nil nil t)
-    (:has_code "HAS_CODE" nil nil t)))
+    (:has_code "HAS_CODE" nil nil t)
+    (:og_image "OG_IMAGE" nil nil t)
+    (:og_description "OG_DESCRIPTION" nil nil t)))
 
 ;; ## Project-specific directories
 (defvar vm-base-dir)
@@ -160,11 +163,11 @@ where KEY is a symbol and VAL is a string."
 INFO is a plist used as a communication channel."
   (let* ((title (org-string-nw-p (car (plist-get info :title))))
          (subtitle (org-string-nw-p (plist-get info :subtitle)))
-         (description (org-string-nw-p (plist-get info :description)))
          (identifier (org-string-nw-p (plist-get info :identifier)))
          (skip-archive (org-string-nw-p (plist-get info :skip_archive)))
          (has-code (org-string-nw-p (plist-get info :has_code)))
-         (image (org-string-nw-p (plist-get info :image)))
+         (og-image (org-string-nw-p (plist-get info :og_image)))
+         (og-description (org-string-nw-p (plist-get info :og_description)))
          (date (org-string-nw-p (org-export-get-date info "%Y-%m-%d")))
          (last-updated-at (format-time-string "%Y-%m-%d" (current-time)))
          (aliases (when (plist-get info :aliases)
@@ -179,7 +182,6 @@ INFO is a plist used as a communication channel."
 	                 info 'first-match))
          (data `((title . ,title)
                  (subtitle . ,subtitle)
-                 (description . ,description)
                  (identifier . ,identifier)
                  (date . ,date)
                  (last_updated_at . ,last-updated-at)
@@ -188,7 +190,8 @@ INFO is a plist used as a communication channel."
                  (category . ,category)
                  (skip_archive . ,skip-archive)
                  (has_code . ,has-code)
-                 (image . ,image))))
+                 (og_image . ,og-image)
+                 (og_description . ,og-description))))
     (denote-publish--gen-yaml-front-matter data)))
 
 ;; [tag: debugging_variables]
