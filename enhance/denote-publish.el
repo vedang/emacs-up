@@ -47,7 +47,8 @@
     (:skip_archive "SKIP_ARCHIVE" nil nil t)
     (:has_code "HAS_CODE" nil nil t)
     (:og_image "OG_IMAGE" nil nil t)
-    (:og_description "OG_DESCRIPTION" nil nil t)))
+    (:og_description "OG_DESCRIPTION" nil nil t)
+    (:og_video_id "OG_VIDEO_ID" nil nil t)))
 
 ;; ## Project-specific directories
 (defvar vm-base-dir)
@@ -168,6 +169,7 @@ INFO is a plist used as a communication channel."
          (has-code (org-string-nw-p (plist-get info :has_code)))
          (og-image (org-string-nw-p (plist-get info :og_image)))
          (og-description (org-string-nw-p (plist-get info :og_description)))
+         (og-video-id (org-string-nw-p (plist-get info :og_video_id)))
          (date (org-string-nw-p (org-export-get-date info "%Y-%m-%d")))
          (last-updated-at (format-time-string "%Y-%m-%d" (current-time)))
          (aliases (when (plist-get info :aliases)
@@ -191,7 +193,8 @@ INFO is a plist used as a communication channel."
                  (skip_archive . ,skip-archive)
                  (has_code . ,has-code)
                  (og_image . ,og-image)
-                 (og_description . ,og-description))))
+                 (og_description . ,og-description)
+                 (og_video_id . ,og-video-id))))
     (denote-publish--gen-yaml-front-matter data)))
 
 ;; [tag: debugging_variables]
