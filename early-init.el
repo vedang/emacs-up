@@ -30,6 +30,7 @@
 ;; enabling `gcmh-mode'. Not resetting it will cause stuttering/freezes.
 
 (setq gc-cons-threshold most-positive-fixnum)
+(setq load-prefer-newer t)
 
 ;;; No GUI
 (dolist (mode '(menu-bar-mode tool-bar-mode scroll-bar-mode))
