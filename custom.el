@@ -224,31 +224,31 @@
      "~/.emacs.d/temp-files/*"))
  '(recentf-save-file "~/.emacs.d/temp-files/recentf")
  '(safe-local-variable-values
-   '((denote-directory .
-                       "/Users/nejo/Tresors/Documents/salher-content/docs")
+   '((denote-directory
+      . "/Users/nejo/Tresors/Documents/salher-content/docs")
      (denote-file-type . org) (denote-file-type . markdown-yaml)
      (denote-file-type quote markdown-yaml) (system-time-locale . "C")
-     (org-taskjuggler-default-global-properties .
-                                                "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2022-01-01\12flags hsc_z, hsc_a\12")
-     (org-taskjuggler-default-global-properties .
-                                                "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2020-01-01\12flags hsc_z, hsc_a\12")
+     (org-taskjuggler-default-global-properties
+      . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2022-01-01\12flags hsc_z, hsc_a\12")
+     (org-taskjuggler-default-global-properties
+      . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2020-01-01\12flags hsc_z, hsc_a\12")
      (org-duration-units ("min" . 1) ("h" . 60) ("d" . 480)
                          ("w" . 2400) ("m" . 9600) ("y" . 96000))
      (org-taskjuggler-keep-project-as-task . t)
      (org-taskjuggler-target-version . 3.6)
-     (org-taskjuggler-default-global-properties .
-                                                "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2020-01-01\12")
+     (org-taskjuggler-default-global-properties
+      . "shift s40 \"Working Shift\" {\12   workinghours sat, sun off\12}\12leaves holiday \"New Year\" 2020-01-01\12")
      (checkdoc-package-keywords-flag)
      (eval font-lock-add-keywords nil
-           `(
-             (,(concat "("
-                       (regexp-opt
-                        '("sp-do-move-op" "sp-do-move-cl"
-                          "sp-do-put-op" "sp-do-put-cl" "sp-do-del-op"
-                          "sp-do-del-cl")
-                        t)
-                       "\\_>")
-              1 'font-lock-variable-name-face)))
+           `
+           ((,(concat "("
+                      (regexp-opt
+                       '("sp-do-move-op" "sp-do-move-cl"
+                         "sp-do-put-op" "sp-do-put-cl" "sp-do-del-op"
+                         "sp-do-del-cl")
+                       t)
+                      "\\_>")
+             1 'font-lock-variable-name-face)))
      (eval define-clojure-indent (clj-action 'defun)
            (implement-action 4))
      (eval define-clojure-indent (on-one-node 1))
