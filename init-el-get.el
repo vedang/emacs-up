@@ -768,9 +768,9 @@ in `denote-link'."
                                            '(org-capture . helm-org-completing-read-tags))
                               (add-to-list 'helm-completing-read-handlers-alist
                                            '(org-set-tags . helm-org-completing-read-tags))
-                              (global-set-key (kbd "C-x c o b")
+                              (global-set-key (kbd "C-x c d b")
                                               'helm-org-in-buffer-headings)
-                              (global-set-key (kbd "C-x c o a")
+                              (global-set-key (kbd "C-x c d a")
                                               'helm-org-agenda-files-headings)))
 
          (:name helm-system-packages)
