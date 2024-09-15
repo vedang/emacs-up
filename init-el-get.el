@@ -734,7 +734,8 @@ in `denote-link'."
                                     flycheck-emacs-lisp-load-path 'inherit)
                               (global-flycheck-mode)))
          (:name flycheck-eglot
-                :after (progn (global-flycheck-eglot-mode 1)))
+                :after (with-eval-after-load 'eglot
+                         (global-flycheck-eglot-mode 1)))
          (:name flycheck-inline
                 :after (with-eval-after-load 'flycheck
                          (add-hook 'flycheck-mode-hook #'flycheck-inline-mode)))
