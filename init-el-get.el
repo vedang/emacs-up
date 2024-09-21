@@ -1017,8 +1017,7 @@ Suggest the URL title as a description for resource."
                          (setq org-pomodoro-keep-killed-pomodoro-time t
                                org-pomodoro-clock-break t
                                org-pomodoro-length 45)
-                         (global-set-key (kbd "C-x c o p")
-                                         #'org-pomodoro)
+                         (global-set-key (kbd "C-x c t") #'org-pomodoro)
                          (org-pomodoro-third-time-mode)))
 
          (:name org-remark
