@@ -318,7 +318,7 @@
                                    #'denote-dired-mode-in-directories)
 
                          (denote-rename-buffer-mode 1)
-                         (setq denote-rename-buffer-format "%s %t")
+                         (setq denote-rename-buffer-format "[D] %s %t%b")
 
                          ;; Journal settings
                          (setq denote-journal-extras-keyword "")
@@ -350,9 +350,6 @@
                                          #'denote-open-or-create)
                          (global-set-key (kbd "C-c d O")
                                          #'denote-silo-extras-open-or-create)
-
-                         ;; Opening Dired on a Search
-                         (global-set-key (kbd "C-c d s") #'denote-sort-dired)
 
                          ;; Linking Notes
                          (global-set-key (kbd "C-c d l")
@@ -447,7 +444,11 @@ in `denote-link'."
                              (denote--delete-active-region-content)
                              (insert (denote-format-link file description file-type id-only))
                              (unless (derived-mode-p 'org-mode)
-                               (make-button beg (point) 'type 'denote-link-button))))))
+                               (make-button beg (point) 'type 'denote-link-button))))
+
+                         ;; Opening Dired on a Search
+                         (global-set-key (kbd "C-c d s") #'denote-sort-dired)
+
 
          (:name denote-explore)
 
