@@ -607,6 +607,7 @@ Perform the comparison with `string<'."
                                  ("https://corfield.org/atom.xml" clojure programming)
                                  ("https://dragan.rocks/feed.xml" clojure machine_learning)
                                  ("https://drewdevault.com/blog/index.xml" programming opensource)
+                                 ("https://eieio.games/feed.xml" games programming)
                                  ("https://evertpot.com/atom.xml" programming web_development)
                                  ("http://feeds.feedburner.com/BenNorthrop" programming)
                                  ("https://feeds.feedburner.com/martinkl" distributed_systems programming)
