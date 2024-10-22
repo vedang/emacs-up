@@ -449,6 +449,31 @@ in `denote-link'."
                          ;; Opening Dired on a Search
                          (global-set-key (kbd "C-c d s") #'denote-sort-dired)
 
+                         (defun my-denote--split-luhman-sig (signature)
+                           "Split numbers and letters in Luhmann-style SIGNATURE string."
+                           (replace-regexp-in-string
+                            "\\([a-zA-Z]+?\\)\\([0-9]\\)" "\\1=\\2"
+                            (replace-regexp-in-string
+                             "\\([0-9]+?\\)\\([a-zA-Z]\\)" "\\1=\\2"
+                             signature)))
+
+                         (defun my-denote--pad-sig (signature)
+                           "Create a new signature with padded spaces for all components"
+                           (combine-and-quote-strings
+                            (mapcar
+                             (lambda (x)
+                               (string-pad x 5 32 t))
+                             (split-string (my-denote--split-luhman-sig signature) "=" t))
+                            "="))
+
+                         (defun my-denote-sort-for-signatures (sig1 sig2)
+                           "Return non-nil if SIG1 is smaller that SIG2.
+Perform the comparison with `string<'."
+                           (string< (my-denote--pad-sig sig1) (my-denote--pad-sig sig2)))
+
+                         ;; Change the sorting function only when we sort by signature.
+                         (setq denote-sort-signature-comparison-function
+                               #'my-denote-sort-for-signatures)))
 
          (:name denote-explore)
 
