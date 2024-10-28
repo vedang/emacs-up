@@ -366,6 +366,53 @@
                          ;; Journal Entries
                          (global-set-key (kbd "C-c d j")
                                          #'denote-journal-extras-new-entry)
+                         ;; Publishing writing
+                         (defun denote-publishing-extras-new-microblog-entry (&optional date)
+                           "Create a new microblog entry.
+Set the title of the new entry according to the value of the user option
+`denote-journal-extras-title-format'.
+
+With optional DATE as a prefix argument, prompt for a date.  If
+`denote-date-prompt-use-org-read-date' is non-nil, use the Org
+date selection module.
+
+When called from Lisp DATE is a string and has the same format as
+that covered in the documentation of the `denote' function.  It
+is internally processed by `denote-parse-date'."
+                           (interactive (list (when current-prefix-arg (denote-date-prompt))))
+                           (let ((internal-date (denote-parse-date date))
+                                 (denote-directory (file-name-as-directory (expand-file-name "published" denote-directory))))
+                             (denote
+                              (denote-journal-extras-daily--title-format internal-date)
+                              '("draft" "microblog")
+                              nil nil date
+                              ;; See YASnippet
+                              "microblog")))
+
+                         (defun denote-publishing-extras-new-blog-entry (&optional date)
+                           "Create a new blog entry.
+
+With optional DATE as a prefix argument, prompt for a date.  If
+`denote-date-prompt-use-org-read-date' is non-nil, use the Org
+date selection module.
+
+When called from Lisp DATE is a string and has the same format as
+that covered in the documentation of the `denote' function.  It
+is internally processed by `denote-parse-date'."
+                           (interactive (list (when current-prefix-arg (denote-date-prompt))))
+                           (let ((internal-date (denote-parse-date date))
+                                 (denote-directory (file-name-as-directory (expand-file-name "published" denote-directory))))
+                             (denote
+                              (denote-title-prompt)
+                              '("draft")
+                              nil nil date
+                              ;; See YASnippet
+                              "fullblog")))
+
+                         (global-set-key (kbd "C-c d p m")
+                                         #'denote-publishing-extras-new-microblog-entry)
+                         (global-set-key (kbd "C-c d p b")
+                                         #'denote-publishing-extras-new-blog-entry)
 
                          ;; Renaming Files
                          (global-set-key (kbd "C-c d r") #'denote-rename-file)

@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: microblog
+# key: microblog
+# --
+
+$0
+
+* Meta Information   :noexport:
+
+Posted to:
+- [ ] Fosstodon
+- [ ] Twitter
+- [ ] Linkedin
+- [ ] Substack Notes
+- [ ] Chaitimers Discord
+- [ ] Unravel Discord
+- [ ] TEO Discord
+- [ ] REPL Discord
+- [ ] Links blog
+- [ ] ELD Whatsapp Group
+- [ ] XShift Whatsapp Group
+- [ ] Recurse Whatsapp Group
+- [ ] Recurse Zulip
+- [ ] Clojure Slack
+- [ ] Nilenso Slack
