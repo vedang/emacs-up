@@ -652,12 +652,14 @@ Perform the comparison with `string<'."
                                  ("https://bzg.fr/en/index.xml" emacs important)
                                  ("https://clojure.org/feed.xml" clojure important)
                                  ("https://corfield.org/atom.xml" clojure programming)
+                                 ("https://danb.me/blog/index.xml" opensource)
                                  ("https://dragan.rocks/feed.xml" clojure machine_learning)
                                  ("https://drewdevault.com/blog/index.xml" programming opensource)
                                  ("https://eieio.games/feed.xml" games programming)
                                  ("https://evertpot.com/atom.xml" programming web_development)
                                  ("http://feeds.feedburner.com/BenNorthrop" programming)
                                  ("https://feeds.feedburner.com/martinkl" distributed_systems programming)
+                                 ("https://grishaev.me/feed.xml" clojure programming)
                                  ("https://www.gwern.net/docs/personal/rss-subscriptions.opml" longreads)
                                  ("https://ideolalia.com/feed.xml" programming)
                                  ("https://infrequently.org/feed" programming web_development)
@@ -682,7 +684,8 @@ Perform the comparison with `string<'."
                                  ("https://vanderburg.org/feed.xml" programming)
                                  ("https://vedang.me/feeds/feed.xml" important)
                                  ("https://waitbutwhy.com/feed" longreads)
-                                 ("https://xenodium.com/rss.xml" xenodium emacs)))
+                                 ("https://xenodium.com/rss.xml" xenodium emacs)
+                                 ("https://ziglang.org/devlog/index.xml" ziglang)))
 
                          ;; Mark all YouTube entries
                          (add-hook 'elfeed-new-entry-hook
