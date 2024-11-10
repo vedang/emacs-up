@@ -40,3 +40,5 @@ projects
 tree-sitter/*.dylib
 rfc/
 snippets/org-mode/salher_student_interview
+.aider*
+.env
