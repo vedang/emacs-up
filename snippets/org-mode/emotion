@@ -2,7 +2,14 @@
 # name: The Emotions Check-in Template
 # key: emotion
 # --
+`(progn (setq yas-chosen-emotion (yas-choose-value '("grateful for" "happy about" "angry about" "unhappy about" "excited for")))
+"")`
+#+filetags: ${1:$$(progn
+(cond
+    ((string= yas-chosen-emotion "grateful for") ":gratitude:")
+    ((string= yas-chosen-emotion "happy about") ":happiness:")
+    ((string= yas-chosen-emotion "angry about") ":anger:")
+    ((string= yas-chosen-emotion "unhappy about") ":unhappiness:")
+    ((string= yas-chosen-emotion "excited for") ":excitement:")))}
 
-#+filetags: :emotion:
-I'm feeling ${1:$$(yas-choose-value '("grateful for" "happy about" "angry about" "unhappy about" "excited for"))}:
-- $0 Capture your emotion here
+I'm feeling ${1:$$(identity yas-chosen-emotion)} $0
