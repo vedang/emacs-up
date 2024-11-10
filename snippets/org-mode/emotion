@@ -2,14 +2,18 @@
 # name: The Emotions Check-in Template
 # key: emotion
 # --
-`(progn (setq yas-chosen-emotion (yas-choose-value '("grateful for" "happy about" "angry about" "unhappy about" "excited for")))
-"")`
-#+filetags: ${1:$$(progn
-(cond
-    ((string= yas-chosen-emotion "grateful for") ":gratitude:")
-    ((string= yas-chosen-emotion "happy about") ":happiness:")
-    ((string= yas-chosen-emotion "angry about") ":anger:")
-    ((string= yas-chosen-emotion "unhappy about") ":unhappiness:")
-    ((string= yas-chosen-emotion "excited for") ":excitement:")))}
+`(let* ((emotions '(("grateful for" . ":gratitude:")
+                    ("happy about" . ":happiness:")
+                    ("angry about" . ":anger:")
+                    ("unhappy about" . ":unhappiness:")
+                    ("excited for" . ":excitement:")))
+        (emotion (yas-choose-value (mapcar #'car emotions))))
+   (setq yas-chosen-emotion emotion)
+   "")`
+#+filetags: ${1:$$(cdr (assoc yas-chosen-emotion '(("grateful for" . ":gratitude:")
+                                                   ("happy about" . ":happiness:")
+                                                   ("angry about" . ":anger:")
+                                                   ("unhappy about" . ":unhappiness:")
+                                                   ("excited for" . ":excitement:"))))}
 
 I'm feeling ${1:$$(identity yas-chosen-emotion)} $0
