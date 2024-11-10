@@ -19,7 +19,8 @@
  '(cider-repl-print-length 200)
  '(completion-styles '(basic partial-completion emacs22))
  '(connection-local-criteria-alist
-   '(((:application tramp :protocol "kubernetes")
+   '(((:application vc-git) vc-git-connection-default-profile)
+     ((:application tramp :protocol "kubernetes")
       tramp-kubernetes-connection-local-default-profile)
      ((:application tramp :protocol "flatpak")
       tramp-container-connection-local-default-flatpak-profile
@@ -33,7 +34,8 @@
       tramp-connection-local-default-shell-profile)
      ((:application eshell) eshell-connection-default-profile)))
  '(connection-local-profile-alist
-   '((tramp-flatpak-connection-local-default-profile
+   '((vc-git-connection-default-profile (vc-git--program-version))
+     (tramp-flatpak-connection-local-default-profile
       (tramp-remote-path "/app/bin" tramp-default-remote-path "/bin"
                          "/usr/bin" "/sbin" "/usr/sbin"
                          "/usr/local/bin" "/usr/local/sbin"
@@ -223,6 +225,7 @@
    '("/\\(\\(\\(COMMIT\\|NOTES\\|PULLREQ\\|MERGEREQ\\|TAG\\)_EDIT\\|MERGE_\\|\\)MSG\\|\\(BRANCH\\|EDIT\\)_DESCRIPTION\\)\\'"
      "~/.emacs.d/temp-files/*"))
  '(recentf-save-file "~/.emacs.d/temp-files/recentf")
+ '(safe-local-variable-directories '("/Users/nejo/src/github/metabase/metabase/"))
  '(safe-local-variable-values
    '((denote-directory
       . "/Users/nejo/Tresors/Documents/salher-content/docs")
