@@ -1346,6 +1346,19 @@ Throw an error is the filename is not of type org."
                            (tagedit-mode +1))
                          (add-hook 'html-mode-hook #'turn-on-tagedit)))
 
+         (:name theme-buffet
+                :after (let ((modus-themes-p (featurep 'modus-themes))
+                             (ef-themes-p (featurep 'ef-themes)))
+                         (setq theme-buffet-menu 'end-user)
+                         (setq theme-buffet-time-offset 0)
+                         (setq theme-buffet-end-user
+                               '(:night (ef-dark ef-winter ef-autumn ef-night ef-duo-dark ef-symbiosis ef-owl)
+                                        :morning   (ef-light ef-cyprus ef-spring ef-frost ef-duo-light ef-eagle)
+                                        :afternoon (ef-arbutus ef-day ef-kassio ef-summer ef-elea-light ef-maris-light ef-melissa-light ef-trio-light ef-reverie)
+                                        :evening   (ef-rosa ef-elea-dark ef-maris-dark ef-melissa-dark ef-trio-dark ef-dream)))
+
+                         (when (or modus-themes-p ef-themes-p)
+                           (theme-buffet-timer-hours 2))))
          (:name ts
                 :after (progn (require 'ts)))
 
