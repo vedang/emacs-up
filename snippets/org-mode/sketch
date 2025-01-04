@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: The Template for Journal sketches
+# key: sketch
+# --
+
+#+filetags: :sketch:
+#+begin_comment
+What are you thinking?
+#+end_comment
+$0
