@@ -4,11 +4,9 @@
 # --
 * Meta Information   :noexport:
 :PROPERTIES:
-:Author: $1
-:URL: $2
+:Author: ${1:Name of the Author}
+:URL: ${2:No URL Provided}
 :END:
-Author: ${1:Name of the Author}
-URL: ${2:No URL Provided}
 
 Capture information about the book here, and your thoughts about the quality of the writing. This is not a book review, it's just rough thoughts. Also use this heading for your clocking purposes.
 
@@ -20,10 +18,3 @@ This is where you summarize the main points of the book, on later reflection.
 
 * $0Chapter heading or Notes from the Video
 - List of items which look like (below). Note: the YaSnippet =rq= makes this easy.
-- Page Number (Page number) Note (direct quote to search for) Topics [optional, only use if important, comma separated]
-  + Optionally, a description
-
-Example, from the book Outlive:
-,* Chapter 5: Eat less, Live longer?
-- (Pg 73) "Scientists who play by someone else's rules don't have much chance of making discoveries" [quote]
-  + Interesting quote about how we should think about innovation. Copying others won't help.
