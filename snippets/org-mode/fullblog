@@ -2,6 +2,7 @@
 # name: fullblog
 # key: fullblog
 # --
+
 #+category: $3
 #+options: toc:nil
 #+og_image: assets/images/$1.jpg
@@ -13,21 +14,30 @@ $0
 #+TOC: headlines 1
 
 * Meta Information: $1  :noexport:
-
+#+begin_comment
 Clock the writing time against this entry.
+#+end_comment
 
 ** Sketch / Outline of the post
 
-** Links
+** Announcing on social media
 
-1. Vedang.me website link, pubilshed at <date>: https://vedang.me/$1/
-2. Substack link if any, posted at <date>:
-3. Bitly link, created at <date>:
-4. Twitter Thread link, posted at <date>:
-5. Fosstodon link, posted at <date>:
-6. Buttondown, published at <date>:
-7. Linkedin link, posted at <date>:
+Vedang.me website link, published at <date>: https://vedang.me/$1/
 
-** Linkedin Post
-
-** Twitter Thread
+Posted to:
+- [ ] Fosstodon
+- [ ] Twitter
+- [ ] Bluesky
+- [ ] Linkedin
+- [ ] Substack Notes
+- [ ] Chaitimers Discord
+- [ ] Unravel Discord
+- [ ] TEO Discord
+- [ ] REPL Discord
+- [ ] Links blog
+- [ ] ELD Whatsapp Group
+- [ ] XShift Whatsapp Group
+- [ ] Recurse Whatsapp Group
+- [ ] Recurse Zulip
+- [ ] Clojure Slack
+- [ ] Nilenso Slack
