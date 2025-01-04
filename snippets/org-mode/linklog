@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Lazy Sunday Reading
+# key: linklog
+# --
+
+Lazy Sunday Reading links, ${1:`(ts-format "%F %a" (cdr (this-week-range)))`}
+
+* Re-reads    :noexport:
+
+* New Links   :noexport:
+
+#+BEGIN: denote-missing-links :regexp "reference/2025$2"
+$0
+#+END:
