@@ -668,6 +668,7 @@ Perform the comparison with `string<'."
                                  ("https://leahneukirchen.org/trivium/index.atom" recommendations)
                                  ("https://ludic.mataroa.blog/rss/" rants)
                                  ("https://martinfowler.com/feed.atom" bliki distributed_systems important programming)
+                                 ("https://matt.blwt.io/post/index.xml" distributed_systems)
                                  ("https://mcfunley.com/feed.xml" programming)
                                  ("https://mtlynch.io/posts/index.xml" programming ziglang)
                                  ("http://nullprogram.com/feed/" emacs)
