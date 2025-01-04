@@ -33,18 +33,6 @@
 
 (defvar vm/org-updates-heading-id "6a134484-7349-49b7-b580-3045bc87358f")
 
-;;; My personal tag hotkeys
-(push '("engineering_management" . ?e) org-tag-alist)
-(push '("refile" . ?r) org-tag-alist)
-(push '("bug" . ?b) org-tag-alist)
-(push '("goal" . ?g) org-tag-alist)
-(push '("tweak" . ?t) org-tag-alist)
-(push '("productive" . ?p) org-tag-alist)
-(push '("feedback" . ?f) org-tag-alist)
-(push '("future" . ?F) org-tag-alist)
-(push '("writing" . ?W) org-tag-alist)
-
-
 (with-eval-after-load 'org-super-agenda
   (defvar org-super-agenda-groups)
   (setq org-super-agenda-groups
