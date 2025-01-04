@@ -1,13 +1,13 @@
 # -*- mode: snippet -*-
 # name: am_onepager
 # key: am1p
-# comment: Shared by Arindham Mukherjee on LinkedIn
 # --
 
 #+title: ${1:Project Name}
 #+description: ${2:one-line description}
 #+date: `(format-time-string (car org-time-stamp-formats))`
 #+author: Vedang Manerikar <vedang.manerikar@gmail.com>
+#+comment: Shared by Arindham Mukherjee on LinkedIn
 
 * Problem Alignment:
 $0
