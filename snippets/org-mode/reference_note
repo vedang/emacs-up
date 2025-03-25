@@ -18,3 +18,7 @@ This is where you summarize the main points of the book, on later reflection.
 
 * $0Chapter heading or Notes from the Video
 - List of items which look like (below). Note: the YaSnippet =rq= makes this easy.
+
+# Local Variables:
+# eval: (toc-org-mode 1)
+# End:
