@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: Meeting Summary Template
+# key: summary
+# --
+
+
+<meeting-summary-template>
+*** Meeting Details
+- Attendee Names: %^{Who is part of the discussion? |} ,Vedang
+- Meeting Purpose:
+
+*** Next Steps and Action Items [0/2]
+- [ ]
+- [ ]
+
+*** Key Takeaways
+-
+-
+
+*** Main Topics covered
+**** Topic 1
+Summary of discussion points around Topic 1
+
+**** Topic 2
+Summary of discussion points around Topic 2
+</meeting-summary-template>
