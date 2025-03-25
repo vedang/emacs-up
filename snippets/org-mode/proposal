@@ -1,0 +1,46 @@
+# -*- mode: snippet -*-
+# name: proposal
+# key: proposal
+# --
+
+#+title: "Proposal: ${1:Name of the project}"
+#+author: Unravel.tech
+#+date: `(format-time-string "[%Y-%m-%d %a]")`
+
+** 1. Name of the Project, and Duration
+- Name: $1
+- Duration: $2
+
+** 2. Approach for $1
+
+1. What we will build, overview:
+
+2. System components, architecture:
+
+3. Technologies:
+
+** 3. Deliverables
+
+The milestone delivery schedule (as mutually agreed between the Parties) for the Services shall be as follows:
+
+| Milestone Number | Brief Description of Deliverable(s) | Due Date of Deliverables |
+|------------------+-------------------------------------+--------------------------|
+|             <25> | <25>                                | <10>                     |
+|                1 | (Code and Demo)                     | Week 2                   |
+|                2 | (Code and Demo)                     | Week 3                   |
+|                3 | (Code and Demo)                     | Week 4                   |
+
+For all Deliverables, we will provide:
+- Detailed technical documentation
+- Deployment guidelines and procedures
+- System architecture documentation
+
+Note: We will not provide:
+
+** 4. Fees:
+As complete and final payment for performance of Services by Service Provider to Client, Client shall pay to Service Provider as under:
+
+1. Advance Fees: $xxxxx USD
+2. Milestone Fees: $xxxxx USD ($xxxxx per completed milestone)
+3. Total Fees: $xxxxx USD
+4. Tooling and Infrastructure charges: To be submitted as Invoices, payable by Client
