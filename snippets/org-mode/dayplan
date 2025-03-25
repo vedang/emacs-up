@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: dayplan
+# key: dayplan
+# --
+* What I'm doing today
+* What I'm blocked on
+* What I got done (BR Doc)   :noexport:
+- First half of the day: $0
+- Second half of the day:
+* Jumps   :noexport:
